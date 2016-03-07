@@ -3,20 +3,20 @@
 "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.dyenigma.dao.PermissionMapper">
 	<select id="adminMenu" resultType="Permission">
-		SELECT PERMISSION_ID,PID,NAME,ICONCLS,URL,MYID
+		SELECT PERMISSIONID,PID,NAME,ICONCLS,URL,MYID
 		FROM PERMISSION
 		WHERE STATUS = 'A'
 		AND TYPE = #{type} AND ISUSED = 'Y'  ORDER BY SORT
 	</select>
 
 	<select id="usersMenu" parameterType="int" resultType="Permission">
-		SELECT DISTINCT p.PERMISSION_ID,p.PID,p.NAME,p.ICONCLS,p.URL,p.MYID
-		FROM ROLE_PERMISSION AS rp
-		INNER JOIN ROLE AS r ON rp.ROLE_ID = r.ROLE_ID
-		INNER JOIN USER_ROLE AS ur ON rp.ROLE_ID = ur.ROLE_ID
-		INNER JOIN USERS AS u ON u.USER_ID = ur.USER_ID
+		SELECT DISTINCT p.PERMISSIONID,p.PID,p.NAME,p.ICONCLS,p.URL,p.MYID
+		FROM ROLEPERMISSION AS rp
+		INNER JOIN ROLE AS r ON rp.ROLEID = r.ROLEID
+		INNER JOIN USERROLE AS ur ON rp.ROLEID = ur.ROLEID
+		INNER JOIN USERS AS u ON u.USERID = ur.USERID
 		INNER JOIN PERMISSION AS p ON
-		rp.PERMISSION_ID = p.PERMISSION_ID
+		rp.PERMISSIONID = p.PERMISSIONID
 		WHERE rp. STATUS = 'A'
 		AND r. STATUS = 'A'
 		AND ur. STATUS = 'A'
@@ -24,21 +24,21 @@
 		AND p. STATUS = 'A'
 		AND p.TYPE = #{type}
 		AND p.ISUSED = 'Y'
-		AND u.USER_ID = #{userId}  ORDER BY SORT
+		AND u.USERID = #{userId}  ORDER BY SORT
 	</select>
 
 	<select id="findAll" resultType="Permission">
 		SELECT
-		PERMISSION_ID,CREATED,CREATER,DESCRIPTION,ICONCLS,ISUSED,LASTMOD,MODIFYER,MYID,NAME,PID,
+		PERMISSIONID,CREATED,CREATER,DESCRIPTION,ICONCLS,ISUSED,LASTMOD,MODIFYER,MYID,NAME,PID,
 		PNAME,SORT,STATE,STATUS,TYPE,URL
 		FROM PERMISSION
 		WHERE STATUS='A' AND
-		PID IS NULL ORDER BY SORT
+		PID = 0 ORDER BY SORT
 	</select>
 
 	<select id="findByPid" parameterType="Integer" resultType="Permission">
 		SELECT
-		PERMISSION_ID,CREATED,CREATER,DESCRIPTION,ICONCLS,ISUSED,LASTMOD,MODIFYER,MYID,NAME,PID,
+		PERMISSIONID,CREATED,CREATER,DESCRIPTION,ICONCLS,ISUSED,LASTMOD,MODIFYER,MYID,NAME,PID,
 		PNAME,SORT,STATE,STATUS,TYPE,URL
 		FROM PERMISSION
 		WHERE STATUS='A' AND
@@ -47,7 +47,7 @@
 
 	<select id="findSuperFunc" resultType="Permission">
 		SELECT
-		PERMISSION_ID,CREATED,CREATER,DESCRIPTION,ICONCLS,ISUSED,LASTMOD,MODIFYER,MYID,NAME,PID,
+		PERMISSIONID,CREATED,CREATER,DESCRIPTION,ICONCLS,ISUSED,LASTMOD,MODIFYER,MYID,NAME,PID,
 		PNAME,SORT,STATE,STATUS,TYPE,URL
 		FROM Permission
 		WHERE STATUS = 'A'
@@ -62,7 +62,7 @@
 		VALUES
 		(#{created,jdbcType=DATE},#{creater,jdbcType=INTEGER},#{description,jdbcType=VARCHAR},
 		#{iconCls,jdbcType=VARCHAR},#{isused,jdbcType=VARCHAR},#{lastmod,jdbcType=DATE},
-		#{modifyer,jdbcType=INTEGER},#{myid,jdbcType=VARCHAR},#{name,jdbcType=VARCHAR},
+		#{modifyer,jdbcType=INTEGER},#{myId,jdbcType=VARCHAR},#{name,jdbcType=VARCHAR},
 		#{pid,jdbcType=INTEGER},#{pname,jdbcType=VARCHAR},#{sort,jdbcType=INTEGER},
 		#{state,jdbcType=VARCHAR},#{status,jdbcType=VARCHAR},#{type,jdbcType=VARCHAR},
 		#{url,jdbcType=VARCHAR})
@@ -71,14 +71,14 @@
 	<update id="update" parameterType="Permission">
 		UPDATE PERMISSION SET
 		DESCRIPTION=#{description},ICONCLS=#{iconCls},ISUSED=#{isused},LASTMOD=#{lastmod},
-		MODIFYER=#{modifyer},MYID=#{myid},NAME=#{name},PID=#{pid},PNAME=#{pname},SORT=#{sort},
+		MODIFYER=#{modifyer},MYID=#{myId},NAME=#{name},PID=#{pid},PNAME=#{pname},SORT=#{sort},
 		STATE=#{state},STATUS=#{status},TYPE=#{type},URL=#{url}
 		WHERE
-		PERMISSION_ID=#{permission_id}
+		PERMISSIONID=#{permissionId}
 	</update>
 
 	<update id="updateById" parameterType="Integer">
 		UPDATE PERMISSION SET
-		ISUSED='N',STATUS='I' WHERE PERMISSION_ID=#{id,jdbcType=INTEGER}
+		ISUSED='N',STATUS='I' WHERE PERMISSIONID=#{id,jdbcType=INTEGER}
 	</update>
 </mapper>

@@ -31,17 +31,17 @@
 		    fitColumns: true,
 		    striped: true,
 		    border: true,
-		    idField: 'user_id',
+		    idField: 'userId',
 		    treeField: 'name',
 		    columns: [[
-				{field : 'myid',title : '用户编码',width : parseInt($(this).width()*0.1),align : 'left',editor : "text"},
+				{field : 'myId',title : '用户编码',width : parseInt($(this).width()*0.1),align : 'left',editor : "text"},
 				{field : 'account',title : '用户账号',width : parseInt($(this).width()*0.1),align : 'left',editor : "text"},
 				{field : 'name',title : '用户名',width : parseInt($(this).width()*0.1),editor : {type:'validatebox',options:{required:true}}},
 				{field : 'password',title : '用户密码',width : parseInt($(this).width()*0.1),editor : "validatebox"},
 				{field : 'email',title : '邮箱',width : parseInt($(this).width()*0.1),align : 'left',editor : {type:'validatebox',options:{required:true,validType:'email'}}},
 				{field : 'tel',title : '电话',width : parseInt($(this).width()*0.1),align : 'left',editor : "text"},
 				{field : 'organizeName',title : '组织部门',width : parseInt($(this).width()*0.1),align : 'left',editor : "text"},
-				{hidden:true,field : 'organize_id',title : '组织',width : parseInt($(this).width()*0.1),align : 'left',editor : "text"},
+				{hidden:true,field : 'organizeId',title : '组织',width : parseInt($(this).width()*0.1),align : 'left',editor : "text"},
 				{field : 'description',title : '描述',width : parseInt($(this).width()*0.1),align : 'left',editor : "text"}
 			]], toolbar: '#tb'
 		});
@@ -122,7 +122,7 @@
 			        	var request = $.ajax({
 							url: "<%=basePath%>manage/users/delUser",
 							data: {
-							    'id': node.user_id
+							    'id': node.userId
 							},
 							method: "POST",
 							dataType: "JSON"
@@ -130,7 +130,7 @@
 			        	
 			        	request.done(function( rsp ) {
 							if (rsp.status) {
-			           			$dg.treegrid('remove', node.organization_id);
+			           			$dg.treegrid('remove', node.organizationId);
 			               	}
 			         		$.messager.show({
 			               		title: rsp.title,

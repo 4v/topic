@@ -6,42 +6,42 @@ import java.util.Set;
 
 public class Users extends BaseDomain {
 
-    private Integer user_id;
+    private int userId;
     private String myid;
     private String account;
     private String name;
-    private Integer organize_id;
+    private int organizeId;
     private String organizeName;
-    private Integer dutyId;
-    private Integer title_id;
+    private int dutyId;
+    private int titleId;
     private String password;
     private String email;
     private String lang;
     private String theme;
-    private Date first_visit;
-    private Date previous_visit;
-    private Date last_visits;
-    private Integer login_count;
-    private Integer isemployee;
+    private Date firstVisit;
+    private Date previousVisit;
+    private Date lastVisits;
+    private int loginCount;
+    private int isemployee;
     private String status;
     private String ip;
     private String description;
-    private Integer question_id;
+    private int questionId;
     private String answer;
-    private Integer isonline;
+    private int isonline;
     private Date created;
     private Date lastmod;
-    private Integer creater;
-    private Integer modifyer;
+    private int creater;
+    private int modifyer;
     private String tel;
     private Set<UserRole> userRoles = new HashSet<>(0);
 
-    public Integer getUser_id() {
-        return user_id;
+    public int getUserId() {
+        return userId;
     }
 
-    public void setUser_id(Integer user_id) {
-        this.user_id = user_id;
+    public void setUserId(int userId) {
+        this.userId = userId;
     }
 
     public String getMyid() {
@@ -68,12 +68,12 @@ public class Users extends BaseDomain {
         this.name = name;
     }
 
-    public Integer getOrganize_id() {
-        return organize_id;
+    public int getOrganizeId() {
+        return organizeId;
     }
 
-    public void setOrganize_id(Integer organize_id) {
-        this.organize_id = organize_id;
+    public void setOrganizeId(int organizeId) {
+        this.organizeId = organizeId;
     }
 
     public String getOrganizeName() {
@@ -84,20 +84,20 @@ public class Users extends BaseDomain {
         this.organizeName = organizeName;
     }
 
-    public Integer getDutyId() {
+    public int getDutyId() {
         return dutyId;
     }
 
-    public void setDutyId(Integer dutyId) {
+    public void setDutyId(int dutyId) {
         this.dutyId = dutyId;
     }
 
-    public Integer getTitle_id() {
-        return title_id;
+    public int getTitleId() {
+        return titleId;
     }
 
-    public void setTitle_id(Integer title_id) {
-        this.title_id = title_id;
+    public void setTitleId(int titleId) {
+        this.titleId = titleId;
     }
 
     public String getPassword() {
@@ -132,43 +132,43 @@ public class Users extends BaseDomain {
         this.theme = theme;
     }
 
-    public Date getFirst_visit() {
-        return first_visit;
+    public Date getFirstVisit() {
+        return firstVisit;
     }
 
-    public void setFirst_visit(Date first_visit) {
-        this.first_visit = first_visit;
+    public void setFirstVisit(Date firstVisit) {
+        this.firstVisit = firstVisit;
     }
 
-    public Date getPrevious_visit() {
-        return previous_visit;
+    public Date getPreviousVisit() {
+        return previousVisit;
     }
 
-    public void setPrevious_visit(Date previous_visit) {
-        this.previous_visit = previous_visit;
+    public void setPreviousVisit(Date previousVisit) {
+        this.previousVisit = previousVisit;
     }
 
-    public Date getLast_visits() {
-        return last_visits;
+    public Date getLastVisits() {
+        return lastVisits;
     }
 
-    public void setLast_visits(Date last_visits) {
-        this.last_visits = last_visits;
+    public void setLastVisits(Date lastVisits) {
+        this.lastVisits = lastVisits;
     }
 
-    public Integer getLogin_count() {
-        return login_count;
+    public int getLoginCount() {
+        return loginCount;
     }
 
-    public void setLogin_count(Integer login_count) {
-        this.login_count = login_count;
+    public void setLoginCount(int loginCount) {
+        this.loginCount = loginCount;
     }
 
-    public Integer getIsemployee() {
+    public int getIsemployee() {
         return isemployee;
     }
 
-    public void setIsemployee(Integer isemployee) {
+    public void setIsemployee(int isemployee) {
         this.isemployee = isemployee;
     }
 
@@ -196,12 +196,12 @@ public class Users extends BaseDomain {
         this.description = description;
     }
 
-    public Integer getQuestion_id() {
-        return question_id;
+    public int getQuestionId() {
+        return questionId;
     }
 
-    public void setQuestion_id(Integer question_id) {
-        this.question_id = question_id;
+    public void setQuestionId(int questionId) {
+        this.questionId = questionId;
     }
 
     public String getAnswer() {
@@ -212,11 +212,11 @@ public class Users extends BaseDomain {
         this.answer = answer;
     }
 
-    public Integer getIsonline() {
+    public int getIsonline() {
         return isonline;
     }
 
-    public void setIsonline(Integer isonline) {
+    public void setIsonline(int isonline) {
         this.isonline = isonline;
     }
 
@@ -236,19 +236,19 @@ public class Users extends BaseDomain {
         this.lastmod = lastmod;
     }
 
-    public Integer getCreater() {
+    public int getCreater() {
         return creater;
     }
 
-    public void setCreater(Integer creater) {
+    public void setCreater(int creater) {
         this.creater = creater;
     }
 
-    public Integer getModifyer() {
+    public int getModifyer() {
         return modifyer;
     }
 
-    public void setModifyer(Integer modifyer) {
+    public void setModifyer(int modifyer) {
         this.modifyer = modifyer;
     }
 

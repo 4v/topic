@@ -20,65 +20,65 @@ import java.util.Date;
  */
 
 public class Organization extends BaseDomain {
-    private Integer organization_id;
-    private Integer company_id;
-    private String myid;
-    private Integer pid;
-    private String full_name;
+    private int organizationId;
+    private int companyId;
+    private String myId;
+    private int pid;
+    private String fullName;
     private String ename;
-    private Integer manager;
+    private int manager;
     private String iconCls;
-    private Integer assistant_manager;
-    private Integer emp_qty;
+    private int assistantManager;
+    private int empQty;
     private String status;
     private Date created;
     private Date lastmod;
-    private String short_name;
+    private String shortName;
     private String tel;
     private String fax;
     private String description;
-    private Integer creater;
-    private Integer modifyer;
+    private int creater;
+    private int modifyer;
     private String state = "closed";
 
-    public Integer getOrganization_id() {
-        return organization_id;
+    public int getOrganizationId() {
+        return organizationId;
     }
 
-    public void setOrganization_id(Integer organization_id) {
-        this.organization_id = organization_id;
+    public void setOrganizationId(int organizationId) {
+        this.organizationId = organizationId;
     }
 
-    public Integer getCompany_id() {
-        return company_id;
+    public int getCompanyId() {
+        return companyId;
     }
 
-    public void setCompany_id(Integer company_id) {
-        this.company_id = company_id;
+    public void setCompanyId(int companyId) {
+        this.companyId = companyId;
     }
 
-    public String getMyid() {
-        return myid;
+    public String getMyId() {
+        return myId;
     }
 
-    public void setMyid(String myid) {
-        this.myid = myid;
+    public void setMyId(String myId) {
+        this.myId = myId;
     }
 
-    public Integer getPid() {
+    public int getPid() {
         return pid;
     }
 
-    public void setPid(Integer pid) {
+    public void setPid(int pid) {
         this.pid = pid;
     }
 
-    public String getFull_name() {
-        return full_name;
+    public String getFullName() {
+        return fullName;
     }
 
-    public void setFull_name(String full_name) {
-        this.full_name = full_name;
+    public void setFullName(String fullName) {
+        this.fullName = fullName;
     }
 
     public String getEname() {
@@ -89,11 +89,11 @@ public class Organization extends BaseDomain {
         this.ename = ename;
     }
 
-    public Integer getManager() {
+    public int getManager() {
         return manager;
     }
 
-    public void setManager(Integer manager) {
+    public void setManager(int manager) {
         this.manager = manager;
     }
 
@@ -105,20 +105,20 @@ public class Organization extends BaseDomain {
         this.iconCls = iconCls;
     }
 
-    public Integer getAssistant_manager() {
-        return assistant_manager;
+    public int getAssistantManager() {
+        return assistantManager;
     }
 
-    public void setAssistant_manager(Integer assistant_manager) {
-        this.assistant_manager = assistant_manager;
+    public void setAssistantManager(int assistantManager) {
+        this.assistantManager = assistantManager;
     }
 
-    public Integer getEmp_qty() {
-        return emp_qty;
+    public int getEmpQty() {
+        return empQty;
     }
 
-    public void setEmp_qty(Integer emp_qty) {
-        this.emp_qty = emp_qty;
+    public void setEmpQty(int empQty) {
+        this.empQty = empQty;
     }
 
     public String getStatus() {
@@ -145,12 +145,12 @@ public class Organization extends BaseDomain {
         this.lastmod = lastmod;
     }
 
-    public String getShort_name() {
-        return short_name;
+    public String getShortName() {
+        return shortName;
     }
 
-    public void setShort_name(String short_name) {
-        this.short_name = short_name;
+    public void setShortName(String shortName) {
+        this.shortName = shortName;
     }
 
     public String getTel() {
@@ -177,19 +177,19 @@ public class Organization extends BaseDomain {
         this.description = description;
     }
 
-    public Integer getCreater() {
+    public int getCreater() {
         return creater;
     }
 
-    public void setCreater(Integer creater) {
+    public void setCreater(int creater) {
         this.creater = creater;
     }
 
-    public Integer getModifyer() {
+    public int getModifyer() {
         return modifyer;
     }
 
-    public void setModifyer(Integer modifyer) {
+    public void setModifyer(int modifyer) {
         this.modifyer = modifyer;
     }
 

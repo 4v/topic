@@ -21,12 +21,12 @@ import java.util.Date;
  */
 
 public class TreeGridModel extends BaseDomain {
-    private Integer permission_id;
-    private Integer pid;
+    private int permissionId;
+    private int pid;
     private String name;
     private String pname;
-    private Integer sort;
-    private String myid;
+    private int sort;
+    private String myId;
     private String type;
     private String isused;
     private String url;
@@ -36,22 +36,22 @@ public class TreeGridModel extends BaseDomain {
     private String state;
     private Date created;
     private Date lastmod;
-    private Integer creater;
-    private Integer modifyer;
+    private int creater;
+    private int modifyer;
 
-    public Integer getPermission_id() {
-        return permission_id;
+    public int getPermissionId() {
+        return permissionId;
     }
 
-    public void setPermission_id(Integer permission_id) {
-        this.permission_id = permission_id;
+    public void setPermissionId(int permissionId) {
+        this.permissionId = permissionId;
     }
 
-    public Integer getPid() {
+    public int getPid() {
         return pid;
     }
 
-    public void setPid(Integer pid) {
+    public void setPid(int pid) {
         this.pid = pid;
     }
 
@@ -71,20 +71,20 @@ public class TreeGridModel extends BaseDomain {
         this.pname = pname;
     }
 
-    public Integer getSort() {
+    public int getSort() {
         return sort;
     }
 
-    public void setSort(Integer sort) {
+    public void setSort(int sort) {
         this.sort = sort;
     }
 
-    public String getMyid() {
-        return myid;
+    public String getMyId() {
+        return myId;
     }
 
-    public void setMyid(String myid) {
-        this.myid = myid;
+    public void setMyId(String myId) {
+        this.myId = myId;
     }
 
     public String getType() {
@@ -159,19 +159,19 @@ public class TreeGridModel extends BaseDomain {
         this.lastmod = lastmod;
     }
 
-    public Integer getCreater() {
+    public int getCreater() {
         return creater;
     }
 
-    public void setCreater(Integer creater) {
+    public void setCreater(int creater) {
         this.creater = creater;
     }
 
-    public Integer getModifyer() {
+    public int getModifyer() {
         return modifyer;
     }
 
-    public void setModifyer(Integer modifyer) {
+    public void setModifyer(int modifyer) {
         this.modifyer = modifyer;
     }
 

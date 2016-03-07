@@ -60,7 +60,7 @@
 			    }
 			});
 		});
-			 
+
 		request.fail(function( jqXHR, textStatus ) {
 			$.messager.alert("提示", "获取菜单出错,请重新登陆!");
 		});

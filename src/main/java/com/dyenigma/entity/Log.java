@@ -16,37 +16,52 @@ import java.util.Date;
  * Description: 日志类
  * author dingdongliang
  * date 2015年9月14日 下午6:10:03
- *
  */
 
 public class Log extends BaseDomain {
 
-    private Integer log_id;
-    private Integer user_id;
+    private int logId;
+    private int userId;
     private String name;
-    private Date log_date;
-    private Integer type;
+    private Date logDate;
+    private int type;
     private String mac;
     private String ip;
-    private Integer object_type;
-    private String object_id;
-    private String event_name;
-    private String event_record;
+    private int objectType;
+    private String objectId;
+    private String eventName;
+    private String eventRecord;
 
-    public Integer getLog_id() {
-        return log_id;
+    public int getLogId() {
+        return logId;
     }
 
-    public void setLog_id(Integer log_id) {
-        this.log_id = log_id;
+    public void setLogId(int logId) {
+        this.logId = logId;
     }
 
-    public Integer getUser_id() {
-        return user_id;
+    public int getUserId() {
+        return userId;
     }
 
-    public void setUser_id(Integer user_id) {
-        this.user_id = user_id;
+    public void setUserId(int userId) {
+        this.userId = userId;
+    }
+
+    public int getType() {
+        return type;
+    }
+
+    public void setType(int type) {
+        this.type = type;
+    }
+
+    public int getObjectType() {
+        return objectType;
+    }
+
+    public void setObjectType(int objectType) {
+        this.objectType = objectType;
     }
 
     public String getName() {
@@ -57,20 +72,12 @@ public class Log extends BaseDomain {
         this.name = name;
     }
 
-    public Date getLog_date() {
-        return log_date;
+    public Date getLogDate() {
+        return logDate;
     }
 
-    public void setLog_date(Date log_date) {
-        this.log_date = log_date;
-    }
-
-    public Integer getType() {
-        return type;
-    }
-
-    public void setType(Integer type) {
-        this.type = type;
+    public void setLogDate(Date logDate) {
+        this.logDate = logDate;
     }
 
     public String getMac() {
@@ -89,35 +96,27 @@ public class Log extends BaseDomain {
         this.ip = ip;
     }
 
-    public Integer getObject_type() {
-        return object_type;
+    public String getObjectId() {
+        return objectId;
     }
 
-    public void setObject_type(Integer object_type) {
-        this.object_type = object_type;
+    public void setObjectId(String objectId) {
+        this.objectId = objectId;
     }
 
-    public String getObject_id() {
-        return object_id;
+    public String getEventName() {
+        return eventName;
     }
 
-    public void setObject_id(String object_id) {
-        this.object_id = object_id;
+    public void setEventName(String eventName) {
+        this.eventName = eventName;
     }
 
-    public String getEvent_name() {
-        return event_name;
+    public String getEventRecord() {
+        return eventRecord;
     }
 
-    public void setEvent_name(String event_name) {
-        this.event_name = event_name;
-    }
-
-    public String getEvent_record() {
-        return event_record;
-    }
-
-    public void setEvent_record(String event_record) {
-        this.event_record = event_record;
+    public void setEventRecord(String eventRecord) {
+        this.eventRecord = eventRecord;
     }
 }

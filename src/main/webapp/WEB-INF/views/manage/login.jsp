@@ -30,14 +30,14 @@ body {
 			'position' : 'absolute',
 			'left' : ($(window).width() - 692) / 2
 		});
-		
+
 		$(window).resize(function() {
 			$('.loginbox').css({
 				'position' : 'absolute',
 				'left' : ($(window).width() - 692) / 2
 			});
 		})
-		
+
 		$('#kaptchaImage').click(
 			function() {//生成验证码
 				$(this).hide().attr('src','<%=basePath%>captcha?'+ Math.floor(Math.random() * 100))

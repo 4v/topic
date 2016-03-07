@@ -19,7 +19,7 @@ import java.util.Date;
  */
 
 public class Company extends BaseDomain {
-    private Integer company_id;
+    private int companyId;
     private String name;
     private String tel;
     private String fax;
@@ -34,16 +34,9 @@ public class Company extends BaseDomain {
     private String bank;
     private String bankaccount;
     private String description;
-    private Integer creater;
-    private Integer modifyer;
+    private int creater;
+    private int modifyer;
 
-    public Integer getCompany_id() {
-        return company_id;
-    }
-
-    public void setCompany_id(Integer company_id) {
-        this.company_id = company_id;
-    }
 
     public String getName() {
         return name;
@@ -157,20 +150,27 @@ public class Company extends BaseDomain {
         this.description = description;
     }
 
-    public Integer getCreater() {
+    public int getCompanyId() {
+        return companyId;
+    }
+
+    public void setCompanyId(int companyId) {
+        this.companyId = companyId;
+    }
+
+    public int getCreater() {
         return creater;
     }
 
-    public void setCreater(Integer creater) {
+    public void setCreater(int creater) {
         this.creater = creater;
     }
 
-    public Integer getModifyer() {
+    public int getModifyer() {
         return modifyer;
     }
 
-    public void setModifyer(Integer modifyer) {
+    public void setModifyer(int modifyer) {
         this.modifyer = modifyer;
     }
-
 }

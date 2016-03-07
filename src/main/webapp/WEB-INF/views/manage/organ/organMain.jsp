@@ -31,11 +31,11 @@
 		    fitColumns: true,
 		    striped: true,
 		    border: true,
-		    idField: 'organization_id',
-		    treeField: 'full_name',
+		    idField: 'organizationId',
+		    treeField: 'fullName',
 		    frozenColumns: [[{
 		        title: '组织名称',
-		        field: 'full_name',
+		        field: 'fullName',
 		        editor: {
 		            type: 'validatebox',
 		            options: {
@@ -48,7 +48,7 @@
 		        }
 		    }]],
 		    columns: [[{
-		        field: 'myid',
+		        field: 'myId',
 		        title: '组织编码',
 		        width: parseInt($(this).width() * 0.08),
 		        align: 'center'
@@ -58,7 +58,7 @@
 		        width: parseInt($(this).width() * 0.12),
 		        align: 'center'
 		    },{
-		        field: 'short_name',
+		        field: 'shortName',
 		        title: '简称',
 		        width: parseInt($(this).width() * 0.12),
 		        align: 'center'
@@ -102,7 +102,7 @@
 					if (row) {
 						var f = $.modalDialog.handler.find("#form");
 						f.form("load", {
-							"pid": row.organization_id
+							"pid": row.organizationId
 						});
 					}
 				},
@@ -174,7 +174,7 @@
 			        	var request = $.ajax({
 							url: "<%=basePath%>manage/organ/delOrgan",
 							data: {
-							    'id': node.organization_id
+							    'id': node.organizationId
 							},
 							method: "POST",
 							dataType: "JSON"
@@ -182,7 +182,7 @@
 			        	
 			        	request.done(function( rsp ) {
 							if (rsp.status) {
-			           			$dg.treegrid('remove', node.organization_id);
+			           			$dg.treegrid('remove', node.organizationId);
 			               	}
 			         		$.messager.show({
 			               		title: rsp.title,

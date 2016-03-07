@@ -39,7 +39,7 @@
 		    fitColumns: true,
 		    striped: true,
 		    border: true,
-		    idField: 'permission_id',
+		    idField: 'permissionId',
 		    treeField: 'name',
 		    frozenColumns: [[{
 		        title: '程式名称',
@@ -88,7 +88,7 @@
 		            }
 		        }
 		    },{
-		        field: 'myid',
+		        field: 'myId',
 		        title: '程式编码',
 		        width: parseInt($(this).width() * 0.1),
 		        align: 'left',
@@ -157,7 +157,7 @@
 				            if (row) {
 				                var f = $.modalDialog.handler.find("#form");
 				                f.form("load", {
-				                    "pid": row.permission_id,
+				                    "pid": row.permissionId,
 				                    "pname": row.name
 				                });
 				            }
@@ -191,7 +191,7 @@
 						if (row) {
 							var f = $.modalDialog.handler.find("#form");
 							f.form("load", {
-								"pid": row.permission_id,
+								"pid": row.permissionId,
 						        "pname": row.pname
 							});
 			        	}
@@ -264,7 +264,7 @@
 			        	var request = $.ajax({
 							url: "<%=basePath%>manage/function/delFunction",
 							data: {
-							    'id': node.permission_id
+							    'id': node.permissionId
 							},
 							method: "POST",
 							dataType: "JSON"
@@ -272,7 +272,7 @@
 			        	
 			        	request.done(function(rsp) {
 							if (rsp.status) {
-			           			$dg.treegrid('remove', node.permission_id);
+			           			$dg.treegrid('remove', node.permissionId);
 			               	}
 			         		$.messager.show({
 			               		title: rsp.title,

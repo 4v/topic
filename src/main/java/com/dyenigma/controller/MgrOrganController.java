@@ -134,15 +134,15 @@ public class MgrOrganController extends BaseController {
     public String saveOrUpdateOrgan(HttpServletRequest request) {
         Organization organ = new Organization();
 
-        String organization_id = request.getParameter("organization_id");
-        if (!StringUtil.isEmpty(organization_id)) {
-            organ.setOrganization_id(Integer.parseInt(organization_id));
+        String organizationId = request.getParameter("organizationId");
+        if (!StringUtil.isEmpty(organizationId)) {
+            organ.setOrganizationId(Integer.parseInt(organizationId));
         }
         String status = request.getParameter("status");
         if (!StringUtil.isEmpty(status)) {
             organ.setStatus(status);
         }
-        organ.setFull_name(request.getParameter("full_name"));
+        organ.setFullName(request.getParameter("full_name"));
         String pid = request.getParameter("pid");
         if (!StringUtil.isEmpty(pid)) {
             organ.setPid(Integer.parseInt(request.getParameter("pid")));
@@ -150,9 +150,9 @@ public class MgrOrganController extends BaseController {
 
         organ.setIconCls(request.getParameter("iconCls"));
         organ.setTel(request.getParameter("tel"));
-        organ.setMyid(request.getParameter("myid"));
+        organ.setMyId(request.getParameter("myid"));
         organ.setFax(request.getParameter("fax"));
-        organ.setShort_name(request.getParameter("short_name"));
+        organ.setShortName(request.getParameter("short_name"));
         organ.setDescription(request.getParameter("description"));
         organ.setEname(request.getParameter("ename"));
 

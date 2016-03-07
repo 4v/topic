@@ -142,9 +142,9 @@ public class MgrFunController extends BaseController {
     @RequestMapping(value = "/saveOrUpdateFunc", produces = "application/json;charset=utf-8")
     public String saveOrUpdateFunc(HttpServletRequest request) {
         Permission permission = new Permission();
-        String permission_id = request.getParameter("permission_id");
-        if (!StringUtil.isEmpty(permission_id)) {
-            permission.setPermission_id(Integer.parseInt(permission_id));
+        String permissionId = request.getParameter("permissionId");
+        if (!StringUtil.isEmpty(permissionId)) {
+            permission.setPermissionId(Integer.parseInt(permissionId));
         }
         String status = request.getParameter("status");
         if (!StringUtil.isEmpty(status)) {
@@ -161,7 +161,7 @@ public class MgrFunController extends BaseController {
         }
         permission.setIconCls(request.getParameter("iconCls"));
         permission.setUrl(request.getParameter("url"));
-        permission.setMyid(request.getParameter("myid"));
+        permission.setMyId(request.getParameter("myId"));
         permission.setType(request.getParameter("type"));
         permission.setIsused(request.getParameter("isused"));
         permission.setDescription(request.getParameter("description"));

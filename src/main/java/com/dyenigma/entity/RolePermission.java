@@ -20,21 +20,21 @@ import java.util.Date;
 
 public class RolePermission extends BaseDomain {
 
-    private Integer id;
+    private int rpId;
     private Role role;
     private Permission permission;
     private String status;
     private Date created;
     private Date lastmod;
-    private Integer creater;
-    private Integer modifyer;
+    private int creater;
+    private int modifyer;
 
-    public Integer getId() {
-        return id;
+    public int getRpId() {
+        return rpId;
     }
 
-    public void setId(Integer id) {
-        this.id = id;
+    public void setRpId(int rpId) {
+        this.rpId = rpId;
     }
 
     public Role getRole() {
@@ -77,19 +77,19 @@ public class RolePermission extends BaseDomain {
         this.lastmod = lastmod;
     }
 
-    public Integer getCreater() {
+    public int getCreater() {
         return creater;
     }
 
-    public void setCreater(Integer creater) {
+    public void setCreater(int creater) {
         this.creater = creater;
     }
 
-    public Integer getModifyer() {
+    public int getModifyer() {
         return modifyer;
     }
 
-    public void setModifyer(Integer modifyer) {
+    public void setModifyer(int modifyer) {
         this.modifyer = modifyer;
     }
 

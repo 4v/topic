@@ -110,22 +110,22 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 		<form id="form" method="post">
 			<fieldset>
 				<legend><img src="<%=basePath%>resources/core/images/fromedit.png" style="margin-bottom: -3px;"/> 组织编辑</legend>
-				<input name="organization_id" id="organization_id"  type="hidden"/>
+				<input name="organizationId" id="organizationId"  type="hidden"/>
 				<input name="created" id="created"  type="hidden"/>
 				<input name="creater" id="creater"  type="hidden"/>
 				<input name="status" id="status"  type="hidden"/>
 				 <table>
 					 <tr>
 					    <th>组织名称</th>
-						<td><input name="full_name" id="full_name" placeholder="请输入组织名称" class="easyui-textbox easyui-validatebox" type="text" data-options="required:true"/></td>
+						<td><input name="fullName" id="fullName" placeholder="请输入组织名称" class="easyui-textbox easyui-validatebox" type="text" data-options="required:true"/></td>
 						<th>组织编码</th>
-						<td><input name="myid" id="myid" type="text"  class="easyui-textbox easyui-validatebox" data-options="required:true"/></td>
+						<td><input name="myId" id="myId" type="text"  class="easyui-textbox easyui-validatebox" data-options="required:true"/></td>
 					 </tr>
 					 <tr>
 					    <th>英文名称</th>
 						<td><input name="ename" id="ename" type="text" class="easyui-textbox easyui-validatebox"/></td>
 						<th>简称</th>
-						<td><input id="short_name" name="short_name" type="text" class="easyui-textbox easyui-validatebox"/></td>
+						<td><input id="shortName" name="shortName" type="text" class="easyui-textbox easyui-validatebox"/></td>
 					 </tr>
 					  <tr>
 					    <th>上层组织</th>

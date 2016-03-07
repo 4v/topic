@@ -63,7 +63,7 @@ public class LoginRealm extends AuthorizingRealm {
 
 		// Shiro完成对比逻辑,返回和令牌相关的正确的验证信息，第一个参数填登录用户名,第二个参数填合法的登录密码
 		if (users != null) {
-			ShiroUser shiroUser = new ShiroUser(users.getUser_id(), users.getAccount());
+			ShiroUser shiroUser = new ShiroUser(users.getUserId(), users.getAccount());
 			AuthenticationInfo authcInfo = new SimpleAuthenticationInfo(shiroUser,
 					users.getPassword(), getName());
 			this.setSession("shiroUser", shiroUser);
@@ -95,7 +95,7 @@ public class LoginRealm extends AuthorizingRealm {
 
 			if (perList != null && perList.size() != 0) {
 				for (Permission permission : perList) {
-					info.addStringPermission(permission.getMyid());
+					info.addStringPermission(permission.getMyId());
 				}
 				return info;
 			}

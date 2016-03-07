@@ -1,4 +1,4 @@
-<%@ page language="java" import="java.util.*" pageEncoding="utf-8"%>
+<%@ page language="java" pageEncoding="utf-8"%>
 <%
 String path = request.getContextPath();
 String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.getServerPort()+path+"/";
@@ -67,7 +67,6 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 		height: 18px;
 		width: 170px;
 		line-height: 16px;
-	    /*border-radius: 3px 3px 3px 3px;*/
 	    box-shadow: 0 1px 1px rgba(0, 0, 0, 0.075) inset;
 	    transition: border 0.2s linear 0s, box-shadow 0.2s linear 0s;
 	}
@@ -94,11 +93,10 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 	    -moz-border-left-colors: none;
 	    -moz-border-right-colors: none;
 	    -moz-border-top-colors: none;
-	    border-color: #E5E5E5;
-	    border-image: none;
-	    border-style: none none solid;
-	    border-width: 0 0 1px;
-	    color: #999999;
+		border-image: none;
+		border: 0 none #E5E5E5;
+		border-bottom: 1px solid;
+		color: #999999;
 	    line-height: 20px;
 	    display: block;
 	    margin-bottom: 10px;
@@ -119,7 +117,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 		<form id="form" method="post">
 			<fieldset>
 				<legend><img src="<%=basePath%>resources/core/images/fromedit.png" style="margin-bottom: -3px;"/> 程式编辑</legend>
-				<input name="permission_id" id="permission_id"  type="hidden"/>
+				<input name="permissionId" id="permissionId"  type="hidden"/>
 				<input name="created" id="created"  type="hidden"/>
 				<input name="creater" id="creater"  type="hidden"/>
 				<input name="status" id="status"  type="hidden"/>
@@ -142,7 +140,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 					    <th>程式路径</th>
 						<td><input id="url" name="url" type="text" class="easyui-textbox easyui-validatebox" required="required"/></td>
 						<th>程式编码</th>
-						<td><input id="myid" name="myid" type="text" class="easyui-textbox easyui-validatebox" required="required"/></td>
+						<td><input id="myId" name="myId" type="text" class="easyui-textbox easyui-validatebox" required="required"/></td>
 					 </tr>
 					 <tr>
 						<th>程式类型</th>

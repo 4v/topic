@@ -47,8 +47,8 @@ public class PermissionServiceImpl extends BaseServiceImpl<Permission> implement
         List<MenuModel> parentList = new ArrayList<MenuModel>();
         // 循环的逻辑：首先遍历所有记录，当Pid为空时，该记录为根目录
         for (Permission parent : pList) {
-            String id = String.valueOf(parent.getPermission_id());
-            if (parent.getPid() == null) {
+            String id = String.valueOf(parent.getPermissionId());
+            if (parent.getPid() == 0) {
                 MenuModel menuModel = new MenuModel();
                 menuModel.setId(id);
                 menuModel.setName(String.valueOf(parent.getName()));
@@ -59,7 +59,7 @@ public class PermissionServiceImpl extends BaseServiceImpl<Permission> implement
                     MenuModel menuChildModel = new MenuModel();
                     String sid = String.valueOf(child.getPid());
                     if (sid.equals(id)) {
-                        menuChildModel.setId(String.valueOf(child.getPermission_id()));
+                        menuChildModel.setId(String.valueOf(child.getPermissionId()));
                         menuChildModel.setPid(sid);
                         menuChildModel.setName(String.valueOf(child.getName()));
                         menuChildModel.setIconCls(String.valueOf(child.getIconCls()));
@@ -102,7 +102,7 @@ public class PermissionServiceImpl extends BaseServiceImpl<Permission> implement
             try {
                 BeanUtils.copyProperties(treeGridModel, permission);
                 if (pid == null || "".equals(pid)) {
-                    treeGridModel.setPid(null);
+                    treeGridModel.setPid(0);
                 }
                 tempList.add(treeGridModel);
             } catch (IllegalAccessException e) {
@@ -135,8 +135,8 @@ public class PermissionServiceImpl extends BaseServiceImpl<Permission> implement
         List<TreeModel> tempList = new ArrayList<>();
         for (Permission function : pList) {
             TreeModel treeModel = new TreeModel();
-            treeModel.setId(function.getPermission_id().toString());
-            treeModel.setPid(function.getPid() == null ? "" : function.getPid().toString());
+            treeModel.setId(function.getPermissionId()+"");
+            treeModel.setPid(function.getPid() == 0 ? "" : function.getPid()+"");
             treeModel.setName(function.getName());
             treeModel.setIconCls(function.getIconCls());
             treeModel.setState(Constants.TREE_STATUS_OPEN);
@@ -148,7 +148,7 @@ public class PermissionServiceImpl extends BaseServiceImpl<Permission> implement
     @Override
     public boolean persistenceFunction(Permission permission) {
         Integer userId = Constants.getCurrendUser().getUserId();
-        if (permission.getPermission_id() == null) {
+        if (permission.getPermissionId() == 0) {
             permission.setCreated(new Date());
             permission.setLastmod(new Date());
             permission.setCreater(userId);
