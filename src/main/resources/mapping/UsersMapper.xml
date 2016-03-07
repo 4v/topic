@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"   
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.dyenigma.dao.UsersMapper">
+	<select id="findById" parameterType="int" resultType="Users">
+		SELECT *
+		FROM users WHERE id=#{id}
+	</select>
+	<insert id="insert" parameterType="Users" flushCache="true">
+		INSERT INTO
+		users (name,age,password,birthday) VALUES
+		(#{name},#{age},#{password},#{birthday})
+	</insert>
+	<update id="update" parameterType="Users">
+		UPDATE users SET name=#{name}
+		WHERE id=#{id}
+	</update>
+	<delete id="delete" parameterType="int">
+		DELETE FROM users WHERE
+		id=#{id}
+	</delete>
+	<select id="findByName" parameterType="String" resultType="Users">
+		select * from users where name=#{name,jdbcType=VARCHAR}
+	</select>
+	<select id="findAll" resultType="Users">
+		SELECT 
+		USER_ID,ACCOUNT,ANSWER,CREATED,CREATER,DESCRIPTION,DUTY_ID,EMAIL,FIRST_VISIT,IP,
+		ISEMPLOYEE,ISONLINE,LANG,LAST_VISITS,LASTMOD,LOGIN_COUNT,MODIFYER,MYID,NAME,
+		ORGANIZE_ID,ORGANIZE_NAME,PASSWORD,PREVIOUS_VISIT,QUESTION_ID,STATUS,TEL,THEME,TITLE_ID 
+		FROM USERS 
+		WHERE STATUS='A'
+	</select>
+</mapper>

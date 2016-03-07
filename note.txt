@@ -1,0 +1,260 @@
+获取验证码方式：
+String code = (String)session.getAttribute(com.google.code.kaptcha.Constants.KAPTCHA_SESSION_KEY);
+用户注册时：That's a great name.That sounds good.
+
+JS图表
+http://www.fusioncharts.com/
+
+存储过程分页：
+
+CREATE PROCEDURE `NewProc`(
+IN `p_table_name` varchar(1024),
+IN `p_fields` varchar(1024),
+IN `p_page_size` int,
+IN `p_page_now` int,
+IN `p_order_string` varchar(128),
+IN `p_where_string` varchar(1024),
+OUT `p_out_rows` int
+)
+BEGIN
+	 /*定义变量*/
+    DECLARE m_begin_row INT DEFAULT 0;
+    DECLARE m_limit_string CHAR(64);
+
+    /*构造语句*/    
+    SET m_begin_row = (p_page_now - 1) * p_page_size;
+    SET m_limit_string = CONCAT(' LIMIT ', m_begin_row, ', ', p_page_size);
+    
+    SET @COUNT_STRING = CONCAT('SELECT COUNT(*) INTO @ROWS_TOTAL FROM ', p_table_name, ' ', p_where_string);
+    SET @MAIN_STRING = CONCAT('SELECT ', p_fields, ' FROM ', p_table_name, ' ', p_where_string, ' ', p_order_string, m_limit_string);
+
+    /*预处理*/
+    PREPARE count_stmt FROM @COUNT_STRING;
+    EXECUTE count_stmt;
+    DEALLOCATE PREPARE count_stmt;
+    SET p_out_rows = @ROWS_TOTAL;
+
+    PREPARE main_stmt FROM @MAIN_STRING;
+    EXECUTE main_stmt;
+    DEALLOCATE PREPARE main_stmt;
+END;
+
+运行参数：（参数中包含单引号，要换成两个单引号）
+'coa_demo','showid,name,REPLACE(replace(gender,''2'',''女''),''1'',''男'') gender',20,20000,'','where name like ''%5%''',@tt
+
+
+存储过程批量插入
+BEGIN
+	DECLARE i INT DEFAULT 1; 
+	WHILE i<1000 DO
+		if  i%2=0 THEN
+			insert into coa_demo(name,gender) values(CONCAT('name',i),'1');
+		ELSE
+			insert into coa_demo(name,gender) values(CONCAT('name',i),'2');
+		end IF;
+		set i=i+1;
+	END WHILE;
+ 
+
+END
+
+后台操作说明：
+1.登陆
+	SELECT 
+	USER_ID,ACCOUNT,ANSWER,CREATED,CREATER,DESCRIPTION,DUTY_ID,EMAIL,FIRST_VISIT,IP,
+	ISEMPLOYEE,ISONLINE,LANG,LAST_VISITS,LASTMOD,LOGIN_COUNT,MODIFYER,MYID,NAME,ORGANIZE_ID,
+	ORGANIZE_NAME,PASSWORD,PREVIOUS_VISIT,QUESTION_ID,STATUS,TEL,THEME,TITLE_ID 
+	FROM users 
+	WHERE STATUS='A' AND NAME='admin';
+	
+2.生成菜单页面
+	SELECT
+	PERMISSION_ID,PID,NAME,ICONCLS,URL
+	FROM PERMISSION
+	WHERE STATUS = 'A' AND TYPE = 'F' AND ISUSED = 'Y';
+	
+3.菜单管理
+	SELECT
+	PERMISSION_ID,MYID
+	FROM PERMISSION
+	WHERE STATUS = 'A' AND TYPE = 'O' AND ISUSED = 'Y';
+	
+	显示一级菜单
+	SELECT
+	PERMISSION_ID,CREATED,CREATER,DESCRIPTION,ICONCLS,ISUSED,LASTMOD,MODIFYER,MYID,NAME,PID,
+	PNAME,SORT,STATE,STATUS,TYPE,URL
+	FROM PERMISSION
+	WHERE STATUS='A' AND PID IS NULL;
+	
+	点击菜单项，显示下级菜单，pid为菜单项id
+	SELECT
+	PERMISSION_ID,CREATED,CREATER,DESCRIPTION,ICONCLS,ISUSED,LASTMOD,MODIFYER,MYID,NAME,PID,
+	PNAME,SORT,STATE,STATUS,TYPE,URL
+	FROM
+	PERMISSION
+	WHERE STATUS = 'A' AND PID = 1
+	
+	添加菜单
+	SELECT
+	PERMISSION_ID,CREATED,CREATER,DESCRIPTION,ICONCLS,ISUSED,LASTMOD,MODIFYER,MYID,
+	NAME,PID,PNAME,SORT,STATE,STATUS,TYPE,URL
+	FROM PERMISSION
+	WHERE STATUS = 'A' AND TYPE = 'F'
+	
+
+配套数据库数据修改：
+1.users表中改成system用户,密码为54B53072540EEEB8F8E9343E71F28176,	Account为system,MYID为system
+2.permission表中程式管理,url由jsp/function/functionMain.jsp改成/ForTiro/manage/function/functionMain
+	
+功能路径：
+1.上传文件功能，在BugAction中的upload()方法
+2.数据库备份功能，在DbBackUpAction类
+3.导出Excel:ExcelAction类中的CompanyInfoExcelExport方法，ExcelUtil工具类
+4.字符格式过滤器：EncodingInterceptor	
+
+遗留问题：
+1.menu中菜单项前面的图片动态设置
+2.log4j特别配置日志
+3.mybatis缓存设置问题,多数据源配置
+4.easyui的easyloader使用
+5.注解标签的使用
+6.多数据源涉及到事务回滚的设置
+7.lucene搜索引擎
+	
+附：
+Q:easyui的iconCls在哪配置？
+A:icon.css
+
+Q:JQuery中$.each()不循环或者无限循环怎么处理?
+A:检查循环体的格式是否为JSONObject
+
+Q:JQuery为动态添加的元素绑定事件怎么处理?
+A:使用委托on,找到改动态添加元素的父元素，然后委托给它处理，详情见left.jsp中查询委托
+
+Q:SpringMVC restful地址配置，页面怎么调用WEB-INF中的jsp?
+A:使用controller中的跳转，详情见main.jsp
+
+Q:gradle使用变量
+A:见build.gradle的springVersion
+
+Q:SpringMVC的rest怎么访问Druid数据源监控页面？
+A:在web.xml中配置，详情见web.xml
+
+Q:Druid怎么配置监控Spring?
+A:见spring-mybatis-config.xml
+ 
+Q:Navicat不支持中文怎么解决？
+A:http://www.oracle.com/technetwork/topics/winx64soft-089540.html下载Instant Client包，在选项 -> OCI，
+选择目录中的 oci.dll，如地址不能使用，在www.oracle.com搜索Instant Client Downloads for 关键字后选择结果
+
+Q:JSP中不能直接实例化Spring bean，会导致注入失败.
+A:在jsp页面加载相关类，然后按如下方式处理即可
+<%@page import="org.springframework.web.context.support.*"%>
+<%@page import="org.springframework.context.*"%>
+ServletContext servletContext = request.getSession().getServletContext();
+ApplicationContext ctx = WebApplicationContextUtils.getWebApplicationContext(getServletContext());
+Demo demo = ctx.getBean("demo");
+
+Q:EasyUI输入表格验证怎么扩展？
+A:重写方法
+<script type="text/javascript">
+	$.extend($.fn.validatebox.defaults.rules, {
+		number : {
+			validator : function(value, param) {
+				return /^\d+(\.\d+)?$/.test(value);
+			},
+			message : '请输入数字'
+		}
+	});
+</script>
+<input class="easyui-textbox" type="text" name="value" data-options="validType:'number'"></input>
+
+
+
+
+
+
+A 代码生成器(开发利器);
+   增删改查的处理类，service层，mybatis的xml，SQL( mysql   和oracle)脚本,   jsp页面 都生成
+   就不用写搬砖的代码了,生成的放到项目里，可以直接运行
+B 阿里巴巴数据库连接池druid;
+  数据库连接池  阿里巴巴的 druid。Druid在监控、可扩展性、稳定性和性能方面都有明显的优势
+C 安全权限框架shiro ;
+  Shiro 是一个用 Java 语言实现的框架，通过一个简单易用的 API 提供身份验证和授权，更安全，更可靠
+D ehcache 分布式缓存;
+  是一个纯Java的进程内缓存框架，具有快速、精干等特点,广泛使用的开源Java分布式缓存。
+E 微信接口开发（后续会加入Activiti5 工作流 ）赠送一个jbpm工作流大型ERP系统(含OA、财务、分销)参考学习
+F 4. 框架搭建完善成熟，在此基础上做过很多项目，系统具有并发处理、分布式、稳定性。
+5. 系统功能完善，此为框架平台，文档、注释齐全，提供技术支持，专门供二次开发
+6. 在此基础上可二次开发(OA、ERP、CRM ,医疗管理、金融、网站后台、APP后台、电子商务、商城(赠送UI)等等
+7.我们这边是公司，主要业务是定制开发,  此系统为我们平时给客户做项目用的，经过很多项目实战考验
+  -------------------------------------------------------------------------------------------------------------------------系统模块
+1.   权限管理：点开二级菜单进入三级菜单显示 角色(基础权限)和按钮权限
+      角色(基础权限): 分角色组和角色,独立分配菜单权限和增删改查权限。
+      按钮权限: 给角色分配按钮权限。
+2.   按钮管理：自定义按钮管理，维护按钮权限标识等
+3.   菜单管理：无限级别自定义菜单，自定义菜单图标，业务菜单和系统菜单分离，菜单状态显示隐藏（递归处理）
+4.   数据字典：无限级别，支持多级别无限分类。内设编号，排序等
+5.   组织机构：无限级别，公司or部门管理
+6.   在线管理：websocket技术，实时检测在线用户列表，统计在线人数,可强制用户下线 同一用户只能在一个客户端登录
+7.   系统用户：对各个基本的用户增删改查，单发、群发站内信邮件短信，导入导出excel表格，批量删除
+8.   会员管理：对前台用户管理，分配会员级别，到期时间，状态，联系信息等资料
+9.   代码生成：生成完整的模块代码，并保留生成记录模版，可复用 （超强悍开发利器）
+10. 性能监控：监控整个系统的性能，SQL监控，SQL防火墙，URL监控，SPRING监控，SESSION监控等
+11. 接口测试：POST or GET 方式检测系统接口，参数加密，json返回结果，计算服务器响应时间
+12. 发送邮件：单发，群发邮件
+13. 置二维码：生成二维码图表保存到服务器 or  解析读取二维码内信息
+14. 图表报表：柱状图、饼状图、折线图、各种图表大全
+15. 地图工具：打开地图, 鼠标点击地图某位置获取经纬度坐标，根据经纬度计算两点距离
+16. 打印测试：页面打印预览测试
+17. 图片管理：对批量上传的图片统一管理 ，点击放大，可打开多个，自由切换，绚丽预览效果
+18. 站内信：收信箱和发信箱， websocket技术通讯技术做的及时收信提醒，可配置语音提示来信
+19. 系统设置：修改系统名称，邮件服务器配置，短信账号设置，图片水印配置，微信配置
+20. 及时聊天：打开聊天窗口，可群聊、一对一聊天
+-------------------------------------------------------------------------------------------------------------------------
+菜单权限：分配给每个角色不同的菜单权限, 每个角色看到的菜单不同，无限级别菜单
+按钮权限：独立分配不同的角色不同的功能权限，增删改查权限分配具体到不同的菜单，自定义按钮管理
+支持多用户分权限管理后台,  权限具体到不同的菜单不同的按钮
+--------------------------------------------------------------------------------------------------------------信息模块(小项目代码中)
+新闻管理：新闻的维护、发布、权重排序等 采用百度ueditor富文本框
+公告管理：公告的维护、发布
+广告管理：广告的维护、发布，状态维护，上传广告图片
+友情链接：友情链接的维护、状态维护
+特别推荐：特别推荐、状态维护
+微信模块
+关注回复：微信用户关注公众号回复
+文本回复：匹配关键词进行文本回复
+图文回复：匹配关键词进行图文回复
+应用命令：匹配关键词进行命令操作，例如微信发送命令，执行服务器重启、关机、锁定等操作
+-------------------------------------------------------------------------------------------------------------------------
+技术点
+
+
+1. 导出 导入 excel 文件
+2  导出word文件
+3. IO 流上传下载文件
+4. 群发邮件，可以发html、纯文本格式，可以发给任意邮箱(实现批量发送广告邮件)
+5. 群发or单独 发送短信，支持两种第三方短信商接口
+6. spring   aop  事物处理
+7. 代码生成器 (freemarker)， 代码 zip 压缩打包
+8. MD5加密 SHA加密（登录密码用此加密）接口加密身份校验
+9. 数据库连接池  阿里的 druid。Druid在监控、可扩展性、稳定性和性能方面都有明显的优势,支持并发
+10.加入安全框架 shiro (登录授权)(session管理)
+11.根据汉字 解析汉字的全拼(拼音)和首字母(导入excel到用户表，根据用户的汉字姓名生成拼音的用户名)
+12.app接口@ResponseBody（支持与其它语言数据交互）
+13.极光推送 (推送给APP及时消息，APP不启动也能收到)
+14.微信接口(身份验证，文本、图文回复等) 微信远程控制服务器重启、锁定、其它应用程序
+15.java Quartz 定时器 （定时执行某程序，精确到秒，可设置周期）
+16.java websocket 即时通讯技术，点对点，群聊，单聊
+17.新增Lucene全文检索
+18.Base64传输图片
+19.图片加水印(图片水印，文字水印）
+20.生成 or  解析 二维码
+21.HTML5 + JAVAEE  WebSocket 通信技术，WebSocket 验证用户登录，强制某用户下线
+22.批量异步上传图片，可预览，有进度条，支持拖拽上传(百度webuploader )。列表动态滑动放大展示。
+23.ehcache 自定义二级缓存 ，选择缓存存放目录，处理并发，增加系统性能
+24.服务器内部GET POST 请求
+25.uploadify 上传插件，单条、批量上传多线程，带进度条，异步，图片、视频, 其它文件格式均可上传
+26.地图选点获取经纬度坐标，根据俩经纬度计算距离
+27.tab标签页面功能，标签自由切换，不重复操作数据库
+28.站内信语音提醒，js控制音频播放

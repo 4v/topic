@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"   
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.dyenigma.dao.OrganizationMapper">
+	<select id="findAll" resultType="Organization">
+		SELECT
+		ORGANIZATION_ID,ASSISTANT_MANAGER,COMPANY_ID,CREATED,CREATER,DESCRIPTION,EMP_QTY,ENAME,
+		FAX,FULL_NAME,ICONCLS,LASTMOD,MANAGER,MODIFYER,MYID,PID,SHORT_NAME,STATE,STATUS,TEL
+		FROM ORGANIZATION
+		WHERE STATUS = 'A'
+		AND (PID IS NULL)
+	</select>
+	<select id="findByPid" parameterType="Integer" resultType="Organization">
+		SELECT
+		ORGANIZATION_ID,ASSISTANT_MANAGER,COMPANY_ID,CREATED,CREATER,DESCRIPTION,EMP_QTY,ENAME,
+		FAX,FULL_NAME,ICONCLS,LASTMOD,MANAGER,MODIFYER,MYID,PID,SHORT_NAME,STATE,STATUS,TEL
+		FROM ORGANIZATION
+		WHERE STATUS='A' AND
+		PID = #{pid}
+	</select>
+	<update id="updateById" parameterType="Integer">
+		UPDATE ORGANIZATION SET STATUS='I' WHERE ORGANIZATION_ID=#{id,jdbcType=INTEGER}
+	</update>
+	<select id="findSuperOrgan" resultType="Organization">
+		SELECT
+		ORGANIZATION_ID,ASSISTANT_MANAGER,COMPANY_ID,CREATED,CREATER,DESCRIPTION,EMP_QTY,ENAME,
+		FAX,FULL_NAME,ICONCLS,LASTMOD,MANAGER,MODIFYER,MYID,PID,SHORT_NAME,STATE,STATUS,TEL
+		FROM ORGANIZATION
+		WHERE STATUS = 'A'
+	</select>
+	<insert id="insert" parameterType="Organization">
+		INSERT INTO
+		ORGANIZATION(CREATED,CREATER,DESCRIPTION,ENAME,FAX,FULL_NAME,ICONCLS,LASTMOD,MODIFYER,
+		MYID,PID,SHORT_NAME,STATE,STATUS,TEL)
+		VALUES
+		(#{created,jdbcType=DATE},#{creater,jdbcType=INTEGER},#{description,jdbcType=VARCHAR},
+		#{ename,jdbcType=VARCHAR},#{fax,jdbcType=VARCHAR},#{full_name,jdbcType=DATE},
+		#{iconCls,jdbcType=INTEGER},#{lastmod,jdbcType=VARCHAR},#{modifyer,jdbcType=VARCHAR},
+		#{myid,jdbcType=INTEGER},#{pid,jdbcType=VARCHAR},#{short_name,jdbcType=INTEGER},
+		#{state,jdbcType=VARCHAR},#{status,jdbcType=VARCHAR},#{tel,jdbcType=VARCHAR})
+	</insert>
+	<update id="update" parameterType="Organization">
+		UPDATE ORGANIZATION SET
+		DESCRIPTION=#{description},ICONCLS=#{iconCls},FULL_NAME=#{full_name},LASTMOD=#{lastmod},
+		MODIFYER=#{modifyer},MYID=#{myid},ENAME=#{ename},PID=#{pid},SHORT_NAME=#{short_name},
+		STATE=#{state},STATUS=#{status},FAX=#{fax},TEL=#{tel}
+		WHERE
+		ORGANIZATION_ID=#{organization_id}
+	</update>
+</mapper>

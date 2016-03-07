@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"   
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.dyenigma.dao.PermissionMapper">
+	<select id="adminMenu" resultType="Permission">
+		SELECT PERMISSION_ID,PID,NAME,ICONCLS,URL,MYID
+		FROM PERMISSION
+		WHERE STATUS = 'A'
+		AND TYPE = #{type} AND ISUSED = 'Y'  ORDER BY SORT
+	</select>
+
+	<select id="usersMenu" parameterType="int" resultType="Permission">
+		SELECT DISTINCT p.PERMISSION_ID,p.PID,p.NAME,p.ICONCLS,p.URL,p.MYID
+		FROM ROLE_PERMISSION AS rp
+		INNER JOIN ROLE AS r ON rp.ROLE_ID = r.ROLE_ID
+		INNER JOIN USER_ROLE AS ur ON rp.ROLE_ID = ur.ROLE_ID
+		INNER JOIN USERS AS u ON u.USER_ID = ur.USER_ID
+		INNER JOIN PERMISSION AS p ON
+		rp.PERMISSION_ID = p.PERMISSION_ID
+		WHERE rp. STATUS = 'A'
+		AND r. STATUS = 'A'
+		AND ur. STATUS = 'A'
+		AND u. STATUS = 'A'
+		AND p. STATUS = 'A'
+		AND p.TYPE = #{type}
+		AND p.ISUSED = 'Y'
+		AND u.USER_ID = #{userId}  ORDER BY SORT
+	</select>
+
+	<select id="findAll" resultType="Permission">
+		SELECT
+		PERMISSION_ID,CREATED,CREATER,DESCRIPTION,ICONCLS,ISUSED,LASTMOD,MODIFYER,MYID,NAME,PID,
+		PNAME,SORT,STATE,STATUS,TYPE,URL
+		FROM PERMISSION
+		WHERE STATUS='A' AND
+		PID IS NULL ORDER BY SORT
+	</select>
+
+	<select id="findByPid" parameterType="Integer" resultType="Permission">
+		SELECT
+		PERMISSION_ID,CREATED,CREATER,DESCRIPTION,ICONCLS,ISUSED,LASTMOD,MODIFYER,MYID,NAME,PID,
+		PNAME,SORT,STATE,STATUS,TYPE,URL
+		FROM PERMISSION
+		WHERE STATUS='A' AND
+		PID = #{pid}  ORDER BY SORT
+	</select>
+
+	<select id="findSuperFunc" resultType="Permission">
+		SELECT
+		PERMISSION_ID,CREATED,CREATER,DESCRIPTION,ICONCLS,ISUSED,LASTMOD,MODIFYER,MYID,NAME,PID,
+		PNAME,SORT,STATE,STATUS,TYPE,URL
+		FROM Permission
+		WHERE STATUS = 'A'
+		AND
+		TYPE = 'F'  ORDER BY SORT
+	</select>
+
+	<insert id="insert" parameterType="Permission">
+		INSERT INTO
+		PERMISSION(CREATED,CREATER,DESCRIPTION,ICONCLS,ISUSED,LASTMOD,MODIFYER,MYID,
+		NAME,PID,PNAME,SORT,STATE,STATUS,TYPE,URL)
+		VALUES
+		(#{created,jdbcType=DATE},#{creater,jdbcType=INTEGER},#{description,jdbcType=VARCHAR},
+		#{iconCls,jdbcType=VARCHAR},#{isused,jdbcType=VARCHAR},#{lastmod,jdbcType=DATE},
+		#{modifyer,jdbcType=INTEGER},#{myid,jdbcType=VARCHAR},#{name,jdbcType=VARCHAR},
+		#{pid,jdbcType=INTEGER},#{pname,jdbcType=VARCHAR},#{sort,jdbcType=INTEGER},
+		#{state,jdbcType=VARCHAR},#{status,jdbcType=VARCHAR},#{type,jdbcType=VARCHAR},
+		#{url,jdbcType=VARCHAR})
+	</insert>
+
+	<update id="update" parameterType="Permission">
+		UPDATE PERMISSION SET
+		DESCRIPTION=#{description},ICONCLS=#{iconCls},ISUSED=#{isused},LASTMOD=#{lastmod},
+		MODIFYER=#{modifyer},MYID=#{myid},NAME=#{name},PID=#{pid},PNAME=#{pname},SORT=#{sort},
+		STATE=#{state},STATUS=#{status},TYPE=#{type},URL=#{url}
+		WHERE
+		PERMISSION_ID=#{permission_id}
+	</update>
+
+	<update id="updateById" parameterType="Integer">
+		UPDATE PERMISSION SET
+		ISUSED='N',STATUS='I' WHERE PERMISSION_ID=#{id,jdbcType=INTEGER}
+	</update>
+</mapper>
