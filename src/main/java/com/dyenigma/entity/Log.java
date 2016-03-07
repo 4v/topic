@@ -1,9 +1,9 @@
 /**
- * @Title: Log.java
- * @Package com.dyenigma.entity
- * @author dingdongliang
- * @date 2015年9月14日 下午6:10:03
- * @version V1.0
+ * Title: Log.java
+ * Package com.dyenigma.entity
+ * author dingdongliang
+ * date 2015年9月14日 下午6:10:03
+ * version V1.0
  * Copyright (c) 2015,dyenigma@163.com All Rights Reserved.
  */
 
@@ -12,10 +12,10 @@ package com.dyenigma.entity;
 import java.util.Date;
 
 /**
- * @ClassName: Log
- * @Description: TODO(这里用一句话描述这个类的作用)
- * @author dingdongliang
- * @date 2015年9月14日 下午6:10:03
+ * ClassName: Log
+ * Description: 日志类
+ * author dingdongliang
+ * date 2015年9月14日 下午6:10:03
  *
  */
 

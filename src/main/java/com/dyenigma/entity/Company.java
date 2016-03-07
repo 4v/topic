@@ -1,9 +1,9 @@
 /**
- * @Title: Company.java
- * @Package com.dyenigma.entity
- * @author dingdongliang
- * @date 2015年9月21日 上午11:03:35
- * @version V1.0
+ * Title: Company.java
+ * Package com.dyenigma.entity
+ * author dingdongliang
+ * date 2015年9月21日 上午11:03:35
+ * version V1.0
  * Copyright (c) 2015,dyenigma@163.com All Rights Reserved.
  */
 
@@ -12,10 +12,10 @@ package com.dyenigma.entity;
 import java.util.Date;
 
 /**
- * @author dingdongliang
- * @ClassName: Company
- * @Description: 公司信息类
- * @date 2015年9月21日 上午11:03:35
+ * author dingdongliang
+ * ClassName: Company
+ * Description: 公司信息类
+ * date 2015年9月21日 上午11:03:35
  */
 
 public class Company extends BaseDomain {

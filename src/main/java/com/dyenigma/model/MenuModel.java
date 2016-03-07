@@ -1,27 +1,27 @@
 /**
- * @Title: MenuModel.java
- * @Package com.dyenigma.model
- * @author dingdongliang
- * @date 2015年9月14日 下午6:26:04
- * @version V1.0
+ * Title: MenuModel.java
+ * Package com.dyenigma.model
+ * author dingdongliang
+ * date 2015年9月14日 下午6:26:04
+ * version V1.0
  * Copyright (c) 2015,dyenigma@163.com All Rights Reserved.
  */
 
 package com.dyenigma.model;
 
+import com.dyenigma.entity.BaseDomain;
 import com.fasterxml.jackson.annotation.JsonManagedReference;
 
 import java.util.ArrayList;
 import java.util.List;
 
 /**
- * @ClassName: MenuModel
- * @Description: 菜单模型类
- * @author dingdongliang
- * @date 2015年9月14日 下午6:26:04
- *
+ * ClassName: MenuModel
+ * Description: 菜单模型类
+ * author dingdongliang
+ * date 2015年9月14日 下午6:26:04
  */
-public class MenuModel {
+public class MenuModel extends BaseDomain {
     private String id;
     private String pid;
     private String name;
@@ -30,18 +30,6 @@ public class MenuModel {
     @JsonManagedReference
     private List<MenuModel> child = new ArrayList<MenuModel>();
 
-    public String toString() {
-        StringBuilder strB = new StringBuilder();
-        strB.append("id:[").append(id).append("],pid:[").append(pid).append("],name:[").append(name)
-                .append("],iconCls:[").append(iconCls).append("],url:[").append(url).append("]");
-        if (child != null) {
-            for (MenuModel model : child) {
-                strB.append("child:");
-                strB.append(model.toString());
-            }
-        }
-        return strB.toString();
-    }
 
     public String getId() {
         return id;

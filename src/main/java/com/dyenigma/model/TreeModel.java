@@ -1,24 +1,25 @@
 /**
- * @Title: TreeModel.java
- * @Package com.dyenigma.model
- * @author dingdongliang
- * @date 2015年9月23日 上午11:16:46
- * @version V1.0
+ * Title: TreeModel.java
+ * Package com.dyenigma.model
+ * author dingdongliang
+ * date 2015年9月23日 上午11:16:46
+ * version V1.0
  * Copyright (c) 2015,dyenigma@163.com All Rights Reserved.
  */
 
 package com.dyenigma.model;
 
 
+import com.dyenigma.entity.BaseDomain;
+
 /**
- * @ClassName: TreeModel
- * @Description: TODO(这里用一句话描述这个类的作用)
- * @author dingdongliang
- * @date 2015年9月23日 上午11:16:46
- *
+ * ClassName: TreeModel
+ * Description:  树展示模型
+ * author dingdongliang
+ * date 2015年9月23日 上午11:16:46
  */
 
-public class TreeModel {
+public class TreeModel extends BaseDomain {
     private String id;
     private String pid;
     private String name;

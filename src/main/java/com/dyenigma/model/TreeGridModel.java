@@ -1,25 +1,26 @@
 /**
- * @Title: TreeGridModel.java
- * @Package com.dyenigma.model
- * @author dingdongliang
- * @date 2015年9月21日 下午3:45:50
- * @version V1.0
+ * Title: TreeGridModel.java
+ * Package com.dyenigma.model
+ * author dingdongliang
+ * date 2015年9月21日 下午3:45:50
+ * version V1.0
  * Copyright (c) 2015,dyenigma@163.com All Rights Reserved.
  */
 
 package com.dyenigma.model;
 
+import com.dyenigma.entity.BaseDomain;
+
 import java.util.Date;
 
 /**
- * @ClassName: TreeGridModel
- * @Description: 编辑菜单用到的数据模型
- * @author dingdongliang
- * @date 2015年9月21日 下午3:45:50
- *
+ * author dingdongliang
+ * ClassName: TreeGridModel
+ * Description: 编辑菜单用到的数据模型
+ * date 2015年9月21日 下午3:45:50
  */
 
-public class TreeGridModel {
+public class TreeGridModel extends BaseDomain {
     private Integer permission_id;
     private Integer pid;
     private String name;

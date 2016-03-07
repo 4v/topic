@@ -1,9 +1,9 @@
 /**
- * @Title: OrganServiceImpl.java
- * @Package com.dyenigma.service.impl
- * @author dingdongliang
- * @date 2015年10月10日 上午11:30:17
- * @version V1.0
+ * Title: OrganServiceImpl.java
+ * Package com.dyenigma.service.impl
+ * author dingdongliang
+ * date 2015年10月10日 上午11:30:17
+ * version V1.0
  * Copyright (c) 2015,dyenigma@163.com All Rights Reserved.
  */
 
@@ -24,10 +24,10 @@ import java.util.Date;
 import java.util.List;
 
 /**
- * @author dingdongliang
- * @ClassName: OrganServiceImpl
- * @Description: 组织业务处理实现类
- * @date 2015年10月10日 上午11:30:17
+ * author dingdongliang
+ * ClassName: OrganServiceImpl
+ * Description: 组织业务处理实现类
+ * date 2015年10月10日 上午11:30:17
  */
 @Transactional
 @Service("organizationService")
@@ -38,7 +38,7 @@ public class OrganizationServiceImpl extends BaseServiceImpl<Organization> imple
     @Override
     public List<Organization> findByPid(String pid) {
         LOGGER.debug("读取组织信息");
-        List<Organization> oList = new ArrayList<Organization>();
+        List<Organization> oList;
         if (pid == null || "".equals(pid)) {
             oList = organizationMapper.findAll();
         } else {
@@ -65,7 +65,7 @@ public class OrganizationServiceImpl extends BaseServiceImpl<Organization> imple
     @Override
     public List<TreeModel> findSuperOrgan() {
         List<Organization> organList = organizationMapper.findSuperOrgan();
-        List<TreeModel> tList = new ArrayList<TreeModel>();
+        List<TreeModel> tList = new ArrayList<>();
         for (Organization organ : organList) {
             TreeModel treeModel = new TreeModel();
             treeModel.setId(organ.getOrganization_id().toString());

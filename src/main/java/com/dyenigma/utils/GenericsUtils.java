@@ -10,24 +10,24 @@ public class GenericsUtils {
     }
 
     /**
-     * @param clazz
-     * @return Class
-     * @throws
-     * @Title: getSuperClassGenricType
-     * @Description: (通过反射, 获得定义Class时声明的父类的范型参数的类型.)
+     * param clazz
+     * return Class
+     * throws
+     * Title: getSuperClassGenricType
+     * Description: (通过反射, 获得定义Class时声明的父类的范型参数的类型.)
      */
     public static Class getSuperClassGenricType(Class clazz) {
         return getSuperClassGenricType(clazz, 0);
     }
 
     /**
-     * @param clazz
-     * @param index
-     * @return
-     * @throws IndexOutOfBoundsException Class
-     * @throws
-     * @Title: getSuperClassGenricType
-     * @Description: (通过反射, 获得定义Class时声明的父类的范型参数的类型.)
+     * param clazz
+     * param index
+     * return
+     * throws IndexOutOfBoundsException Class
+     * throws
+     * Title: getSuperClassGenricType
+     * Description: (通过反射, 获得定义Class时声明的父类的范型参数的类型.)
      */
     public static Class getSuperClassGenricType(Class clazz, int index) throws IndexOutOfBoundsException {
 

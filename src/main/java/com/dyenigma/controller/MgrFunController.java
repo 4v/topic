@@ -1,9 +1,9 @@
 /**
- * @Title: MgrFunController.java
- * @Package com.dyenigma.web
- * @author dingdongliang
- * @date 2015年9月17日 下午3:20:40
- * @version V1.0
+ * Title: MgrFunController.java
+ * Package com.dyenigma.web
+ * author dingdongliang
+ * date 2015年9月17日 下午3:20:40
+ * version V1.0
  * Copyright (c) 2015,dyenigma@163.com All Rights Reserved.
  */
 
@@ -31,10 +31,10 @@ import javax.servlet.http.HttpServletRequest;
 import java.util.List;
 
 /**
- * @author dingdongliang
- * @ClassName: MgrFunController
- * @Description: 程式控制（跳转and业务调用）
- * @date 2015年9月17日 下午3:20:40
+ * author dingdongliang
+ * ClassName: MgrFunController
+ * Description: 程式控制（跳转and业务调用）
+ * date 2015年9月17日 下午3:20:40
  */
 @Controller
 @RequestMapping(value = "/manage/function")
@@ -46,11 +46,11 @@ public class MgrFunController extends BaseController {
     private PermissionService permissionService;
 
     /**
-     * @param @return 参数
-     * @return String 返回类型
-     * @throws
-     * @Title: main
-     * @Description: 打开操作菜单页面
+     * param return 参数
+     * return String 返回类型
+     * throws
+     * Title: main
+     * Description: 打开操作菜单页面
      */
     @RequestMapping("/functionMain")
     public String main() {
@@ -61,12 +61,12 @@ public class MgrFunController extends BaseController {
     }
 
     /**
-     * @param @param  request
-     * @param @return 参数
-     * @return List<TreeGridModel> 返回类型
-     * @throws
-     * @Title: findAllFunctionList
-     * @Description: 显示所有可操作的菜单项
+     * param    request
+     * param return 参数
+     * return List<TreeGridModel> 返回类型
+     * throws
+     * Title: findAllFunctionList
+     * Description: 显示所有可操作的菜单项
      */
     @ResponseBody
     @RequestMapping(value = "/findAllFunctionList", produces = "application/json;charset=utf-8")
@@ -76,11 +76,11 @@ public class MgrFunController extends BaseController {
     }
 
     /**
-     * @param @return 参数
-     * @return List<TreeModel> 返回类型
-     * @throws
-     * @Title: findSuperFunc
-     * @Description:显示所有可添加子项的菜单项
+     * param return 参数
+     * return List<TreeModel> 返回类型
+     * throws
+     * Title: findSuperFunc
+     * Description:显示所有可添加子项的菜单项
      */
     @ResponseBody
     @RequestMapping(value = "/findSuperFunc", produces = "application/json;charset=utf-8")
@@ -89,12 +89,12 @@ public class MgrFunController extends BaseController {
     }
 
     /**
-     * @param @param  request
-     * @param @return 参数
-     * @return String 返回类型
-     * @throws
-     * @Title: delFunction
-     * @Description: 删除程式处理
+     * param    request
+     * param return 参数
+     * return String 返回类型
+     * throws
+     * Title: delFunction
+     * Description: 删除程式处理
      */
     @ResponseBody
     @RequestMapping(value = "/delFunction", produces = "application/json;charset=utf-8")
@@ -112,12 +112,12 @@ public class MgrFunController extends BaseController {
     }
 
     /**
-     * @param @param  request
-     * @param @return 参数
-     * @return ModelAndView 返回类型
-     * @throws
-     * @Title: functionEditDlg
-     * @Description: 跳转到编辑程式页面
+     * param    request
+     * param return 参数
+     * return ModelAndView 返回类型
+     * throws
+     * Title: functionEditDlg
+     * Description: 跳转到编辑程式页面
      */
     @RequestMapping(value = "/functionEditDlg", method = RequestMethod.GET)
     public ModelAndView functionEditDlg() {
@@ -131,12 +131,12 @@ public class MgrFunController extends BaseController {
     }
 
     /**
-     * @param @param  request
-     * @param @return 参数
-     * @return String 返回类型
-     * @throws
-     * @Title: saveOrUpdateFunc
-     * @Description: 新增程式或者更新程式处理
+     * param    request
+     * param return 参数
+     * return String 返回类型
+     * throws
+     * Title: saveOrUpdateFunc
+     * Description: 新增程式或者更新程式处理
      */
     @ResponseBody
     @RequestMapping(value = "/saveOrUpdateFunc", produces = "application/json;charset=utf-8")

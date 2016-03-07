@@ -1,9 +1,9 @@
 /**
- * @Title: Permission.java
- * @Package com.dyenigma.entity
- * @author dingdongliang
- * @date 2015年9月14日 下午2:36:26
- * @version V1.0
+ * Title: Permission.java
+ * Package com.dyenigma.entity
+ * author dingdongliang
+ * date 2015年9月14日 下午2:36:26
+ * version V1.0
  * Copyright (c) 2015,dyenigma@163.com All Rights Reserved.
  */
 
@@ -14,10 +14,10 @@ import java.util.HashSet;
 import java.util.Set;
 
 /**
- * @author dingdongliang
- * @ClassName: Permission
- * @Description: 菜单类
- * @date 2015年9月14日 下午2:36:26
+ * author dingdongliang
+ * ClassName: Permission
+ * Description: 菜单类
+ * date 2015年9月14日 下午2:36:26
  */
 
 public class Permission extends BaseDomain {

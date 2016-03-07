@@ -11,7 +11,7 @@
 
 8.在src/main/java下建立项目开发结构，使用SpringMVC+Spring+Mybatis开发，包含并不仅限于controller、model、mapper、service
 9.添加各种文件
-
+10.IDEA中错误警报不能注入Bean时，Settings-Inspections-Spring-Spring Core-Code-Autowiring for Bean Class去除勾选
 
 提交项目到Github
 

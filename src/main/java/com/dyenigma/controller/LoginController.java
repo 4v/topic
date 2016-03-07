@@ -1,10 +1,10 @@
 
 /**
- * @Title: LoginController.java
- * @Package com.dyenigma.controller
- * @author dingdongliang
- * @date 2015年9月8日 下午3:37:14
- * @version V1.0
+ * Title: LoginController.java
+ * Package com.dyenigma.controller
+ * author dingdongliang
+ * date 2015年9月8日 下午3:37:14
+ * version V1.0
  * Copyright (c) 2015,dyenigma@163.com All Rights Reserved.
  */
 
@@ -35,10 +35,10 @@ import javax.servlet.http.HttpServletRequest;
 import java.util.List;
 
 /**
- * @author dingdongliang
- * @ClassName: LoginController
- * @Description: 登录处理
- * @date 2015年9月8日 下午3:37:14
+ * author dingdongliang
+ * ClassName: LoginController
+ * Description: 登录处理
+ * date 2015年9月8日 下午3:37:14
  */
 @Controller
 public class LoginController {
@@ -48,12 +48,12 @@ public class LoginController {
     private PermissionService permissionService;
 
     /**
-     * @param @param  request
-     * @param @return 参数
-     * @return String 返回类型
-     * @throws
-     * @Title: login
-     * @Description: 用户登录
+     * param request
+     * param return 参数
+     * return String 返回类型
+     * throws
+     * Title: login
+     * Description: 用户登录
      */
     @RequestMapping(value = "/login", method = RequestMethod.GET)
     public String login(HttpServletRequest request) {
@@ -122,12 +122,12 @@ public class LoginController {
     }
 
     /**
-     * @param @param  request
-     * @param @return 参数
-     * @return String 返回类型
-     * @throws
-     * @Title: logout
-     * @Description: 用户登出
+     * param    request
+     * param return 参数
+     * return String 返回类型
+     * throws
+     * Title: logout
+     * Description: 用户登出
      */
     @RequestMapping("/logout")
     public String logout() {
@@ -137,12 +137,12 @@ public class LoginController {
     }
 
     /**
-     * @param @param  response
-     * @param @return 参数
-     * @return String 返回类型
-     * @throws
-     * @Title: getUsersMenu
-     * @Description:查询用户所有权限菜单
+     * param    response
+     * param return 参数
+     * return String 返回类型
+     * throws
+     * Title: getUsersMenu
+     * Description:查询用户所有权限菜单
      */
     @ResponseBody
     @RequestMapping(value = "/getUsersMenu", produces = "application/json;charset=utf-8")

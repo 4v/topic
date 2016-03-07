@@ -1,9 +1,9 @@
 /**
- * @Title: MgrUserController.java
- * @Package com.dyenigma.controller
- * @author dingdongliang
- * @date 2015年10月26日 下午2:49:45
- * @version V1.0
+ * Title: MgrUserController.java
+ * Package com.dyenigma.controller
+ * author dingdongliang
+ * date 2015年10月26日 下午2:49:45
+ * version V1.0
  * Copyright (c) 2015,dyenigma@163.com All Rights Reserved.
  */
 
@@ -21,10 +21,10 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import java.util.List;
 
 /**
- * @ClassName: MgrUserController
- * @Description: 用户管理控制类（跳转和业务控制）
- * @author dingdongliang
- * @date 2015年10月26日 下午2:49:45
+ * ClassName: MgrUserController
+ * Description: 用户管理控制类（跳转和业务控制）
+ * author dingdongliang
+ * date 2015年10月26日 下午2:49:45
  *
  */
 @Controller
@@ -43,12 +43,12 @@ public class MgrUsersController extends BaseController {
 
     /**
      *
-     * @Title: findAllOrganList
-     * @Description: 查询所有用户
-     * @param @param request
-     * @param @return 参数
-     * @return List<Organization> 返回类型
-     * @throws
+     * Title: findAllOrganList
+     * Description: 查询所有用户
+     * param   request
+     * param return 参数
+     * return List<Organization> 返回类型
+     * throws
      */
     @ResponseBody
     @RequestMapping(value = "/findAllUserList", produces = "application/json;charset=utf-8")

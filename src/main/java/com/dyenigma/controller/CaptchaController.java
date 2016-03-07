@@ -1,11 +1,11 @@
 
 
 /**
- * @Title: CaptchaController.java
- * @Package com.dyenigma.controller
- * @author dingdongliang
- * @date 2015年9月10日 上午8:37:31
- * @version V1.0
+ * Title: CaptchaController.java
+ * Package com.dyenigma.controller
+ * author dingdongliang
+ * date 2015年9月10日 上午8:37:31
+ * version V1.0
  * Copyright (c) 2015,dyenigma@163.com All Rights Reserved.
  */
 
@@ -25,10 +25,10 @@ import javax.servlet.http.HttpServletResponse;
 import java.awt.image.BufferedImage;
 
 /**
- * @author dingdongliang
- * @ClassName: CaptchaController
- * @Description: 验证码生成控制，使用Kaptcha工具
- * @date 2015年9月10日 上午8:37:31
+ * author dingdongliang
+ * ClassName: CaptchaController
+ * Description: 验证码生成控制，使用Kaptcha工具
+ * date 2015年9月10日 上午8:37:31
  */
 @Controller
 public class CaptchaController {

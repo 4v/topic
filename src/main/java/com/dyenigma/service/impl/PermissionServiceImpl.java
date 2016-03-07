@@ -1,9 +1,9 @@
 /**
- * @Title: PermissionServiceImpl.java
- * @Package com.dyenigma.service.impl
- * @author dingdongliang
- * @date 2015年9月14日 下午4:52:52
- * @version V1.0
+ * Title: PermissionServiceImpl.java
+ * Package com.dyenigma.service.impl
+ * author dingdongliang
+ * date 2015年9月14日 下午4:52:52
+ * version V1.0
  * Copyright (c) 2015,dyenigma@163.com All Rights Reserved.
  */
 
@@ -16,7 +16,6 @@ import com.dyenigma.model.TreeModel;
 import com.dyenigma.service.PermissionService;
 import com.dyenigma.shiro.ShiroUser;
 import com.dyenigma.utils.Constants;
-import com.dyenigma.utils.StringUtil;
 import org.apache.commons.beanutils.BeanUtils;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -29,10 +28,10 @@ import java.util.Date;
 import java.util.List;
 
 /**
- * @author dingdongliang
- * @ClassName: PermissionServiceImpl
- * @Description: 权限业务处理实现类
- * @date 2015年9月14日 下午4:52:52
+ * author dingdongliang
+ * ClassName: PermissionServiceImpl
+ * Description: 权限业务处理实现类
+ * date 2015年9月14日 下午4:52:52
  */
 @Transactional
 @Service("permissionService")
@@ -149,7 +148,7 @@ public class PermissionServiceImpl extends BaseServiceImpl<Permission> implement
     @Override
     public boolean persistenceFunction(Permission permission) {
         Integer userId = Constants.getCurrendUser().getUserId();
-        if (StringUtil.isEmpty(permission.getPermission_id().toString())) {
+        if (permission.getPermission_id() == null) {
             permission.setCreated(new Date());
             permission.setLastmod(new Date());
             permission.setCreater(userId);

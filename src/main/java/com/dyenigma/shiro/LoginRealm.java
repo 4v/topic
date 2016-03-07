@@ -1,17 +1,13 @@
 package com.dyenigma.shiro;
 
-import java.util.List;
-
-import javax.annotation.PostConstruct;
-
+import com.dyenigma.entity.Permission;
+import com.dyenigma.entity.Users;
+import com.dyenigma.service.PermissionService;
+import com.dyenigma.service.UsersService;
 import org.apache.commons.lang3.builder.ReflectionToStringBuilder;
 import org.apache.commons.lang3.builder.ToStringStyle;
 import org.apache.shiro.SecurityUtils;
-import org.apache.shiro.authc.AuthenticationException;
-import org.apache.shiro.authc.AuthenticationInfo;
-import org.apache.shiro.authc.AuthenticationToken;
-import org.apache.shiro.authc.SimpleAuthenticationInfo;
-import org.apache.shiro.authc.UsernamePasswordToken;
+import org.apache.shiro.authc.*;
 import org.apache.shiro.authc.credential.HashedCredentialsMatcher;
 import org.apache.shiro.authz.AuthorizationInfo;
 import org.apache.shiro.authz.SimpleAuthorizationInfo;
@@ -25,17 +21,15 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 
-import com.dyenigma.entity.Permission;
-import com.dyenigma.entity.Users;
-import com.dyenigma.service.PermissionService;
-import com.dyenigma.service.UsersService;
+import javax.annotation.PostConstruct;
+import java.util.List;
 
 /**
  * 
- * @ClassName: LoginRealm
- * @Description: 自定义的指定Shiro验证用户登录的类
- * @author dingdongliang
- * @date 2015年9月8日 下午12:01:00
+ * ClassName: LoginRealm
+ * Description: 自定义的指定Shiro验证用户登录的类
+ * author dingdongliang
+ * date 2015年9月8日 下午12:01:00
  *
  */
 public class LoginRealm extends AuthorizingRealm {
@@ -137,8 +131,8 @@ public class LoginRealm extends AuthorizingRealm {
 
 	/**
 	 * 将一些数据放到ShiroSession中,以便于其它地方使用
-	 * 
-	 * @see 比如Controller,使用时直接用HttpSession.getAttribute(key)就可以取到
+	 *
+	 * 比如Controller,使用时直接用HttpSession.getAttribute(key)就可以取到
 	 */
 	private void setSession(Object key, Object value) {
 		Subject subject = SecurityUtils.getSubject();

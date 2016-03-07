@@ -1,9 +1,9 @@
 /**
- * @Title: RolePermission.java
- * @Package com.dyenigma.entity
- * @author dingdongliang
- * @date 2015年9月14日 下午2:37:30
- * @version V1.0
+ * Title: RolePermission.java
+ * Package com.dyenigma.entity
+ * author dingdongliang
+ * date 2015年9月14日 下午2:37:30
+ * version V1.0
  * Copyright (c) 2015,dyenigma@163.com All Rights Reserved.
  */
 
@@ -12,10 +12,10 @@ package com.dyenigma.entity;
 import java.util.Date;
 
 /**
- * @author dingdongliang
- * @ClassName: RolePermission
- * @Description: TODO(这里用一句话描述这个类的作用)
- * @date 2015年9月14日 下午2:37:30
+ * author dingdongliang
+ * ClassName: RolePermission
+ * Description: 权限许可
+ * date 2015年9月14日 下午2:37:30
  */
 
 public class RolePermission extends BaseDomain {

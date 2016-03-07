@@ -5,8 +5,8 @@ import javax.servlet.http.HttpServletRequest;
 /**
  * 处理IP地址信息，获取访问的真实IP地址
  *
- * @author dyenigma
- * @create 2016/3/1 9:56
+ * author dyenigma
+ * create 2016/3/1 9:56
  */
 public class IpUtil {
 

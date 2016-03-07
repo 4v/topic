@@ -1,9 +1,9 @@
 /**
- * @Title: MgrOrganController.java
- * @Package com.dyenigma.controller
- * @author dingdongliang
- * @date 2015年10月10日 上午11:09:11
- * @version V1.0
+ * Title: MgrOrganController.java
+ * Package com.dyenigma.controller
+ * author dingdongliang
+ * date 2015年10月10日 上午11:09:11
+ * version V1.0
  * Copyright (c) 2015,dyenigma@163.com All Rights Reserved.
  */
 
@@ -29,10 +29,10 @@ import javax.servlet.http.HttpServletRequest;
 import java.util.List;
 
 /**
- * @author dingdongliang
- * @ClassName: MgrOrganController
- * @Description: 组织管理控制类（跳转和业务控制）
- * @date 2015年10月10日 上午11:09:11
+ * author dingdongliang
+ * ClassName: MgrOrganController
+ * Description: 组织管理控制类（跳转和业务控制）
+ * date 2015年10月10日 上午11:09:11
  */
 @Controller
 @RequestMapping(value = "/manage/organ")
@@ -49,12 +49,12 @@ public class MgrOrganController extends BaseController {
     }
 
     /**
-     * @param @param  request
-     * @param @return 参数
-     * @return List<Organization> 返回类型
-     * @throws
-     * @Title: findAllOrganList
-     * @Description: 按节点查询所有组织
+     * param    request
+     * param return 参数
+     * return List<Organization> 返回类型
+     * throws
+     * Title: findAllOrganList
+     * Description: 按节点查询所有组织
      */
     @ResponseBody
     @RequestMapping(value = "/findAllOrganList", produces = "application/json;charset=utf-8")
@@ -64,12 +64,12 @@ public class MgrOrganController extends BaseController {
     }
 
     /**
-     * @param @param  request
-     * @param @return 参数
-     * @return ModelAndView 返回类型
-     * @throws
-     * @Title: organEditDlg
-     * @Description: 跳转到编辑组织页面
+     * param    request
+     * param return 参数
+     * return ModelAndView 返回类型
+     * throws
+     * Title: organEditDlg
+     * Description: 跳转到编辑组织页面
      */
     @RequestMapping(value = "/organEditDlg", method = RequestMethod.GET)
     public ModelAndView organEditDlg() {
@@ -83,12 +83,12 @@ public class MgrOrganController extends BaseController {
     }
 
     /**
-     * @param @param  request
-     * @param @return 参数
-     * @return String 返回类型
-     * @throws
-     * @Title: delOrgan
-     * @Description: 删除组织处理
+     * param    request
+     * param return 参数
+     * return String 返回类型
+     * throws
+     * Title: delOrgan
+     * Description: 删除组织处理
      */
     @ResponseBody
     @RequestMapping(value = "/delOrgan", produces = "application/json;charset=utf-8")
@@ -109,11 +109,11 @@ public class MgrOrganController extends BaseController {
     }
 
     /**
-     * @param @return 参数
-     * @return List<TreeModel> 返回类型
-     * @throws
-     * @Title: findSuperOrgan
-     * @Description:显示所有可添加子项的组织项
+     * param return 参数
+     * return List<TreeModel> 返回类型
+     * throws
+     * Title: findSuperOrgan
+     * Description:显示所有可添加子项的组织项
      */
     @ResponseBody
     @RequestMapping(value = "/findSuperOrgan", produces = "application/json;charset=utf-8")
@@ -122,12 +122,12 @@ public class MgrOrganController extends BaseController {
     }
 
     /**
-     * @param @param  request
-     * @param @return 参数
-     * @return String 返回类型
-     * @throws
-     * @Title: saveOrUpdateOrgan
-     * @Description: 新增程式或者更新组织处理
+     * param    request
+     * param return 参数
+     * return String 返回类型
+     * throws
+     * Title: saveOrUpdateOrgan
+     * Description: 新增程式或者更新组织处理
      */
     @ResponseBody
     @RequestMapping(value = "/saveOrUpdateOrgan", produces = "application/json;charset=utf-8")

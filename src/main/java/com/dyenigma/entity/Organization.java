@@ -1,9 +1,9 @@
 /**
- * @Title: Organization.java
- * @Package com.dyenigma.entity
- * @author dingdongliang
- * @date 2015年9月21日 上午11:07:55
- * @version V1.0
+ * Title: Organization.java
+ * Package com.dyenigma.entity
+ * author dingdongliang
+ * date 2015年9月21日 上午11:07:55
+ * version V1.0
  * Copyright (c) 2015,dyenigma@163.com All Rights Reserved.
  */
 
@@ -12,10 +12,10 @@ package com.dyenigma.entity;
 import java.util.Date;
 
 /**
- * @ClassName: Organization
- * @Description: 组织类
- * @author dingdongliang
- * @date 2015年9月21日 上午11:07:55
+ * ClassName: Organization
+ * Description: 组织类
+ * author dingdongliang
+ * date 2015年9月21日 上午11:07:55
  *
  */
 

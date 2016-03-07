@@ -11,13 +11,12 @@ import java.io.StringWriter;
 import java.util.*;
 
 /**
- * 日志工具类，@TODO
- *
- * @author dyenigma
- * @create 2016/3/1 9:53
+ * 日志工具类 //TODO
+ * <p>
+ * author dyenigma
+ * create 2016/3/1 9:53
  */
 public class LogUtils {
-
 
 
     public static final Logger ERROR_LOG = LoggerFactory.getLogger("es-error");
@@ -26,8 +25,8 @@ public class LogUtils {
     /**
      * 记录访问日志
      * [username][jsessionid][ip][accept][UserAgent][url][params][Referer]
-     *
-     * @param request
+     * <p>
+     * param request
      */
     public static void logAccess(HttpServletRequest request) {
         String username = getUsername();
@@ -55,9 +54,9 @@ public class LogUtils {
     /**
      * 记录异常错误
      * 格式 [exception]
-     *
-     * @param message
-     * @param e
+     * <p>
+     * param message
+     * param e
      */
     public static void logError(String message, Throwable e) {
         String username = getUsername();
@@ -71,8 +70,8 @@ public class LogUtils {
     /**
      * 记录页面错误
      * 错误日志记录 [page/eception][username][statusCode][errorMessage][servletName][uri][exceptionName][ip][exception]
-     *
-     * @param request
+     * <p>
+     * param request
      */
     public static void logPageError(HttpServletRequest request) {
         String username = getUsername();

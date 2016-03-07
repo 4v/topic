@@ -13,8 +13,8 @@ public class CipherUtil {
     /**
      * cipher password
      *
-     * @param inputString
-     * @return
+     * param inputString
+     * return
      */
     public static String generatePassword(String inputString) {
         return encodeByMD5(inputString);
@@ -23,9 +23,9 @@ public class CipherUtil {
     /**
      * validate password
      *
-     * @param password
-     * @param inputString
-     * @return
+     * param password
+     * param inputString
+     * return
      */
     public static boolean validatePassword(String password, String inputString) {
         if (password.equals(encodeByMD5(inputString))) {
@@ -38,8 +38,8 @@ public class CipherUtil {
     /**
      * encode
      *
-     * @param originString
-     * @return
+     * param originString
+     * return
      */
     private static String encodeByMD5(String originString) {
         if (originString != null) {
@@ -58,8 +58,8 @@ public class CipherUtil {
     /**
      * change the Byte[] to hex string
      *
-     * @param b
-     * @return
+     * param b
+     * return
      */
     private static String byteArrayToHexString(byte[] b) {
         StringBuffer resultSb = new StringBuffer();
@@ -72,8 +72,8 @@ public class CipherUtil {
     /**
      * change a byte to hex string
      *
-     * @param b
-     * @return
+     * param b
+     * return
      */
     private static String byteToHexString(byte b) {
         int n = b;

@@ -10,9 +10,9 @@ import java.util.Map;
 
 /**
  * Http Post模仿表单上传文件到服务器
- *
- * @author dyenigma
- * @create 2016/2/26 14:20
+ * <p>
+ * author dyenigma
+ * create 2016/2/26 14:20
  */
 public class HttpPost {
     public static String post(String urlStr, Map<String, String> paramsMap, Map<String, String> fileMap) {
