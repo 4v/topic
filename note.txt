@@ -258,3 +258,34 @@ F 4. 框架搭建完善成熟，在此基础上做过很多项目，系统具有
 26.地图选点获取经纬度坐标，根据俩经纬度计算距离
 27.tab标签页面功能，标签自由切换，不重复操作数据库
 28.站内信语音提醒，js控制音频播放
+
+
+
+
+
+oracle定时任务
+--新建存储过程
+create or replace PROCEDURE del_dzfp_yzm as
+BEGIN
+DELETE from DZFP_YZM where SYSDATE-hqsj>=30/60/24;
+end;
+
+--新建定时任务
+declare 
+	job_delYzm number;
+begin
+    dbms_job.submit(job_delYzm,'del_dzfp_yzm;',sysdate,'sysdate+1/24/60');
+end;
+ 
+--查找定时任务的id
+select * from dba_jobs;
+
+--执行定时任务
+begin
+	dbms_job.run(301);
+end;
+
+--删除定时任务
+begin  
+dbms_job.remove(301);  
+end; 
