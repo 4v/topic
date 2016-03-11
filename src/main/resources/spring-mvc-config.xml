@@ -64,4 +64,37 @@
             <value>4096</value>
         </property>
     </bean>
+
+    <!--freemarker页面解析器
+    <bean id="viewResolver"
+          class="org.springframework.web.servlet.view.freemarker.FreeMarkerViewResolver">
+        <property name="suffix" value=".ftl"></property>
+        <property name="contentType" value="text/html;charset=UTF-8" />-->
+    <!-- <property name="viewClass" value="org.springframework.web.servlet.view.freemarker.FreeMarkerView" /> -->
+    <!-- 将Spring的FreeMarkerView改成我们扩展的View -->
+    <!-- <property name="viewClass" value="com.dyenigma.freemarker.MyFreeMarkerView" />-->
+    <!--<property name="exposeRequestAttributes" value="true" />-->
+    <!--<property name="exposeSessionAttributes" value="true" />-->
+    <!--<property name="exposeSpringMacroHelpers" value="true" />
+    </bean>-->
+
+    <!--<bean id="fmXmlEscape" class="freemarker.template.utility.XmlEscape" /> -->
+
+
+    <!-- 配置Freemarker -->
+    <!--<bean id="freemarkerConfigurer"
+          class="org.springframework.web.servlet.view.freemarker.FreeMarkerConfigurer">
+        <property name="templateLoaderPath" value="/WEB-INF/freemarker/"></property>
+        <property name="freemarkerVariables">
+            <map>
+                <entry key="xml_escape" value-ref="fmXmlEscape" />
+            </map>
+        </property>
+        <property name="freemarkerSettings">
+            <props>
+                <prop key="template_update_delay">1</prop>
+                <prop key="defaultEncoding">UTF-8</prop>
+            </props>
+        </property>
+    </bean>-->
 </beans>
