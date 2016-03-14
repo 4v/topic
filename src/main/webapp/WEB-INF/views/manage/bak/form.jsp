@@ -2,12 +2,7 @@
          pageEncoding="UTF-8" %>
 <%@ taglib prefix="spring" uri="http://www.springframework.org/tags" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
-<%
-    String path = request.getContextPath();
-    String basePath = request.getScheme() + "://" + request.getServerName() + ":"
-            + request.getServerPort() + path + "/";
-%>
-<link href="<%=basePath%>resources/core/css/style.css" rel="stylesheet"
+<link href="/resources/core/css/style.css" rel="stylesheet"
       type="text/css"/>
 <div class="place">
     <span>位置：</span>

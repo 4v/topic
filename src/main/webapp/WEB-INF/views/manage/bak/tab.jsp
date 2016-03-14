@@ -2,25 +2,18 @@
          pageEncoding="UTF-8" %>
 <%@ taglib prefix="spring" uri="http://www.springframework.org/tags" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
-<%
-    String path = request.getContextPath();
-    String basePath = request.getScheme() + "://"
-            + request.getServerName() + ":" + request.getServerPort()
-            + path + "/";
-%>
-
-<link href="<%=basePath%>resources/core/css/style.css" rel="stylesheet"
+<link href="/resources/core/css/style.css" rel="stylesheet"
       type="text/css"/>
-<link href="<%=basePath%>resources/core/css/select.css" rel="stylesheet"
+<link href="/resources/core/css/select.css" rel="stylesheet"
       type="text/css"/>
 <script type="text/javascript"
-        src="<%=basePath%>resources/public/js/jquery.js"></script>
+        src="/resources/public/js/jquery.js"></script>
 <script type="text/javascript"
-        src="<%=basePath%>resources/core/js/jquery.idTabs.min.js"></script>
+        src="/resources/core/js/jquery.idTabs.min.js"></script>
 <script type="text/javascript"
-        src="<%=basePath%>resources/core/js/select-ui.min.js"></script>
+        src="/resources/core/js/select-ui.min.js"></script>
 <script type="text/javascript"
-        src="<%=basePath%>resources/core/editor/kindeditor.js"></script>
+        src="/resources/core/editor/kindeditor.js"></script>
 
 <script type="text/javascript">
     KE.show({
@@ -183,7 +176,7 @@
                     <th><input name="" type="checkbox" value=""
                                checked="checked"/></th>
                     <th>编号<i class="sort"><img
-                            src="<%=basePath%>resources/core/images/px.gif"/></i></th>
+                            src="/resources/core/images/px.gif"/></i></th>
                     <th>标题</th>
                     <th>用户</th>
                     <th>籍贯</th>

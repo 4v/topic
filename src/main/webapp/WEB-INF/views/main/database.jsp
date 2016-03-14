@@ -2,12 +2,6 @@
          pageEncoding="UTF-8" %>
 <%@ taglib prefix="spring" uri="http://www.springframework.org/tags" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
-<%
-    String path = request.getContextPath();
-    String basePath = request.getScheme() + "://"
-            + request.getServerName() + ":" + request.getServerPort()
-            + path + "/";
-%>
 <!DOCTYPE HTML>
 <html lang="zh-CN">
 <head>
@@ -15,14 +9,14 @@
     <title>4Tiro-数据库</title>
     <meta name="keywords" content="Java,git,spring,mvc,mybatis,oracle,mysql,shiro"/>
     <meta name="description" content=""/>
-    <link rel="stylesheet" href="<%=basePath%>resources/show/css/index.css"/>
-    <link rel="stylesheet" href="<%=basePath%>resources/show/css/style.css"/>
+    <link rel="stylesheet" href="/resources/show/css/index.css"/>
+    <link rel="stylesheet" href="/resources/show/css/style.css"/>
     <script type="text/javascript"
-            src="<%=basePath%>resources/public/js/jquery.js"></script>
+            src="/resources/public/js/jquery.js"></script>
     <script type="text/javascript"
-            src="<%=basePath%>resources/show/js/jquery.SuperSlide.2.1.1.js"></script>
+            src="/resources/show/js/jquery.SuperSlide.2.1.1.js"></script>
     <!--[if lt IE 9]>
-    <script src="<%=basePath%>resources/show/js/html5.js"></script>
+    <script src="/resources/show/js/html5.js"></script>
     <![endif]-->
 </head>
 

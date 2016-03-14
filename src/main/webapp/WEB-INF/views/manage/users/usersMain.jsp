@@ -1,22 +1,17 @@
 <%@ page language="java" pageEncoding="UTF-8" %>
 <%@ taglib prefix="shiro" uri="http://shiro.apache.org/tags" %>
-<%
-    String path = request.getContextPath();
-    String basePath = request.getScheme() + "://" + request.getServerName() + ":"
-            + request.getServerPort() + path + "/";
-%>
 <!DOCTYPE html>
 <html>
 <head>
     <meta charset="UTF-8">
     <title>用户管理</title>
-    <script type="text/javascript" src="<%=basePath%>resources/public/js/jquery.js"></script>
-    <link href="<%=basePath%>resources/core/css/style.css" rel="stylesheet" type="text/css"/>
-    <link rel="stylesheet" type="text/css" href="<%=basePath%>resources/public/css/easyui.css">
-    <link rel="stylesheet" type="text/css" href="<%=basePath%>resources/public/css/icon.css">
-    <script type="text/javascript" src="<%=basePath%>resources/public/js/jquery.easyui.min.js"></script>
-    <link rel="stylesheet" type="text/css" href="<%=basePath%>resources/check/css/common.css">
-    <script type="text/javascript" src="<%=basePath%>resources/check/js/jqueryUtil.js"></script>
+    <script type="text/javascript" src="/resources/public/js/jquery.js"></script>
+    <link href="/resources/core/css/style.css" rel="stylesheet" type="text/css"/>
+    <link rel="stylesheet" type="text/css" href="/resources/public/css/easyui.css">
+    <link rel="stylesheet" type="text/css" href="/resources/public/css/icon.css">
+    <script type="text/javascript" src="/resources/public/js/jquery.easyui.min.js"></script>
+    <link rel="stylesheet" type="text/css" href="/resources/check/css/common.css">
+    <script type="text/javascript" src="/resources/check/js/jqueryUtil.js"></script>
     <script type="text/javascript">
         var $dg;
         var $grid;
@@ -25,7 +20,7 @@
             $grid = $dg.treegrid({
                 width: 'auto',
                 height: $(this).height() - 90,
-                url: "<%=basePath%>manage/users/findAllUserList",
+                url: "/manage/users/findAllUserList",
                 rownumbers: true,
                 animate: true,
                 collapsible: true,
@@ -96,7 +91,7 @@
                     title: "添加用户",
                     width: 600,
                     height: 400,
-                    href: "<%=basePath%>manage/users/usersEditDlg",
+                    href: "/manage/users/usersEditDlg",
                     buttons: [{
                         text: '保存',
                         iconCls: 'icon-yes',
@@ -124,7 +119,7 @@
                         title: "编辑用户",
                         width: 600,
                         height: 400,
-                        href: "<%=basePath%>manage/users/usersEditDlg",
+                        href: "/manage/users/usersEditDlg",
                         onLoad: function () {
                             var f = $.modalDialog.handler.find("#form");
                             f.form("load", row);
@@ -163,7 +158,7 @@
                             function (result) {
                                 if (result) {
                                     var request = $.ajax({
-                                        url: "<%=basePath%>manage/users/delUser",
+                                        url: "/manage/users/delUser",
                                         data: {
                                             'id': node.userId
                                         },
@@ -208,17 +203,17 @@
         <ul class="toolbar">
             <shiro:hasPermission name="userAdd">
                 <li id="addUser"><span><img
-                        src="<%=basePath%>resources/core/images/t01.png"/></span>添加
+                        src="/resources/core/images/t01.png"/></span>添加
                 </li>
             </shiro:hasPermission>
             <shiro:hasPermission name="userEdit">
                 <li id="updateUser"><span><img
-                        src="<%=basePath%>resources/core/images/t02.png"/></span>修改
+                        src="/resources/core/images/t02.png"/></span>修改
                 </li>
             </shiro:hasPermission>
             <shiro:hasPermission name="userDel">
                 <li id="delUser"><span><img
-                        src="<%=basePath%>resources/core/images/t03.png"/></span>删除
+                        src="/resources/core/images/t03.png"/></span>删除
                 </li>
             </shiro:hasPermission>
         </ul>
@@ -230,7 +225,7 @@
             <span>提示信息</span><a></a>
         </div>
         <div class="tipinfo">
-            <span><img src="<%=basePath%>resources/core/images/ticon.png"/></span>
+            <span><img src="/resources/core/images/ticon.png"/></span>
             <div class="tipright">
                 <p>是否确认对信息的修改 ？</p>
                 <cite>如果是请点击确定按钮 ，否则请点取消。</cite>

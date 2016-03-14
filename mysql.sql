@@ -35,10 +35,10 @@ CREATE TABLE `PERMISSION` (
 -- Records of PERMISSION
 -- ----------------------------
 INSERT INTO `PERMISSION` VALUES ('1', null, '系统管理', '', '0', 'sysMgr', 'F', 'Y', 'closed', 'javascript:void(0);', 'icon-home', 'A', '系统管理', '2013-05-23 00:00:00', '2013-06-18 00:00:00', '1', '1');
-INSERT INTO `PERMISSION` VALUES ('2', '1', '菜单管理', '系统管理', '0', 'funMgr', 'F', 'Y', 'closed', '/manage/function/functionMain', 'icon-setting', 'A', '菜单管理', '2013-05-23 00:00:00', '2013-05-27 00:00:00', '1', '1');
-INSERT INTO `PERMISSION` VALUES ('3', '2', '菜单功能新增', '系统管理', '4', 'funAdd', 'O', 'Y', 'open', 'javascript:void(0);', 'icon-add', 'A', '菜单功能新增', '2013-05-24 00:00:00', '2013-05-27 00:00:00', '1', '1');
-INSERT INTO `PERMISSION` VALUES ('4', '2', '菜单功能编辑', '系统管理', '5', 'funEdit', 'O', 'Y', 'open', 'javascript:void(0);', 'icon-edit', 'A', '菜单功能编辑', '2013-05-24 00:00:00', '2013-06-14 00:00:00', '1', '1');
-INSERT INTO `PERMISSION` VALUES ('5', '2', '菜单功能删除', '系统管理', '6', 'funDel', 'O', 'Y', 'open', 'javascript:void(0);', 'icon-remove', 'A', '菜单功能删除', '2013-05-24 00:00:00', '2013-06-14 00:00:00', '1', '1');
+INSERT INTO `PERMISSION` VALUES ('2', '1', '菜单管理', '系统管理', '0', 'menuMgr', 'F', 'Y', 'closed', '/manage/menu/menuMain', 'icon-setting', 'A', '菜单管理', '2013-05-23 00:00:00', '2013-05-27 00:00:00', '1', '1');
+INSERT INTO `PERMISSION` VALUES ('3', '2', '菜单功能新增', '系统管理', '4', 'menuAdd', 'O', 'Y', 'open', 'javascript:void(0);', 'icon-add', 'A', '菜单功能新增', '2013-05-24 00:00:00', '2013-05-27 00:00:00', '1', '1');
+INSERT INTO `PERMISSION` VALUES ('4', '2', '菜单功能编辑', '系统管理', '5', 'menuEdit', 'O', 'Y', 'open', 'javascript:void(0);', 'icon-edit', 'A', '菜单功能编辑', '2013-05-24 00:00:00', '2013-06-14 00:00:00', '1', '1');
+INSERT INTO `PERMISSION` VALUES ('5', '2', '菜单功能删除', '系统管理', '6', 'menuDel', 'O', 'Y', 'open', 'javascript:void(0);', 'icon-remove', 'A', '菜单功能删除', '2013-05-24 00:00:00', '2013-06-14 00:00:00', '1', '1');
 
 -- -----------------------------
 -- Table structure for `COMPANY`

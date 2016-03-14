@@ -1,22 +1,16 @@
 ﻿<%@ page language="java" pageEncoding="utf-8" %>
-<%
-    String path = request.getContextPath();
-    String basePath = request.getScheme() + "://"
-            + request.getServerName() + ":" + request.getServerPort()
-            + path + "/";
-%>
 <!DOCTYPE html>
 <html>
 <head>
     <meta charset="utf-8">
     <title>欢迎登录后台管理系统</title>
-    <link href="<%=basePath%>resources/core/css/style.css" rel="stylesheet"
+    <link href="/resources/core/css/style.css" rel="stylesheet"
           type="text/css"/>
     <script type="text/javascript"
-            src="<%=basePath%>resources/public/js/jquery.js"></script>
+            src="/resources/public/js/jquery.js"></script>
     <style>
         body {
-            background: #1c77ac url(<%=basePath%>resources/core/images/light.png) no-repeat center top;
+            background: #1c77ac url(/resources/core/images/light.png) no-repeat center top;
             overflow: hidden;
         }
     </style>
@@ -37,7 +31,7 @@
 
             $('#kaptchaImage').click(
                     function () {//生成验证码
-                        $(this).hide().attr('src', '<%=basePath%>captcha?' + Math.floor(Math.random() * 100))
+                        $(this).hide().attr('src', '/captcha?' + Math.floor(Math.random() * 100))
                                 .fadeIn();
                     });
         });
@@ -56,7 +50,7 @@
         <li><a href="#">关于</a></li>
     </ul>
 </div>
-<form action="<%=basePath%>login" method="GET">
+<form action="/login" method="GET">
     <div class="loginbody">
         <span class="systemlogo"></span>
 
@@ -69,7 +63,7 @@
                 <li class="yzm"><span><input name="verifyCode"
                                              type="text" value="验证码" onclick="JavaScript:this.value=''"/></span>
                     <cite><img
-                            src="<%=basePath%>captcha" width="114" height="46"
+                            src="/captcha" width="114" height="46"
                             id="kaptchaImage" style="margin-bottom: -3px"/></cite></li>
                 <li><input type="submit" class="loginbtn" value="登录"/><label><input
                         name="" type="checkbox" value="" checked="checked"/>记住密码</label><label><a

@@ -1,11 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
          pageEncoding="UTF-8" %>
-<%
-    String path = request.getContextPath();
-    String basePath = request.getScheme() + "://"
-            + request.getServerName() + ":" + request.getServerPort()
-            + path + "/";
-%>
 <script type="text/javascript">
     $(function () {
 
@@ -14,7 +8,7 @@
         });
 
         var request = $.ajax({
-            url: "<%=basePath%>getUsersMenu",
+            url: "/getUsersMenu",
             method: "POST",
             dataType: "JSON"
         });
@@ -23,7 +17,7 @@
         request.done(function (msg) {
             var menuList = "<dl class=\"leftmenu\">";
             $.each(msg, function (i, e) {
-                menuList += "<dd><div class=\"title\"><span style=\"height: 16px;\"><img style=\"padding-bottom: 5px;\" src=\"<%=basePath%>resources/public/css/icons/" + e.iconCls + ".png\"/></span>" + e.name + "</div><ul class=\"menuson\">";
+                menuList += "<dd><div class=\"title\"><span style=\"height: 16px;\"><img style=\"padding-bottom: 5px;\" src=\"/resources/public/css/icons/" + e.iconCls + ".png\"/></span>" + e.name + "</div><ul class=\"menuson\">";
                 if (e.child && e.child.length > 0) {
                     $.each(e.child, function (ci, ce) {
                         var effort = ce.name + "||" + ce.iconCls + "||" + ce.url;

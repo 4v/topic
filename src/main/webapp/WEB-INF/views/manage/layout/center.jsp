@@ -1,9 +1,4 @@
 <%@ page language="java" pageEncoding="UTF-8"%>
-<%
-	String path = request.getContextPath();
-	String basePath = request.getScheme() + "://" + request.getServerName() + ":"
-			+ request.getServerPort() + path + "/";
-%>
 <script type="text/javascript" charset="utf-8">
 var centerTabs;
 var tabsMenu;
@@ -139,18 +134,18 @@ function refreshTab(title) {
 		style="overflow: hidden;">
 		<div class="mainindex">
 			<div class="welinfo">
-				<span><img src="<%=basePath%>resources/core/images/sun.png"
+				<span><img src="/resources/core/images/sun.png"
 					alt="天气" /></span> <b>${currUser}早上好，欢迎使用信息管理系统</b>(dyenigma@163.com) <a
 					href="#">帐号设置</a>
 			</div>
 			<div class="welinfo">
-				<span><img src="<%=basePath%>resources/core/images/time.png"
+				<span><img src="/resources/core/images/time.png"
 					alt="时间" /></span> <i>您上次登录的时间：2013-10-09 15:22</i> （不是您登录的？<a href="#">请点这里</a>）
 			</div>
 			<div class="xline"></div>
 			<div class="box"></div>
 			<div class="welinfo">
-				<span><img src="<%=basePath%>resources/core/images/dp.png"
+				<span><img src="/resources/core/images/dp.png"
 					alt="提醒" /></span> <b>信息管理系统介绍</b>
 			</div>
 			<ul class="infolist">

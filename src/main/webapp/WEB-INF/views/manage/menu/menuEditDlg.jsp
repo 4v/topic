@@ -1,13 +1,11 @@
-<%@ page language="java" pageEncoding="utf-8" %>
-<%
-    String path = request.getContextPath();
-    String basePath = request.getScheme() + "://" + request.getServerName() + ":" + request.getServerPort() + path + "/";
-%>
 <script type="text/javascript">
+    /**
+     * Created by dyenigma on 2016/3/14.
+     */
     $(function () {
         $("#pid").combotree({
             width: 171,
-            url: "<%=basePath%>manage/function/findSuperFunc",
+            url: "/manage/menu/findSuperMenu",
             idFiled: 'id',
             textFiled: 'name',
             parentField: 'pid',
@@ -27,7 +25,7 @@
             $("#pid").combotree("disable");
         }
         $("#form").form({
-            url: "<%=basePath%>manage/function/saveOrUpdateFunc",
+            url: "/manage/menu/saveOrUpdateMenu",
             onSubmit: function () {
                 $.messager.progress({
                     title: '提示',
@@ -60,7 +58,6 @@
             }
         });
     });
-
 </script>
 <style>
     .easyui-textbox {
@@ -120,7 +117,7 @@
         <input name="tempId" id="tempId" type="hidden" value="<%=request.getParameter("tempId") %>"/>
         <form id="form" method="post">
             <fieldset>
-                <legend><img src="<%=basePath%>resources/core/images/fromedit.png" style="margin-bottom: -3px;"/> 程式编辑
+                <legend><img src="/resources/core/images/fromedit.png" style="margin-bottom: -3px;"/> 程式编辑
                 </legend>
                 <input name="permissionId" id="permissionId" type="hidden"/>
                 <input name="created" id="created" type="hidden"/>
@@ -133,10 +130,8 @@
                         <td><input name="name" id="name" placeholder="请输入程式名称" class="easyui-textbox easyui-validatebox"
                                    type="text"/></td>
                         <th>父程式名称</th>
-                        <td><input name="pid" class="easyui-textbox" id="pid" type="text"/><input name="pname"
-                                                                                                  id="pname"
-                                                                                                  type="hidden"/></td>
-
+                        <td><input name="pid" class="easyui-textbox" id="pid" type="text"/>
+                            <input name="pname" id="pname" type="hidden"/></td>
                     </tr>
                     <tr>
                         <th>排序编码</th>

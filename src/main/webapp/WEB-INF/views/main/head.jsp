@@ -2,15 +2,9 @@
          pageEncoding="UTF-8" %>
 <%@ taglib prefix="spring" uri="http://www.springframework.org/tags" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
-<%
-    String path = request.getContextPath();
-    String basePath = request.getScheme() + "://"
-            + request.getServerName() + ":" + request.getServerPort()
-            + path + "/";
-%>
-<link rel="stylesheet" href="<%=basePath%>resources/show/css/head.css"/>
+<link rel="stylesheet" href="/resources/show/css/head.css"/>
 <script type="text/javascript"
-        src="<%=basePath%>resources/public/js/jquery.js"></script>
+        src="/resources/public/js/jquery.js"></script>
 <script type="text/javascript">
     $(document).ready(function () {
         $('.nav li a').each(function () {

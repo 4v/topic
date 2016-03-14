@@ -37,10 +37,10 @@ import java.util.List;
  * date 2015年9月17日 下午3:20:40
  */
 @Controller
-@RequestMapping(value = "/manage/function")
-public class MgrFunController extends BaseController {
+@RequestMapping(value = "/manage/menu")
+public class MgrMenuController extends BaseController {
 
-    private final Logger LOGGER = LoggerFactory.getLogger(MgrFunController.class);
+    private final Logger LOGGER = LoggerFactory.getLogger(MgrMenuController.class);
 
     @Autowired
     private PermissionService permissionService;
@@ -52,12 +52,12 @@ public class MgrFunController extends BaseController {
      * Title: main
      * Description: 打开操作菜单页面
      */
-    @RequestMapping("/functionMain")
+    @RequestMapping("/menuMain")
     public String main() {
 
         LOGGER.debug("main() is executed!");
 
-        return "manage/function/functionMain";
+        return "manage/menu/menuMain";
     }
 
     /**
@@ -69,7 +69,7 @@ public class MgrFunController extends BaseController {
      * Description: 显示所有可操作的菜单项
      */
     @ResponseBody
-    @RequestMapping(value = "/findAllFunctionList", produces = "application/json;charset=utf-8")
+    @RequestMapping(value = "/findAllMenuList", produces = "application/json;charset=utf-8")
     public List<TreeGridModel> findAllFunctionList(HttpServletRequest request) {
         String pid = request.getParameter("id");
         return permissionService.findByPid(pid);
@@ -83,7 +83,7 @@ public class MgrFunController extends BaseController {
      * Description:显示所有可添加子项的菜单项
      */
     @ResponseBody
-    @RequestMapping(value = "/findSuperFunc", produces = "application/json;charset=utf-8")
+    @RequestMapping(value = "/findSuperMenu", produces = "application/json;charset=utf-8")
     public List<TreeModel> findSuperFunc() {
         return permissionService.findSuperFunc();
     }
@@ -97,7 +97,7 @@ public class MgrFunController extends BaseController {
      * Description: 删除程式处理
      */
     @ResponseBody
-    @RequestMapping(value = "/delFunction", produces = "application/json;charset=utf-8")
+    @RequestMapping(value = "/delMenu", produces = "application/json;charset=utf-8")
     public String delFunction(HttpServletRequest request) {
         String id = request.getParameter("id");
 
@@ -119,13 +119,13 @@ public class MgrFunController extends BaseController {
      * Title: functionEditDlg
      * Description: 跳转到编辑程式页面
      */
-    @RequestMapping(value = "/functionEditDlg", method = RequestMethod.GET)
+    @RequestMapping(value = "/menuEditDlg", method = RequestMethod.GET)
     public ModelAndView functionEditDlg() {
 
         LOGGER.debug("functionEditDlg() is executed!");
 
         ModelAndView model = new ModelAndView();
-        model.setViewName("manage/function/functionEditDlg");
+        model.setViewName("manage/menu/menuEditDlg");
 
         return model;
     }
@@ -139,7 +139,7 @@ public class MgrFunController extends BaseController {
      * Description: 新增程式或者更新程式处理
      */
     @ResponseBody
-    @RequestMapping(value = "/saveOrUpdateFunc", produces = "application/json;charset=utf-8")
+    @RequestMapping(value = "/saveOrUpdateMenu", produces = "application/json;charset=utf-8")
     public String saveOrUpdateFunc(HttpServletRequest request) {
         Permission permission = new Permission();
         String permissionId = request.getParameter("permissionId");

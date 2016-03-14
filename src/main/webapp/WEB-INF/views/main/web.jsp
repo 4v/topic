@@ -2,12 +2,6 @@
          pageEncoding="UTF-8" %>
 <%@ taglib prefix="spring" uri="http://www.springframework.org/tags" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
-<%
-    String path = request.getContextPath();
-    String basePath = request.getScheme() + "://"
-            + request.getServerName() + ":" + request.getServerPort()
-            + path + "/";
-%>
 <!DOCTYPE HTML>
 <html lang="zh-CN">
 <head>
@@ -15,16 +9,16 @@
     <title>4Tiro-web</title>
     <meta name="keywords" content="Java,git,spring,mvc,mybatis,oracle,mysql,shiro"/>
     <meta name="description" content=""/>
-    <link rel="stylesheet" href="<%=basePath%>resources/show/css/index.css"/>
-    <link rel="stylesheet" href="<%=basePath%>resources/show/css/style.css"/>
+    <link rel="stylesheet" href="/resources/show/css/index.css"/>
+    <link rel="stylesheet" href="/resources/show/css/style.css"/>
     <link rel="stylesheet"
-          href="<%=basePath%>resources/show/css/animate.css"/>
+          href="/resources/show/css/animate.css"/>
     <script type="text/javascript"
-            src="<%=basePath%>resources/public/js/jquery.js"></script>
+            src="/resources/public/js/jquery.js"></script>
     <script type="text/javascript"
-            src="<%=basePath%>resources/show/js/jquery.SuperSlide.2.1.1.js"></script>
+            src="/resources/show/js/jquery.SuperSlide.2.1.1.js"></script>
     <!--[if lt IE 9]>
-    <script src="<%=basePath%>resources/show/js/html5.js"></script>
+    <script src="/resources/show/js/html5.js"></script>
     <![endif]-->
 </head>
 
@@ -44,11 +38,11 @@
             <!--时光-->
             <div class="shiguang animated bounceIn">
                 <div class="left sg_ico">
-                    <img src="<%=basePath%>resources/show/images/my_1.jpg" width="120"
+                    <img src="/resources/show/images/my_1.jpg" width="120"
                          height="120" alt=""/>
                 </div>
                 <div class="right sg_text">
-                    <img src="<%=basePath%>resources/show/images/left.png" width="13"
+                    <img src="/resources/show/images/left.png" width="13"
                          height="16" alt="左图标"/>
                     时间好象一把尺子，它能衡量奋斗者前进的进程。时间如同一架天平，它能称量奋斗者成果的重量；时间就像一把皮鞭，它能鞭策我们追赶人生的目标。时间犹如一面战鼓，它能激励我们加快前进的脚步。
                 </div>
@@ -58,11 +52,11 @@
             <!--时光-->
             <div class="shiguang animated bounceIn">
                 <div class="left sg_ico">
-                    <img src="<%=basePath%>resources/show/images/my_1.jpg" width="120"
+                    <img src="/resources/show/images/my_1.jpg" width="120"
                          height="120" alt=""/>
                 </div>
                 <div class="right sg_text">
-                    <img src="<%=basePath%>resources/show/images/left.png" width="13"
+                    <img src="/resources/show/images/left.png" width="13"
                          height="16" alt="左图标"/>
                     时间好象一把尺子，它能衡量奋斗者前进的进程。时间如同一架天平，它能称量奋斗者成果的重量；时间就像一把皮鞭，它能鞭策我们追赶人生的目标。时间犹如一面战鼓，它能激励我们加快前进的脚步。
                 </div>
@@ -72,11 +66,11 @@
             <!--时光-->
             <div class="shiguang animated bounceIn">
                 <div class="left sg_ico">
-                    <img src="<%=basePath%>resources/show/images/my_1.jpg" width="120"
+                    <img src="/resources/show/images/my_1.jpg" width="120"
                          height="120" alt=""/>
                 </div>
                 <div class="right sg_text">
-                    <img src="<%=basePath%>resources/show/images/left.png" width="13"
+                    <img src="/resources/show/images/left.png" width="13"
                          height="16" alt="左图标"/>
                     时间好象一把尺子，它能衡量奋斗者前进的进程。时间如同一架天平，它能称量奋斗者成果的重量；时间就像一把皮鞭，它能鞭策我们追赶人生的目标。时间犹如一面战鼓，它能激励我们加快前进的脚步。
                 </div>
@@ -86,11 +80,11 @@
             <!--时光-->
             <div class="shiguang animated bounceIn">
                 <div class="left sg_ico">
-                    <img src="<%=basePath%>resources/show/images/my_1.jpg" width="120"
+                    <img src="/resources/show/images/my_1.jpg" width="120"
                          height="120" alt=""/>
                 </div>
                 <div class="right sg_text">
-                    <img src="<%=basePath%>resources/show/images/left.png" width="13"
+                    <img src="/resources/show/images/left.png" width="13"
                          height="16" alt="左图标"/>
                     时间好象一把尺子，它能衡量奋斗者前进的进程。时间如同一架天平，它能称量奋斗者成果的重量；时间就像一把皮鞭，它能鞭策我们追赶人生的目标。时间犹如一面战鼓，它能激励我们加快前进的脚步。
                 </div>
@@ -100,11 +94,11 @@
             <!--时光-->
             <div class="shiguang animated bounceIn">
                 <div class="left sg_ico">
-                    <img src="<%=basePath%>resources/show/images/my_1.jpg" width="120"
+                    <img src="/resources/show/images/my_1.jpg" width="120"
                          height="120" alt=""/>
                 </div>
                 <div class="right sg_text">
-                    <img src="<%=basePath%>resources/show/images/left.png" width="13"
+                    <img src="/resources/show/images/left.png" width="13"
                          height="16" alt="左图标"/>
                     时间好象一把尺子，它能衡量奋斗者前进的进程。时间如同一架天平，它能称量奋斗者成果的重量；时间就像一把皮鞭，它能鞭策我们追赶人生的目标。时间犹如一面战鼓，它能激励我们加快前进的脚步。
                 </div>
@@ -114,11 +108,11 @@
             <!--时光-->
             <div class="shiguang animated bounceIn">
                 <div class="left sg_ico">
-                    <img src="<%=basePath%>resources/show/images/my_1.jpg" width="120"
+                    <img src="/resources/show/images/my_1.jpg" width="120"
                          height="120" alt=""/>
                 </div>
                 <div class="right sg_text">
-                    <img src="<%=basePath%>resources/show/images/left.png" width="13"
+                    <img src="/resources/show/images/left.png" width="13"
                          height="16" alt="左图标"/>
                     时间好象一把尺子，它能衡量奋斗者前进的进程。时间如同一架天平，它能称量奋斗者成果的重量；时间就像一把皮鞭，它能鞭策我们追赶人生的目标。时间犹如一面战鼓，它能激励我们加快前进的脚步。
                 </div>

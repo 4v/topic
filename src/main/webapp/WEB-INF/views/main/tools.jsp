@@ -2,12 +2,6 @@
          pageEncoding="UTF-8" %>
 <%@ taglib prefix="spring" uri="http://www.springframework.org/tags" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
-<%
-    String path = request.getContextPath();
-    String basePath = request.getScheme() + "://"
-            + request.getServerName() + ":" + request.getServerPort()
-            + path + "/";
-%>
 <!DOCTYPE HTML>
 <html lang="zh-CN">
 <head>
@@ -15,18 +9,18 @@
     <title>4Tiro-开发工具</title>
     <meta name="keywords" content="Java,git,spring,mvc,mybatis,oracle,mysql,shiro"/>
     <meta name="description" content=""/>
-    <link rel="stylesheet" href="<%=basePath%>resources/show/css/index.css"/>
-    <link rel="stylesheet" href="<%=basePath%>resources/show/css/style.css"/>
+    <link rel="stylesheet" href="/resources/show/css/index.css"/>
+    <link rel="stylesheet" href="/resources/show/css/style.css"/>
     <script type="text/javascript"
-            src="<%=basePath%>resources/public/js/jquery.js"></script>
+            src="/resources/public/js/jquery.js"></script>
     <script type="text/javascript"
-            src="<%=basePath%>resources/show/js/jquery.SuperSlide.2.1.1.js"></script>
+            src="/resources/show/js/jquery.SuperSlide.2.1.1.js"></script>
     <script type="text/javascript"
-            src="<%=basePath%>resources/show/js/common.js"></script>
+            src="/resources/show/js/common.js"></script>
     <script type="text/javascript"
-            src="<%=basePath%>resources/show/js/waterfall.js"></script>
+            src="/resources/show/js/waterfall.js"></script>
     <!--[if lt IE 9]>
-    <script src="<%=basePath%>resources/show/js/html5.js"></script>
+    <script src="/resources/show/js/html5.js"></script>
     <![endif]-->
 </head>
 
@@ -46,106 +40,106 @@
                 <div class="w650">
                     <ul class="tips" id="wf-main" style="display: none">
                         <li class="wf-cld"><img
-                                src="<%=basePath%>resources/show/images/photo/8.jpg" width="200"
+                                src="/resources/show/images/photo/8.jpg" width="200"
                                 height="178" alt=""/></li>
                         <li class="wf-cld"><img
-                                src="<%=basePath%>resources/show/images/photo/1.jpg"
+                                src="/resources/show/images/photo/1.jpg"
                                 height="147" width="200" alt=""/></li>
                         <li class="wf-cld"><img
-                                src="<%=basePath%>resources/show/images/photo/2.jpg" width="200"
+                                src="/resources/show/images/photo/2.jpg" width="200"
                                 height="267" alt=""/></li>
                         <li class="wf-cld"><img
-                                src="<%=basePath%>resources/show/images/photo/3.jpg" width="200"
+                                src="/resources/show/images/photo/3.jpg" width="200"
                                 height="125" alt=""/></li>
                         <li class="wf-cld"><img
-                                src="<%=basePath%>resources/show/images/photo/4.jpg" width="200"
+                                src="/resources/show/images/photo/4.jpg" width="200"
                                 height="299" alt=""/></li>
                         <li class="wf-cld"><img
-                                src="<%=basePath%>resources/show/images/photo/5.jpg" width="200"
+                                src="/resources/show/images/photo/5.jpg" width="200"
                                 height="125" alt=""/></li>
                         <li class="wf-cld"><img
-                                src="<%=basePath%>resources/show/images/photo/6.jpg" width="200"
+                                src="/resources/show/images/photo/6.jpg" width="200"
                                 height="267" alt=""/></li>
                         <li class="wf-cld"><img
-                                src="<%=basePath%>resources/show/images/photo/7.jpg" width="200"
+                                src="/resources/show/images/photo/7.jpg" width="200"
                                 height="135" alt=""/></li>
                         <li class="wf-cld"><img
-                                src="<%=basePath%>resources/show/images/photo/9.jpg" width="200"
+                                src="/resources/show/images/photo/9.jpg" width="200"
                                 height="300" alt=""/></li>
                         <li class="wf-cld"><img
-                                src="<%=basePath%>resources/show/images/photo/10.jpg"
+                                src="/resources/show/images/photo/10.jpg"
                                 width="200" height="107" alt=""/></li>
                         <!-- <li class="wf-cld"><img rel="lazy"
-								lazy_src="<%=basePath%>resources/show/images/photo/8.jpg"
+								lazy_src="/resources/show/images/photo/8.jpg"
 								width="200" height="178" alt="" /></li>
 							<li class="wf-cld"><img rel="lazy"
-								lazy_src="<%=basePath%>resources/show/images/photo/1.jpg"
+								lazy_src="/resources/show/images/photo/1.jpg"
 								height="147" width="200" alt="" /></li>
 							<li class="wf-cld"><img rel="lazy"
-								lazy_src="<%=basePath%>resources/show/images/photo/2.jpg"
+								lazy_src="/resources/show/images/photo/2.jpg"
 								width="200" height="267" alt="" /></li>
 							<li class="wf-cld"><img rel="lazy"
-								lazy_src="<%=basePath%>resources/show/images/photo/3.jpg"
+								lazy_src="/resources/show/images/photo/3.jpg"
 								width="200" height="125" alt="" /></li>
 							<li class="wf-cld"><img rel="lazy"
-								lazy_src="<%=basePath%>resources/show/images/photo/4.jpg"
+								lazy_src="/resources/show/images/photo/4.jpg"
 								width="200" height="299" alt="" /></li>
 							<li class="wf-cld"><img rel="lazy"
-								lazy_src="<%=basePath%>resources/show/images/photo/5.jpg"
+								lazy_src="/resources/show/images/photo/5.jpg"
 								width="200" height="125" alt="" /></li>
 							<li class="wf-cld"><img rel="lazy"
-								lazy_src="<%=basePath%>resources/show/images/photo/6.jpg"
+								lazy_src="/resources/show/images/photo/6.jpg"
 								width="200" height="267" alt="" /></li>
 							<li class="wf-cld"><img rel="lazy"
-								lazy_src="<%=basePath%>resources/show/images/photo/7.jpg"
+								lazy_src="/resources/show/images/photo/7.jpg"
 								width="200" height="135" alt="" /></li>
 							<li class="wf-cld"><img rel="lazy"
-								lazy_src="<%=basePath%>resources/show/images/photo/9.jpg"
+								lazy_src="/resources/show/images/photo/9.jpg"
 								width="200" height="300" alt="" /></li>
 							<li class="wf-cld"><img rel="lazy"
-								lazy_src="<%=basePath%>resources/show/images/photo/10.jpg"
+								lazy_src="/resources/show/images/photo/10.jpg"
 								width="200" height="107" alt="" /></li>
 							<li class="wf-cld"><img rel="lazy"
-								lazy_src="<%=basePath%>resources/show/images/photo/2.jpg"
+								lazy_src="/resources/show/images/photo/2.jpg"
 								width="200" height="267" alt="" /></li>
 							<li class="wf-cld"><img rel="lazy"
-								lazy_src="<%=basePath%>resources/show/images/photo/3.jpg"
+								lazy_src="/resources/show/images/photo/3.jpg"
 								width="200" height="125" alt="" /></li>
 							<li class="wf-cld"><img rel="lazy"
-								lazy_src="<%=basePath%>resources/show/images/photo/8.jpg"
+								lazy_src="/resources/show/images/photo/8.jpg"
 								width="200" height="178" alt="" /></li>
 							<li class="wf-cld"><img rel="lazy"
-								lazy_src="<%=basePath%>resources/show/images/photo/1.jpg"
+								lazy_src="/resources/show/images/photo/1.jpg"
 								height="147" width="200" alt="" /></li>
 							<li class="wf-cld"><img rel="lazy"
-								lazy_src="<%=basePath%>resources/show/images/photo/2.jpg"
+								lazy_src="/resources/show/images/photo/2.jpg"
 								width="200" height="267" alt="" /></li>
 							<li class="wf-cld"><img rel="lazy"
-								lazy_src="<%=basePath%>resources/show/images/photo/3.jpg"
+								lazy_src="/resources/show/images/photo/3.jpg"
 								width="200" height="125" alt="" /></li>
 							<li class="wf-cld"><img rel="lazy"
-								lazy_src="<%=basePath%>resources/show/images/photo/4.jpg"
+								lazy_src="/resources/show/images/photo/4.jpg"
 								width="200" height="299" alt="" /></li>
 							<li class="wf-cld"><img rel="lazy"
-								lazy_src="<%=basePath%>resources/show/images/photo/5.jpg"
+								lazy_src="/resources/show/images/photo/5.jpg"
 								width="200" height="125" alt="" /></li>
 							<li class="wf-cld"><img rel="lazy"
-								lazy_src="<%=basePath%>resources/show/images/photo/6.jpg"
+								lazy_src="/resources/show/images/photo/6.jpg"
 								width="200" height="267" alt="" /></li>
 							<li class="wf-cld"><img rel="lazy"
-								lazy_src="<%=basePath%>resources/show/images/photo/7.jpg"
+								lazy_src="/resources/show/images/photo/7.jpg"
 								width="200" height="135" alt="" /></li>
 							<li class="wf-cld"><img rel="lazy"
-								lazy_src="<%=basePath%>resources/show/images/photo/9.jpg"
+								lazy_src="/resources/show/images/photo/9.jpg"
 								width="200" height="300" alt="" /></li>
 							<li class="wf-cld"><img rel="lazy"
-								lazy_src="<%=basePath%>resources/show/images/photo/10.jpg"
+								lazy_src="/resources/show/images/photo/10.jpg"
 								width="200" height="107" alt="" /></li>
 							<li class="wf-cld"><img rel="lazy"
-								lazy_src="<%=basePath%>resources/show/images/photo/2.jpg"
+								lazy_src="/resources/show/images/photo/2.jpg"
 								width="200" height="267" alt="" /></li>
 							<li class="wf-cld"><img rel="lazy"
-								lazy_src="<%=basePath%>resources/show/images/photo/3.jpg"
+								lazy_src="/resources/show/images/photo/3.jpg"
 								width="200" height="125" alt="" /></li>-->
                     </ul>
                 </div>

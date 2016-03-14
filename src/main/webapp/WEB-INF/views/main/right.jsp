@@ -2,11 +2,6 @@
          pageEncoding="UTF-8" %>
 <%@ taglib prefix="spring" uri="http://www.springframework.org/tags" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
-<%
-    String path = request.getContextPath();
-    String basePath = request.getScheme() + "://" + request.getServerName() + ":"
-            + request.getServerPort() + path + "/";
-%>
 <style>
     .right .s_about p {
         padding-top: 5px;
@@ -17,7 +12,7 @@
 <div class="right" id="c_right">
     <div class="s_about">
         <h2>关于博主</h2>
-        <img src="<%=basePath%>resources/show/images/my.jpg" width="230"
+        <img src="/resources/show/images/my.jpg" width="230"
              height="230" alt="博主"/>
         <div class="clear"></div>
         <p>博主：XX</p>

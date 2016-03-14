@@ -1,8 +1,4 @@
 <%@ page language="java" pageEncoding="utf-8" %>
-<%
-    String path = request.getContextPath();
-    String basePath = request.getScheme() + "://" + request.getServerName() + ":" + request.getServerPort() + path + "/";
-%>
 <script type="text/javascript">
     $(function () {
         $("#iconCls").combobox({
@@ -14,13 +10,13 @@
         });
         $("#pid").combotree({
             width: 171,
-            url: "<%=basePath%>manage/organ/findSuperOrgan",
+            url: "/manage/organ/findSuperOrgan",
             idFiled: 'id',
             textFiled: 'name',
             parentField: 'pid'
         });
         $("#form").form({
-            url: "<%=basePath%>manage/organ/saveOrUpdateOrgan",
+            url: "/manage/organ/saveOrUpdateOrgan",
             onSubmit: function () {
                 $.messager.progress({
                     title: '提示',
@@ -111,7 +107,7 @@
     <div data-options="region:'center',border:false" title="" style="overflow: hidden;padding: 10px;">
         <form id="form" method="post">
             <fieldset>
-                <legend><img src="<%=basePath%>resources/core/images/fromedit.png" style="margin-bottom: -3px;"/> 组织编辑
+                <legend><img src="/resources/core/images/fromedit.png" style="margin-bottom: -3px;"/> 组织编辑
                 </legend>
                 <input name="organizationId" id="organizationId" type="hidden"/>
                 <input name="created" id="created" type="hidden"/>
