@@ -1,3 +1,4 @@
+<%@ page language="java" pageEncoding="utf-8" %>
 <script type="text/javascript">
     /**
      * Created by dyenigma on 2016/3/14.
