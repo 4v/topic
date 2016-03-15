@@ -34,11 +34,23 @@ CREATE TABLE `PERMISSION` (
 -- ----------------------------
 -- Records of PERMISSION
 -- ----------------------------
-INSERT INTO `PERMISSION` VALUES ('1', null, '系统管理', '', '0', 'sysMgr', 'F', 'Y', 'closed', 'javascript:void(0);', 'icon-home', 'A', '系统管理', '2013-05-23 00:00:00', '2013-06-18 00:00:00', '1', '1');
-INSERT INTO `PERMISSION` VALUES ('2', '1', '菜单管理', '系统管理', '0', 'menuMgr', 'F', 'Y', 'closed', '/manage/menu/menuMain', 'icon-setting', 'A', '菜单管理', '2013-05-23 00:00:00', '2013-05-27 00:00:00', '1', '1');
-INSERT INTO `PERMISSION` VALUES ('3', '2', '菜单功能新增', '系统管理', '4', 'menuAdd', 'O', 'Y', 'open', 'javascript:void(0);', 'icon-add', 'A', '菜单功能新增', '2013-05-24 00:00:00', '2013-05-27 00:00:00', '1', '1');
-INSERT INTO `PERMISSION` VALUES ('4', '2', '菜单功能编辑', '系统管理', '5', 'menuEdit', 'O', 'Y', 'open', 'javascript:void(0);', 'icon-edit', 'A', '菜单功能编辑', '2013-05-24 00:00:00', '2013-06-14 00:00:00', '1', '1');
-INSERT INTO `PERMISSION` VALUES ('5', '2', '菜单功能删除', '系统管理', '6', 'menuDel', 'O', 'Y', 'open', 'javascript:void(0);', 'icon-remove', 'A', '菜单功能删除', '2013-05-24 00:00:00', '2013-06-14 00:00:00', '1', '1');
+INSERT INTO `permission` VALUES ('1', '0', '系统管理', '', '0', 'sysMgr', 'F', 'Y', 'closed', 'javascript:void(0);', 'icon-home', 'A', '系统管理', '2013-05-23 00:00:00', '2016-03-07 16:19:42', '1', '1');
+INSERT INTO `permission` VALUES ('2', '1', '菜单管理', '系统管理', '0', 'menuMgr', 'F', 'Y', 'closed', '/manage/menu/menuMain', 'icon-setting', 'A', '菜单管理', '2013-05-23 00:00:00', '2016-03-07 16:28:33', '1', '1');
+INSERT INTO `permission` VALUES ('3', '2', '菜单功能新增', '系统管理', '1', 'menuAdd', 'O', 'Y', 'open', 'javascript:void(0);', 'icon-add', 'A', '菜单功能新增', '2013-05-24 00:00:00', '2016-03-15 11:13:30', '1', '1');
+INSERT INTO `permission` VALUES ('4', '2', '菜单功能修改', '系统管理', '2', 'menuEdit', 'O', 'Y', 'open', 'javascript:void(0);', 'icon-edit', 'A', '菜单功能修改', '2013-05-24 00:00:00', '2016-03-15 11:13:36', '1', '1');
+INSERT INTO `permission` VALUES ('5', '2', '菜单功能删除', '系统管理', '3', 'menuDel', 'O', 'Y', 'open', 'javascript:void(0);', 'icon-remove', 'A', '菜单功能删除', '2013-05-24 00:00:00', '2016-03-15 11:13:42', '1', '1');
+INSERT INTO `permission` VALUES ('102', '0', '前端管理', '', '1', 'webMgr', 'F', 'Y', 'closed', 'javascript:void(0)', 'icon-map', 'A', '前台页面各项设定', '2016-03-15 00:00:00', '2016-03-15 10:18:17', '1', '1');
+INSERT INTO `permission` VALUES ('103', '0', '专题管理', '', '2', 'topicMgr', 'F', 'Y', 'closed', 'javascript:void(0)', 'icon-role', 'A', '各种专题项目管理', '2016-03-15 00:00:00', '2016-03-15 00:00:00', '1', '1');
+INSERT INTO `permission` VALUES ('104', '0', '数据备份', '', '5', 'dataBak', 'F', 'Y', 'closed', 'javascript:void(0)', 'icon-db', 'A', '数据库备份各项设定', '2016-03-15 00:00:00', '2016-03-15 10:27:16', '1', '1');
+INSERT INTO `permission` VALUES ('105', '0', '日志管理', '', '3', 'logMgr', 'F', 'Y', 'closed', 'javascript:void(0)', 'icon-info', 'A', '系统等各项日志管理，数据收集等', '2016-03-15 00:00:00', '2016-03-15 00:00:00', '1', '1');
+INSERT INTO `permission` VALUES ('106', '0', '运行监控', '', '4', 'runMgr', 'F', 'Y', 'closed', 'javascript:void(0)', 'icon-power', 'A', '程序运行监控，包含sql语句、session等', '2016-03-15 00:00:00', '2016-03-15 00:00:00', '1', '1');
+INSERT INTO `permission` VALUES ('107', '1', '用户管理', '系统管理', '1', 'userMgr', 'F', 'Y', 'closed', '/manage/user/userMgr', 'icon-user', 'A', '用户管理用于新增修改删除用户信息', '2016-03-15 00:00:00', '2016-03-15 00:00:00', '1', '1');
+INSERT INTO `permission` VALUES ('108', '1', '角色管理', '系统管理', '2', 'roleMgr', 'F', 'Y', 'closed', '/manage/role/roleMgr', 'icon-star', 'A', '', '2016-03-15 00:00:00', '2016-03-15 00:00:00', '1', '1');
+INSERT INTO `permission` VALUES ('109', '1', '角色权限', '系统管理', '3', 'setRole', 'F', 'Y', 'closed', '/manage/setting/setRole', 'icon-man', 'A', '角色权限分配', '2016-03-15 00:00:00', '2016-03-15 00:00:00', '1', '1');
+INSERT INTO `permission` VALUES ('110', '1', '用户角色', '系统管理', '4', 'setUser', 'F', 'Y', 'closed', '/manage/setting/setUser', 'icon-woman', 'A', '用户的角色分配', '2016-03-15 00:00:00', '2016-03-15 00:00:00', '1', '1');
+INSERT INTO `permission` VALUES ('111', '1', '组织管理', '系统管理', '5', 'organMgr', 'F', 'Y', 'closed', '/manage/organ/organMgr', 'icon-organ', 'A', '组织机构管理', '2016-03-15 00:00:00', '2016-03-15 00:00:00', '1', '1');
+INSERT INTO `permission` VALUES ('112', '1', '数据字典', '系统管理', '6', 'dataMgr', 'F', 'Y', 'closed', '/manage/system/dataMgr', 'icon-data', 'A', '', '2016-03-15 00:00:00', '2016-03-15 00:00:00', '1', '1');
+INSERT INTO `permission` VALUES ('113', '0', 'BUG管理', '', '6', 'bugMgr', 'F', 'Y', 'closed', 'javascript:void(0)', 'icon-danger', 'A', '', '2016-03-15 00:00:00', '2016-03-15 00:00:00', '1', '1');
 
 -- -----------------------------
 -- Table structure for `COMPANY`
