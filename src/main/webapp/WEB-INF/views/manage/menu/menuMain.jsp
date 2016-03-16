@@ -128,7 +128,8 @@
                     align: 'left',
                     editor: "text"
                 }]],
-                toolbar: '#tb'
+                toolbar: '#tb',
+                onDblClickRow:menuEdit
             });
 
             $("#addFunc").click(function () {
@@ -206,42 +207,7 @@
             });
 
             $("#updateFunc").click(function () {
-                var row = $dg.treegrid('getSelected');
-                if (row) {
-                    $.modalDialog({
-                        title: "编辑程式",
-                        width: 600,
-                        height: 400,
-                        href: "/manage/menu/menuEditDlg",
-                        onLoad: function () {
-                            var f = $.modalDialog.handler.find("#form");
-                            f.form("load", row);
-                        },
-                        buttons: [{
-                            text: '编辑',
-                            iconCls: 'icon-yes',
-                            handler: function () {
-                                $.modalDialog.openner = $grid; //因为添加成功之后，需要刷新这个treegrid，所以先预定义好
-                                var f = $.modalDialog.handler.find("#form");
-                                f.submit();
-                            }
-                        },
-                            {
-                                text: '取消',
-                                iconCls: 'icon-no',
-                                handler: function () {
-                                    $.modalDialog.handler.dialog('destroy');
-                                    $.modalDialog.handler = undefined;
-                                }
-                            }]
-                    });
-                } else {
-                    $.messager.show({
-                        title: "提示",
-                        msg: "请选择一行记录!",
-                        timeout: 1000 * 2
-                    });
-                }
+                menuEdit();
             });
 
             $("#delFunc").click(function () {
@@ -251,7 +217,7 @@
                             function (result) {
                                 if (result) {
                                     var request = $.ajax({
-                                        url: "/manage/function/delFunction",
+                                        url: "/manage/menu/delMenu",
                                         data: {
                                             'id': node.permissionId
                                         },
@@ -288,6 +254,45 @@
                 }
             });
         });
+
+        function menuEdit(){
+            var row = $dg.treegrid('getSelected');
+            if (row) {
+                $.modalDialog({
+                    title: "编辑程式",
+                    width: 600,
+                    height: 400,
+                    href: "/manage/menu/menuEditDlg",
+                    onLoad: function () {
+                        var f = $.modalDialog.handler.find("#form");
+                        f.form("load", row);
+                    },
+                    buttons: [{
+                        text: '编辑',
+                        iconCls: 'icon-yes',
+                        handler: function () {
+                            $.modalDialog.openner = $grid; //因为添加成功之后，需要刷新这个treegrid，所以先预定义好
+                            var f = $.modalDialog.handler.find("#form");
+                            f.submit();
+                        }
+                    },
+                        {
+                            text: '取消',
+                            iconCls: 'icon-no',
+                            handler: function () {
+                                $.modalDialog.handler.dialog('destroy');
+                                $.modalDialog.handler = undefined;
+                            }
+                        }]
+                });
+            } else {
+                $.messager.show({
+                    title: "提示",
+                    msg: "请选择一行记录!",
+                    timeout: 1000 * 2
+                });
+            }
+        }
     </script>
 </head>
 <body>

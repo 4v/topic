@@ -35,6 +35,7 @@
     <mvc:resources mapping="/resources/**" location="/resources/"/>
     <mvc:resources mapping="/druid/**" location="/WEB-INF/druid/"/>
     <mvc:resources mapping="/WEB-INF/**" location="/WEB-INF/"/>
+    <mvc:resources mapping="/favicon.ico" location="/"/>
 
     <!-- SpringMVC在超出上传文件限制时，会抛出org.springframework.web.multipart.MaxUploadSizeExceededException -->
     <!-- 该异常是SpringMVC在检查上传的文件信息时抛出来的，而且此时还没有进入到Controller方法中 -->

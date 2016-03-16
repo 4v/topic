@@ -13,6 +13,12 @@
 
     <bean class="com.dyenigma.utils.SpringUtil"/>
 
+    <!-- 设置默认的文件上传路径 -->
+    <bean class="org.springframework.beans.factory.config.MethodInvokingFactoryBean">
+        <property name="staticMethod" value="com.dyenigma.utils.FileUploadUtils.setDefaultBaseDir"/>
+        <property name="arguments" value="${file.upload.dir}"/>
+    </bean>
+
     <!-- 验证码生成类 -->
     <bean id="captchaProducer" class="com.google.code.kaptcha.impl.DefaultKaptcha">
         <property name="config">

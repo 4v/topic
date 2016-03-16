@@ -144,7 +144,7 @@
                     <tr>
                         <th>程式路径</th>
                         <td><input id="url" name="url" type="text" class="easyui-textbox easyui-validatebox"
-                                   required="required"/></td>
+                                   value="javascript:void(0);" required="required"/></td>
                         <th>程式编码</th>
                         <td><input id="myId" name="myId" type="text" class="easyui-textbox easyui-validatebox"
                                    required="required"/></td>

@@ -18,6 +18,7 @@ import com.dyenigma.model.TreeModel;
 import com.dyenigma.service.PermissionService;
 import com.dyenigma.utils.Constants;
 import com.dyenigma.utils.StringUtil;
+import org.apache.shiro.authz.annotation.RequiresPermissions;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -138,6 +139,7 @@ public class MgrMenuController extends BaseController {
      * Title: saveOrUpdateFunc
      * Description: 新增程式或者更新程式处理
      */
+    @RequiresPermissions({"menuAdd","menuEdit"})
     @ResponseBody
     @RequestMapping(value = "/saveOrUpdateMenu", produces = "application/json;charset=utf-8")
     public String saveOrUpdateFunc(HttpServletRequest request) {

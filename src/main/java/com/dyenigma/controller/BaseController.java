@@ -12,7 +12,10 @@
 package com.dyenigma.controller;
 
 import com.dyenigma.model.Json;
+import com.dyenigma.shiro.LoginRealm;
 import com.dyenigma.utils.Constants;
+import org.apache.shiro.SecurityUtils;
+import org.apache.shiro.mgt.RealmSecurityManager;
 
 /**
  * author dingdongliang
@@ -23,7 +26,7 @@ import com.dyenigma.utils.Constants;
 
 public class BaseController {
 
-    public Json getMessage(boolean flag) {
+    protected Json getMessage(boolean flag) {
         Json json = new Json();
         if (flag) {
             json.setStatus(true);
@@ -32,5 +35,15 @@ public class BaseController {
             json.setMessage(Constants.POST_DATA_FAIL);
         }
         return json;
+    }
+
+    /*
+     * 更改权限后，调用该方法刷新用户权限缓存
+     */
+    protected void refreshRealm() {
+        RealmSecurityManager securityManager =
+                (RealmSecurityManager) SecurityUtils.getSecurityManager();
+        LoginRealm userRealm = (LoginRealm) securityManager.getRealms().iterator().next();
+        userRealm.clearCachedAuthorizationInfo(SecurityUtils.getSubject().getPrincipal().toString());
     }
 }

@@ -36,21 +36,39 @@ CREATE TABLE `PERMISSION` (
 -- ----------------------------
 INSERT INTO `permission` VALUES ('1', '0', '系统管理', '', '0', 'sysMgr', 'F', 'Y', 'closed', 'javascript:void(0);', 'icon-home', 'A', '系统管理', '2013-05-23 00:00:00', '2016-03-07 16:19:42', '1', '1');
 INSERT INTO `permission` VALUES ('2', '1', '菜单管理', '系统管理', '0', 'menuMgr', 'F', 'Y', 'closed', '/manage/menu/menuMain', 'icon-setting', 'A', '菜单管理', '2013-05-23 00:00:00', '2016-03-07 16:28:33', '1', '1');
-INSERT INTO `permission` VALUES ('3', '2', '菜单功能新增', '系统管理', '1', 'menuAdd', 'O', 'Y', 'open', 'javascript:void(0);', 'icon-add', 'A', '菜单功能新增', '2013-05-24 00:00:00', '2016-03-15 11:13:30', '1', '1');
-INSERT INTO `permission` VALUES ('4', '2', '菜单功能修改', '系统管理', '2', 'menuEdit', 'O', 'Y', 'open', 'javascript:void(0);', 'icon-edit', 'A', '菜单功能修改', '2013-05-24 00:00:00', '2016-03-15 11:13:36', '1', '1');
-INSERT INTO `permission` VALUES ('5', '2', '菜单功能删除', '系统管理', '3', 'menuDel', 'O', 'Y', 'open', 'javascript:void(0);', 'icon-remove', 'A', '菜单功能删除', '2013-05-24 00:00:00', '2016-03-15 11:13:42', '1', '1');
-INSERT INTO `permission` VALUES ('102', '0', '前端管理', '', '1', 'webMgr', 'F', 'Y', 'closed', 'javascript:void(0)', 'icon-map', 'A', '前台页面各项设定', '2016-03-15 00:00:00', '2016-03-15 10:18:17', '1', '1');
-INSERT INTO `permission` VALUES ('103', '0', '专题管理', '', '2', 'topicMgr', 'F', 'Y', 'closed', 'javascript:void(0)', 'icon-role', 'A', '各种专题项目管理', '2016-03-15 00:00:00', '2016-03-15 00:00:00', '1', '1');
-INSERT INTO `permission` VALUES ('104', '0', '数据备份', '', '5', 'dataBak', 'F', 'Y', 'closed', 'javascript:void(0)', 'icon-db', 'A', '数据库备份各项设定', '2016-03-15 00:00:00', '2016-03-15 10:27:16', '1', '1');
-INSERT INTO `permission` VALUES ('105', '0', '日志管理', '', '3', 'logMgr', 'F', 'Y', 'closed', 'javascript:void(0)', 'icon-info', 'A', '系统等各项日志管理，数据收集等', '2016-03-15 00:00:00', '2016-03-15 00:00:00', '1', '1');
-INSERT INTO `permission` VALUES ('106', '0', '运行监控', '', '4', 'runMgr', 'F', 'Y', 'closed', 'javascript:void(0)', 'icon-power', 'A', '程序运行监控，包含sql语句、session等', '2016-03-15 00:00:00', '2016-03-15 00:00:00', '1', '1');
-INSERT INTO `permission` VALUES ('107', '1', '用户管理', '系统管理', '1', 'userMgr', 'F', 'Y', 'closed', '/manage/user/userMgr', 'icon-user', 'A', '用户管理用于新增修改删除用户信息', '2016-03-15 00:00:00', '2016-03-15 00:00:00', '1', '1');
+INSERT INTO `permission` VALUES ('3', '2', '菜单新增', '系统管理', '1', 'menuAdd', 'O', 'Y', 'open', 'javascript:void(0);', 'icon-add', 'A', '菜单功能新增', '2013-05-24 00:00:00', '2016-03-16 09:19:06', '1', '1');
+INSERT INTO `permission` VALUES ('4', '2', '菜单修改', '系统管理', '2', 'menuEdit', 'O', 'Y', 'open', 'javascript:void(0);', 'icon-edit', 'A', '菜单功能修改', '2013-05-24 00:00:00', '2016-03-16 09:19:12', '1', '1');
+INSERT INTO `permission` VALUES ('5', '2', '菜单删除', '系统管理', '3', 'menuDel', 'O', 'Y', 'open', 'javascript:void(0);', 'icon-remove', 'A', '菜单功能删除', '2013-05-24 00:00:00', '2016-03-16 09:19:19', '1', '1');
+INSERT INTO `permission` VALUES ('102', '0', '前端管理', '', '1', 'webMgr', 'F', 'Y', 'closed', 'javascript:void(0);', 'icon-map', 'A', '前台页面各项设定', '2016-03-15 00:00:00', '2016-03-15 10:18:17', '1', '1');
+INSERT INTO `permission` VALUES ('103', '0', '专题管理', '', '2', 'topicMgr', 'F', 'Y', 'closed', 'javascript:void(0);', 'icon-role', 'A', '各种专题项目管理', '2016-03-15 00:00:00', '2016-03-15 00:00:00', '1', '1');
+INSERT INTO `permission` VALUES ('104', '0', '数据备份', '', '5', 'dataBak', 'F', 'Y', 'closed', 'javascript:void(0);', 'icon-db', 'A', '数据库备份各项设定', '2016-03-15 00:00:00', '2016-03-15 10:27:16', '1', '1');
+INSERT INTO `permission` VALUES ('105', '0', '日志管理', '', '3', 'logMgr', 'F', 'Y', 'closed', 'javascript:void(0);', 'icon-info', 'A', '系统等各项日志管理，数据收集等', '2016-03-15 00:00:00', '2016-03-15 00:00:00', '1', '1');
+INSERT INTO `permission` VALUES ('106', '0', '系统监控', '', '4', 'runMgr', 'F', 'Y', 'closed', 'javascript:void(0);', 'icon-power', 'A', '系统运行监控', '2016-03-15 00:00:00', '2016-03-16 09:11:37', '1', '1');
+INSERT INTO `permission` VALUES ('107', '1', '用户管理', '系统管理', '5', 'userMgr', 'F', 'Y', 'closed', '/manage/users/usersMain', 'icon-user', 'A', '用户管理，用于新增、修改、删除用户信息', '2016-03-15 00:00:00', '2016-03-16 09:31:04', '1', '1');
 INSERT INTO `permission` VALUES ('108', '1', '角色管理', '系统管理', '2', 'roleMgr', 'F', 'Y', 'closed', '/manage/role/roleMgr', 'icon-star', 'A', '', '2016-03-15 00:00:00', '2016-03-15 00:00:00', '1', '1');
 INSERT INTO `permission` VALUES ('109', '1', '角色权限', '系统管理', '3', 'setRole', 'F', 'Y', 'closed', '/manage/setting/setRole', 'icon-man', 'A', '角色权限分配', '2016-03-15 00:00:00', '2016-03-15 00:00:00', '1', '1');
 INSERT INTO `permission` VALUES ('110', '1', '用户角色', '系统管理', '4', 'setUser', 'F', 'Y', 'closed', '/manage/setting/setUser', 'icon-woman', 'A', '用户的角色分配', '2016-03-15 00:00:00', '2016-03-15 00:00:00', '1', '1');
-INSERT INTO `permission` VALUES ('111', '1', '组织管理', '系统管理', '5', 'organMgr', 'F', 'Y', 'closed', '/manage/organ/organMgr', 'icon-organ', 'A', '组织机构管理', '2016-03-15 00:00:00', '2016-03-15 00:00:00', '1', '1');
-INSERT INTO `permission` VALUES ('112', '1', '数据字典', '系统管理', '6', 'dataMgr', 'F', 'Y', 'closed', '/manage/system/dataMgr', 'icon-data', 'A', '', '2016-03-15 00:00:00', '2016-03-15 00:00:00', '1', '1');
-INSERT INTO `permission` VALUES ('113', '0', 'BUG管理', '', '6', 'bugMgr', 'F', 'Y', 'closed', 'javascript:void(0)', 'icon-danger', 'A', '', '2016-03-15 00:00:00', '2016-03-15 00:00:00', '1', '1');
+INSERT INTO `permission` VALUES ('111', '1', '组织管理', '系统管理', '1', 'organMgr', 'F', 'Y', 'closed', '/manage/organ/organMain', 'icon-organ', 'A', '组织机构管理', '2016-03-15 00:00:00', '2016-03-16 09:33:37', '1', '1');
+INSERT INTO `permission` VALUES ('112', '1', '数据字典', '系统管理', '6', 'dataMgr', 'F', 'N', 'closed', '/manage/system/dataMgr', 'icon-data', 'I', '', '2016-03-15 00:00:00', '2016-03-15 00:00:00', '1', '1');
+INSERT INTO `permission` VALUES ('113', '0', 'BUG管理', '', '6', 'bugMgr', 'F', 'Y', 'closed', 'javascript:void(0);', 'icon-danger', 'A', '', '2016-03-15 00:00:00', '2016-03-15 00:00:00', '1', '1');
+INSERT INTO `permission` VALUES ('114', '106', '运行监控', '运行监控', '1', 'dataMgr', 'F', 'Y', 'closed', '/druid', 'icon-camera', 'A', '淘宝Druid监控，包含数据源、sql、web应用、uri监控、session监控、spring监控等', '2016-03-16 00:00:00', '2016-03-16 08:33:56', '1', '1');
+INSERT INTO `permission` VALUES ('115', '107', '新增用户', '用户管理', '1', 'userAdd', 'O', 'Y', 'open', 'javascript:void(0);', 'icon-add', 'A', '', '2016-03-16 00:00:00', '2016-03-16 00:00:00', '1', '1');
+INSERT INTO `permission` VALUES ('116', '107', '用户修改', '用户管理', '2', 'userEdit', 'O', 'Y', 'open', 'javascript:void(0);', 'icon-edit', 'A', '', '2016-03-16 00:00:00', '2016-03-16 00:00:00', '1', '1');
+INSERT INTO `permission` VALUES ('117', '107', '删除用户', '用户管理', '3', 'userDel', 'O', 'Y', 'open', 'javascript:void(0);', 'icon-remove', 'A', '', '2016-03-16 00:00:00', '2016-03-16 00:00:00', '1', '1');
+INSERT INTO `permission` VALUES ('118', '111', '新增组织', '组织管理', '1', 'organAdd', 'O', 'Y', 'open', 'javascript:void(0);', 'icon-add', 'A', '', '2016-03-16 00:00:00', '2016-03-16 00:00:00', '1', '1');
+INSERT INTO `permission` VALUES ('119', '111', '组织编辑', '组织管理', '2', 'organEdit', 'O', 'Y', 'open', 'javascript:void(0);', 'icon-edit', 'A', '', '2016-03-16 00:00:00', '2016-03-16 00:00:00', '1', '1');
+INSERT INTO `permission` VALUES ('120', '111', '删除组织', '组织管理', '3', 'organDel', 'O', 'Y', 'open', 'javascript:void(0);', 'icon-remove', 'A', '', '2016-03-16 00:00:00', '2016-03-16 00:00:00', '1', '1');
+INSERT INTO `permission` VALUES ('121', '108', '新增角色', '角色管理', '1', 'rollAdd', 'O', 'Y', 'open', 'javascript:void(0);', 'icon-add', 'A', '', '2016-03-16 00:00:00', '2016-03-16 00:00:00', '1', '1');
+INSERT INTO `permission` VALUES ('122', '108', '角色修改', '角色管理', '2', 'roleEdit', 'O', 'Y', 'open', 'javascript:void(0);', 'icon-edit', 'A', '', '2016-03-16 00:00:00', '2016-03-16 00:00:00', '1', '1');
+INSERT INTO `permission` VALUES ('123', '108', '删除角色', '角色管理', '3', 'roleDel', 'O', 'Y', 'open', 'javascript:void(0);', 'icon-remove', 'A', '', '2016-03-16 00:00:00', '2016-03-16 00:00:00', '1', '1');
+INSERT INTO `permission` VALUES ('124', '109', '权限分配', '角色权限', '1', 'allotPerm', 'O', 'Y', 'open', 'javascript:void(0);', 'icon-key', 'A', '制定某个角色的权限分配', '2016-03-16 00:00:00', '2016-03-16 15:35:39', '1', '1');
+INSERT INTO `permission` VALUES ('125', '110', '角色分配', '用户角色', '1', 'allotRole', 'O', 'Y', 'open', 'javascript:void(0);', 'icon-star', 'A', '角色分配给某个用户', '2016-03-16 00:00:00', '2016-03-16 15:36:06', '1', '1');
+INSERT INTO `permission` VALUES ('126', '113', '提交BUG', 'BUG管理', '1', 'bugAdd', 'O', 'Y', 'open', 'javascript:void(0);', 'icon-add', 'A', '', '2016-03-16 00:00:00', '2016-03-16 00:00:00', '1', '1');
+INSERT INTO `permission` VALUES ('127', '113', 'BUG反馈', 'BUG管理', '2', 'bugReply', 'O', 'Y', 'open', 'javascript:void(0);', 'icon-yes', 'A', '', '2016-03-16 00:00:00', '2016-03-16 15:39:49', '1', '1');
+INSERT INTO `permission` VALUES ('128', '113', '无效BUG', 'BUG管理', '3', 'bugDel', 'O', 'Y', 'open', 'javascript:void(0);', 'icon-no', 'A', '', '2016-03-16 00:00:00', '2016-03-16 16:00:15', '1', '1');
+INSERT INTO `permission` VALUES ('129', '104', '定时备份', '数据备份', '1', 'autoBak', 'O', 'Y', 'open', 'javascript:void(0);', 'icon-save', 'A', '', '2016-03-16 00:00:00', '2016-03-16 00:00:00', '1', '1');
+INSERT INTO `permission` VALUES ('130', '104', '手动备份', '数据备份', '2', 'myBak', 'O', 'Y', 'open', 'javascript:void(0);', 'icon-dbadd', 'A', '', '2016-03-16 00:00:00', '2016-03-16 00:00:00', '1', '1');
+INSERT INTO `permission` VALUES ('131', '112', '添加字典', '数据字典', '1', 'wordAdd', 'O', 'N', 'open', 'javascript:void(0);', 'icon-add', 'I', '添加数据字典项', '2016-03-16 00:00:00', '2016-03-16 00:00:00', '1', '1');
 
 -- -----------------------------
 -- Table structure for `COMPANY`
@@ -212,9 +230,41 @@ CREATE TABLE `ROLEPERMISSION` (
 -- ----------------------------
 -- Records of ROLE_PERMISSION
 -- ----------------------------
-INSERT INTO `ROLEPERMISSION` VALUES ('1', '1', '1', 'A', '2013-06-14 00:00:00', '2013-06-18 00:00:00', '1', '1');
-INSERT INTO `ROLEPERMISSION` VALUES ('2', '1', '2', 'A', '2013-06-14 00:00:00', '2013-06-18 00:00:00', '1', '1');
-
+INSERT INTO `rolepermission` VALUES ('1', '1', '1', 'A', '2013-06-14 00:00:00', '2013-06-18 00:00:00', '1', '1');
+INSERT INTO `rolepermission` VALUES ('2', '1', '2', 'A', '2013-06-14 00:00:00', '2013-06-18 00:00:00', '1', '1');
+INSERT INTO `rolepermission` VALUES ('275', '1', '3', 'A', '2016-03-16 08:00:00', '2016-03-16 08:00:00', '1', '1');
+INSERT INTO `rolepermission` VALUES ('276', '1', '4', 'A', '2016-03-16 08:00:00', '2016-03-16 08:00:00', '1', '1');
+INSERT INTO `rolepermission` VALUES ('277', '1', '5', 'A', '2016-03-16 08:00:00', '2016-03-16 08:00:00', '1', '1');
+INSERT INTO `rolepermission` VALUES ('278', '1', '102', 'A', '2016-03-16 08:00:00', '2016-03-16 08:00:00', '1', '1');
+INSERT INTO `rolepermission` VALUES ('279', '1', '103', 'A', '2016-03-16 08:00:00', '2016-03-16 08:00:00', '1', '1');
+INSERT INTO `rolepermission` VALUES ('280', '1', '104', 'A', '2016-03-16 08:00:00', '2016-03-16 08:00:00', '1', '1');
+INSERT INTO `rolepermission` VALUES ('281', '1', '105', 'A', '2016-03-16 08:00:00', '2016-03-16 08:00:00', '1', '1');
+INSERT INTO `rolepermission` VALUES ('282', '1', '106', 'A', '2016-03-16 08:00:00', '2016-03-16 08:00:00', '1', '1');
+INSERT INTO `rolepermission` VALUES ('283', '1', '107', 'A', '2016-03-16 08:00:00', '2016-03-16 08:00:00', '1', '1');
+INSERT INTO `rolepermission` VALUES ('284', '1', '108', 'A', '2016-03-16 08:00:00', '2016-03-16 08:00:00', '1', '1');
+INSERT INTO `rolepermission` VALUES ('285', '1', '109', 'A', '2016-03-16 08:00:00', '2016-03-16 08:00:00', '1', '1');
+INSERT INTO `rolepermission` VALUES ('286', '1', '110', 'A', '2016-03-16 08:00:00', '2016-03-16 08:00:00', '1', '1');
+INSERT INTO `rolepermission` VALUES ('287', '1', '111', 'A', '2016-03-16 08:00:00', '2016-03-16 08:00:00', '1', '1');
+INSERT INTO `rolepermission` VALUES ('288', '1', '112', 'A', '2016-03-16 08:00:00', '2016-03-16 08:00:00', '1', '1');
+INSERT INTO `rolepermission` VALUES ('289', '1', '113', 'A', '2016-03-16 08:00:00', '2016-03-16 08:00:00', '1', '1');
+INSERT INTO `rolepermission` VALUES ('290', '1', '114', 'A', '2016-03-16 08:00:00', '2016-03-16 08:00:00', '1', '1');
+INSERT INTO `rolepermission` VALUES ('291', '1', '115', 'A', '2016-03-16 08:00:00', '2016-03-16 08:00:00', '1', '1');
+INSERT INTO `rolepermission` VALUES ('292', '1', '116', 'A', '2016-03-16 08:00:00', '2016-03-16 08:00:00', '1', '1');
+INSERT INTO `rolepermission` VALUES ('293', '1', '117', 'A', '2016-03-16 08:00:00', '2016-03-16 08:00:00', '1', '1');
+INSERT INTO `rolepermission` VALUES ('294', '1', '118', 'A', '2016-03-16 08:00:00', '2016-03-16 08:00:00', '1', '1');
+INSERT INTO `rolepermission` VALUES ('295', '1', '119', 'A', '2016-03-16 08:00:00', '2016-03-16 08:00:00', '1', '1');
+INSERT INTO `rolepermission` VALUES ('296', '1', '120', 'A', '2016-03-16 08:00:00', '2016-03-16 08:00:00', '1', '1');
+INSERT INTO `rolepermission` VALUES ('297', '1', '121', 'A', '2016-03-16 08:00:00', '2016-03-16 08:00:00', '1', '1');
+INSERT INTO `rolepermission` VALUES ('298', '1', '122', 'A', '2016-03-16 08:00:00', '2016-03-16 08:00:00', '1', '1');
+INSERT INTO `rolepermission` VALUES ('299', '1', '123', 'A', '2016-03-16 08:00:00', '2016-03-16 08:00:00', '1', '1');
+INSERT INTO `rolepermission` VALUES ('300', '1', '124', 'A', '2016-03-16 08:00:00', '2016-03-16 08:00:00', '1', '1');
+INSERT INTO `rolepermission` VALUES ('301', '1', '125', 'A', '2016-03-16 08:00:00', '2016-03-16 08:00:00', '1', '1');
+INSERT INTO `rolepermission` VALUES ('302', '1', '126', 'A', '2016-03-16 08:00:00', '2016-03-16 08:00:00', '1', '1');
+INSERT INTO `rolepermission` VALUES ('303', '1', '127', 'A', '2016-03-16 08:00:00', '2016-03-16 08:00:00', '1', '1');
+INSERT INTO `rolepermission` VALUES ('304', '1', '128', 'A', '2016-03-16 08:00:00', '2016-03-16 08:00:00', '1', '1');
+INSERT INTO `rolepermission` VALUES ('305', '1', '129', 'A', '2016-03-16 08:00:00', '2016-03-16 08:00:00', '1', '1');
+INSERT INTO `rolepermission` VALUES ('306', '1', '130', 'A', '2016-03-16 08:00:00', '2016-03-16 08:00:00', '1', '1');
+INSERT INTO `rolepermission` VALUES ('307', '1', '131', 'A', '2016-03-16 08:00:00', '2016-03-16 08:00:00', '1', '1');
 -- ----------------------------
 -- Table structure for `LOG`
 -- ----------------------------

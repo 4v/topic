@@ -5,6 +5,9 @@
 		http://www.springframework.org/schema/beans/spring-beans.xsd"
        default-lazy-init="true">
 
+    <!-- 用户授权信息Cache -->
+    <bean id="cacheManager" class="org.apache.shiro.cache.MemoryConstrainedCacheManager"/>
+
     <!-- 继承自AuthorizingRealm的自定义Realm,即指定Shiro验证用户登录的类为自定义的ShiroDbRealm.java -->
     <bean id="loginRealm" class="com.dyenigma.shiro.LoginRealm">
         <property name="cacheManager" ref="cacheManager"/>
@@ -48,10 +51,6 @@
 
     <!-- 保证实现了Shiro内部lifecycle函数的bean执行 -->
     <bean id="lifecycleBeanPostProcessor" class="org.apache.shiro.spring.LifecycleBeanPostProcessor"/>
-
-    <!-- 用户授权信息Cache -->
-    <bean id="cacheManager" class="org.apache.shiro.cache.MemoryConstrainedCacheManager"/>
-
 
     <!-- 开启Shiro的注解(如@RequiresRoles,@RequiresPermissions),需借助SpringAOP扫描使用Shiro注解的类,并在必要时进行安全逻辑验证 -->
     <!-- 配置以下两个bean即可实现此功能 ,但查看起来不方便，不推荐使用. -->
