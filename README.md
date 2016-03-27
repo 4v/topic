@@ -1,9 +1,9 @@
 # topic
-通用信息管理系统
+- 通用信息展示与后台管理系统
 
 
 ##主体技术
-SpringMVC+Spring+MyBatis+Shiro+EasyUI+Druid+Lucene+HTML5/CSS3
+- SpringMVC+Spring+MyBatis+Shiro+EasyUI+Druid+Lucene+HTML5/CSS3
 
 ##简介
 - Shiro提供给您细分到按钮的权限管理
