@@ -19,6 +19,7 @@
 	<logger name="com.dyenigma" level="debug" additivity="false">
 		<appender-ref ref="STDOUT" />
 	</logger>
+	<logger name="com.dyenigma.dao" level="DEBUG"/>
 	
 	<root level="error">
 		<appender-ref ref="STDOUT" />
