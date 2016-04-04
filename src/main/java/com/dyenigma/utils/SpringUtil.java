@@ -10,20 +10,6 @@ public final class SpringUtil implements BeanFactoryPostProcessor {
     private static ConfigurableListableBeanFactory beanFactory;
 
     /**
-     * Modify the application context's internal bean factory after its standard
-     * initialization. All bean definitions will have been loaded, but no beans
-     * will have been instantiated yet. This allows for overriding or adding
-     * properties even to eager-initializing beans.
-     *
-     * @param beanFactory the bean factory used by the application context
-     * @throws BeansException in case of errors
-     */
-    @Override
-    public void postProcessBeanFactory(ConfigurableListableBeanFactory beanFactory) throws BeansException {
-        SpringUtil.beanFactory = beanFactory;
-    }
-
-    /**
      * 获取对象
      *
      * @param name
@@ -87,5 +73,19 @@ public final class SpringUtil implements BeanFactoryPostProcessor {
      */
     public static String[] getAliases(String name) throws NoSuchBeanDefinitionException {
         return beanFactory.getAliases(name);
+    }
+
+    /**
+     * Modify the application context's internal bean factory after its standard
+     * initialization. All bean definitions will have been loaded, but no beans
+     * will have been instantiated yet. This allows for overriding or adding
+     * properties even to eager-initializing beans.
+     *
+     * @param beanFactory the bean factory used by the application context
+     * @throws BeansException in case of errors
+     */
+    @Override
+    public void postProcessBeanFactory(ConfigurableListableBeanFactory beanFactory) throws BeansException {
+        SpringUtil.beanFactory = beanFactory;
     }
 }

@@ -29,6 +29,8 @@
                         <prop key="kaptcha.session.key">code</prop>
                         <!-- 验证码长度 -->
                         <prop key="kaptcha.textproducer.char.length">5</prop>
+                        <!-- 验证码文本字符大小 -->
+                        <prop key="kaptcha.textproducer.font.size">36</prop>
                         <!-- 图片边框，合法值：yes , no -->
                         <prop key="kaptcha.border">yes</prop>
                         <!-- 边框颜色，合法值： r,g,b (and optional alpha) 或者 white,black,blue. -->

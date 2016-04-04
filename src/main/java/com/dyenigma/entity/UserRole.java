@@ -4,20 +4,20 @@ import java.util.Date;
 
 public class UserRole extends BaseDomain {
 
-    private int urId;
+    private Integer urId;
     private Users users;
     private Role role;
     private String status;
     private Date created;
     private Date lastmod;
-    private int creater;
-    private int modifyer;
+    private Integer creater;
+    private Integer modifyer;
 
-    public int getUrId() {
+    public Integer getUrId() {
         return urId;
     }
 
-    public void setUrId(int urId) {
+    public void setUrId(Integer urId) {
         this.urId = urId;
     }
 
@@ -61,19 +61,19 @@ public class UserRole extends BaseDomain {
         this.lastmod = lastmod;
     }
 
-    public int getCreater() {
+    public Integer getCreater() {
         return creater;
     }
 
-    public void setCreater(int creater) {
+    public void setCreater(Integer creater) {
         this.creater = creater;
     }
 
-    public int getModifyer() {
+    public Integer getModifyer() {
         return modifyer;
     }
 
-    public void setModifyer(int modifyer) {
+    public void setModifyer(Integer modifyer) {
         this.modifyer = modifyer;
     }
 }

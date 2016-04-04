@@ -16,6 +16,7 @@ import com.dyenigma.model.TreeModel;
 import com.dyenigma.service.PermissionService;
 import com.dyenigma.shiro.ShiroUser;
 import com.dyenigma.utils.Constants;
+import com.dyenigma.utils.StringUtil;
 import org.apache.commons.beanutils.BeanUtils;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -118,7 +119,7 @@ public class PermissionServiceImpl extends BaseServiceImpl<Permission> implement
     public boolean deleteById(String id) {
         try {
             int i = permissionMapper.updateById(Integer.parseInt(id));
-            if (i > 0) {
+            if (i == 1) {
                 return true;
             } else {
                 return false;
@@ -135,8 +136,8 @@ public class PermissionServiceImpl extends BaseServiceImpl<Permission> implement
         List<TreeModel> tempList = new ArrayList<>();
         for (Permission function : pList) {
             TreeModel treeModel = new TreeModel();
-            treeModel.setId(function.getPermissionId()+"");
-            treeModel.setPid(function.getPid() == 0 ? "" : function.getPid()+"");
+            treeModel.setId(function.getPermissionId() + "");
+            treeModel.setPid(function.getPid() == 0 ? "" : function.getPid() + "");
             treeModel.setName(function.getName());
             treeModel.setIconCls(function.getIconCls());
             treeModel.setState(Constants.TREE_STATUS_OPEN);
@@ -148,7 +149,7 @@ public class PermissionServiceImpl extends BaseServiceImpl<Permission> implement
     @Override
     public boolean persistenceFunction(Permission permission) {
         Integer userId = Constants.getCurrendUser().getUserId();
-        if (permission.getPermissionId() == 0) {
+        if (StringUtil.isEmpty(permission.getPermissionId() + "")) {
             permission.setCreated(new Date());
             permission.setLastmod(new Date());
             permission.setCreater(userId);

@@ -1,84 +1,84 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"   
-"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.dyenigma.dao.PermissionMapper">
-	<select id="adminMenu" resultType="Permission">
-		SELECT PERMISSIONID,PID,NAME,ICONCLS,URL,MYID
-		FROM PERMISSION
-		WHERE STATUS = 'A'
-		AND TYPE = #{type} AND ISUSED = 'Y'  ORDER BY SORT
-	</select>
+    <select id="adminMenu" resultType="Permission">
+        SELECT PERMISSIONID,PID,NAME,ICONCLS,URL,MYID
+        FROM PERMISSION
+        WHERE STATUS = 'A'
+        AND TYPE = #{type} AND ISUSED = 'Y' ORDER BY SORT
+    </select>
 
-	<select id="usersMenu" parameterType="int" resultType="Permission">
-		SELECT DISTINCT p.PERMISSIONID,p.PID,p.NAME,p.ICONCLS,p.URL,p.MYID
-		FROM ROLEPERMISSION AS rp
-		INNER JOIN ROLE AS r ON rp.ROLEID = r.ROLEID
-		INNER JOIN USERROLE AS ur ON rp.ROLEID = ur.ROLEID
-		INNER JOIN USERS AS u ON u.USERID = ur.USERID
-		INNER JOIN PERMISSION AS p ON
-		rp.PERMISSIONID = p.PERMISSIONID
-		WHERE rp. STATUS = 'A'
-		AND r. STATUS = 'A'
-		AND ur. STATUS = 'A'
-		AND u. STATUS = 'A'
-		AND p. STATUS = 'A'
-		AND p.TYPE = #{type}
-		AND p.ISUSED = 'Y'
-		AND u.USERID = #{userId}  ORDER BY SORT
-	</select>
+    <select id="usersMenu" parameterType="int" resultType="Permission">
+        SELECT DISTINCT p.PERMISSIONID,p.PID,p.NAME,p.ICONCLS,p.URL,p.MYID
+        FROM ROLEPERMISSION AS rp
+        INNER JOIN ROLE AS r ON rp.ROLEID = r.ROLEID
+        INNER JOIN USERROLE AS ur ON rp.ROLEID = ur.ROLEID
+        INNER JOIN USERS AS u ON u.USERID = ur.USERID
+        INNER JOIN PERMISSION AS p ON
+        rp.PERMISSIONID = p.PERMISSIONID
+        WHERE rp. STATUS = 'A'
+        AND r. STATUS = 'A'
+        AND ur. STATUS = 'A'
+        AND u. STATUS = 'A'
+        AND p. STATUS = 'A'
+        AND p.TYPE = #{type}
+        AND p.ISUSED = 'Y'
+        AND u.USERID = #{userId} ORDER BY SORT
+    </select>
 
-	<select id="findAll" resultType="Permission">
-		SELECT
-		PERMISSIONID,CREATED,CREATER,DESCRIPTION,ICONCLS,ISUSED,LASTMOD,MODIFYER,MYID,NAME,PID,
-		PNAME,SORT,STATE,STATUS,TYPE,URL
-		FROM PERMISSION
-		WHERE STATUS='A' AND
-		PID = 0 ORDER BY SORT
-	</select>
+    <select id="findAll" resultType="Permission">
+        SELECT
+        PERMISSIONID,CREATED,CREATER,DESCRIPTION,ICONCLS,ISUSED,LASTMOD,MODIFYER,MYID,NAME,PID,
+        PNAME,SORT,STATE,STATUS,TYPE,URL
+        FROM PERMISSION
+        WHERE STATUS='A' AND
+        PID = 0 ORDER BY SORT
+    </select>
 
-	<select id="findByPid" parameterType="Integer" resultType="Permission">
-		SELECT
-		PERMISSIONID,CREATED,CREATER,DESCRIPTION,ICONCLS,ISUSED,LASTMOD,MODIFYER,MYID,NAME,PID,
-		PNAME,SORT,STATE,STATUS,TYPE,URL
-		FROM PERMISSION
-		WHERE STATUS='A' AND
-		PID = #{pid}  ORDER BY SORT
-	</select>
+    <select id="findByPid" parameterType="Integer" resultType="Permission">
+        SELECT
+        PERMISSIONID,CREATED,CREATER,DESCRIPTION,ICONCLS,ISUSED,LASTMOD,MODIFYER,MYID,NAME,PID,
+        PNAME,SORT,STATE,STATUS,TYPE,URL
+        FROM PERMISSION
+        WHERE STATUS='A' AND
+        PID = #{pid} ORDER BY SORT
+    </select>
 
-	<select id="findSuperFunc" resultType="Permission">
-		SELECT
-		PERMISSIONID,CREATED,CREATER,DESCRIPTION,ICONCLS,ISUSED,LASTMOD,MODIFYER,MYID,NAME,PID,
-		PNAME,SORT,STATE,STATUS,TYPE,URL
-		FROM Permission
-		WHERE STATUS = 'A'
-		AND
-		TYPE = 'F'  ORDER BY SORT
-	</select>
+    <select id="findSuperFunc" resultType="Permission">
+        SELECT
+        PERMISSIONID,CREATED,CREATER,DESCRIPTION,ICONCLS,ISUSED,LASTMOD,MODIFYER,MYID,NAME,PID,
+        PNAME,SORT,STATE,STATUS,TYPE,URL
+        FROM Permission
+        WHERE STATUS = 'A'
+        AND
+        TYPE = 'F' ORDER BY SORT
+    </select>
 
-	<insert id="insert" parameterType="Permission">
-		INSERT INTO
-		PERMISSION(CREATED,CREATER,DESCRIPTION,ICONCLS,ISUSED,LASTMOD,MODIFYER,MYID,
-		NAME,PID,PNAME,SORT,STATE,STATUS,TYPE,URL)
-		VALUES
-		(#{created,jdbcType=DATE},#{creater,jdbcType=INTEGER},#{description,jdbcType=VARCHAR},
-		#{iconCls,jdbcType=VARCHAR},#{isused,jdbcType=VARCHAR},#{lastmod,jdbcType=DATE},
-		#{modifyer,jdbcType=INTEGER},#{myId,jdbcType=VARCHAR},#{name,jdbcType=VARCHAR},
-		#{pid,jdbcType=INTEGER},#{pname,jdbcType=VARCHAR},#{sort,jdbcType=INTEGER},
-		#{state,jdbcType=VARCHAR},#{status,jdbcType=VARCHAR},#{type,jdbcType=VARCHAR},
-		#{url,jdbcType=VARCHAR})
-	</insert>
+    <insert id="insert" parameterType="Permission">
+        INSERT INTO
+        PERMISSION(CREATED,CREATER,DESCRIPTION,ICONCLS,ISUSED,LASTMOD,MODIFYER,MYID,
+        NAME,PID,PNAME,SORT,STATE,STATUS,TYPE,URL)
+        VALUES
+        (#{created,jdbcType=DATE},#{creater,jdbcType=INTEGER},#{description,jdbcType=VARCHAR},
+        #{iconCls,jdbcType=VARCHAR},#{isused,jdbcType=VARCHAR},#{lastmod,jdbcType=DATE},
+        #{modifyer,jdbcType=INTEGER},#{myId,jdbcType=VARCHAR},#{name,jdbcType=VARCHAR},
+        #{pid,jdbcType=INTEGER},#{pname,jdbcType=VARCHAR},#{sort,jdbcType=INTEGER},
+        #{state,jdbcType=VARCHAR},#{status,jdbcType=VARCHAR},#{type,jdbcType=VARCHAR},
+        #{url,jdbcType=VARCHAR})
+    </insert>
 
-	<update id="update" parameterType="Permission">
-		UPDATE PERMISSION SET
-		DESCRIPTION=#{description},ICONCLS=#{iconCls},ISUSED=#{isused},LASTMOD=#{lastmod},
-		MODIFYER=#{modifyer},MYID=#{myId},NAME=#{name},PID=#{pid},PNAME=#{pname},SORT=#{sort},
-		STATE=#{state},STATUS=#{status},TYPE=#{type},URL=#{url}
-		WHERE
-		PERMISSIONID=#{permissionId}
-	</update>
+    <update id="update" parameterType="Permission">
+        UPDATE PERMISSION SET
+        DESCRIPTION=#{description},ICONCLS=#{iconCls},ISUSED=#{isused},LASTMOD=#{lastmod},
+        MODIFYER=#{modifyer},MYID=#{myId},NAME=#{name},PID=#{pid},PNAME=#{pname},SORT=#{sort},
+        STATE=#{state},STATUS=#{status},TYPE=#{type},URL=#{url}
+        WHERE
+        PERMISSIONID=#{permissionId}
+    </update>
 
-	<update id="updateById" parameterType="Integer">
-		UPDATE PERMISSION SET
-		ISUSED='N',STATUS='I' WHERE PERMISSIONID=#{id,jdbcType=INTEGER}
-	</update>
+    <update id="updateById" parameterType="Integer">
+        UPDATE PERMISSION SET
+        ISUSED='N',STATUS='I' WHERE PERMISSIONID=#{id,jdbcType=INTEGER}
+    </update>
 </mapper>

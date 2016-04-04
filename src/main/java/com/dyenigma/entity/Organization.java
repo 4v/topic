@@ -20,16 +20,16 @@ import java.util.Date;
  */
 
 public class Organization extends BaseDomain {
-    private int organizationId;
-    private int companyId;
+    private Integer organizationId;
+    private Integer companyId;
     private String myId;
-    private int pid;
+    private Integer pid;
     private String fullName;
     private String ename;
-    private int manager;
+    private Integer manager;
     private String iconCls;
-    private int assistantManager;
-    private int empQty;
+    private Integer assistantManager;
+    private Integer empQty;
     private String status;
     private Date created;
     private Date lastmod;
@@ -37,23 +37,23 @@ public class Organization extends BaseDomain {
     private String tel;
     private String fax;
     private String description;
-    private int creater;
-    private int modifyer;
+    private Integer creater;
+    private Integer modifyer;
     private String state = "closed";
 
-    public int getOrganizationId() {
+    public Integer getOrganizationId() {
         return organizationId;
     }
 
-    public void setOrganizationId(int organizationId) {
+    public void setOrganizationId(Integer organizationId) {
         this.organizationId = organizationId;
     }
 
-    public int getCompanyId() {
+    public Integer getCompanyId() {
         return companyId;
     }
 
-    public void setCompanyId(int companyId) {
+    public void setCompanyId(Integer companyId) {
         this.companyId = companyId;
     }
 
@@ -65,11 +65,11 @@ public class Organization extends BaseDomain {
         this.myId = myId;
     }
 
-    public int getPid() {
+    public Integer getPid() {
         return pid;
     }
 
-    public void setPid(int pid) {
+    public void setPid(Integer pid) {
         this.pid = pid;
     }
 
@@ -89,11 +89,11 @@ public class Organization extends BaseDomain {
         this.ename = ename;
     }
 
-    public int getManager() {
+    public Integer getManager() {
         return manager;
     }
 
-    public void setManager(int manager) {
+    public void setManager(Integer manager) {
         this.manager = manager;
     }
 
@@ -105,19 +105,19 @@ public class Organization extends BaseDomain {
         this.iconCls = iconCls;
     }
 
-    public int getAssistantManager() {
+    public Integer getAssistantManager() {
         return assistantManager;
     }
 
-    public void setAssistantManager(int assistantManager) {
+    public void setAssistantManager(Integer assistantManager) {
         this.assistantManager = assistantManager;
     }
 
-    public int getEmpQty() {
+    public Integer getEmpQty() {
         return empQty;
     }
 
-    public void setEmpQty(int empQty) {
+    public void setEmpQty(Integer empQty) {
         this.empQty = empQty;
     }
 
@@ -177,19 +177,19 @@ public class Organization extends BaseDomain {
         this.description = description;
     }
 
-    public int getCreater() {
+    public Integer getCreater() {
         return creater;
     }
 
-    public void setCreater(int creater) {
+    public void setCreater(Integer creater) {
         this.creater = creater;
     }
 
-    public int getModifyer() {
+    public Integer getModifyer() {
         return modifyer;
     }
 
-    public void setModifyer(int modifyer) {
+    public void setModifyer(Integer modifyer) {
         this.modifyer = modifyer;
     }
 
@@ -200,5 +200,4 @@ public class Organization extends BaseDomain {
     public void setState(String state) {
         this.state = state;
     }
-
 }

@@ -25,32 +25,25 @@ import static org.apache.commons.fileupload.FileUploadBase.FileSizeLimitExceeded
 public class FileUploadUtils {
     // 默认大小 50M
     public static final long DEFAULT_MAX_SIZE = 52428800;
-
-    // 默认上传的地址
-    private static String defaultBaseDir = "upload";
-
     // 默认的文件名最大长度
     public static final int DEFAULT_FILE_NAME_LENGTH = 200;
-
     public static final String[] IMAGE_EXTENSION = {"bmp", "gif", "jpg", "jpeg", "png"};
-
     public static final String[] FLASH_EXTENSION = {"swf", "flv"};
-
     public static final String[] MEDIA_EXTENSION = {"swf", "flv", "mp3", "wav", "wma", "wmv", "mid", "avi", "mpg",
             "asf", "rm", "rmvb"};
-
     //上传文件类型包含：图片，word，压缩文件，pdf文件
     public static final String[] DEFAULT_ALLOWED_EXTENSION = {"bmp", "gif", "jpg", "jpeg", "png", "doc", "docx",
             "xls", "xlsx", "ppt", "pptx", "html", "htm", "txt", "rar", "zip", "gz", "bz2", "pdf"};
-
+    // 默认上传的地址
+    private static String defaultBaseDir = "upload";
     private static int counter = 0;
-
-    public static void setDefaultBaseDir(String defaultBaseDir) {
-        FileUploadUtils.defaultBaseDir = defaultBaseDir;
-    }
 
     public static String getDefaultBaseDir() {
         return defaultBaseDir;
+    }
+
+    public static void setDefaultBaseDir(String defaultBaseDir) {
+        FileUploadUtils.defaultBaseDir = defaultBaseDir;
     }
 
     /**

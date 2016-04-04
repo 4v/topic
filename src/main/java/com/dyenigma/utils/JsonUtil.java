@@ -15,7 +15,6 @@ package com.dyenigma.utils;
  * Description: TODO(这里用一句话描述这个类的作用)
  * author dingdongliang
  * date 2015年9月14日 下午5:16:07
- *
  */
 
 public class JsonUtil {

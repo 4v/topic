@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.dyenigma.dao.CompanyMapper">
+
+    <insert id="insert" parameterType="Company" flushCache="true">
+        INSERT INTO
+        COMPANY (COMPANYID,ADDRESS,BANK,BANKACCOUNT,CONTACT,CREATED,CREATER,DESCRIPTION,
+        EMAIL,FAX,LASTMOD,MANAGER,MODIFYER,NAME,STATUS,TEL,ZIP) VALUES
+        #{COMPANYID,jdbcType=INTEGER},
+        #{ADDRESS,jdbcType=VARCHAR},
+        #{BANK,jdbcType=VARCHAR},
+        #{BANKACCOUNT,jdbcType=VARCHAR},
+        #{CONTACT,jdbcType=VARCHAR},
+        #{CREATED,jdbcType=DATE},
+        #{CREATER,jdbcType=INTEGER},
+        #{DESCRIPTION,jdbcType=VARCHAR},
+        #{EMAIL,jdbcType=VARCHAR},
+        #{FAX,jdbcType=VARCHAR},
+        #{LASTMOD,jdbcType=DATE},
+        #{MANAGER,jdbcType=VARCHAR},
+        #{MODIFYER,jdbcType=INTEGER},
+        #{NAME,jdbcType=VARCHAR},
+        #{STATUS,jdbcType=VARCHAR},
+        #{TEL,jdbcType=VARCHAR},
+        #{ZIP,jdbcType=VARCHAR})
+    </insert>
+    <update id="update" parameterType="Company">
+        UPDATE COMPANY SET ADDRESS=#{ADDRESS},BANK=#{BANK},BANKACCOUNT=#{BANKACCOUNT},CONTACT=#{CONTACT},
+        DESCRIPTION=#{DESCRIPTION},EMAIL=#{EMAIL},FAX=#{FAX},MANAGER=#{MANAGER},NAME=#{NAME},TEL=${TEL},
+        ZIP=#{ZIP},LASTMOD=#{LASTMOD},MODIFYER=#{MODIFYER}
+        WHERE COMPANYID=#{COMPANYID}
+    </update>
+    <delete id="delete" parameterType="int">
+        DELETE FROM COMPANY WHERE COMPANYID=#{COMPANYID}
+    </delete>
+    <select id="findAll" resultType="Company">
+        SELECT
+        COMPANYID,ADDRESS,BANK,BANKACCOUNT,CONTACT,CREATED,CREATER,DESCRIPTION,
+        EMAIL,FAX,LASTMOD,MANAGER,MODIFYER,NAME,STATUS,TEL,ZIP
+        FROM COMPANY
+        WHERE STATUS = 'A'
+    </select>
+    <select id="findById" parameterType="int" resultType="Company">
+        SELECT
+        COMPANYID,ADDRESS,BANK,BANKACCOUNT,CONTACT,CREATED,CREATER,DESCRIPTION,
+        EMAIL,FAX,LASTMOD,MANAGER,MODIFYER,NAME,STATUS,TEL,ZIP
+        FROM COMPANY
+        WHERE STATUS = 'A' AND COMPANYID=#{COMPANYID}
+    </select>
+</mapper>

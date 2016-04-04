@@ -15,17 +15,13 @@ import org.apache.shiro.subject.Subject;
 import com.dyenigma.shiro.ShiroUser;
 
 /**
- * @ClassName: Constants
- * @Description:常用常量定义
- * @author dingdongliang
- * @date 2015年9月14日 下午6:07:30
- *
+ * author dingdongliang
+ * ClassName: Constants
+ * Description:常用常量定义
+ * date 2015年9月14日 下午6:07:30
  */
 
 public class Constants {
-
-    private Constants() {
-    }
 
     public static final String LOGIN_SESSION_DATANAME = "users";
     public static final String LOGIN_URL = "login";
@@ -71,14 +67,15 @@ public class Constants {
     public static final String LOGS_TB_NAME = "Log";
     public static final String FILE_SUFFIX_SQL = ".sql";
     public static final String FILE_SUFFIX_ZIP = ".zip";
+    private Constants() {
+    }
 
     /**
-     *
-     * @Title: getCurrendUser
-     * @Description: 获取当前登录用户实体类
-     * @param @return 参数
-     * @return ShiroUser 返回类型
-     * @throws
+     * param @return 参数
+     * return ShiroUser 返回类型
+     * throws
+     * Title: getCurrendUser
+     * Description: 获取当前登录用户实体类
      */
     public static ShiroUser getCurrendUser() {
         Subject subject = SecurityUtils.getSubject();

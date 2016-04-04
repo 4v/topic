@@ -37,7 +37,7 @@ public class Replication {
             conn.commit();
 
             conn.setReadOnly(true);
-            ResultSet rs =  conn.createStatement().executeQuery("SELECT a,b FROM alt_table");
+            ResultSet rs = conn.createStatement().executeQuery("SELECT a,b FROM alt_table");
 
         } catch (SQLException e) {
             e.printStackTrace();

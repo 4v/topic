@@ -59,7 +59,7 @@
                     width: parseInt($(this).width() * 0.12),
                     align: 'center'
                 }, {
-                    field: 'iconCls',
+                    field: 'iconcls',
                     title: '组织图标',
                     align: 'center',
                     width: parseInt($(this).width() * 0.08),

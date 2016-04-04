@@ -138,11 +138,12 @@ public class MgrOrganController extends BaseController {
         if (!StringUtil.isEmpty(organizationId)) {
             organ.setOrganizationId(Integer.parseInt(organizationId));
         }
+
         String status = request.getParameter("status");
         if (!StringUtil.isEmpty(status)) {
             organ.setStatus(status);
         }
-        organ.setFullName(request.getParameter("full_name"));
+        organ.setFullName(request.getParameter("fullName"));
         String pid = request.getParameter("pid");
         if (!StringUtil.isEmpty(pid)) {
             organ.setPid(Integer.parseInt(request.getParameter("pid")));
@@ -150,9 +151,9 @@ public class MgrOrganController extends BaseController {
 
         organ.setIconCls(request.getParameter("iconCls"));
         organ.setTel(request.getParameter("tel"));
-        organ.setMyId(request.getParameter("myid"));
+        organ.setMyId(request.getParameter("myId"));
         organ.setFax(request.getParameter("fax"));
-        organ.setShortName(request.getParameter("short_name"));
+        organ.setShortName(request.getParameter("shortName"));
         organ.setDescription(request.getParameter("description"));
         organ.setEname(request.getParameter("ename"));
 
