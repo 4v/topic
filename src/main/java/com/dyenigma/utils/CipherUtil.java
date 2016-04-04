@@ -4,15 +4,15 @@ import java.security.MessageDigest;
 
 public class CipherUtil {
 
-    private CipherUtil() {
-    }
-
     private final static String[] hexDigits = {"0", "1", "2", "3", "4", "5", "6", "7", "8", "9",
             "a", "b", "c", "d", "e", "f"};
 
+    private CipherUtil() {
+    }
+
     /**
      * cipher password
-     *
+     * <p>
      * param inputString
      * return
      */
@@ -22,7 +22,7 @@ public class CipherUtil {
 
     /**
      * validate password
-     *
+     * <p>
      * param password
      * param inputString
      * return
@@ -37,7 +37,7 @@ public class CipherUtil {
 
     /**
      * encode
-     *
+     * <p>
      * param originString
      * return
      */
@@ -57,7 +57,7 @@ public class CipherUtil {
 
     /**
      * change the Byte[] to hex string
-     *
+     * <p>
      * param b
      * return
      */
@@ -71,7 +71,7 @@ public class CipherUtil {
 
     /**
      * change a byte to hex string
-     *
+     * <p>
      * param b
      * return
      */
