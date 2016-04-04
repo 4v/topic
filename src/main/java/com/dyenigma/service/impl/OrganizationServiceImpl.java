@@ -68,8 +68,8 @@ public class OrganizationServiceImpl extends BaseServiceImpl<Organization> imple
         List<TreeModel> tList = new ArrayList<>();
         for (Organization organ : organList) {
             TreeModel treeModel = new TreeModel();
-            treeModel.setId(organ.getOrganizationId()+"");
-            treeModel.setPid(organ.getPid() == 0 ? "" : organ.getPid()+"");
+            treeModel.setId(organ.getOrganizationId() + "");
+            treeModel.setPid(organ.getPid() == 0 ? "" : organ.getPid() + "");
             treeModel.setName(organ.getFullName());
             treeModel.setIconCls(organ.getIconCls());
             treeModel.setState(Constants.TREE_STATUS_OPEN);
@@ -82,7 +82,8 @@ public class OrganizationServiceImpl extends BaseServiceImpl<Organization> imple
     @Override
     public boolean persistenceOrgan(Organization organ) {
         Integer userId = Constants.getCurrendUser().getUserId();
-        if (StringUtil.isEmpty(organ.getOrganizationId()+"")) {
+
+        if (StringUtil.isEmpty(organ.getOrganizationId() + "")) {
             organ.setCreated(new Date());
             organ.setLastmod(new Date());
             organ.setCreater(userId);

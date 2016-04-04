@@ -20,48 +20,32 @@ import java.util.Date;
 
 public class Log extends BaseDomain {
 
-    private int logId;
-    private int userId;
+    private Integer logId;
+    private Integer userId;
     private String name;
     private Date logDate;
-    private int type;
+    private Integer type;
     private String mac;
     private String ip;
-    private int objectType;
+    private Integer objectType;
     private String objectId;
     private String eventName;
     private String eventRecord;
 
-    public int getLogId() {
+    public Integer getLogId() {
         return logId;
     }
 
-    public void setLogId(int logId) {
+    public void setLogId(Integer logId) {
         this.logId = logId;
     }
 
-    public int getUserId() {
+    public Integer getUserId() {
         return userId;
     }
 
-    public void setUserId(int userId) {
+    public void setUserId(Integer userId) {
         this.userId = userId;
-    }
-
-    public int getType() {
-        return type;
-    }
-
-    public void setType(int type) {
-        this.type = type;
-    }
-
-    public int getObjectType() {
-        return objectType;
-    }
-
-    public void setObjectType(int objectType) {
-        this.objectType = objectType;
     }
 
     public String getName() {
@@ -80,6 +64,14 @@ public class Log extends BaseDomain {
         this.logDate = logDate;
     }
 
+    public Integer getType() {
+        return type;
+    }
+
+    public void setType(Integer type) {
+        this.type = type;
+    }
+
     public String getMac() {
         return mac;
     }
@@ -94,6 +86,14 @@ public class Log extends BaseDomain {
 
     public void setIp(String ip) {
         this.ip = ip;
+    }
+
+    public Integer getObjectType() {
+        return objectType;
+    }
+
+    public void setObjectType(Integer objectType) {
+        this.objectType = objectType;
     }
 
     public String getObjectId() {

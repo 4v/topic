@@ -467,7 +467,7 @@ h2 {
 	float: right;
 	margin-right: 12px;
 	border-radius: 30px;
-	behavior: url(js/pie.htc);
+	behavior: url(../js/PIE.htc);
 	white-space: nowrap;
 	position: relative;
 }
@@ -704,7 +704,7 @@ h2 {
 	padding-right: 10px;
 	margin-right: 5px;
 	border-radius: 3px;
-	behavior: url(js/pie.htc);
+	behavior: url(../js/PIE.htc);
 	cursor: pointer;
 }
 
@@ -728,7 +728,7 @@ h2 {
 	padding-right: 10px;
 	margin-left: 5px;
 	border-radius: 3px;
-	behavior: url(js/pie.htc);
+	behavior:url(../js/PIE.htc);
 }
 
 .toolbar1 li span {
@@ -1198,7 +1198,7 @@ h2 {
 	background: #fcfdfd;
 	box-shadow: 1px 8px 10px 1px #9b9b9b;
 	border-radius: 1px;
-	behavior: url(js/pie.htc);
+	behavior: url(../js/PIE.htc);
 	display: none;
 	z-index: 111111;
 }
@@ -1365,7 +1365,7 @@ h2 {
 	line-height: 35px;
 	text-align: center;
 	border-radius: 3px;
-	behavior: url(js/pie.htc);
+	behavior: url(../js/PIE.htc);
 	margin-top: 20px;
 }
 
@@ -1409,7 +1409,7 @@ h2 {
 	width: 275px;
 	_width: 270px;
 	float: left;
-	margin-right: 10px; px;
+	margin-right: 10px;
 	height: 70px;
 	cursor: pointer;
 	margin-bottom: 5px;
@@ -1754,7 +1754,7 @@ h2 {
 	color: #fff;
 	cursor: pointer;
 	border-radius: 3px;
-	behavior: url(js/pie.htc);
+	behavior: url(../js/PIE.htc);
 }
 
 /*flow*/
@@ -1803,7 +1803,7 @@ h2 {
 	height: 50px;
 	background: #F2950D;
 	border-radius: 3px;
-	behavior: url(js/pie.htc);
+	behavior: url(../js/PIE.htc);
 	margin-bottom: 15px;
 }
 
@@ -1871,7 +1871,7 @@ h2 {
 	float: left;
 	text-align: center;
 	border-radius: 3px;
-	behavior: url(js/pie.htc);
+	behavior: url(../js/PIE.htc);
 }
 
 .prosearch {
@@ -1945,7 +1945,7 @@ h2 {
 	color: #fff;
 	cursor: pointer;
 	border-radius: 3px;
-	behavior: url(js/pie.htc);
+	behavior: url(../js/PIE.htc);
 }
 
 /*seachform1*/
@@ -2002,7 +2002,7 @@ h2 {
 	color: #fff;
 	cursor: pointer;
 	border-radius: 3px;
-	behavior: url(js/pie.htc);
+	behavior: url(../js/PIE.htc);
 }
 
 .scbtn2 {
@@ -2014,7 +2014,7 @@ h2 {
 	color: #fff;
 	cursor: pointer;
 	border-radius: 3px;
-	behavior: url(js/pie.htc);
+	behavior: url(../js/PIE.htc);
 }
 
 /*tech*/
@@ -2038,7 +2038,7 @@ h2 {
 	line-height: 37px;
 	text-align: center;
 	border-radius: 3px;
-	behavior: url(js/pie.htc);
+	behavior: url(../js/PIE.htc);
 	margin-bottom: 20px;
 }
 

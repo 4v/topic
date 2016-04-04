@@ -22,11 +22,11 @@ import java.util.Set;
 
 public class Permission extends BaseDomain {
 
-    private int permissionId;
-    private int pid;
+    private Integer permissionId;
+    private Integer pid;
     private String name;
     private String pname;
-    private int sort;
+    private Integer sort;
     private String myId;
     private String type;
     private String state;
@@ -37,23 +37,23 @@ public class Permission extends BaseDomain {
     private String description;
     private Date created;
     private Date lastmod;
-    private int creater;
-    private int modifyer;
+    private Integer creater;
+    private Integer modifyer;
     private Set<RolePermission> rolePermissions = new HashSet<>(0);
 
-    public int getPermissionId() {
+    public Integer getPermissionId() {
         return permissionId;
     }
 
-    public void setPermissionId(int permissionId) {
+    public void setPermissionId(Integer permissionId) {
         this.permissionId = permissionId;
     }
 
-    public int getPid() {
+    public Integer getPid() {
         return pid;
     }
 
-    public void setPid(int pid) {
+    public void setPid(Integer pid) {
         this.pid = pid;
     }
 
@@ -73,11 +73,11 @@ public class Permission extends BaseDomain {
         this.pname = pname;
     }
 
-    public int getSort() {
+    public Integer getSort() {
         return sort;
     }
 
-    public void setSort(int sort) {
+    public void setSort(Integer sort) {
         this.sort = sort;
     }
 
@@ -161,19 +161,19 @@ public class Permission extends BaseDomain {
         this.lastmod = lastmod;
     }
 
-    public int getCreater() {
+    public Integer getCreater() {
         return creater;
     }
 
-    public void setCreater(int creater) {
+    public void setCreater(Integer creater) {
         this.creater = creater;
     }
 
-    public int getModifyer() {
+    public Integer getModifyer() {
         return modifyer;
     }
 
-    public void setModifyer(int modifyer) {
+    public void setModifyer(Integer modifyer) {
         this.modifyer = modifyer;
     }
 
@@ -184,5 +184,4 @@ public class Permission extends BaseDomain {
     public void setRolePermissions(Set<RolePermission> rolePermissions) {
         this.rolePermissions = rolePermissions;
     }
-
 }

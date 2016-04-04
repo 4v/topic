@@ -7,9 +7,9 @@ public interface BaseMapper<T> {
 
     int update(T t);
 
-    int delete(long id);
+    int delete(int id);
 
-    T findById(long id);
+    T findById(int id);
 
     List<T> findAll();
 }

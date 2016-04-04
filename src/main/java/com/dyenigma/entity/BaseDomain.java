@@ -9,6 +9,8 @@ import org.apache.commons.lang3.builder.ToStringBuilder;
  * create 2016/2/26 14:43
  */
 public class BaseDomain {
+
+
     public String toString() {
         return ToStringBuilder.reflectionToString(this);
     }

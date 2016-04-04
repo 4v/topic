@@ -59,7 +59,7 @@
                     align: 'center'
                 }, {
                     field: 'iconCls',
-                    title: '程式图标1',
+                    title: '程式图标',
                     align: 'center',
                     width: parseInt($(this).width() * 0.07),
                     formatter: function (value, row) {
@@ -68,7 +68,7 @@
                 }, {
                     field: 'url',
                     title: '程式路径',
-                    width: parseInt($(this).width() * 0.29),
+                    width: parseInt($(this).width() * 0.24),
                     align: 'left',
                     editor: {
                         type: 'validatebox',
@@ -124,7 +124,7 @@
                 }, {
                     field: 'description',
                     title: '程式描述',
-                    width: parseInt($(this).width() * 0.2),
+                    width: parseInt($(this).width() * 0.25),
                     align: 'left',
                     editor: "text"
                 }]],

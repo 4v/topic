@@ -6,14 +6,14 @@ import java.util.Set;
 
 public class Users extends BaseDomain {
 
-    private int userId;
+    private Integer userId;
     private String myid;
     private String account;
     private String name;
-    private int organizeId;
+    private Integer organizeId;
     private String organizeName;
-    private int dutyId;
-    private int titleId;
+    private Integer dutyId;
+    private Integer titleId;
     private String password;
     private String email;
     private String lang;
@@ -21,26 +21,26 @@ public class Users extends BaseDomain {
     private Date firstVisit;
     private Date previousVisit;
     private Date lastVisits;
-    private int loginCount;
-    private int isemployee;
+    private Integer loginCount;
+    private Integer isemployee;
     private String status;
     private String ip;
     private String description;
-    private int questionId;
+    private Integer questionId;
     private String answer;
-    private int isonline;
+    private Integer isonline;
     private Date created;
     private Date lastmod;
-    private int creater;
-    private int modifyer;
+    private Integer creater;
+    private Integer modifyer;
     private String tel;
     private Set<UserRole> userRoles = new HashSet<>(0);
 
-    public int getUserId() {
+    public Integer getUserId() {
         return userId;
     }
 
-    public void setUserId(int userId) {
+    public void setUserId(Integer userId) {
         this.userId = userId;
     }
 
@@ -68,11 +68,11 @@ public class Users extends BaseDomain {
         this.name = name;
     }
 
-    public int getOrganizeId() {
+    public Integer getOrganizeId() {
         return organizeId;
     }
 
-    public void setOrganizeId(int organizeId) {
+    public void setOrganizeId(Integer organizeId) {
         this.organizeId = organizeId;
     }
 
@@ -84,19 +84,19 @@ public class Users extends BaseDomain {
         this.organizeName = organizeName;
     }
 
-    public int getDutyId() {
+    public Integer getDutyId() {
         return dutyId;
     }
 
-    public void setDutyId(int dutyId) {
+    public void setDutyId(Integer dutyId) {
         this.dutyId = dutyId;
     }
 
-    public int getTitleId() {
+    public Integer getTitleId() {
         return titleId;
     }
 
-    public void setTitleId(int titleId) {
+    public void setTitleId(Integer titleId) {
         this.titleId = titleId;
     }
 
@@ -156,19 +156,19 @@ public class Users extends BaseDomain {
         this.lastVisits = lastVisits;
     }
 
-    public int getLoginCount() {
+    public Integer getLoginCount() {
         return loginCount;
     }
 
-    public void setLoginCount(int loginCount) {
+    public void setLoginCount(Integer loginCount) {
         this.loginCount = loginCount;
     }
 
-    public int getIsemployee() {
+    public Integer getIsemployee() {
         return isemployee;
     }
 
-    public void setIsemployee(int isemployee) {
+    public void setIsemployee(Integer isemployee) {
         this.isemployee = isemployee;
     }
 
@@ -196,11 +196,11 @@ public class Users extends BaseDomain {
         this.description = description;
     }
 
-    public int getQuestionId() {
+    public Integer getQuestionId() {
         return questionId;
     }
 
-    public void setQuestionId(int questionId) {
+    public void setQuestionId(Integer questionId) {
         this.questionId = questionId;
     }
 
@@ -212,11 +212,11 @@ public class Users extends BaseDomain {
         this.answer = answer;
     }
 
-    public int getIsonline() {
+    public Integer getIsonline() {
         return isonline;
     }
 
-    public void setIsonline(int isonline) {
+    public void setIsonline(Integer isonline) {
         this.isonline = isonline;
     }
 
@@ -236,19 +236,19 @@ public class Users extends BaseDomain {
         this.lastmod = lastmod;
     }
 
-    public int getCreater() {
+    public Integer getCreater() {
         return creater;
     }
 
-    public void setCreater(int creater) {
+    public void setCreater(Integer creater) {
         this.creater = creater;
     }
 
-    public int getModifyer() {
+    public Integer getModifyer() {
         return modifyer;
     }
 
-    public void setModifyer(int modifyer) {
+    public void setModifyer(Integer modifyer) {
         this.modifyer = modifyer;
     }
 
@@ -267,5 +267,4 @@ public class Users extends BaseDomain {
     public void setUserRoles(Set<UserRole> userRoles) {
         this.userRoles = userRoles;
     }
-
 }

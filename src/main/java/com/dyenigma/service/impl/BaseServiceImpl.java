@@ -1,9 +1,6 @@
 package com.dyenigma.service.impl;
 
-import com.dyenigma.dao.BaseMapper;
-import com.dyenigma.dao.OrganizationMapper;
-import com.dyenigma.dao.PermissionMapper;
-import com.dyenigma.dao.UsersMapper;
+import com.dyenigma.dao.*;
 import com.dyenigma.service.BaseService;
 import com.dyenigma.utils.GenericsUtils;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -16,9 +13,6 @@ import java.util.List;
 @Transactional
 public class BaseServiceImpl<T> implements BaseService<T> {
 
-    @SuppressWarnings("rawtypes")
-    private Class clazz = null;
-
     protected BaseMapper<T> baseMapper;
     @Autowired
     protected UsersMapper usersMapper;
@@ -26,6 +20,10 @@ public class BaseServiceImpl<T> implements BaseService<T> {
     protected PermissionMapper permissionMapper;
     @Autowired
     protected OrganizationMapper organizationMapper;
+    @Autowired
+    protected CompanyMapper companyMapper;
+    @SuppressWarnings("rawtypes")
+    private Class clazz = null;
 
     public BaseServiceImpl() {
         clazz = GenericsUtils.getSuperClassGenricType(this.getClass(), 0);
@@ -62,12 +60,12 @@ public class BaseServiceImpl<T> implements BaseService<T> {
     }
 
     @Override
-    public int delete(long id) {
+    public int delete(int id) {
         return baseMapper.delete(id);
     }
 
     @Override
-    public T findById(long id) {
+    public T findById(int id) {
         return baseMapper.findById(id);
     }
 
@@ -75,5 +73,6 @@ public class BaseServiceImpl<T> implements BaseService<T> {
     public List<T> findAll() {
         return baseMapper.findAll();
     }
+
 
 }

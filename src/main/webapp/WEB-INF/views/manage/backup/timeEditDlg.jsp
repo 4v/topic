@@ -1,19 +1,15 @@
-<%@ page language="java"  pageEncoding="utf-8"%>
+<%--
+  Created by IntelliJ IDEA.
+  User: Dyenigma
+  Date: 2016/4/2
+  Time: 18:34
+  To change this template use File | Settings | File Templates.
+--%>
+<%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <script type="text/javascript">
     $(function() {
-        $("#organizeId").combotree({
-            width:171,
-            url:"orgz/organizationAction!findOrganizationList.action",
-            idFiled:'id',
-            textFiled:'name',
-            parentField:'pid',
-            onSelect:function(node){
-                $("#organizeName").val(node.text);
-            }
-        });
-
         $("#form").form({
-            url :"user/userAction!persistenceUsersDig.action",
+            url :"dbBackUp/dbBackUpAction!schedule.action",
             onSubmit : function() {
                 parent.$.messager.progress({
                     title : '提示',
@@ -47,7 +43,6 @@
             }
         });
     });
-
 </script>
 <style>
     .easyui-textbox{
@@ -81,9 +76,10 @@
         -moz-border-left-colors: none;
         -moz-border-right-colors: none;
         -moz-border-top-colors: none;
+        border-color: #E5E5E5;
         border-image: none;
-        border: 0 none #E5E5E5;
-        border-bottom: 1px solid;
+        border-style: none none solid;
+        border-width: 0 0 1px;
         color: #999999;
         line-height: 20px;
         display: block;
@@ -103,38 +99,19 @@
     <div data-options="region:'center',border:false" title="" style="overflow: hidden;padding: 10px;">
         <form id="form" method="post">
             <fieldset>
-                <legend><img src="extend/fromedit.png" style="margin-bottom: -3px;"/> 用户编辑</legend>
-                <input name="userId" id="userId"  type="hidden"/>
-                <input name="created" id="created"  type="hidden"/>
-                <input name="creater" id="creater"  type="hidden"/>
-                <input name="status" id="status"  type="hidden"/>
-                <input name="organizeName" id="organizeName"  type="hidden"/>
+                <legend><img src="extend/fromedit.png" style="margin-bottom: -3px;"/> 定时备份服务</legend>
+                <div class="well well-small">
+                    <span class="badge">说明</span>
+                    <p>
+                        定时备份数据任务执行频率为<span class="label-info"><strong>每天</strong></span>，时间(24小时制)，<span class="label-info"><strong>服务启动</strong></span>备份开始生效!
+                    </p>
+                </div>
                 <table>
                     <tr>
-                        <th>用户编码</th>
-                        <td><input name="myid" id="myid" placeholder="请输入用户编码" class="easyui-textbox easyui-validatebox" type="text"/></td>
-                        <th>用户账号</th>
-                        <td><input name="account"  class="easyui-textbox easyui-validatebox" id="account" type="text"/></td>
-                    </tr>
-                    <tr>
-                        <th>用户名</th>
-                        <td><input name="name" id="name" type="text" class="easyui-textbox easyui-validatebox" required="required"/></td>
-                        <th>用户密码</th>
-                        <td><input id="password" name="password" type="text" class="easyui-textbox easyui-validatebox"  required="required" /></td>
-                    </tr>
-                    <tr>
-                        <th>邮箱</th>
-                        <td><input id="email" name="email" type="text" class="easyui-textbox easyui-validatebox" required="required"/></td>
-                        <th>电话</th>
-                        <td><input id="tel" name="tel" type="text" class="easyui-textbox easyui-validatebox" required="required"/></td>
-                    </tr>
-                    <tr>
-                        <th>组织部门</th>
-                        <td colspan="3"><input id="organizeId" name="organizeId" type="text" class="easyui-textbox easyui-validatebox"/></td>
-                    </tr>
-                    <tr>
-                        <th>描述</th>
-                        <td colspan="3"><textarea class="easyui-textbox" name="description"  style="width: 435px;height: 100px;"></textarea></td>
+                        <th>小时(H)</th>
+                        <td><input name="scheduleHour" id="scheduleHour"  class="easyui-textbox easyui-numberbox" data-options="min:1,max:24,required:true" type="text"/></td>
+                        <th>分钟(M)</th>
+                        <td><input name="scheduleMinute" id="scheduleMinute"  class="easyui-textbox easyui-numberbox" data-options="min:1,max:59,required:true" type="text"/></td>
                     </tr>
                 </table>
             </fieldset>

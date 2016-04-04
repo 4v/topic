@@ -6,23 +6,23 @@ import java.util.Set;
 
 public class Role extends BaseDomain {
 
-    private int roleId;
+    private Integer roleId;
     private String name;
     private String description;
     private String status;
     private Date created;
     private Date lastmod;
-    private int sort;
-    private int creater;
-    private int modifyer;
+    private Integer sort;
+    private Integer creater;
+    private Integer modifyer;
     private Set<UserRole> userRoles = new HashSet<>(0);
     private Set<RolePermission> rolePermissions = new HashSet<>(0);
 
-    public int getRoleId() {
+    public Integer getRoleId() {
         return roleId;
     }
 
-    public void setRoleId(int roleId) {
+    public void setRoleId(Integer roleId) {
         this.roleId = roleId;
     }
 
@@ -66,27 +66,27 @@ public class Role extends BaseDomain {
         this.lastmod = lastmod;
     }
 
-    public int getSort() {
+    public Integer getSort() {
         return sort;
     }
 
-    public void setSort(int sort) {
+    public void setSort(Integer sort) {
         this.sort = sort;
     }
 
-    public int getCreater() {
+    public Integer getCreater() {
         return creater;
     }
 
-    public void setCreater(int creater) {
+    public void setCreater(Integer creater) {
         this.creater = creater;
     }
 
-    public int getModifyer() {
+    public Integer getModifyer() {
         return modifyer;
     }
 
-    public void setModifyer(int modifyer) {
+    public void setModifyer(Integer modifyer) {
         this.modifyer = modifyer;
     }
 
@@ -105,5 +105,4 @@ public class Role extends BaseDomain {
     public void setRolePermissions(Set<RolePermission> rolePermissions) {
         this.rolePermissions = rolePermissions;
     }
-
 }

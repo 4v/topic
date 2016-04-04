@@ -31,7 +31,7 @@
                 treeField: 'name',
                 columns: [[
                     {
-                        field: 'myId',
+                        field: 'myid',
                         title: '用户编码',
                         width: parseInt($(this).width() * 0.1),
                         align: 'left',
@@ -50,7 +50,6 @@
                         width: parseInt($(this).width() * 0.1),
                         editor: {type: 'validatebox', options: {required: true}}
                     },
-                    {field: 'password', title: '用户密码', width: parseInt($(this).width() * 0.1), editor: "validatebox"},
                     {
                         field: 'email',
                         title: '邮箱',

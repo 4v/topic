@@ -55,4 +55,10 @@ public class MgrUsersController extends BaseController {
     public List<Users> findAllUserList() {
         return usersService.findAll();
     }
+
+    @RequestMapping("/usersEditDlg")
+    public String usersEditDlg() {
+        LOGGER.debug("usersEditDlg() is executed!");
+        return "manage/users/usersEditDlg";
+    }
 }
