@@ -134,13 +134,19 @@ public class MgrCompController extends BaseController {
         ServletRequest request = ((WebSubject) SecurityUtils.getSubject()).getServletRequest();
         HttpSession httpSession = ((HttpServletRequest) request).getSession();
 
-
         String realPath = httpSession.getServletContext().getRealPath(File.separator);
 
         if (StringUtil.isEmpty(realPath)) {
             realPath = File.separator;
         }
         String allPath = realPath + "download" + File.separator + path;
+
+        File file = new File(allPath);
+        try {
+            file.createNewFile();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
 
         FileOutputStream out = null;
         try {

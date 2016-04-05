@@ -45,7 +45,7 @@ public class PermissionServiceImpl extends BaseServiceImpl<Permission> implement
         List<Permission> pList = getShiro("F");
 
         // 用于存放根目录的List
-        List<MenuModel> parentList = new ArrayList<MenuModel>();
+        List<MenuModel> parentList = new ArrayList<>();
         // 循环的逻辑：首先遍历所有记录，当Pid为空时，该记录为根目录
         for (Permission parent : pList) {
             String id = String.valueOf(parent.getPermissionId());
@@ -55,7 +55,7 @@ public class PermissionServiceImpl extends BaseServiceImpl<Permission> implement
                 menuModel.setName(String.valueOf(parent.getName()));
                 menuModel.setIconCls(String.valueOf(parent.getIconCls()));
                 menuModel.setUrl(String.valueOf(parent.getUrl()));
-                List<MenuModel> childList = new ArrayList<MenuModel>();
+                List<MenuModel> childList = new ArrayList<>();
                 for (Permission child : pList) {
                     MenuModel menuChildModel = new MenuModel();
                     String sid = String.valueOf(child.getPid());
@@ -106,9 +106,7 @@ public class PermissionServiceImpl extends BaseServiceImpl<Permission> implement
                     treeGridModel.setPid(0);
                 }
                 tempList.add(treeGridModel);
-            } catch (IllegalAccessException e) {
-                e.printStackTrace();
-            } catch (InvocationTargetException e) {
+            } catch (IllegalAccessException | InvocationTargetException e) {
                 e.printStackTrace();
             }
         }
@@ -119,11 +117,7 @@ public class PermissionServiceImpl extends BaseServiceImpl<Permission> implement
     public boolean deleteById(String id) {
         try {
             int i = permissionMapper.updateById(Integer.parseInt(id));
-            if (i == 1) {
-                return true;
-            } else {
-                return false;
-            }
+            return i == 1;
         } catch (Exception e) {
             e.printStackTrace();
             return false;

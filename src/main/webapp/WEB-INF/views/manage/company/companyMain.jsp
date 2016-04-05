@@ -167,7 +167,7 @@
                 }
             });
 
-            $("#compDel").click(function () {
+            $("#delComp").click(function () {
                 var row = $dg.datagrid('getSelected');
                 if (row) {
                     var rowIndex = $dg.datagrid('getRowIndex', row);
@@ -195,6 +195,7 @@
                     });
                 }
             });
+
             $("#toExcel").click(function () {
                 var row = $dg.datagrid('getSelected');
                 if (row) {
