@@ -5,47 +5,53 @@
 
     <insert id="insert" parameterType="Company" flushCache="true">
         INSERT INTO
-        COMPANY (COMPANYID,ADDRESS,BANK,BANKACCOUNT,CONTACT,CREATED,CREATER,DESCRIPTION,
+        COMPANY (ADDRESS,BANK,BANKACCOUNT,CONTACT,CREATED,CREATER,DESCRIPTION,
         EMAIL,FAX,LASTMOD,MANAGER,MODIFYER,NAME,STATUS,TEL,ZIP) VALUES
-        #{COMPANYID,jdbcType=INTEGER},
-        #{ADDRESS,jdbcType=VARCHAR},
-        #{BANK,jdbcType=VARCHAR},
-        #{BANKACCOUNT,jdbcType=VARCHAR},
-        #{CONTACT,jdbcType=VARCHAR},
-        #{CREATED,jdbcType=DATE},
-        #{CREATER,jdbcType=INTEGER},
-        #{DESCRIPTION,jdbcType=VARCHAR},
-        #{EMAIL,jdbcType=VARCHAR},
-        #{FAX,jdbcType=VARCHAR},
-        #{LASTMOD,jdbcType=DATE},
-        #{MANAGER,jdbcType=VARCHAR},
-        #{MODIFYER,jdbcType=INTEGER},
-        #{NAME,jdbcType=VARCHAR},
-        #{STATUS,jdbcType=VARCHAR},
-        #{TEL,jdbcType=VARCHAR},
-        #{ZIP,jdbcType=VARCHAR})
+        (#{address,jdbcType=VARCHAR},#{bank,jdbcType=VARCHAR},
+        #{bankaccount,jdbcType=VARCHAR},#{contact,jdbcType=VARCHAR},
+        #{created,jdbcType=DATE},#{creater,jdbcType=INTEGER},
+        #{description,jdbcType=VARCHAR},#{email,jdbcType=VARCHAR},
+        #{fax,jdbcType=VARCHAR},#{lastmod,jdbcType=DATE},
+        #{manager,jdbcType=VARCHAR},#{modifyer,jdbcType=INTEGER},
+        #{name,jdbcType=VARCHAR},#{status,jdbcType=VARCHAR},
+        #{tel,jdbcType=VARCHAR},#{zip,jdbcType=VARCHAR})
     </insert>
     <update id="update" parameterType="Company">
-        UPDATE COMPANY SET ADDRESS=#{ADDRESS},BANK=#{BANK},BANKACCOUNT=#{BANKACCOUNT},CONTACT=#{CONTACT},
-        DESCRIPTION=#{DESCRIPTION},EMAIL=#{EMAIL},FAX=#{FAX},MANAGER=#{MANAGER},NAME=#{NAME},TEL=${TEL},
-        ZIP=#{ZIP},LASTMOD=#{LASTMOD},MODIFYER=#{MODIFYER}
-        WHERE COMPANYID=#{COMPANYID}
+        UPDATE COMPANY SET ADDRESS=#{address,jdbcType=VARCHAR},BANK=#{bank,jdbcType=VARCHAR},
+        BANKACCOUNT=#{bankaccount,jdbcType=VARCHAR},CONTACT=#{contact,jdbcType=VARCHAR},
+        DESCRIPTION=#{description,jdbcType=VARCHAR},EMAIL=#{email,jdbcType=VARCHAR},FAX=#{fax,jdbcType=VARCHAR},
+        MANAGER=#{manager,jdbcType=VARCHAR},NAME=#{name,jdbcType=VARCHAR},TEL=#{tel,jdbcType=VARCHAR},
+        ZIP=#{zip,jdbcType=VARCHAR},LASTMOD=#{lastmod,jdbcType=DATE},MODIFYER=#{modifyer,jdbcType=INTEGER}
+        WHERE COMPANYID=#{companyId,jdbcType=INTEGER}
     </update>
     <delete id="delete" parameterType="int">
-        DELETE FROM COMPANY WHERE COMPANYID=#{COMPANYID}
+        UPDATE COMPANY SET STATUS='I' WHERE COMPANYID=#{COMPANYID}
     </delete>
     <select id="findAll" resultType="Company">
         SELECT
-        COMPANYID,ADDRESS,BANK,BANKACCOUNT,CONTACT,CREATED,CREATER,DESCRIPTION,
-        EMAIL,FAX,LASTMOD,MANAGER,MODIFYER,NAME,STATUS,TEL,ZIP
+        COMPANYID,ADDRESS,BANK,BANKACCOUNT,CONTACT,DESCRIPTION,
+        EMAIL,FAX,MANAGER,NAME,STATUS,TEL,ZIP
         FROM COMPANY
         WHERE STATUS = 'A'
     </select>
     <select id="findById" parameterType="int" resultType="Company">
         SELECT
-        COMPANYID,ADDRESS,BANK,BANKACCOUNT,CONTACT,CREATED,CREATER,DESCRIPTION,
-        EMAIL,FAX,LASTMOD,MANAGER,MODIFYER,NAME,STATUS,TEL,ZIP
+        COMPANYID,ADDRESS,BANK,BANKACCOUNT,CONTACT,DESCRIPTION,
+        EMAIL,FAX,MANAGER,NAME,STATUS,TEL,ZIP
         FROM COMPANY
         WHERE STATUS = 'A' AND COMPANYID=#{COMPANYID}
     </select>
+
+    <select id="findAllByPage" parameterType="com.dyenigma.utils.PageUtil" resultType="Company">
+        SELECT
+        COMPANYID,ADDRESS,BANK,BANKACCOUNT,CONTACT,DESCRIPTION,
+        EMAIL,FAX,MANAGER,NAME,STATUS,TEL,ZIP
+        FROM COMPANY
+        WHERE STATUS = 'A' LIMIT #{begin},#{end}
+    </select>
+
+    <select id="getCount" resultType="long">
+        SELECT COUNT(*) FROM COMPANY WHERE STATUS = 'A'
+    </select>
+
 </mapper>

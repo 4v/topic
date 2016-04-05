@@ -30,6 +30,7 @@
                 pagination: true,
                 rownumbers: true,
                 border: true,
+                idField: 'companyId',
                 striped: true,
                 singleSelect: true,
                 columns: [[{
@@ -98,193 +99,123 @@
                     }
                 ]], toolbar: '#tb'
             });
-        });
-        function endEdit() {
-            var flag = true;
-            var rows = $dg.datagrid('getRows');
-            for (var i = 0; i < rows.length; i++) {
-                $dg.datagrid('endEdit', i);
-                var temp = $dg.datagrid('validateRow', i);
-                if (!temp) {
-                    flag = false;
-                }
-            }
-            return flag;
-        }
-        function addRows() {
-            $dg.datagrid('appendRow', {});
-            var rows = $dg.datagrid('getRows');
-            $dg.datagrid('beginEdit', rows.length - 1);
-        }
-        function editRows() {
-            var rows = $dg.datagrid('getSelections');
-            $.each(rows, function (i, row) {
-                if (row) {
-                    var rowIndex = $dg.datagrid('getRowIndex', row);
-                    $dg.datagrid('beginEdit', rowIndex);
-                }
-            });
-        }
-        function removeRows() {
-            var rows = $dg.datagrid('getSelections');
-            $.each(rows, function (i, row) {
-                if (row) {
-                    var rowIndex = $dg.datagrid('getRowIndex', row);
-                    $dg.datagrid('deleteRow', rowIndex);
-                }
-            });
-        }
-        function saveRows() {
-            if (endEdit()) {
-                if ($dg.datagrid('getChanges').length) {
-                    var inserted = $dg.datagrid('getChanges', "inserted");
-                    var deleted = $dg.datagrid('getChanges', "deleted");
-                    var updated = $dg.datagrid('getChanges', "updated");
 
-                    var effectRow = new Object();
-                    if (inserted.length) {
-                        effectRow["inserted"] = JSON.stringify(inserted);
-                    }
-                    if (deleted.length) {
-                        effectRow["deleted"] = JSON.stringify(deleted);
-                    }
-                    if (updated.length) {
-                        effectRow["updated"] = JSON.stringify(updated);
-                    }
-                    $.post("companyInfo/companyInfoAction!persistenceCompanyInfo.action", effectRow, function (rsp) {
-                        if (rsp.status) {
-                            $dg.datagrid('acceptChanges');
-                        }
-                        $.messager.alert(rsp.title, rsp.message);
-                    }, "JSON").error(function () {
-                        $.messager.alert("提示", "提交错误了！");
-                    });
-                }
-            } else {
-                $.messager.alert("提示", "字段验证未通过!请查看");
-            }
-        }
-        //删除
-        function delRows() {
-            var row = $dg.datagrid('getSelected');
-            if (row) {
-                var rowIndex = $dg.datagrid('getRowIndex', row);
-                parent.$.messager.confirm("提示", "确定要删除记录吗?", function (r) {
-                    if (r) {
-                        $dg.datagrid('deleteRow', rowIndex);
-                        $.ajax({
-                            url: "companyInfo/companyInfoAction!delCompanyInfo.action",
-                            data: "companyId=" + row.companyId,
-                            success: function (rsp) {
-                                parent.$.messager.show({
-                                    title: rsp.title,
-                                    msg: rsp.message,
-                                    timeout: 1000 * 2
-                                });
-                            }
-                        });
-                    }
-                });
-            } else {
-                parent.$.messager.show({
-                    title: "提示",
-                    msg: "请选择一行记录!",
-                    timeout: 1000 * 2
-                });
-            }
-        }
-        //弹窗修改
-        function updRowsOpenDlg() {
-            var row = $dg.datagrid('getSelected');
-            if (row) {
-                parent.$.modalDialog({
-                    title: '编辑公司',
+            //弹窗增加公司
+            $("#addComp").click(function () {
+                $.modalDialog({
+                    title: '添加公司',
                     width: 600,
                     height: 400,
-                    href: "/manage/company/companyEditDlg",
-                    onLoad: function () {
-                        var f = parent.$.modalDialog.handler.find("#form");
-                        f.form("load", row);
-                    },
+                    href: '/manage/comp/companyEditDlg',
                     buttons: [{
-                        text: '编辑',
-                        iconCls: 'icon-ok',
+                        text: '保存',
+                        iconCls: 'icon-yes',
                         handler: function () {
-                            parent.$.modalDialog.openner = $grid;//因为添加成功之后，需要刷新这个dataGrid，所以先预定义好
-                            var f = parent.$.modalDialog.handler.find("#form");
+                            $.modalDialog.openner = $grid;//因为添加成功之后，需要刷新这个dataGrid，所以先预定义好
+                            var f = $.modalDialog.handler.find("#form");
                             f.submit();
                         }
                     }, {
                         text: '取消',
-                        iconCls: 'icon-cancel',
+                        iconCls: 'icon-no',
                         handler: function () {
-                            parent.$.modalDialog.handler.dialog('destroy');
-                            parent.$.modalDialog.handler = undefined;
+                            $.modalDialog.handler.dialog('destroy');
+                            $.modalDialog.handler = undefined;
                         }
                     }
                     ]
                 });
-            } else {
-                parent.$.messager.show({
-                    title: "提示",
-                    msg: "请选择一行记录!",
-                    timeout: 1000 * 2
-                });
-            }
-        }
-        //弹窗增加公司
-        function addRowsOpenDlg() {
-            parent.$.modalDialog({
-                title: '添加公司',
-                width: 600,
-                height: 400,
-                href: '/manage/company/companyEditDlg',
-                buttons: [{
-                    text: '保存',
-                    iconCls: 'icon-ok',
-                    handler: function () {
-                        parent.$.modalDialog.openner = $grid;//因为添加成功之后，需要刷新这个dataGrid，所以先预定义好
-                        var f = parent.$.modalDialog.handler.find("#form");
-                        f.submit();
-                    }
-                }, {
-                    text: '取消',
-                    iconCls: 'icon-cancel',
-                    handler: function () {
-                        parent.$.modalDialog.handler.dialog('destroy');
-                        parent.$.modalDialog.handler = undefined;
-                    }
-                }
-                ]
             });
-        }
 
-        //高级搜索 删除 row
-        function tbCompanySearchRemove(curr) {
-            $(curr).closest('tr').remove();
-        }
+            //弹窗修改公司
+            $("#updateComp").click(function () {
+                var row = $dg.datagrid('getSelected');
+                if (row) {
+                    $.modalDialog({
+                        title: '编辑公司',
+                        width: 600,
+                        height: 400,
+                        href: "/manage/comp/companyEditDlg",
+                        onLoad: function () {
+                            var f = $.modalDialog.handler.find("#form");
+                            f.form("load", row);
+                        },
+                        buttons: [{
+                            text: '编辑',
+                            iconCls: 'icon-yes',
+                            handler: function () {
+                                $.modalDialog.openner = $grid;//因为添加成功之后，需要刷新这个dataGrid，所以先预定义好
+                                var f = $.modalDialog.handler.find("#form");
+                                f.submit();
+                            }
+                        }, {
+                            text: '取消',
+                            iconCls: 'icon-no',
+                            handler: function () {
+                                $.modalDialog.handler.dialog('destroy');
+                                $.modalDialog.handler = undefined;
+                            }
+                        }
+                        ]
+                    });
+                } else {
+                    parent.$.messager.show({
+                        title: "提示",
+                        msg: "请选择一行记录!",
+                        timeout: 1000 * 2
+                    });
+                }
+            });
 
-        //excel导出
-        function exportExcel() {
-            var rows = $dg.datagrid("getRows");
-            if (rows.length) {
-                var isCheckedIds = [];
-                $.each(rows, function (i, row) {
-                    if (row) {
-                        isCheckedIds.push(row.companyId);
-                    }
-                });
-                window.location.href = "excel/excelAction!CompanyInfoExcelExport.action?isCheckedIds=" + isCheckedIds;
-            } else {
-                parent.$.messager.show({
-                    title: "提示",
-                    msg: "暂无导出数据!",
-                    timeout: 1000 * 2
-                });
-            }
-        }
+            $("#compDel").click(function () {
+                var row = $dg.datagrid('getSelected');
+                if (row) {
+                    var rowIndex = $dg.datagrid('getRowIndex', row);
+                    $.messager.confirm("提示", "确定要删除记录吗?", function (r) {
+                        if (r) {
+                            $dg.datagrid('deleteRow', rowIndex);
+                            $.ajax({
+                                url: "/manage/comp/delComp",
+                                data: "companyId=" + row.companyId,
+                                success: function (rsp) {
+                                    $.messager.show({
+                                        title: rsp.title,
+                                        msg: rsp.message,
+                                        timeout: 1000 * 2
+                                    });
+                                }
+                            });
+                        }
+                    });
+                } else {
+                    $.messager.show({
+                        title: "提示",
+                        msg: "请选择一行记录!",
+                        timeout: 1000 * 2
+                    });
+                }
+            });
+            $("#toExcel").click(function () {
+                var row = $dg.datagrid('getSelected');
+                if (row) {
+                    $.ajax({
+                        url: "/manage/comp/excelExport",
+                        data: {'companyId': row.companyId},
+                        success: function () {
+                            alert("end");
+                        }
+                    });
+                } else {
+                    $.messager.show({
+                        title: "提示",
+                        msg: "暂无导出数据!",
+                        timeout: 1000 * 2
+                    });
+                }
+            });
+        });
     </script>
-</head> 
+</head>
 <body>
 <div class="rightinfo">
     <div class="tools">

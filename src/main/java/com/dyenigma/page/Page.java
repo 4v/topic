@@ -1,22 +1,15 @@
-/**
- * Title: PageUtil.java
- * Package com.dyenigma.utils
- * author  dingdongliang
- * date 2015年9月14日 下午6:11:29
- * version V1.0
- * Copyright (c) 2015,dyenigma@163.com All Rights Reserved.
- */
+package com.dyenigma.page;
 
-package com.dyenigma.utils;
+import com.dyenigma.entity.BaseDomain;
+
+import java.io.Serializable;
 
 /**
- * ClassName: PageUtil
- * Description: 分页
- * author dingdongliang
- * date 2015年9月14日 下午6:11:29
+ * topic
+ * author: dyenigma
+ * create: 2016/4/5 14:15
  */
-
-public class PageUtil {
+public final class Page extends BaseDomain implements Serializable {
 
     /**
      * 分页查询开始记录位置.
@@ -27,9 +20,9 @@ public class PageUtil {
      */
     private int end;
     /**
-     * 每页显示记录数.默认10
+     * 每页显示记录数.
      */
-    private int length = 10;
+    private int length = 20;
     /**
      * 查询结果总记录数.
      */
@@ -43,7 +36,7 @@ public class PageUtil {
      */
     private int pageCount;
 
-    public PageUtil() {
+    public Page() {
     }
 
     /**
@@ -52,7 +45,7 @@ public class PageUtil {
      * param begin
      * param length
      */
-    public PageUtil(int begin, int length) {
+    public Page(int begin, int length) {
         this.begin = begin;
         this.length = length;
         this.end = this.begin + this.length;
@@ -64,7 +57,7 @@ public class PageUtil {
      * param length
      * param totalRecords
      */
-    public PageUtil(int begin, int length, int totalRecords) {
+    public Page(int begin, int length, int totalRecords) {
         this(begin, length);
         this.totalRecords = totalRecords;
     }
@@ -74,7 +67,7 @@ public class PageUtil {
      * <p>
      * param pageNo
      */
-    public PageUtil(int pageNo) {
+    public Page(int pageNo) {
         this.pageNo = pageNo;
         pageNo = pageNo > 0 ? pageNo : 1;
         this.begin = this.length * (pageNo - 1);
@@ -145,6 +138,5 @@ public class PageUtil {
     public void setPageCount(int pageCount) {
         this.pageCount = pageCount;
     }
-
-
 }
+

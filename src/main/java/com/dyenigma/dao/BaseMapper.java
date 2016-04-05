@@ -1,6 +1,7 @@
 package com.dyenigma.dao;
 
 import java.util.List;
+import java.util.Map;
 
 public interface BaseMapper<T> {
     int insert(T t);
@@ -12,4 +13,6 @@ public interface BaseMapper<T> {
     T findById(int id);
 
     List<T> findAll();
+
+    Long getCount(Map<String, Object> paramMap);
 }

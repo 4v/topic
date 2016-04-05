@@ -2,6 +2,7 @@ package com.dyenigma.service;
 
 import com.dyenigma.dao.BaseMapper;
 import com.dyenigma.entity.Company;
+import com.dyenigma.utils.PageUtil;
 
 import java.util.List;
 
@@ -18,16 +19,8 @@ public interface CompanyService extends BaseMapper<Company> {
      * param pageUtil
      * return
      */
-    List<Company> findComp(String compId);
+    List<Company> findComp(PageUtil pageUtil);
 
-    /**
-     * 分页总数
-     * <p>
-     * param param
-     * param pageUtil
-     * return
-     */
-    Long getCount();
 
     /**
      * 根据ID删除公司信息

@@ -9,6 +9,7 @@ import org.springframework.transaction.annotation.Transactional;
 import javax.annotation.PostConstruct;
 import java.lang.reflect.Field;
 import java.util.List;
+import java.util.Map;
 
 @Transactional
 public class BaseServiceImpl<T> implements BaseService<T> {
@@ -72,6 +73,11 @@ public class BaseServiceImpl<T> implements BaseService<T> {
     @Override
     public List<T> findAll() {
         return baseMapper.findAll();
+    }
+
+    @Override
+    public Long getCount(Map<String, Object> paramMap) {
+        return baseMapper.getCount(paramMap);
     }
 
 

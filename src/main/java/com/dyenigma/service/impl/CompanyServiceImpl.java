@@ -3,15 +3,16 @@ package com.dyenigma.service.impl;
 import com.dyenigma.entity.Company;
 import com.dyenigma.service.CompanyService;
 import com.dyenigma.utils.Constants;
+import com.dyenigma.utils.PageUtil;
 import com.dyenigma.utils.StringUtil;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
-import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
+import java.util.Map;
 
 /**
  * topic 公司信息处理业务类
@@ -25,22 +26,16 @@ public class CompanyServiceImpl extends BaseServiceImpl<Company> implements Comp
     private final Logger LOGGER = LoggerFactory.getLogger(CompanyServiceImpl.class);
 
     @Override
-    public List<Company> findComp(String compId) {
-        LOGGER.info("开始查找公司信息");
-        List<Company> compList;
-        if (compId == null || "".equals(compId)) {
-            compList = companyMapper.findAll();
-        } else {
-            Company company = companyMapper.findById(Integer.parseInt(compId));
-            compList = new ArrayList<>();
-            compList.add(company);
-        }
+    public List<Company> findComp(PageUtil pageUtil) {
+        LOGGER.info("开始查找公司信息,分页显示");
+        List<Company> compList = companyMapper.findAllByPage(pageUtil);
         return compList;
     }
 
     @Override
-    public Long getCount() {
-        return null;
+    public Long getCount(Map<String,Object> paramMap) {
+        LOGGER.info("开始查找公司信息的总条数");
+        return companyMapper.getCount(paramMap);
     }
 
     @Override

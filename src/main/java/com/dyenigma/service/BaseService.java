@@ -1,6 +1,7 @@
 package com.dyenigma.service;
 
 import java.util.List;
+import java.util.Map;
 
 public interface BaseService<T> {
 
@@ -13,4 +14,6 @@ public interface BaseService<T> {
     T findById(int id);
 
     List<T> findAll();
+
+    Long getCount(Map<String,Object> paramMap);
 }
