@@ -54,18 +54,10 @@
                     width: parseInt($(this).width() * 0.12),
                     align: 'center'
                 }, {
-                    field: 'shortName',
-                    title: '简称',
-                    width: parseInt($(this).width() * 0.12),
+                    field: 'companyName',
+                    title: '所属公司名称',
+                    width: parseInt($(this).width() * 0.1),
                     align: 'center'
-                }, {
-                    field: 'iconcls',
-                    title: '组织图标',
-                    align: 'center',
-                    width: parseInt($(this).width() * 0.08),
-                    formatter: function (value, row) {
-                        return "<span class='" + row.iconCls + "' style='display:inline-block;vertical-align:middle;width:16px;height:16px;'></span>";
-                    }
                 }, {
                     field: 'tel',
                     title: '电话',
@@ -74,6 +66,11 @@
                 }, {
                     field: 'fax',
                     title: '传真',
+                    width: parseInt($(this).width() * 0.1),
+                    align: 'center'
+                },{
+                    field: 'empQty',
+                    title: '编制人员数',
                     width: parseInt($(this).width() * 0.1),
                     align: 'center'
                 }, {

@@ -6,9 +6,7 @@ import com.dyenigma.model.GridModel;
 import com.dyenigma.model.Json;
 import com.dyenigma.service.CompanyService;
 import com.dyenigma.utils.*;
-import org.apache.shiro.SecurityUtils;
 import org.apache.shiro.authz.annotation.RequiresPermissions;
-import org.apache.shiro.web.subject.WebSubject;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -18,14 +16,11 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
 
-import javax.servlet.ServletRequest;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import javax.servlet.http.HttpSession;
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
-import java.io.IOException;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
@@ -124,29 +119,16 @@ public class MgrCompController extends BaseController {
     }
 
     //导出excel
-    @RequestMapping(value = "/excelExport")
-    public void excelExport(HttpServletResponse response) {
+    @ResponseBody
+    @RequestMapping(value = "/excelExport", produces = "application/octet-stream")
+    public byte[] excelExport(HttpServletRequest request, HttpServletResponse response) {
         SimpleDateFormat format = new SimpleDateFormat("yyyyMMddHHmmss");
         String excelName = format.format(new Date());
         String path = "Company-" + excelName + ".xls";
 
-        //这里不能获取绝对路径，导致不能继续进行， TODO
-        ServletRequest request = ((WebSubject) SecurityUtils.getSubject()).getServletRequest();
-        HttpSession httpSession = ((HttpServletRequest) request).getSession();
-
-        String realPath = httpSession.getServletContext().getRealPath(File.separator);
-
-        if (StringUtil.isEmpty(realPath)) {
-            realPath = File.separator;
-        }
+        //获取绝对路径
+        String realPath = request.getSession().getServletContext().getRealPath(File.separator);
         String allPath = realPath + "download" + File.separator + path;
-
-        File file = new File(allPath);
-        try {
-            file.createNewFile();
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
 
         FileOutputStream out = null;
         try {
@@ -158,10 +140,10 @@ public class MgrCompController extends BaseController {
         list.add(companyService.findById(Integer.parseInt(request.getParameter("companyId"))));
         ExcelUtil<Company> util = new ExcelUtil<>(Company.class);
         util.exportExcel(list, "Sheet", 60000, out);
-        try {
-            FileUtil.downFile(path, response, allPath);
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
+
+        //下面是下载文件处理
+        byte[] bytes = FileUtils.getBytes4File(allPath);
+        response.addHeader("Content-Disposition", "attachment;filename=" + path);
+        return bytes;
     }
 }

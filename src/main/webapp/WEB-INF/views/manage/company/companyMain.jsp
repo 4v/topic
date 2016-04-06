@@ -70,27 +70,6 @@
                         editor: "text"
                     },
                     {
-                        field: 'manager',
-                        title: '负责人',
-                        width: parseInt($(this).width() * 0.1),
-                        align: 'left',
-                        editor: "text"
-                    },
-                    {
-                        field: 'bank',
-                        title: '开户行',
-                        width: parseInt($(this).width() * 0.1),
-                        align: 'left',
-                        editor: "text"
-                    },
-                    {
-                        field: 'bankaccount',
-                        title: '开户行账号',
-                        width: parseInt($(this).width() * 0.1),
-                        align: 'left',
-                        editor: "text"
-                    },
-                    {
                         field: 'description',
                         title: '描述',
                         width: parseInt($(this).width() * 0.1),
@@ -203,7 +182,6 @@
                         url: "/manage/comp/excelExport",
                         data: {'companyId': row.companyId},
                         success: function () {
-                            alert("end");
                         }
                     });
                 } else {

@@ -16,12 +16,13 @@ import java.util.Date;
  * Description: 组织类
  * author dingdongliang
  * date 2015年9月21日 上午11:07:55
- *
  */
 
 public class Organization extends BaseDomain {
     private Integer organizationId;
     private Integer companyId;
+    private String companyName;
+    private String pName;
     private String myId;
     private Integer pid;
     private String fullName;
@@ -40,6 +41,22 @@ public class Organization extends BaseDomain {
     private Integer creater;
     private Integer modifyer;
     private String state = "closed";
+
+    public String getpName() {
+        return pName;
+    }
+
+    public void setpName(String pName) {
+        this.pName = pName;
+    }
+
+    public String getCompanyName() {
+        return companyName;
+    }
+
+    public void setCompanyName(String companyName) {
+        this.companyName = companyName;
+    }
 
     public Integer getOrganizationId() {
         return organizationId;

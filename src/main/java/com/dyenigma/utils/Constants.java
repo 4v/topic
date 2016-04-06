@@ -23,6 +23,9 @@ import com.dyenigma.shiro.ShiroUser;
 
 public class Constants {
 
+    //正整数的正则表达式，用于StringUtil.compare(regex,str)方法中
+    public static final String REGEX_INTEGER = "^\\d+$";
+
     public static final String LOGIN_SESSION_DATANAME = "users";
     public static final String LOGIN_URL = "login";
     public static final String LOGIN_SUCCESS_URL = "index";
@@ -41,16 +44,24 @@ public class Constants {
     public static final String POST_DATA_SUCCESS = "数据更新成功!";
     public static final String POST_DATA_FAIL = "提交失败!";
     public static final String GET_SQL_LIKE = "%";
-    public static final String IS_FUNCTION = "F";
+
+
+    //有效标记，A为有效，I为无效
     public static final String PERSISTENCE_STATUS = "A";
     public static final String PERSISTENCE_DELETE_STATUS = "I";
+
     public static final String SYSTEM_ADMINISTRATOR = "system";
     public static final String NULL_STRING = "";
     public static final String IS_DOT = ".";
     public static final String HQL_LIKE = "like";
     public static final String TEXT_TYPE_PLAIN = "text/plain";
     public static final String TEXT_TYPE_HTML = "text/html";
+    public static final String CONTENT_DISPOSITION = "Content-Disposition";
+
+    //菜单标记，O代表是操作，不能有子菜单，F为菜单
     public static final String FUNCTION_TYPE_O = "O";
+    public static final String IS_FUNCTION = "F";
+
     public static final String TREE_STATUS_OPEN = "open";
     public static final String TREE_STATUS_CLOSED = "closed";
     public static final String IS_EXT_SUBMENU = " 或可能包含菜单!";
@@ -65,8 +76,10 @@ public class Constants {
     public static final String LOGS_DELETE_TEXT = "删除:";
     public static final String LOGS_DELETE_NAME = "deleteLogs";
     public static final String LOGS_TB_NAME = "Log";
+
     public static final String FILE_SUFFIX_SQL = ".sql";
     public static final String FILE_SUFFIX_ZIP = ".zip";
+
     private Constants() {
     }
 

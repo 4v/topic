@@ -65,3 +65,6 @@
 统计工具（百度统计）
 
 使用IDEA的live template设置注释快捷方式
+
+TODO mybatis动态语句重写
+TODO

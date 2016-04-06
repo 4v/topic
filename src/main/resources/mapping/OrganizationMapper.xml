@@ -31,19 +31,22 @@
 	<insert id="insert" parameterType="Organization">
 		INSERT INTO
 		ORGANIZATION(CREATED,CREATER,DESCRIPTION,ENAME,FAX,FULLNAME,ICONCLS,LASTMOD,MODIFYER,
-		MYID,PID,SHORTNAME,STATE,STATUS,TEL)
+		MYID,PID,SHORTNAME,STATE,STATUS,TEL,MANAGER,EMPQTY,COMPANYNAME,PNAME)
 		VALUES
 		(#{created,jdbcType=DATE},#{creater,jdbcType=INTEGER},#{description,jdbcType=VARCHAR},
 		#{ename,jdbcType=VARCHAR},#{fax,jdbcType=VARCHAR},#{fullName,jdbcType=DATE},
 		#{iconCls,jdbcType=INTEGER},#{lastmod,jdbcType=VARCHAR},#{modifyer,jdbcType=VARCHAR},
 		#{myId,jdbcType=INTEGER},#{pid,jdbcType=VARCHAR},#{shortName,jdbcType=INTEGER},
-		#{state,jdbcType=VARCHAR},#{status,jdbcType=VARCHAR},#{tel,jdbcType=VARCHAR})
+		#{state,jdbcType=VARCHAR},#{status,jdbcType=VARCHAR},#{tel,jdbcType=VARCHAR},
+		#{manager,jdbcType=INTEGER},#{empQty,jdbcType=INTEGER},#{companyName,jdbcType=VARCHAR},
+		#{pName,jdbcType=VARCHAR})
 	</insert>
 	<update id="update" parameterType="Organization">
 		UPDATE ORGANIZATION SET
 		DESCRIPTION=#{description},ICONCLS=#{iconCls},FULLNAME=#{fullName},LASTMOD=#{lastmod},
 		MODIFYER=#{modifyer},MYID=#{myId},ENAME=#{ename},PID=#{pid},SHORTNAME=#{shortName},
-		STATE=#{state},STATUS=#{status},FAX=#{fax},TEL=#{tel}
+		STATE=#{state},STATUS=#{status},FAX=#{fax},TEL=#{tel},MANAGER=#{manager},EMPQTY=#{empQty},
+		COMPANYNAME=#{companyName},PNAME=#{pName}
 		WHERE
 		ORGANIZATIONID=#{organizationId}
 	</update>

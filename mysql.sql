@@ -75,6 +75,8 @@ DROP TABLE IF EXISTS `organization`;
 CREATE TABLE `organization` (
   `ORGANIZATIONID` int(11) NOT NULL AUTO_INCREMENT COMMENT '组织机构自动ID',
   `COMPANYID` int(11) DEFAULT NULL COMMENT '从属公司ID',
+  'COMPANYNAME' varchar(255) DEFAULT NULL COMMENT '从属公司名称',
+  'PNAME' varchar(255) DEFAULT NULL COMMENT '上级组织名称',
   `MYID` varchar(25) DEFAULT NULL COMMENT '组织自编码',
   `PID` int(10) DEFAULT NULL COMMENT '父组织ID',
   `FULLNAME` varchar(255) DEFAULT NULL COMMENT '组织名称',
@@ -87,7 +89,6 @@ CREATE TABLE `organization` (
   `STATUS` char(1) DEFAULT NULL COMMENT '状态',
   `CREATED` date DEFAULT NULL COMMENT '创造日期',
   `LASTMOD` date DEFAULT NULL COMMENT '修改日期',
-  `SHORTNAME` varchar(50) DEFAULT NULL COMMENT '简称',
   `TEL` varchar(50) DEFAULT NULL COMMENT '电话',
   `FAX` varchar(50) DEFAULT NULL COMMENT '传真',
   `DESCRIPTION` varchar(2000) DEFAULT NULL COMMENT '备注',
@@ -99,7 +100,7 @@ CREATE TABLE `organization` (
 -- ----------------------------
 -- Records of organization
 -- ----------------------------
-INSERT INTO `organization` VALUES ('23', null, 'topic', null, '话题科技有限责任公司', 'topic co.', null, 'icon-company', 'closed', null, null, 'A', '2016-04-03', '2016-04-04', '话题', '15981852507', '', '管理话题', '1', '1');
+INSERT INTO `organization` VALUES ('23', NULL, NULL, NULL, 'topic', null, '话题科技有限责任公司', 'topic co.', null, 'icon-company', 'closed', null, null, 'A', '2016-04-03', '2016-04-04', '15981852507', '', '管理话题', '1', '1');
 
 -- ----------------------------
 -- Table structure for permission

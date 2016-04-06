@@ -13,7 +13,10 @@
             url: "/manage/organ/findSuperOrgan",
             idFiled: 'id',
             textFiled: 'name',
-            parentField: 'pid'
+            parentField: 'pid',
+            onSelect: function (node) {
+                $("#pname").val(node.text);
+            }
         });
         $("#form").form({
             url: "/manage/organ/saveOrUpdateOrgan",
@@ -126,9 +129,10 @@
                     <tr>
                         <th>英文名称</th>
                         <td><input name="ename" id="ename" type="text" class="easyui-textbox easyui-validatebox"/></td>
-                        <th>简称</th>
-                        <td><input id="shortName" name="shortName" type="text"
-                                   class="easyui-textbox easyui-validatebox"/></td>
+                        <th>所属公司</th>
+                        <td><input id="companyId" name="companyId" type="text"
+                                   class="easyui-textbox easyui-validatebox"/>
+                            <input id="companyName" name="companyName" type="hidden"/></td>
                     </tr>
                     <tr>
                         <th>上层组织</th>
@@ -140,7 +144,13 @@
                         <th>电话</th>
                         <td><input id="tel" name="tel" type="text" class="easyui-textbox easyui-validatebox"/></td>
                         <th>传真</th>
-                        <td><input id=fax name="fax" type="text" class="easyui-textbox easyui-validatebox"/></td>
+                        <td><input id="fax" name="fax" type="text" class="easyui-textbox easyui-validatebox"/></td>
+                    </tr>
+                    <tr>
+                        <th>负责人</th>
+                        <td><input id="manager" name="manager" type="text" class="easyui-textbox easyui-validatebox"/></td>
+                        <th>人员编制数</th>
+                        <td><input id="empQty" name="empQty" type="text" class="easyui-textbox easyui-validatebox"/></td>
                     </tr>
                     <tr>
                         <th>描述</th>

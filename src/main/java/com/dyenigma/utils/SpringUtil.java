@@ -16,7 +16,7 @@ public final class SpringUtil implements BeanFactoryPostProcessor {
      * @return Object 一个以所给名字注册的bean的实例
      * @throws org.springframework.beans.BeansException
      */
-    @SuppressWarnings("unchecked")
+
     public static <T> T getBean(String name) throws BeansException {
         return (T) beanFactory.getBean(name);
     }
@@ -29,8 +29,8 @@ public final class SpringUtil implements BeanFactoryPostProcessor {
      * @throws org.springframework.beans.BeansException
      */
     public static <T> T getBean(Class<T> clz) throws BeansException {
-        @SuppressWarnings("unchecked")
-        T result = (T) beanFactory.getBean(clz);
+
+        T result = beanFactory.getBean(clz);
         return result;
     }
 

@@ -5,7 +5,7 @@ import java.lang.annotation.RetentionPolicy;
 import java.lang.annotation.Target;
 
 /**
- * topic
+ * topic 带有该注解的字段才能被输出
  * author: dyenigma
  * create: 2016/4/5 15:56
  */

@@ -11,8 +11,8 @@ import java.net.URLEncoder;
  * author Dyenigma
  * create 2016/4/2 18:47
  */
-public class FileUtil {
-    private static final Logger logger = Logger.getLogger(FileUtil.class);
+public class FileUtils {
+    private static final Logger logger = Logger.getLogger(FileUtils.class);
 
     private static final int BUFFER = 1024;
 
@@ -181,7 +181,7 @@ public class FileUtil {
         bis = new BufferedInputStream(fis);
         fos = response.getOutputStream();
         bos = new BufferedOutputStream(fos);
-        response.setHeader("Content-disposition", "attachment;filename="
+        response.addHeader("Content-disposition", "attachment;filename="
                 + URLEncoder.encode(path, "utf-8"));
         int bytesRead;
         byte[] buffer = new byte[8192];
@@ -193,5 +193,59 @@ public class FileUtil {
         bis.close();
         fos.close();
         bos.close();
+    }
+
+    /**
+     * 读取二进制文件并且写入数组里
+     *
+     * @param filePath
+     * @return
+     * @throws IOException
+     * @throws FileNotFoundException
+     */
+    public static byte[] getBytes4File(String filePath) {
+
+        InputStream in = null;
+        BufferedInputStream buffer = null;
+        DataInputStream dataIn = null;
+        ByteArrayOutputStream bos = null;
+        DataOutputStream dos = null;
+        byte[] bArray = null;
+        try {
+            in = new FileInputStream(filePath);
+            buffer = new BufferedInputStream(in);
+            dataIn = new DataInputStream(buffer);
+            bos = new ByteArrayOutputStream();
+            dos = new DataOutputStream(bos);
+            byte[] buf = new byte[1024];
+            while (true) {
+                int len = dataIn.read(buf);
+                if (len < 0)
+                    break;
+                dos.write(buf, 0, len);
+            }
+            bArray = bos.toByteArray();
+
+        } catch (Exception e) {
+            e.printStackTrace();
+            return null;
+
+        } finally {
+            try {
+                if (in != null)
+                    in.close();
+                if (dataIn != null)
+                    dataIn.close();
+                if (buffer != null)
+                    buffer.close();
+                if (bos != null)
+                    bos.close();
+                if (dos != null)
+                    dos.close();
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+        }
+        return bArray;
     }
 }

@@ -157,6 +157,18 @@ public class MgrOrganController extends BaseController {
         organ.setDescription(request.getParameter("description"));
         organ.setEname(request.getParameter("ename"));
 
+        organ.setCompanyName(request.getParameter("companyName"));
+        organ.setpName(request.getParameter("pName"));
+
+        String manager=request.getParameter("manager");
+        if(StringUtil.compare(Constants.REGEX_INTEGER,manager)){
+            organ.setManager(Integer.parseInt(manager));
+        }
+        String empQty = request.getParameter("empQty");
+        if(StringUtil.compare(Constants.REGEX_INTEGER,empQty)) {
+            organ.setEmpQty(Integer.parseInt(empQty));
+        }
+
         Json json = getMessage(organService.persistenceOrgan(organ));
         return JSONArray.toJSONString(json);
     }
