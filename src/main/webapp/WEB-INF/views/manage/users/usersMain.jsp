@@ -17,7 +17,7 @@
         var $grid;
         $(function () {
             $dg = $("#dg");
-            $grid = $dg.treegrid({
+            $grid = $dg.datagrid({
                 width: 'auto',
                 height: $(this).height() - 90,
                 url: "/manage/users/findAllUserList",
@@ -28,7 +28,7 @@
                 striped: true,
                 border: true,
                 idField: 'userId',
-                treeField: 'name',
+                singleSelect: true,
                 columns: [[
                     {
                         field: 'myid',
@@ -84,8 +84,6 @@
             });
 
             $("#addUser").click(function () {
-                var row = $dg.treegrid('getSelected');
-
                 $.modalDialog({
                     title: "添加用户",
                     width: 600,
@@ -95,7 +93,7 @@
                         text: '保存',
                         iconCls: 'icon-yes',
                         handler: function () {
-                            $.modalDialog.openner = $grid; //因为添加成功之后，需要刷新这个treegrid，所以先预定义好
+                            $.modalDialog.openner = $grid;
                             var f = $.modalDialog.handler.find("#form");
                             f.submit();
                         }
@@ -112,7 +110,7 @@
             });
 
             $("#updateUser").click(function () {
-                var row = $dg.treegrid('getSelected');
+                var row = $dg.datagrid('getSelected');
                 if (row) {
                     $.modalDialog({
                         title: "编辑用户",
@@ -127,7 +125,7 @@
                             text: '编辑',
                             iconCls: 'icon-yes',
                             handler: function () {
-                                $.modalDialog.openner = $grid; //因为添加成功之后，需要刷新这个treegrid，所以先预定义好
+                                $.modalDialog.openner = $grid;
                                 var f = $.modalDialog.handler.find("#form");
                                 f.submit();
                             }
@@ -151,15 +149,16 @@
             });
 
             $("#delUser").click(function () {
-                var node = $dg.treegrid('getSelected');
+                var node = $dg.datagrid('getSelected');
                 if (node) {
+                    var rowIndex = $dg.datagrid('getRowIndex', node);
                     $.messager.confirm("提示", "确定要删除记录吗?",
                             function (result) {
                                 if (result) {
                                     var request = $.ajax({
                                         url: "/manage/users/delUser",
                                         data: {
-                                            'id': node.userId
+                                            'userId': node.userId
                                         },
                                         method: "POST",
                                         dataType: "JSON"
@@ -167,7 +166,7 @@
 
                                     request.done(function (rsp) {
                                         if (rsp.status) {
-                                            $dg.treegrid('remove', node.organizationId);
+                                            $dg.datagrid('deleteRow', rowIndex);
                                         }
                                         $.messager.show({
                                             title: rsp.title,

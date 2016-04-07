@@ -66,9 +66,16 @@
 
 使用IDEA的live template设置注释快捷方式
 
+=======================================
+不管什么用户登录，获取的都是system的权限（原因是退出时没有处理shiro的缓存），已解决
+
+TODO 封装request提交的数据，使用map直接提交到mybatis配置文件中使用
 TODO mybatis动态语句重写
 TODO 表结构与名称重新设计，添加权限前缀并与实体类对应
-TODO EASYUI代码风格统一化整理
+TODO EASYUI代码风格统一化整理，简化处理
 TODO EASYUI combobox内容去掉自身，不可编辑
 TODO 输入框逐一核实是否必填
+TODO 数据库表级联逻辑审核，比如组织挂靠与公司，如果某个公司删除了，要删除对应的组织记录
+
+
 

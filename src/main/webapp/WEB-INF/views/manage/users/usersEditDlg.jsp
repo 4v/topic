@@ -3,7 +3,7 @@
     $(function() {
         $("#organizeId").combotree({
             width:171,
-            url:"orgz/organizationAction!findOrganizationList.action",
+            url:"/manage/organ/findSuperOrgan",
             idFiled:'id',
             textFiled:'name',
             parentField:'pid',
@@ -13,32 +13,32 @@
         });
 
         $("#form").form({
-            url :"user/userAction!persistenceUsersDig.action",
+            url :"/manage/users/saveOrUpdateUser",
             onSubmit : function() {
-                parent.$.messager.progress({
+                $.messager.progress({
                     title : '提示',
                     text : '数据处理中，请稍后....'
                 });
                 var isValid = $(this).form('validate');
                 if (!isValid) {
-                    parent.$.messager.progress('close');
+                    $.messager.progress('close');
                 }
                 return isValid;
             },
             success : function(result) {
-                parent.$.messager.progress('close');
-                result = $.parseJSON(result);
+                $.messager.progress('close');
+                result = eval("(" + result + ")");
                 if (result.status) {
-                    parent.reload;
-                    parent.$.modalDialog.openner.datagrid('reload');//之所以能在这里调用到parent.$.modalDialog.openner_datagrid这个对象，是因为role.jsp页面预定义好了
-                    parent.$.modalDialog.handler.dialog('close');
-                    parent.$.messager.show({
+                    //注意这里的datagrid，要和主页面的保持一致
+                    $.modalDialog.openner.datagrid('reload');
+                    $.modalDialog.handler.dialog('close');
+                    $.messager.show({
                         title : result.title,
                         msg : result.message,
                         timeout : 1000 * 2
                     });
                 }else{
-                    parent.$.messager.show({
+                    $.messager.show({
                         title :  result.title,
                         msg : result.message,
                         timeout : 1000 * 2
@@ -103,12 +103,12 @@
     <div data-options="region:'center',border:false" title="" style="overflow: hidden;padding: 10px;">
         <form id="form" method="post">
             <fieldset>
-                <legend><img src="extend/fromedit.png" style="margin-bottom: -3px;"/> 用户编辑</legend>
+                <legend><img src="/resources/core/images/fromedit.png" style="margin-bottom: -3px;"/> 用户编辑，新建用户默认密码为六个1</legend>
                 <input name="userId" id="userId"  type="hidden"/>
                 <input name="created" id="created"  type="hidden"/>
                 <input name="creater" id="creater"  type="hidden"/>
                 <input name="status" id="status"  type="hidden"/>
-                <input name="organizeName" id="organizeName"  type="hidden"/>
+                <input id="organizeName" name="organizeName" type="hidden"/>
                 <table>
                     <tr>
                         <th>用户编码</th>
@@ -119,18 +119,14 @@
                     <tr>
                         <th>用户名</th>
                         <td><input name="name" id="name" type="text" class="easyui-textbox easyui-validatebox" required="required"/></td>
-                        <th>用户密码</th>
-                        <td><input id="password" name="password" type="text" class="easyui-textbox easyui-validatebox"  required="required" /></td>
+                        <th>组织部门</th>
+                        <td><input id="organizeId" name="organizeId" type="text" class="easyui-textbox easyui-validatebox"/></td>
                     </tr>
                     <tr>
                         <th>邮箱</th>
                         <td><input id="email" name="email" type="text" class="easyui-textbox easyui-validatebox" required="required"/></td>
                         <th>电话</th>
                         <td><input id="tel" name="tel" type="text" class="easyui-textbox easyui-validatebox" required="required"/></td>
-                    </tr>
-                    <tr>
-                        <th>组织部门</th>
-                        <td colspan="3"><input id="organizeId" name="organizeId" type="text" class="easyui-textbox easyui-validatebox"/></td>
                     </tr>
                     <tr>
                         <th>描述</th>

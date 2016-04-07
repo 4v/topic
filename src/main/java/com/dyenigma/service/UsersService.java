@@ -4,4 +4,6 @@ import com.dyenigma.entity.Users;
 
 public interface UsersService extends BaseService<Users> {
     Users getUserByName(String name);
+
+    boolean persistenceUser(Users user);
 }

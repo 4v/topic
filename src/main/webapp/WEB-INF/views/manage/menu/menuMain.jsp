@@ -190,7 +190,7 @@
                             text: '保存',
                             iconCls: 'icon-yes',
                             handler: function () {
-                                $.modalDialog.openner = $grid; //因为添加成功之后，需要刷新这个treegrid，所以先预定义好
+                                $.modalDialog.openner = $grid;
                                 var f = $.modalDialog.handler.find("#form");
                                 f.submit();
                             }

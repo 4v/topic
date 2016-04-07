@@ -25,7 +25,7 @@
                 $.messager.progress('close');
                 result = $.parseJSON(result);
                 if (result.status) {
-                    $.modalDialog.openner.datagrid('reload');//之所以能在这里调用到parent.$.modalDialog.openner_datagrid这个对象，是因为role.jsp页面预定义好了
+                    $.modalDialog.openner.datagrid('reload');
                     $.modalDialog.handler.dialog('close');
                     $.messager.show({
                         title: result.title,

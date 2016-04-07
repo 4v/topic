@@ -46,7 +46,9 @@ public class Constants {
     public static final String GET_SQL_LIKE = "%";
 
     //默认icon
-    public static final String DEFAULT_ICON="icon-map";
+    public static final String DEFAULT_ICON = "icon-map";
+    //默认密码
+    public static final String DEFAULT_PASSWORD = "111111";
 
     //有效标记，A为有效，I为无效
     public static final String PERSISTENCE_STATUS = "A";
