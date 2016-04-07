@@ -29,12 +29,10 @@ public class Organization extends BaseDomain {
     private String ename;
     private Integer manager;
     private String iconCls;
-    private Integer assistantManager;
     private Integer empQty;
     private String status;
     private Date created;
     private Date lastmod;
-    private String shortName;
     private String tel;
     private String fax;
     private String description;
@@ -122,14 +120,6 @@ public class Organization extends BaseDomain {
         this.iconCls = iconCls;
     }
 
-    public Integer getAssistantManager() {
-        return assistantManager;
-    }
-
-    public void setAssistantManager(Integer assistantManager) {
-        this.assistantManager = assistantManager;
-    }
-
     public Integer getEmpQty() {
         return empQty;
     }
@@ -160,14 +150,6 @@ public class Organization extends BaseDomain {
 
     public void setLastmod(Date lastmod) {
         this.lastmod = lastmod;
-    }
-
-    public String getShortName() {
-        return shortName;
-    }
-
-    public void setShortName(String shortName) {
-        this.shortName = shortName;
     }
 
     public String getTel() {

@@ -54,4 +54,8 @@
         SELECT COUNT(*) FROM COMPANY WHERE STATUS = 'A'
     </select>
 
+    <select id="findSuperComp" resultType="Company">
+        SELECT COMPANYID,NAME FROM COMPANY
+    </select>
+
 </mapper>

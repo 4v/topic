@@ -3,31 +3,23 @@
 "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.dyenigma.dao.UsersMapper">
 	<select id="findById" parameterType="int" resultType="Users">
-		SELECT *
-		FROM USERS WHERE USERID=#{USERID}
+		SELECT * FROM USERS WHERE USERID=#{USERID}
 	</select>
 	<insert id="insert" parameterType="Users" flushCache="true">
-		INSERT INTO
-		users (name,age,password,birthday) VALUES
-		(#{name},#{age},#{password},#{birthday})
+
 	</insert>
 	<update id="update" parameterType="Users">
-		UPDATE users SET name=#{name}
-		WHERE id=#{id}
+
 	</update>
 	<delete id="delete" parameterType="int">
-		DELETE FROM users WHERE
-		id=#{id}
+		DELETE FROM USERS WHERE USERID=#{USERID}
 	</delete>
 	<select id="findByName" parameterType="String" resultType="Users">
-		select * from users where name=#{name,jdbcType=VARCHAR}
+		SELECT * FROM USERS
+		WHERE NAME = #{name,jdbcType=VARCHAR}
 	</select>
 	<select id="findAll" resultType="Users">
-		SELECT 
-		USERID,MYID,ACCOUNT,ANSWER,CREATED,CREATER,DESCRIPTION,DUTYID,EMAIL,FIRSTVISIT,IP,
-		ISEMPLOYEE,ISONLINE,LANG,LASTVISITS,LASTMOD,LOGINCOUNT,MODIFYER,MYID,NAME,
-		ORGANIZEID,ORGANIZENAME,PASSWORD,PREVIOUSVISIT,QUESTIONID,STATUS,TEL,THEME,TITLEID 
-		FROM USERS 
+		SELECT * FROM USERS
 		WHERE STATUS='A'
 	</select>
 </mapper>

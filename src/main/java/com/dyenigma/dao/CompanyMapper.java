@@ -13,5 +13,7 @@ import java.util.List;
 public interface CompanyMapper extends BaseMapper<Company> {
 
     List<Company> findAllByPage(PageUtil pageUtil);
+    
+    List<Company> findSuperComp();
 
 }

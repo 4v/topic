@@ -1,53 +1,42 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"   
-"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.dyenigma.dao.OrganizationMapper">
-	<select id="findAll" resultType="Organization">
-		SELECT
-		ORGANIZATIONID,ASSISTANTMANAGER,COMPANYID,CREATED,CREATER,DESCRIPTION,EMPQTY,ENAME,
-		FAX,FULLNAME,ICONCLS,LASTMOD,MANAGER,MODIFYER,MYID,PID,SHORTNAME,STATE,STATUS,TEL
-		FROM ORGANIZATION
-		WHERE STATUS = 'A'
-		AND (PID IS NULL)
-	</select>
-	<select id="findByPid" parameterType="Integer" resultType="Organization">
-		SELECT
-		ORGANIZATIONID,ASSISTANTMANAGER,COMPANYID,CREATED,CREATER,DESCRIPTION,EMPQTY,ENAME,
-		FAX,FULLNAME,ICONCLS,LASTMOD,MANAGER,MODIFYER,MYID,PID,SHORTNAME,STATE,STATUS,TEL
-		FROM ORGANIZATION
-		WHERE STATUS='A' AND
-		PID = #{pid}
-	</select>
-	<update id="updateById" parameterType="Integer">
-		UPDATE ORGANIZATION SET STATUS='I' WHERE ORGANIZATIONID=#{id,jdbcType=INTEGER}
-	</update>
-	<select id="findSuperOrgan" resultType="Organization">
-		SELECT
-		ORGANIZATIONID,ASSISTANTMANAGER,COMPANYID,CREATED,CREATER,DESCRIPTION,EMPQTY,ENAME,
-		FAX,FULLNAME,ICONCLS,LASTMOD,MANAGER,MODIFYER,MYID,PID,SHORTNAME,STATE,STATUS,TEL
-		FROM ORGANIZATION
-		WHERE STATUS = 'A'
-	</select>
-	<insert id="insert" parameterType="Organization">
-		INSERT INTO
-		ORGANIZATION(CREATED,CREATER,DESCRIPTION,ENAME,FAX,FULLNAME,ICONCLS,LASTMOD,MODIFYER,
-		MYID,PID,SHORTNAME,STATE,STATUS,TEL,MANAGER,EMPQTY,COMPANYNAME,PNAME)
-		VALUES
-		(#{created,jdbcType=DATE},#{creater,jdbcType=INTEGER},#{description,jdbcType=VARCHAR},
-		#{ename,jdbcType=VARCHAR},#{fax,jdbcType=VARCHAR},#{fullName,jdbcType=DATE},
-		#{iconCls,jdbcType=INTEGER},#{lastmod,jdbcType=VARCHAR},#{modifyer,jdbcType=VARCHAR},
-		#{myId,jdbcType=INTEGER},#{pid,jdbcType=VARCHAR},#{shortName,jdbcType=INTEGER},
-		#{state,jdbcType=VARCHAR},#{status,jdbcType=VARCHAR},#{tel,jdbcType=VARCHAR},
-		#{manager,jdbcType=INTEGER},#{empQty,jdbcType=INTEGER},#{companyName,jdbcType=VARCHAR},
-		#{pName,jdbcType=VARCHAR})
-	</insert>
-	<update id="update" parameterType="Organization">
-		UPDATE ORGANIZATION SET
-		DESCRIPTION=#{description},ICONCLS=#{iconCls},FULLNAME=#{fullName},LASTMOD=#{lastmod},
-		MODIFYER=#{modifyer},MYID=#{myId},ENAME=#{ename},PID=#{pid},SHORTNAME=#{shortName},
-		STATE=#{state},STATUS=#{status},FAX=#{fax},TEL=#{tel},MANAGER=#{manager},EMPQTY=#{empQty},
-		COMPANYNAME=#{companyName},PNAME=#{pName}
-		WHERE
-		ORGANIZATIONID=#{organizationId}
-	</update>
+    <select id="findAll" resultType="Organization">
+        SELECT * FROM ORGANIZATION
+        WHERE STATUS = 'A' AND (PID IS NULL)
+    </select>
+    <select id="findByPid" parameterType="Integer" resultType="Organization">
+        SELECT * FROM ORGANIZATION
+        WHERE STATUS='A' AND PID = #{pid}
+    </select>
+    <update id="updateById" parameterType="Integer">
+        UPDATE ORGANIZATION SET STATUS='I' WHERE ORGANIZATIONID=#{id,jdbcType=INTEGER}
+    </update>
+    <select id="findSuperOrgan" resultType="Organization">
+        SELECT
+        ORGANIZATIONID,FULLNAME,ICONCLS,PID
+        FROM ORGANIZATION WHERE STATUS = 'A'
+    </select>
+    <insert id="insert" parameterType="Organization">
+        INSERT INTO
+        ORGANIZATION(CREATED,CREATER,DESCRIPTION,ENAME,FAX,FULLNAME,ICONCLS,LASTMOD,MODIFYER,
+        MYID,PID,STATE,STATUS,TEL,MANAGER,EMPQTY,COMPANYNAME,PNAME,COMPANYID)
+        VALUES
+        (#{created,jdbcType=DATE},#{creater,jdbcType=INTEGER},#{description,jdbcType=VARCHAR},
+        #{ename,jdbcType=VARCHAR},#{fax,jdbcType=VARCHAR},#{fullName,jdbcType=DATE},
+        #{iconCls,jdbcType=INTEGER},#{lastmod,jdbcType=VARCHAR},#{modifyer,jdbcType=VARCHAR},
+        #{myId,jdbcType=INTEGER},#{pid,jdbcType=VARCHAR},#{state,jdbcType=VARCHAR},
+        #{status,jdbcType=VARCHAR},#{tel,jdbcType=VARCHAR},#{manager,jdbcType=INTEGER},
+        #{empQty,jdbcType=INTEGER},#{companyName,jdbcType=VARCHAR},#{pName,jdbcType=VARCHAR},
+        #{companyId,jdbcType=INTEGER})
+    </insert>
+    <update id="update" parameterType="Organization">
+        UPDATE ORGANIZATION SET
+        DESCRIPTION=#{description},ICONCLS=#{iconCls},FULLNAME=#{fullName},LASTMOD=#{lastmod},
+        MODIFYER=#{modifyer},MYID=#{myId},ENAME=#{ename},PID=#{pid},STATE=#{state},STATUS=#{status},
+        FAX=#{fax},TEL=#{tel},MANAGER=#{manager},EMPQTY=#{empQty},COMPANYNAME=#{companyName},PNAME=#{pName}
+        WHERE
+        ORGANIZATIONID=#{organizationId}
+    </update>
 </mapper>

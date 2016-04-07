@@ -58,6 +58,13 @@ public class MgrCompController extends BaseController {
     }
 
 
+    @ResponseBody
+    @RequestMapping(value = "/findSuperComp", produces = "application/json;charset=utf-8")
+    public List<Company> findSuperComp() {
+        return companyService.findSuperComp();
+    }
+
+
     //弹出添加公司层
     @RequestMapping(value = "/companyEditDlg", method = RequestMethod.GET)
     public ModelAndView companyEditDlg() {
@@ -136,12 +143,14 @@ public class MgrCompController extends BaseController {
         } catch (FileNotFoundException e) {
             e.printStackTrace();
         }
+
+        //在绝对路径获取正确的前提下，获取company资料写入文件，测试成功
         List<Company> list = new ArrayList<>();
         list.add(companyService.findById(Integer.parseInt(request.getParameter("companyId"))));
         ExcelUtil<Company> util = new ExcelUtil<>(Company.class);
         util.exportExcel(list, "Sheet", 60000, out);
 
-        //下面是下载文件处理
+        //下面是下载文件处理，测试中文件存在，但无法下载，需要处理 TODO
         byte[] bytes = FileUtils.getBytes4File(allPath);
         response.addHeader("Content-Disposition", "attachment;filename=" + path);
         return bytes;

@@ -45,6 +45,8 @@ public class Constants {
     public static final String POST_DATA_FAIL = "提交失败!";
     public static final String GET_SQL_LIKE = "%";
 
+    //默认icon
+    public static final String DEFAULT_ICON="icon-map";
 
     //有效标记，A为有效，I为无效
     public static final String PERSISTENCE_STATUS = "A";

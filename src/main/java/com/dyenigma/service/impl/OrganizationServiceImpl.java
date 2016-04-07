@@ -69,7 +69,7 @@ public class OrganizationServiceImpl extends BaseServiceImpl<Organization> imple
         for (Organization organ : organList) {
             TreeModel treeModel = new TreeModel();
             treeModel.setId(organ.getOrganizationId() + "");
-            treeModel.setPid(organ.getPid() == 0 ? "" : organ.getPid() + "");
+            treeModel.setPid(organ.getPid() == null ? "" : organ.getPid() + "");
             treeModel.setName(organ.getFullName());
             treeModel.setIconCls(organ.getIconCls());
             treeModel.setState(Constants.TREE_STATUS_OPEN);

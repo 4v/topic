@@ -153,12 +153,16 @@ public class MgrOrganController extends BaseController {
         organ.setTel(request.getParameter("tel"));
         organ.setMyId(request.getParameter("myId"));
         organ.setFax(request.getParameter("fax"));
-        organ.setShortName(request.getParameter("shortName"));
         organ.setDescription(request.getParameter("description"));
         organ.setEname(request.getParameter("ename"));
 
         organ.setCompanyName(request.getParameter("companyName"));
         organ.setpName(request.getParameter("pName"));
+
+        String companyId= request.getParameter("companyId");
+        if(StringUtil.compare(Constants.REGEX_INTEGER,companyId)){
+            organ.setCompanyId(Integer.parseInt(companyId));
+        }
 
         String manager=request.getParameter("manager");
         if(StringUtil.compare(Constants.REGEX_INTEGER,manager)){

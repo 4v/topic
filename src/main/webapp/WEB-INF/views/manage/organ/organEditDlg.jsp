@@ -15,9 +15,16 @@
             textFiled: 'name',
             parentField: 'pid',
             onSelect: function (node) {
-                $("#pname").val(node.text);
+                $("#pName").val(node.text);
             }
         });
+
+        $("#companyId").combobox({
+            onSelect: function (row) {
+                $("#companyName").val(row.name);
+            }
+        });
+
         $("#form").form({
             url: "/manage/organ/saveOrUpdateOrgan",
             onSubmit: function () {
@@ -60,6 +67,11 @@
         line-height: 16px;
         box-shadow: 0 1px 1px rgba(0, 0, 0, 0.075) inset;
         transition: border 0.2s linear 0s, box-shadow 0.2s linear 0s;
+    }
+
+    .easyui-combobox{
+        height: 18px;
+        width: 170px;
     }
 
     textarea:focus, input[type="text"]:focus {
@@ -130,13 +142,16 @@
                         <th>英文名称</th>
                         <td><input name="ename" id="ename" type="text" class="easyui-textbox easyui-validatebox"/></td>
                         <th>所属公司</th>
-                        <td><input id="companyId" name="companyId" type="text"
-                                   class="easyui-textbox easyui-validatebox"/>
+                        <td><input id="companyId" name="companyId" type="text" class="easyui-textbox easyui-validatebox"
+                                   url="/manage/comp/findSuperComp" valueField="companyId" textField="name">
+                            </input>
                             <input id="companyName" name="companyName" type="hidden"/></td>
                     </tr>
                     <tr>
-                        <th>上层组织</th>
-                        <td><input id="pid" name="pid" type="text" class="easyui-textbox easyui-validatebox"/></td>
+                        <th>上层组织1</th>
+                        <td><input id="pid" name="pid" type="text" class="easyui-combotree"/>
+                            <input id="pName" name="pName" type="hidden"/>
+                        </td>
                         <th>组织图标</th>
                         <td><input id="iconCls" name="iconCls" type="text" class="easyui-textbox"/></td>
                     </tr>
@@ -147,10 +162,13 @@
                         <td><input id="fax" name="fax" type="text" class="easyui-textbox easyui-validatebox"/></td>
                     </tr>
                     <tr>
-                        <th>负责人</th>
-                        <td><input id="manager" name="manager" type="text" class="easyui-textbox easyui-validatebox"/></td>
+                        <th>负责人1</th>
+                        <td><input id="manager" name="manager" type="text" class="easyui-combobox"
+                                   url="/manage/users/findAllUserList" valueField="userId" textField="name"/>
+                        </td>
                         <th>人员编制数</th>
-                        <td><input id="empQty" name="empQty" type="text" class="easyui-textbox easyui-validatebox"/></td>
+                        <td><input id="empQty" name="empQty" type="text" class="easyui-textbox easyui-validatebox"/>
+                        </td>
                     </tr>
                     <tr>
                         <th>描述</th>

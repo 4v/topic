@@ -67,4 +67,8 @@
 使用IDEA的live template设置注释快捷方式
 
 TODO mybatis动态语句重写
-TODO
+TODO 表结构与名称重新设计，添加权限前缀并与实体类对应
+TODO EASYUI代码风格统一化整理
+TODO EASYUI combobox内容去掉自身，不可编辑
+TODO 输入框逐一核实是否必填
+

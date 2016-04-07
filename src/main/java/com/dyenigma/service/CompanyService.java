@@ -38,5 +38,11 @@ public interface CompanyService extends BaseMapper<Company> {
      */
     boolean persistenceComp(Company company);
 
+    /**
+     * 查找所有的公司信息，用于组织资料添加和修改选择
+     * return
+     */
+    List<Company> findSuperComp();
+
 
 }

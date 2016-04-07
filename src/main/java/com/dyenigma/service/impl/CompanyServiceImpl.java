@@ -66,4 +66,13 @@ public class CompanyServiceImpl extends BaseServiceImpl<Company> implements Comp
         }
         return true;
     }
+
+    /**
+     * 查找所有的公司信息，用于组织资料添加和修改选择
+     * return
+     */
+    @Override
+    public List<Company> findSuperComp() {
+        return companyMapper.findSuperComp();
+    }
 }
