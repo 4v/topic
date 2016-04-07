@@ -1,16 +1,16 @@
 /*
 Navicat MySQL Data Transfer
 
-Source Server         : mysql
-Source Server Version : 50625
+Source Server         : fortiro
+Source Server Version : 50533
 Source Host           : localhost:3306
 Source Database       : 4tiro
 
 Target Server Type    : MYSQL
-Target Server Version : 50625
+Target Server Version : 50533
 File Encoding         : 65001
 
-Date: 2016-04-04 21:59:50
+Date: 2016-04-07 18:20:54
 */
 
 SET FOREIGN_KEY_CHECKS=0;
@@ -38,11 +38,28 @@ CREATE TABLE `company` (
   `CREATER` int(10) DEFAULT NULL COMMENT '创建人',
   `MODIFYER` int(10) DEFAULT NULL COMMENT '修改人',
   PRIMARY KEY (`COMPANYID`)
-) ENGINE=InnoDB AUTO_INCREMENT=34 DEFAULT CHARSET=utf8 COMMENT='公司资料表';
+) ENGINE=InnoDB AUTO_INCREMENT=51 DEFAULT CHARSET=utf8 COMMENT='公司资料表';
 
 -- ----------------------------
 -- Records of company
 -- ----------------------------
+INSERT INTO `company` VALUES ('34', '话题科技责任有限公司', '15988888888', '66666666', '河南郑州', '450000', 'dyenigma@163.com', '彼岸花', 'A', '2016-04-04', '2016-04-05', 'dyenigma', '中国建设银行河南分行郑州支行', '123456', '测试公司资料', '1', '1');
+INSERT INTO `company` VALUES ('35', '公司名称', '联系电话', '传真', '地址', '邮编', '电子邮箱', '联系人', 'A', '2016-04-05', '2016-04-05', '负责人', '开户行', '账号', '描述', '1', '1');
+INSERT INTO `company` VALUES ('36', '公司名称2', '联系电话', '传真', '地址', '邮编', '电子邮箱', '联系人', 'A', '2016-04-05', '2016-04-05', '负责人', '开户行', '账号', '描述', '1', '1');
+INSERT INTO `company` VALUES ('37', '12', '12', '12', '12', '12', '12', '12', 'I', '2016-04-05', '2016-04-05', '12', '12', '12', '12', '1', '1');
+INSERT INTO `company` VALUES ('38', 'name', '1212', '111', '地址1', '131', '@@', 'lianxiren', 'A', '2016-04-04', '2016-04-05', 'manager', 'yinhang', 'zhanghao', 'miaosh', '1', '1');
+INSERT INTO `company` VALUES ('39', 'name', '1212', '111', '地址2', '131', '@@', 'lianxiren', 'A', '2016-04-04', '2016-04-05', 'manager', 'yinhang', 'zhanghao', 'miaosh', '1', '1');
+INSERT INTO `company` VALUES ('40', 'name', '1212', '111', '地址3', '131', '@@', 'lianxiren', 'A', '2016-04-04', '2016-04-05', 'manager', 'yinhang', 'zhanghao', 'miaosh', '1', '1');
+INSERT INTO `company` VALUES ('41', 'name', '1212', '111', '地址4', '131', '@@', 'lianxiren', 'A', '2016-04-04', '2016-04-05', 'manager', 'yinhang', 'zhanghao', 'miaosh', '1', '1');
+INSERT INTO `company` VALUES ('42', 'name', '1212', '111', '地址5', '131', '@@', 'lianxiren', 'A', '2016-04-04', '2016-04-05', 'manager', 'yinhang', 'zhanghao', 'miaosh', '1', '1');
+INSERT INTO `company` VALUES ('43', 'name', '1212', '111', '地址6', '131', '@@', 'lianxiren', 'A', '2016-04-04', '2016-04-05', 'manager', 'yinhang', 'zhanghao', 'miaosh', '1', '1');
+INSERT INTO `company` VALUES ('44', 'name', '1212', '111', '地址7', '131', '@@', 'lianxiren', 'A', '2016-04-04', '2016-04-05', 'manager', 'yinhang', 'zhanghao', 'miaosh', '1', '1');
+INSERT INTO `company` VALUES ('45', 'name', '1212', '111', '地址8', '131', '@@', 'lianxiren', 'A', '2016-04-04', '2016-04-05', 'manager', 'yinhang', 'zhanghao', 'miaosh', '1', '1');
+INSERT INTO `company` VALUES ('46', 'name', '1212', '111', '地址9', '131', '@@', 'lianxiren', 'A', '2016-04-04', '2016-04-05', 'manager', 'yinhang', 'zhanghao', 'miaosh', '1', '1');
+INSERT INTO `company` VALUES ('47', 'name', '1212', '111', '地址10', '131', '@@', 'lianxiren', 'A', '2016-04-04', '2016-04-05', 'manager', 'yinhang', 'zhanghao', 'miaosh', '1', '1');
+INSERT INTO `company` VALUES ('48', 'name', '1212', '111', '地址11', '131', '@@', 'lianxiren', 'A', '2016-04-04', '2016-04-05', 'manager', 'yinhang', 'zhanghao', 'miaosh', '1', '1');
+INSERT INTO `company` VALUES ('49', 'name', '1212', '111', '地址12', '131', '@@', 'lianxiren', 'I', '2016-04-04', '2016-04-05', 'manager', 'yinhang', 'zhanghao', 'miaosh', '1', '1');
+INSERT INTO `company` VALUES ('50', 'sadf', 'asdf', 'fads', 'asdf', 'asdf', 'adsf', 'f', 'A', '2016-04-07', '2016-04-07', 'asdf', 'adsf', 'ads', 'asdf', '1', '1');
 
 -- ----------------------------
 -- Table structure for log
@@ -75,8 +92,6 @@ DROP TABLE IF EXISTS `organization`;
 CREATE TABLE `organization` (
   `ORGANIZATIONID` int(11) NOT NULL AUTO_INCREMENT COMMENT '组织机构自动ID',
   `COMPANYID` int(11) DEFAULT NULL COMMENT '从属公司ID',
-  'COMPANYNAME' varchar(255) DEFAULT NULL COMMENT '从属公司名称',
-  'PNAME' varchar(255) DEFAULT NULL COMMENT '上级组织名称',
   `MYID` varchar(25) DEFAULT NULL COMMENT '组织自编码',
   `PID` int(10) DEFAULT NULL COMMENT '父组织ID',
   `FULLNAME` varchar(255) DEFAULT NULL COMMENT '组织名称',
@@ -84,7 +99,6 @@ CREATE TABLE `organization` (
   `MANAGER` int(10) DEFAULT NULL COMMENT '主负责人',
   `ICONCLS` varchar(100) DEFAULT NULL COMMENT '图标',
   `STATE` varchar(20) DEFAULT NULL,
-  `ASSISTANTMANAGER` int(10) DEFAULT NULL COMMENT '副负责人',
   `EMPQTY` int(10) DEFAULT NULL COMMENT '编制人员数',
   `STATUS` char(1) DEFAULT NULL COMMENT '状态',
   `CREATED` date DEFAULT NULL COMMENT '创造日期',
@@ -94,13 +108,19 @@ CREATE TABLE `organization` (
   `DESCRIPTION` varchar(2000) DEFAULT NULL COMMENT '备注',
   `CREATER` int(10) DEFAULT NULL COMMENT '创建人',
   `MODIFYER` int(10) DEFAULT NULL COMMENT '修改人',
+  `COMPANYNAME` varchar(255) DEFAULT NULL COMMENT '公司名称',
+  `PNAME` varchar(255) DEFAULT NULL COMMENT '上级组织名称',
   PRIMARY KEY (`ORGANIZATIONID`)
-) ENGINE=InnoDB AUTO_INCREMENT=24 DEFAULT CHARSET=utf8 COMMENT='组织部门资料表';
+) ENGINE=InnoDB AUTO_INCREMENT=28 DEFAULT CHARSET=utf8 COMMENT='组织部门资料表';
 
 -- ----------------------------
 -- Records of organization
 -- ----------------------------
-INSERT INTO `organization` VALUES ('23', NULL, NULL, NULL, 'topic', null, '话题科技有限责任公司', 'topic co.', null, 'icon-company', 'closed', null, null, 'A', '2016-04-03', '2016-04-04', '15981852507', '', '管理话题', '1', '1');
+INSERT INTO `organization` VALUES ('23', '34', 'topic', null, '话题项目组', 'topic co.', '1', 'icon-flower', 'closed', '10', 'A', '2016-04-03', '2016-04-07', '15981852507', '', '管理话题', '1', '1', '话题科技责任有限公司', '');
+INSERT INTO `organization` VALUES ('24', '34', '33', '23', '业务部门', '33', '1', 'icon-man', 'closed', '1', 'A', '2016-04-07', '2016-04-07', '3333', '333', '3', '1', '1', '话题科技责任有限公司', '话题项目组');
+INSERT INTO `organization` VALUES ('25', '35', 'test', null, '测试', 'test', '1', 'icon-home', 'closed', '12', 'I', '2016-04-07', '2016-04-07', '', '', '', '1', '1', '公司名称', '');
+INSERT INTO `organization` VALUES ('26', '36', 'ceshi', null, 'ceshi', 'cs', '1', 'icon-power', 'closed', '23', 'A', '2016-04-07', '2016-04-07', '323', '', '2323', '1', '1', '公司名称2', '');
+INSERT INTO `organization` VALUES ('27', '35', '123', null, '123', '123', '25', 'icon-woman', 'closed', '12', 'A', '2016-04-07', '2016-04-07', '123', '123', '123', '1', '1', '公司名称', '');
 
 -- ----------------------------
 -- Table structure for permission
@@ -142,10 +162,8 @@ INSERT INTO `permission` VALUES ('105', '0', '日志管理', '', '3', 'logMgr', 
 INSERT INTO `permission` VALUES ('106', '0', '系统监控', '', '4', 'runMgr', 'F', 'Y', 'closed', 'javascript:void(0);', 'icon-power', 'A', '系统运行监控', '2016-03-15 00:00:00', '2016-03-16 09:11:37', '1', '1');
 INSERT INTO `permission` VALUES ('107', '1', '用户管理', '系统管理', '3', 'userMgr', 'F', 'Y', 'closed', '/manage/users/usersMain', 'icon-user', 'A', '用户管理，用于新增、修改、删除用户信息', '2016-03-15 00:00:00', '2016-04-04 08:14:29', '1', '1');
 INSERT INTO `permission` VALUES ('108', '1', '角色管理', '系统管理', '4', 'roleMgr', 'F', 'Y', 'closed', '/manage/role/roleMgr', 'icon-star', 'A', '角色管理，用于角色的增删改与权限的分配', '2016-03-15 00:00:00', '2016-04-04 08:14:40', '1', '1');
-INSERT INTO `permission` VALUES ('109', '1', '角色权限', '系统管理', '4', 'setRole', 'F', 'N', 'closed', '/manage/setting/setRole', 'icon-man', 'I', '角色权限分配', '2016-03-15 00:00:00', '2016-04-02 17:32:24', '1', '1');
 INSERT INTO `permission` VALUES ('110', '1', '用户角色', '系统管理', '5', 'setUser', 'F', 'Y', 'closed', '/manage/userRole/setRole', 'icon-woman', 'A', '用户的角色分配', '2016-03-15 00:00:00', '2016-04-04 08:14:48', '1', '1');
 INSERT INTO `permission` VALUES ('111', '1', '组织管理', '系统管理', '2', 'organMgr', 'F', 'Y', 'closed', '/manage/organ/organMain', 'icon-organ', 'A', '组织机构管理', '2016-03-15 00:00:00', '2016-04-04 08:14:20', '1', '1');
-INSERT INTO `permission` VALUES ('112', '1', '数据字典', '系统管理', '6', 'dataMgr', 'F', 'N', 'closed', '/manage/system/dataMgr', 'icon-data', 'I', '', '2016-03-15 00:00:00', '2016-03-15 00:00:00', '1', '1');
 INSERT INTO `permission` VALUES ('113', '0', 'BUG管理', '', '6', 'bugMgr', 'F', 'Y', 'closed', 'javascript:void(0);', 'icon-danger', 'A', '提交BUG，反馈处理结果等', '2016-03-15 00:00:00', '2016-04-04 08:15:29', '1', '1');
 INSERT INTO `permission` VALUES ('114', '106', '运行监控', '系统监控', '1', 'dataMgr', 'F', 'Y', 'closed', '/druid', 'icon-camera', 'A', '淘宝Druid监控，包含数据源、sql、web应用、uri监控、session监控、spring监控等', '2016-03-16 00:00:00', '2016-04-04 08:18:26', '1', '1');
 INSERT INTO `permission` VALUES ('115', '107', '新增用户', '用户管理', '1', 'userAdd', 'O', 'Y', 'open', 'javascript:void(0);', 'icon-add', 'A', '', '2016-03-16 00:00:00', '2016-03-16 00:00:00', '1', '1');
@@ -164,9 +182,7 @@ INSERT INTO `permission` VALUES ('127', '113', 'BUG反馈', 'BUG管理', '2', 'b
 INSERT INTO `permission` VALUES ('128', '113', '无效BUG', 'BUG管理', '3', 'bugDel', 'O', 'Y', 'open', 'javascript:void(0);', 'icon-no', 'A', '', '2016-03-16 00:00:00', '2016-03-16 16:00:15', '1', '1');
 INSERT INTO `permission` VALUES ('129', '104', '定时备份', '数据备份', '1', 'autoBak', 'O', 'Y', 'open', 'javascript:void(0);', 'icon-save', 'A', '', '2016-03-16 00:00:00', '2016-03-16 00:00:00', '1', '1');
 INSERT INTO `permission` VALUES ('130', '104', '手动备份', '数据备份', '2', 'myBak', 'O', 'Y', 'open', 'javascript:void(0);', 'icon-dbadd', 'A', '', '2016-03-16 00:00:00', '2016-03-16 00:00:00', '1', '1');
-INSERT INTO `permission` VALUES ('131', '112', '添加字典', '数据字典', '1', 'wordAdd', 'O', 'N', 'open', 'javascript:void(0);', 'icon-add', 'I', '添加数据字典项', '2016-03-16 00:00:00', '2016-03-16 00:00:00', '1', '1');
 INSERT INTO `permission` VALUES ('132', '1', '公司管理', '系统管理', '1', 'compMgr', 'F', 'Y', 'closed', '/manage/comp/compMain', 'icon-company', 'A', '公司资料编辑', '2016-04-04 00:00:00', '2016-04-04 08:14:12', '1', '1');
-INSERT INTO `permission` VALUES ('133', '103', 'demo', '专题管理', '1', '2', 'F', 'N', 'closed', 'javascript:void(0);', '', 'I', '2', '2016-04-04 00:00:00', '2016-04-04 00:00:00', '1', '1');
 INSERT INTO `permission` VALUES ('134', '132', '添加公司', '公司管理', '1', 'compAdd', 'O', 'Y', 'open', 'javascript:void(0);', 'icon-add', 'A', '', '2016-04-04 00:00:00', '2016-04-04 00:00:00', '1', '1');
 INSERT INTO `permission` VALUES ('135', '132', '编辑资料', '公司管理', '2', 'compEdit', 'O', 'Y', 'open', 'javascript:void(0);', 'icon-edit', 'A', '', '2016-04-04 00:00:00', '2016-04-04 00:00:00', '1', '1');
 INSERT INTO `permission` VALUES ('136', '132', '删除公司', '公司管理', '3', 'compDel', 'O', 'Y', 'open', 'javascript:void(0);', 'icon-remove', 'A', '', '2016-04-04 00:00:00', '2016-04-04 00:00:00', '1', '1');
@@ -314,9 +330,11 @@ CREATE TABLE `users` (
   `MODIFYER` int(10) DEFAULT NULL COMMENT '修改人',
   `TEL` varchar(30) DEFAULT NULL COMMENT '用户电话',
   PRIMARY KEY (`USERID`)
-) ENGINE=InnoDB AUTO_INCREMENT=25 DEFAULT CHARSET=utf8 COMMENT='用户资料表';
+) ENGINE=InnoDB AUTO_INCREMENT=33 DEFAULT CHARSET=utf8 COMMENT='用户资料表';
 
 -- ----------------------------
 -- Records of users
 -- ----------------------------
-INSERT INTO `users` VALUES ('1', 'system', 'system', 'system', '2', 'MIS', null, null, '54B53072540EEEB8F8E9343E71F28176', '12@qq.com', null, null, null, null, null, null, null, 'A', null, '111111', null, null, null, null, '2013-06-14 00:00:00', '1', '1', '1111111');
+INSERT INTO `users` VALUES ('1', 'system', 'system', 'system', '23', '话题项目组', null, null, '54B53072540EEEB8F8E9343E71F28176', '12@qq.com', null, null, null, null, null, null, null, 'A', null, '111111', null, null, null, null, '2013-06-14 00:00:00', '1', '1', '1111111');
+INSERT INTO `users` VALUES ('25', 'demo', 'demo', 'demo', '23', '话题项目组', null, null, '111111', 'demo@1.com', null, null, null, null, null, null, null, 'A', null, '2222222', null, null, null, '2016-04-07 16:09:02', '2016-04-07 16:09:07', '1', '1', '2222222');
+INSERT INTO `users` VALUES ('32', 'test', 'test', 'test', '26', 'ceshi', null, null, '96e79218965eb72c92a549dd5a330112', 'asdf', null, null, null, null, null, null, null, 'A', null, 'asdf', null, null, null, '2016-04-07 00:00:00', '2016-04-07 00:00:00', '1', '1', 'asdf');
