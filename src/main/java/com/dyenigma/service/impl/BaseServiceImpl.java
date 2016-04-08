@@ -23,6 +23,8 @@ public class BaseServiceImpl<T> implements BaseService<T> {
     protected OrganizationMapper organizationMapper;
     @Autowired
     protected CompanyMapper companyMapper;
+    @Autowired
+    protected RoleMapper roleMapper;
     @SuppressWarnings("rawtypes")
     private Class clazz = null;
 

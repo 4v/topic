@@ -150,7 +150,7 @@ function refreshTab(title) {
 			</div>
 			<ul class="infolist">
 				<li><span>JDK版本:1.8</span></li>
-				<li><span>主体技术:SpringMVC+Spring+MyBatis+Shiro+EasyUI+Druid+Lucene+HTML5/CSS3</span></li>
+				<li><span>主体技术:SpringMVC+Spring+MyBatis+Shiro+EasyUI+Druid+HTML5/CSS3</span></li>
 				<li><span>Shiro提供给您细分到按钮的权限管理，更安全，更可靠</span></li>
 				<li><span>SpringMVC提供RESTFUL访问地址</span></li>
 				<li><span>EasyUI统一的后台管理页面风格</span></li>
@@ -158,8 +158,6 @@ function refreshTab(title) {
 				<li><span>Mybatis灵活使用的数据库操作纽带</span></li>
 				<li><span>HTML5+css3.0界面UI，美观漂亮时尚、前沿</span></li>
 				<li><span>Quartz定时任务处理</span></li>
-				<li><span>Lucene搜索引擎</span></li>
-				<li><span>WebService网络服务接口</span></li>
 			</ul>
 		</div>
 	</div>

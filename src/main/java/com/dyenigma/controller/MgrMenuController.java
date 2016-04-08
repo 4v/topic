@@ -13,6 +13,7 @@ package com.dyenigma.controller;
 import com.alibaba.fastjson.JSONArray;
 import com.dyenigma.entity.Permission;
 import com.dyenigma.model.Json;
+import com.dyenigma.model.TreeGrid;
 import com.dyenigma.model.TreeGridModel;
 import com.dyenigma.model.TreeModel;
 import com.dyenigma.service.PermissionService;
@@ -67,14 +68,24 @@ public class MgrMenuController extends BaseController {
      * return List<TreeGridModel> 返回类型
      * throws
      * Title: findAllFunctionList
-     * Description: 显示所有可操作的菜单项
+     * Description: 显示所有可操作的菜单项，用于菜单编辑页面
      */
     @ResponseBody
     @RequestMapping(value = "/findAllMenuList", produces = "application/json;charset=utf-8")
-    public List<TreeGridModel> findAllFunctionList(HttpServletRequest request) {
+    public List<TreeGridModel> findAllMenuList(HttpServletRequest request) {
         String pid = request.getParameter("id");
         return permissionService.findByPid(pid);
     }
+
+    /**
+     * 用于角色权限菜单分配
+     */
+    @ResponseBody
+    @RequestMapping(value = "/findAllRoleMenu", produces = "application/json;charset=utf-8")
+    public List<TreeGrid> findAllRoleMenu() {
+        return permissionService.findAllMenu();
+    }
+
 
     /**
      * param return 参数
@@ -139,7 +150,7 @@ public class MgrMenuController extends BaseController {
      * Title: saveOrUpdateFunc
      * Description: 新增程式或者更新程式处理
      */
-    @RequiresPermissions({"menuAdd","menuEdit"})
+    @RequiresPermissions({"menuAdd", "menuEdit"})
     @ResponseBody
     @RequestMapping(value = "/saveOrUpdateMenu", produces = "application/json;charset=utf-8")
     public String saveOrUpdateFunc(HttpServletRequest request) {

@@ -160,16 +160,16 @@ public class MgrOrganController extends BaseController {
         organ.setpName(request.getParameter("pName"));
 
         String companyId= request.getParameter("companyId");
-        if(StringUtil.compare(Constants.REGEX_INTEGER,companyId)){
+        if(StringUtil.compareRegex(Constants.REGEX_INTEGER,companyId)){
             organ.setCompanyId(Integer.parseInt(companyId));
         }
 
         String manager=request.getParameter("manager");
-        if(StringUtil.compare(Constants.REGEX_INTEGER,manager)){
+        if(StringUtil.compareRegex(Constants.REGEX_INTEGER,manager)){
             organ.setManager(Integer.parseInt(manager));
         }
         String empQty = request.getParameter("empQty");
-        if(StringUtil.compare(Constants.REGEX_INTEGER,empQty)) {
+        if(StringUtil.compareRegex(Constants.REGEX_INTEGER,empQty)) {
             organ.setEmpQty(Integer.parseInt(empQty));
         }
 

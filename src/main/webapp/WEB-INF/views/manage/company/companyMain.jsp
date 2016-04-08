@@ -26,7 +26,7 @@
             $grid = $dg.datagrid({
                 url: "/manage/comp/findComp",
                 width: 'auto',
-                height: $(this).height() - 85,
+                height: $(this).height() - 17,
                 pagination: true,
                 rownumbers: true,
                 border: true,
@@ -38,8 +38,7 @@
                     title: '公司名称',
                     width: parseInt($(this).width() * 0.1),
                     editor: {type: 'validatebox', options: {required: true}}
-                },
-                    {field: 'tel', title: '公司电话', width: parseInt($(this).width() * 0.1), editor: "validatebox"},
+                }, {field: 'tel', title: '公司电话', width: parseInt($(this).width() * 0.1), editor: "validatebox"},
                     {field: 'fax', title: '传真', width: parseInt($(this).width() * 0.1), align: 'left', editor: "text"},
                     {
                         field: 'address',
@@ -197,7 +196,7 @@
 </head>
 <body>
 <div class="rightinfo">
-    <div class="tools">
+    <div id="tb" class="easyui-layout">
         <ul class="toolbar">
             <shiro:hasPermission name="compAdd">
                 <li id="addComp"><span><img

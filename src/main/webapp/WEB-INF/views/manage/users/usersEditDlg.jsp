@@ -103,7 +103,7 @@
     <div data-options="region:'center',border:false" title="" style="overflow: hidden;padding: 10px;">
         <form id="form" method="post">
             <fieldset>
-                <legend><img src="/resources/core/images/fromedit.png" style="margin-bottom: -3px;"/> 用户编辑，新建用户默认密码为六个1</legend>
+                <legend><img src="/resources/core/images/fromedit.png" style="margin-bottom: -3px;"/> 用户编辑</legend>
                 <input name="userId" id="userId"  type="hidden"/>
                 <input name="created" id="created"  type="hidden"/>
                 <input name="creater" id="creater"  type="hidden"/>

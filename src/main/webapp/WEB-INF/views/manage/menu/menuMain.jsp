@@ -20,11 +20,10 @@
             $dg = $("#dg");
             $grid = $dg.treegrid({
                 width: 'auto',
-                height: $(this).height() - 90,
+                height: $(this).height()-17,
                 url: "/manage/menu/findAllMenuList",
                 rownumbers: true,
                 animate: true,
-                collapsible: true,
                 fitColumns: true,
                 striped: true,
                 border: true,
@@ -297,7 +296,7 @@
 </head>
 <body>
 <div class="rightinfo">
-    <div class="tools">
+    <div id="tb" class="easyui-layout">
         <ul class="toolbar">
             <shiro:hasPermission name="menuAdd">
                 <li id="addFunc"><span><img
@@ -316,7 +315,7 @@
             </shiro:hasPermission>
         </ul>
     </div>
-    <table class="tablelist" id="dg"></table>
+    <table class="tablelist" id="dg" title="菜单"></table>
 
     <div class="tip">
         <div class="tiptop">

@@ -17,7 +17,7 @@
 </head>
 <body class="easyui-layout">
 <div data-options="region:'north',border:false"
-     style="height: 88px; overflow: hidden;background:url(/resources/core/images/topbg.gif) repeat-x;"
+     style="height: 88px; overflow: hidden;background:url(/resources/core/images/topbg.png) repeat-x;"
      href="/manage/mTop"></div>
 <div data-options="region:'west',split:true,title:'导航菜单'"
      style="width: 200px;" href="/manage/mLeft"></div>

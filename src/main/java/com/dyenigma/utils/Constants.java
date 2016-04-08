@@ -23,7 +23,7 @@ import com.dyenigma.shiro.ShiroUser;
 
 public class Constants {
 
-    //正整数的正则表达式，用于StringUtil.compare(regex,str)方法中
+    //正整数的正则表达式，用于StringUtil.compareRegex(regex,str)方法中
     public static final String REGEX_INTEGER = "^\\d+$";
 
     public static final String LOGIN_SESSION_DATANAME = "users";

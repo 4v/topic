@@ -10,7 +10,7 @@ Target Server Type    : MYSQL
 Target Server Version : 50533
 File Encoding         : 65001
 
-Date: 2016-04-07 18:20:54
+Date: 2016-04-08 17:50:05
 */
 
 SET FOREIGN_KEY_CHECKS=0;
@@ -145,7 +145,7 @@ CREATE TABLE `permission` (
   `CREATER` int(10) DEFAULT NULL COMMENT '创建人',
   `MODIFYER` int(10) DEFAULT NULL COMMENT '修改人',
   PRIMARY KEY (`PERMISSIONID`)
-) ENGINE=InnoDB AUTO_INCREMENT=137 DEFAULT CHARSET=utf8 COMMENT='权限资料表';
+) ENGINE=InnoDB AUTO_INCREMENT=138 DEFAULT CHARSET=utf8 COMMENT='权限资料表';
 
 -- ----------------------------
 -- Records of permission
@@ -172,10 +172,9 @@ INSERT INTO `permission` VALUES ('117', '107', '删除用户', '用户管理', '
 INSERT INTO `permission` VALUES ('118', '111', '新增组织', '组织管理', '1', 'organAdd', 'O', 'Y', 'open', 'javascript:void(0);', 'icon-add', 'A', '', '2016-03-16 00:00:00', '2016-03-16 00:00:00', '1', '1');
 INSERT INTO `permission` VALUES ('119', '111', '组织编辑', '组织管理', '2', 'organEdit', 'O', 'Y', 'open', 'javascript:void(0);', 'icon-edit', 'A', '', '2016-03-16 00:00:00', '2016-03-16 00:00:00', '1', '1');
 INSERT INTO `permission` VALUES ('120', '111', '删除组织', '组织管理', '3', 'organDel', 'O', 'Y', 'open', 'javascript:void(0);', 'icon-remove', 'A', '', '2016-03-16 00:00:00', '2016-03-16 00:00:00', '1', '1');
-INSERT INTO `permission` VALUES ('121', '108', '新增角色', '角色管理', '1', 'rollAdd', 'O', 'Y', 'open', 'javascript:void(0);', 'icon-add', 'A', '', '2016-03-16 00:00:00', '2016-03-16 00:00:00', '1', '1');
+INSERT INTO `permission` VALUES ('121', '108', '新增角色', '角色管理', '1', 'roleAdd', 'O', 'Y', 'open', 'javascript:void(0);', 'icon-add', 'A', '', '2016-03-16 00:00:00', '2016-04-08 08:38:41', '1', '1');
 INSERT INTO `permission` VALUES ('122', '108', '角色修改', '角色管理', '2', 'roleEdit', 'O', 'Y', 'open', 'javascript:void(0);', 'icon-edit', 'A', '', '2016-03-16 00:00:00', '2016-03-16 00:00:00', '1', '1');
 INSERT INTO `permission` VALUES ('123', '108', '删除角色', '角色管理', '3', 'roleDel', 'O', 'Y', 'open', 'javascript:void(0);', 'icon-remove', 'A', '', '2016-03-16 00:00:00', '2016-03-16 00:00:00', '1', '1');
-INSERT INTO `permission` VALUES ('124', '109', '权限分配', '角色权限', '1', 'allotPerm', 'O', 'Y', 'open', 'javascript:void(0);', 'icon-key', 'A', '制定某个角色的权限分配', '2016-03-16 00:00:00', '2016-03-16 15:35:39', '1', '1');
 INSERT INTO `permission` VALUES ('125', '110', '角色分配', '用户角色', '1', 'allotRole', 'O', 'Y', 'open', 'javascript:void(0);', 'icon-star', 'A', '角色分配给某个用户', '2016-03-16 00:00:00', '2016-03-16 15:36:06', '1', '1');
 INSERT INTO `permission` VALUES ('126', '113', '提交BUG', 'BUG管理', '1', 'bugAdd', 'O', 'Y', 'open', 'javascript:void(0);', 'icon-add', 'A', '', '2016-03-16 00:00:00', '2016-03-16 00:00:00', '1', '1');
 INSERT INTO `permission` VALUES ('127', '113', 'BUG反馈', 'BUG管理', '2', 'bugReply', 'O', 'Y', 'open', 'javascript:void(0);', 'icon-yes', 'A', '', '2016-03-16 00:00:00', '2016-03-16 15:39:49', '1', '1');
@@ -186,6 +185,7 @@ INSERT INTO `permission` VALUES ('132', '1', '公司管理', '系统管理', '1'
 INSERT INTO `permission` VALUES ('134', '132', '添加公司', '公司管理', '1', 'compAdd', 'O', 'Y', 'open', 'javascript:void(0);', 'icon-add', 'A', '', '2016-04-04 00:00:00', '2016-04-04 00:00:00', '1', '1');
 INSERT INTO `permission` VALUES ('135', '132', '编辑资料', '公司管理', '2', 'compEdit', 'O', 'Y', 'open', 'javascript:void(0);', 'icon-edit', 'A', '', '2016-04-04 00:00:00', '2016-04-04 00:00:00', '1', '1');
 INSERT INTO `permission` VALUES ('136', '132', '删除公司', '公司管理', '3', 'compDel', 'O', 'Y', 'open', 'javascript:void(0);', 'icon-remove', 'A', '', '2016-04-04 00:00:00', '2016-04-04 00:00:00', '1', '1');
+INSERT INTO `permission` VALUES ('137', '108', '权限设定', '角色管理', '4', 'roleSave', 'O', 'Y', 'open', 'javascript:void(0);', 'icon-save', 'A', '保存角色拥有权限的设定', '2016-04-08 00:00:00', '2016-04-08 00:00:00', '1', '1');
 
 -- ----------------------------
 -- Table structure for role
@@ -202,12 +202,24 @@ CREATE TABLE `role` (
   `CREATER` int(10) DEFAULT NULL COMMENT '创建人',
   `MODIFYER` int(10) DEFAULT NULL COMMENT '修改人',
   PRIMARY KEY (`ROLEID`)
-) ENGINE=InnoDB AUTO_INCREMENT=12 DEFAULT CHARSET=utf8 COMMENT='系统角色资料';
+) ENGINE=InnoDB AUTO_INCREMENT=24 DEFAULT CHARSET=utf8 COMMENT='系统角色资料';
 
 -- ----------------------------
 -- Records of role
 -- ----------------------------
-INSERT INTO `role` VALUES ('1', '超级管理员', '超级管理员', 'A', '2013-05-20 00:00:00', '2013-06-14 00:00:00', '1', '1', '1');
+INSERT INTO `role` VALUES ('1', '超级管理员', '具有所有权限', 'A', '2013-05-20 00:00:00', '2016-04-08 00:00:00', '1', '1', '1');
+INSERT INTO `role` VALUES ('12', '测试用户', '测试用户', 'A', '2016-04-08 09:38:52', '2016-04-08 00:00:00', '4', '1', '1');
+INSERT INTO `role` VALUES ('13', '测试用户2', '测试用户', 'A', '2016-04-08 09:38:52', '2016-04-08 09:38:54', '3', '1', '1');
+INSERT INTO `role` VALUES ('14', '测试用户3', '测试用户', 'I', '2016-04-08 09:38:52', '2016-04-08 09:38:54', '4', '1', '1');
+INSERT INTO `role` VALUES ('15', '测试用户34', '测试用户', 'A', '2016-04-08 09:38:52', '2016-04-08 09:38:54', '5', '1', '1');
+INSERT INTO `role` VALUES ('16', '测试用户345', '测试用户', 'A', '2016-04-08 09:38:52', '2016-04-08 09:38:54', '6', '1', '1');
+INSERT INTO `role` VALUES ('17', '测试用户3456', '测试用户', 'A', '2016-04-08 09:38:52', '2016-04-08 09:38:54', '7', '1', '1');
+INSERT INTO `role` VALUES ('18', '测试用户34567', '测试用户', 'A', '2016-04-08 09:38:52', '2016-04-08 09:38:54', '8', '1', '1');
+INSERT INTO `role` VALUES ('19', '测试用户345678', '测试用户', 'I', '2016-04-08 09:38:52', '2016-04-08 09:38:54', '9', '1', '1');
+INSERT INTO `role` VALUES ('20', '测试用户3456789', '测试用户', 'A', '2016-04-08 09:38:52', '2016-04-08 09:38:54', '10', '1', '1');
+INSERT INTO `role` VALUES ('21', '测试用户34567890', '测试用户', 'A', '2016-04-08 09:38:52', '2016-04-08 09:38:54', '11', '1', '1');
+INSERT INTO `role` VALUES ('22', '测试用户345678901', '测试用户', 'A', '2016-04-08 09:38:52', '2016-04-08 09:38:54', '12', '1', '1');
+INSERT INTO `role` VALUES ('23', '访客', '具有默认权限', 'A', '2016-04-08 00:00:00', '2016-04-08 00:00:00', '2', '1', '1');
 
 -- ----------------------------
 -- Table structure for rolepermission
@@ -227,7 +239,7 @@ CREATE TABLE `rolepermission` (
   KEY `FK_ROLE_PERMISSION2` (`PERMISSIONID`),
   CONSTRAINT `FK_ROLE_PERMISSION1` FOREIGN KEY (`ROLEID`) REFERENCES `role` (`ROLEID`),
   CONSTRAINT `FK_ROLE_PERMISSION2` FOREIGN KEY (`PERMISSIONID`) REFERENCES `permission` (`PERMISSIONID`)
-) ENGINE=InnoDB AUTO_INCREMENT=311 DEFAULT CHARSET=utf8 COMMENT='角色权限资料';
+) ENGINE=InnoDB AUTO_INCREMENT=312 DEFAULT CHARSET=utf8 COMMENT='角色权限资料';
 
 -- ----------------------------
 -- Records of rolepermission
@@ -259,7 +271,6 @@ INSERT INTO `rolepermission` VALUES ('296', '1', '120', 'A', '2016-03-16 08:00:0
 INSERT INTO `rolepermission` VALUES ('297', '1', '121', 'A', '2016-03-16 08:00:00', '2016-03-16 08:00:00', '1', '1');
 INSERT INTO `rolepermission` VALUES ('298', '1', '122', 'A', '2016-03-16 08:00:00', '2016-03-16 08:00:00', '1', '1');
 INSERT INTO `rolepermission` VALUES ('299', '1', '123', 'A', '2016-03-16 08:00:00', '2016-03-16 08:00:00', '1', '1');
-INSERT INTO `rolepermission` VALUES ('300', '1', '124', 'A', '2016-03-16 08:00:00', '2016-03-16 08:00:00', '1', '1');
 INSERT INTO `rolepermission` VALUES ('301', '1', '125', 'A', '2016-03-16 08:00:00', '2016-03-16 08:00:00', '1', '1');
 INSERT INTO `rolepermission` VALUES ('302', '1', '126', 'A', '2016-03-16 08:00:00', '2016-03-16 08:00:00', '1', '1');
 INSERT INTO `rolepermission` VALUES ('303', '1', '127', 'A', '2016-03-16 08:00:00', '2016-03-16 08:00:00', '1', '1');
@@ -270,6 +281,7 @@ INSERT INTO `rolepermission` VALUES ('307', '1', '131', 'A', '2016-03-16 08:00:0
 INSERT INTO `rolepermission` VALUES ('308', '1', '136', 'A', '2016-04-04 08:00:00', '2016-04-04 08:00:00', '1', '1');
 INSERT INTO `rolepermission` VALUES ('309', '1', '134', 'A', '2016-04-04 08:00:00', '2016-04-04 08:00:00', '1', '1');
 INSERT INTO `rolepermission` VALUES ('310', '1', '135', 'A', '2016-04-04 08:00:00', '2016-04-04 08:00:00', '1', '1');
+INSERT INTO `rolepermission` VALUES ('311', '1', '137', 'A', '2016-04-08 08:39:36', '2016-04-08 08:39:39', '1', '1');
 
 -- ----------------------------
 -- Table structure for userrole

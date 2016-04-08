@@ -11,6 +11,7 @@ package com.dyenigma.service.impl;
 
 import com.dyenigma.entity.Permission;
 import com.dyenigma.model.MenuModel;
+import com.dyenigma.model.TreeGrid;
 import com.dyenigma.model.TreeGridModel;
 import com.dyenigma.model.TreeModel;
 import com.dyenigma.service.PermissionService;
@@ -117,6 +118,9 @@ public class PermissionServiceImpl extends BaseServiceImpl<Permission> implement
     public boolean deleteById(String id) {
         try {
             int i = permissionMapper.updateById(Integer.parseInt(id));
+            //TODO 这里还要判断该id是否包含子菜单，一起删除
+            //TODO 最后还要判断该菜单在角色权限表中是否有记录，需要一起删除
+            //TODO 整个删除是一个事务
             return i == 1;
         } catch (Exception e) {
             e.printStackTrace();
@@ -166,5 +170,35 @@ public class PermissionServiceImpl extends BaseServiceImpl<Permission> implement
             permissionMapper.update(permission);
         }
         return true;
+    }
+
+    /**
+     * 获取所有的权限，用于角色权限分配
+     * return
+     */
+    @Override
+    public List<TreeGrid> findAllMenu() {
+
+        List<Permission> list = permissionMapper.findAllMenu();
+        List<TreeGrid> tempList = new ArrayList<>();
+        for (Permission menu : list) {
+            TreeGrid treeGridModel = new TreeGrid();
+            treeGridModel.setId(menu.getPermissionId() + "");
+            if (menu.getPid() != 0) {
+                treeGridModel.setState("open");
+            }
+            treeGridModel.setPid(menu.getPid() == 0 ? "" : menu.getPid() + "");
+            treeGridModel.setIconCls(menu.getIconCls());
+            treeGridModel.setName(menu.getName());
+            treeGridModel.setPath(menu.getUrl());
+            treeGridModel.setMyid(menu.getMyId());
+            treeGridModel.setpName(menu.getPname());
+            treeGridModel.setSort(menu.getSort() + "");
+            treeGridModel.setIfUsed(menu.getIsused());
+            treeGridModel.setType(menu.getType());
+            treeGridModel.setDescription(menu.getDescription());
+            tempList.add(treeGridModel);
+        }
+        return tempList;
     }
 }

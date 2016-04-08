@@ -19,11 +19,10 @@
             $dg = $("#dg");
             $grid = $dg.datagrid({
                 width: 'auto',
-                height: $(this).height() - 90,
+                height: $(this).height() - 17,
                 url: "/manage/users/findAllUserList",
                 rownumbers: true,
                 animate: true,
-                collapsible: true,
                 fitColumns: true,
                 striped: true,
                 border: true,
@@ -197,7 +196,7 @@
 </head>
 <body>
 <div class="rightinfo">
-    <div class="tools">
+    <div class="easyui-layout" id="tb">
         <ul class="toolbar">
             <shiro:hasPermission name="userAdd">
                 <li id="addUser"><span><img
@@ -216,7 +215,7 @@
             </shiro:hasPermission>
         </ul>
     </div>
-    <table class="tablelist" id="dg"></table>
+    <table class="tablelist" id="dg" title="用户"></table>
 
     <div class="tip">
         <div class="tiptop">

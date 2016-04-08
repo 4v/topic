@@ -98,7 +98,7 @@ public class MgrUsersController extends BaseController {
         user.setPassword(Md5Utils.hash(Constants.DEFAULT_PASSWORD));
 
         String organId = request.getParameter("organizeId");
-        if (StringUtil.compare(Constants.REGEX_INTEGER, organId)) {
+        if (StringUtil.compareRegex(Constants.REGEX_INTEGER, organId)) {
             user.setOrganizeId(Integer.parseInt(organId));
         }
         user.setOrganizeName(request.getParameter("organizeName"));
@@ -110,7 +110,7 @@ public class MgrUsersController extends BaseController {
 
     @ResponseBody
     @RequestMapping(value = "/delUser", produces = "application/json;charset=utf-8")
-    public String delOrgan(HttpServletRequest request) {
+    public String delUser(HttpServletRequest request) {
         String id = request.getParameter("userId");
 
         Json json = new Json();

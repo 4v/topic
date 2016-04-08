@@ -693,6 +693,7 @@ h2 {
 
 .toolbar {
 	float: left;
+	padding: 4px 2px;
 }
 
 .toolbar li {

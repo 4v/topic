@@ -36,6 +36,11 @@
         PID = 0 ORDER BY SORT
     </select>
 
+    <select id="findAllMenu" resultType="Permission">
+        SELECT PERMISSIONID,PID,ICONCLS,MYID,NAME,URL,PNAME,SORT,ISUSED,TYPE,DESCRIPTION
+        FROM PERMISSION WHERE STATUS='A'
+    </select>
+
     <select id="findByPid" parameterType="Integer" resultType="Permission">
         SELECT
         PERMISSIONID,CREATED,CREATER,DESCRIPTION,ICONCLS,ISUSED,LASTMOD,MODIFYER,MYID,NAME,PID,

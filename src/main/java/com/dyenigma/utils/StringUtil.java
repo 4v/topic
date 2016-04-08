@@ -8,11 +8,20 @@ public class StringUtil {
     private StringUtil() {
     }
 
+    /**
+     * 判断字符串是否为空
+     */
     public static boolean isEmpty(String s) {
         return s == null || s.equalsIgnoreCase("null") || s.trim().length() <= 0;
     }
 
-    public static boolean compare(String regex, String str) {
+    /**
+     * 比较字符串str是否符合正则表达似乎regex的规则
+     * param regex
+     * param str
+     * return
+     */
+    public static boolean compareRegex(String regex, String str) {
         Pattern pattern = Pattern.compile(regex);
         Matcher matcher = pattern.matcher(str);
         return matcher.matches();
