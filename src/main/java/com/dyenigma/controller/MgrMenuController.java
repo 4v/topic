@@ -12,10 +12,7 @@ package com.dyenigma.controller;
 
 import com.alibaba.fastjson.JSONArray;
 import com.dyenigma.entity.Permission;
-import com.dyenigma.model.Json;
-import com.dyenigma.model.TreeGrid;
-import com.dyenigma.model.TreeGridModel;
-import com.dyenigma.model.TreeModel;
+import com.dyenigma.model.*;
 import com.dyenigma.service.PermissionService;
 import com.dyenigma.utils.Constants;
 import com.dyenigma.utils.StringUtil;
@@ -77,13 +74,14 @@ public class MgrMenuController extends BaseController {
         return permissionService.findByPid(pid);
     }
 
+
     /**
      * 用于角色权限菜单分配
      */
     @ResponseBody
     @RequestMapping(value = "/findAllRoleMenu", produces = "application/json;charset=utf-8")
-    public List<TreeGrid> findAllRoleMenu() {
-        return permissionService.findAllMenu();
+    public List<MultiMenu> findAllRoleMenu() {
+        return permissionService.multiMenu();
     }
 
 

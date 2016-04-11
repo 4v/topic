@@ -27,7 +27,10 @@
                 width: 'auto',
                 height: $(this).height()
             });
+
             $role = $("#role");
+            $function = $("#function");
+
             $grid = $role.datagrid({
                 url: "/manage/role/findAllRoleList",
                 width: 'auto',
@@ -56,28 +59,7 @@
                     align: 'center',
                     editor: "text"
                 }]], toolbar: '#tbRole',
-                onDblClickRow: function (rowIndex, rowData) {
-                    $.post("permission/permissionAssignmentAction!getRolePermission.action", {roleId: rowData.roleId}, function (rsp) {
-                        $function.treegrid('unselectAll');
-                        if (rsp.length != 0) {
-                            $.each(rsp, function (i, e) {
-                                $function.treegrid('select', e.permissionId);
-                            });
-                        } else {
-                            $.messager.show({
-                                title: "提示",
-                                msg: "该角色暂无权限!",
-                                timeout: 1000 * 2
-                            });
-                        }
-                    }, "JSON").error(function () {
-                        $.messager.show({
-                            title: "提示",
-                            msg: "获取权限失败!",
-                            timeout: 1000 * 2
-                        });
-                    });
-                },
+                onDblClickRow: getPermission,
                 onLoadSuccess: function () {
                     var pager = $role.datagrid('getPager');
                     pager.pagination({
@@ -88,44 +70,39 @@
                 }
             });
 
-            $function = $("#function");
             $function.treegrid({
                 width: 'auto',
                 height: $(this).height() - 2,
                 url: "/manage/menu/findAllRoleMenu",
-                checkbox: true,
                 rownumbers: true,
                 idField: 'id',
                 treeField: 'name',
-                parentField: 'pid',
                 singleSelect: false,
-                cascadeCheck: true,
                 deepCascadeCheck: true,
                 columns: [[
                     {field: 'ck', checkbox: true},
-                    {field: 'name', title: '程式名称', width: parseInt($(this).width() * 0.2)},
-                    {field: 'myid', title: '程式编码', width: parseInt($(this).width() * 0.1), align: 'center'},
+                    {field: 'name', title: '菜单名称', width: parseInt($(this).width() * 0.15)},
+                    {field: 'myid', title: '菜单编码', width: parseInt($(this).width() * 0.07), align: 'center'},
                     {
-                        field: 'type', title: '程式类型', width: parseInt($(this).width() * 0.1), align: 'center',
+                        field: 'type', title: '菜单类型', width: parseInt($(this).width() * 0.05), align: 'center',
                         formatter: function (value, row) {
                             if ("F" == row.type)
-                                return "<font color=green>菜单<font>";
+                                return "<font color=blue>菜单<font>";
                             else
                                 return "<font color=red>操作<font>";
                         }
                     }, {
-                        field: 'ifUsed', title: '是否启用', width: parseInt($(this).width() * 0.1), align: 'center',
+                        field: 'ifUsed', title: '是否启用', width: parseInt($(this).width() * 0.05), align: 'center',
                         formatter: function (value, row) {
                             if ("Y" == row.ifUsed)
                                 return "<font color=green>是<font>";
                             else
                                 return "<font color=red>否<font>";
                         }
-                    }, {field: 'description', title: '程式描述', width: parseInt($(this).width() * 0.25), align: 'left'}
+                    }, {field: 'description', title: '菜单描述', width: parseInt($(this).width() * 0.18), align: 'left'}
                 ]], toolbar: '#tb', onClickRow: function (row) {
-                    //级联选择
                     $function.treegrid('cascadeCheck', {
-                        id: row.id, //节点ID
+                        id: row.id,
                         deepCascade: true //深度级联
                     });
                 }
@@ -259,8 +236,7 @@
                 });
                 if (selectionRole) {
                     $.ajax({
-                        url: "permission/permissionAssignmentAction!savePermission.action",
-                        //url:"/manage/role/",
+                        url: "/manage/role/savePermission",
                         data: {
                             "roleId": selectionRole.roleId,
                             "checkedIds": checkedIds.length == 0 ? "" : checkedIds
@@ -314,6 +290,41 @@
                 $function.treegrid('reload');
             });
         });
+
+        function getPermission(rowIndex, rowData) {
+            $.ajax({
+                url: "/manage/role/getRolePermission",
+                data: {
+                    'roleId': rowData.roleId
+                },
+                method: "POST",
+                dataType: "JSON",
+                success: function (msg) {
+                    //取消所有的选中
+                    $function.treegrid('unselectAll');
+                    //判断是否有权限
+                    if (msg.length != 0) {
+                        //循环选中包含的权限
+                        $.each(msg, function (i, e) {
+                            $function.treegrid('select', e.permissionId);
+                        });
+                    } else {
+                        $.messager.show({
+                            title: "提示",
+                            msg: "该角色暂无权限!",
+                            timeout: 1000 * 2
+                        });
+                    }
+                },
+                error: function () {
+                    $.messager.show({
+                        title: "提示",
+                        msg: "获取权限失败!",
+                        timeout: 1000 * 2
+                    });
+                }
+            });
+        }
     </script>
 </head>
 <body>

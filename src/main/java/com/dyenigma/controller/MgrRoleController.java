@@ -1,9 +1,11 @@
 package com.dyenigma.controller;
 
 import com.alibaba.fastjson.JSONArray;
+import com.dyenigma.entity.Permission;
 import com.dyenigma.entity.Role;
 import com.dyenigma.model.GridModel;
 import com.dyenigma.model.Json;
+import com.dyenigma.service.RolePermissionService;
 import com.dyenigma.service.RoleService;
 import com.dyenigma.utils.Constants;
 import com.dyenigma.utils.PageUtil;
@@ -16,6 +18,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import javax.servlet.http.HttpServletRequest;
+import java.util.ArrayList;
+import java.util.List;
 
 /**
  * topic 角色与权限分配控制器
@@ -29,7 +33,8 @@ public class MgrRoleController extends BaseController {
 
     @Autowired
     private RoleService roleService;
-
+    @Autowired
+    private RolePermissionService rolePermissionService;
 
     /**
      * 跳转到主页面
@@ -119,6 +124,46 @@ public class MgrRoleController extends BaseController {
             json.setMessage(Constants.POST_DATA_FAIL + Constants.IS_EXT_SUBMENU);
         }
 
+        return JSONArray.toJSONString(json);
+    }
+
+    /**
+     * 获取某个角色的所有权限
+     * param request
+     * return
+     */
+    @ResponseBody
+    @RequestMapping(value = "/getRolePermission", produces = "application/json;charset=utf-8")
+    public List<Permission> getRolePermission(HttpServletRequest request) {
+        String roleId = request.getParameter("roleId");
+        List<Permission> permissions = new ArrayList<>();
+        if (StringUtil.compareRegex(Constants.REGEX_INTEGER, roleId)) {
+            permissions = rolePermissionService.findAllByRoleId(Integer.parseInt(roleId));
+        }
+        return permissions.size() > 0 ? permissions : null;
+    }
+
+    /**
+     * 保存某个角色的权限分配
+     * param request
+     * return
+     */
+    @ResponseBody
+    @RequestMapping(value = "/savePermission", produces = "application/json;charset=utf-8")
+    public String savePermission(HttpServletRequest request) {
+        String roleId = request.getParameter("roleId");
+        String checkedIds = request.getParameter("checkedIds");
+        Json json = new Json();
+        if (StringUtil.compareRegex(Constants.REGEX_INTEGER, roleId)) {
+            if (rolePermissionService.savePermission(Integer.parseInt(roleId), checkedIds)) {
+                json.setStatus(true);
+                json.setMessage(Constants.POST_DATA_SUCCESS);
+            } else {
+                json.setMessage(Constants.POST_DATA_FAIL);
+            }
+        } else {
+            json.setMessage(Constants.POST_DATA_FAIL);
+        }
         return JSONArray.toJSONString(json);
     }
 }

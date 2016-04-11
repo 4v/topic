@@ -1,11 +1,13 @@
 package com.dyenigma.model;
 
+import java.util.List;
+
 /**
- * topic
+ * topic 无尽级菜单模型
  * author: dyenigma
- * create: 2016/4/8 16:36
+ * create: 2016/4/11 10:13
  */
-public class TreeGrid {
+public class MultiMenu {
     private String id;
     private String pid;
     private String state;
@@ -19,14 +21,7 @@ public class TreeGrid {
     private String iconCls;
     private String type;
     private String ifUsed;
-
-    public String getpName() {
-        return pName;
-    }
-
-    public void setpName(String pName) {
-        this.pName = pName;
-    }
+    private List<MultiMenu> children; //必须是children
 
     public String getId() {
         return id;
@@ -84,6 +79,13 @@ public class TreeGrid {
         this.path = path;
     }
 
+    public String getpName() {
+        return pName;
+    }
+
+    public void setpName(String pName) {
+        this.pName = pName;
+    }
 
     public String getMyid() {
         return myid;
@@ -123,5 +125,13 @@ public class TreeGrid {
 
     public void setIfUsed(String ifUsed) {
         this.ifUsed = ifUsed;
+    }
+
+    public List<MultiMenu> getChildren() {
+        return children;
+    }
+
+    public void setChildren(List<MultiMenu> children) {
+        this.children = children;
     }
 }

@@ -10,10 +10,7 @@
 package com.dyenigma.service.impl;
 
 import com.dyenigma.entity.Permission;
-import com.dyenigma.model.MenuModel;
-import com.dyenigma.model.TreeGrid;
-import com.dyenigma.model.TreeGridModel;
-import com.dyenigma.model.TreeModel;
+import com.dyenigma.model.*;
 import com.dyenigma.service.PermissionService;
 import com.dyenigma.shiro.ShiroUser;
 import com.dyenigma.utils.Constants;
@@ -172,33 +169,37 @@ public class PermissionServiceImpl extends BaseServiceImpl<Permission> implement
         return true;
     }
 
+
+
     /**
      * 获取所有的权限，用于角色权限分配
      * return
      */
     @Override
-    public List<TreeGrid> findAllMenu() {
-
+    public List<MultiMenu> multiMenu() {
         List<Permission> list = permissionMapper.findAllMenu();
-        List<TreeGrid> tempList = new ArrayList<>();
-        for (Permission menu : list) {
-            TreeGrid treeGridModel = new TreeGrid();
-            treeGridModel.setId(menu.getPermissionId() + "");
-            if (menu.getPid() != 0) {
-                treeGridModel.setState("open");
-            }
-            treeGridModel.setPid(menu.getPid() == 0 ? "" : menu.getPid() + "");
-            treeGridModel.setIconCls(menu.getIconCls());
-            treeGridModel.setName(menu.getName());
-            treeGridModel.setPath(menu.getUrl());
-            treeGridModel.setMyid(menu.getMyId());
-            treeGridModel.setpName(menu.getPname());
-            treeGridModel.setSort(menu.getSort() + "");
-            treeGridModel.setIfUsed(menu.getIsused());
-            treeGridModel.setType(menu.getType());
-            treeGridModel.setDescription(menu.getDescription());
-            tempList.add(treeGridModel);
-        }
-        return tempList;
+        return permToMenu(0, list);
+    }
+
+    //递归转化成菜单模型
+    private List<MultiMenu> permToMenu(int id, List<Permission> list) {
+        List<MultiMenu> menuList = new ArrayList<>();
+        list.stream().filter(perm -> perm.getPid() == id).forEach(perm -> {
+            MultiMenu menu = new MultiMenu();
+            menu.setId(perm.getPermissionId() + "");
+            menu.setPid(perm.getPid() == 0 ? "" : perm.getPid() + "");
+            menu.setIconCls(perm.getIconCls());
+            menu.setName(perm.getName());
+            menu.setPath(perm.getUrl());
+            menu.setMyid(perm.getMyId());
+            menu.setpName(perm.getPname());
+            menu.setSort(perm.getSort() + "");
+            menu.setIfUsed(perm.getIsused());
+            menu.setType(perm.getType());
+            menu.setDescription(perm.getDescription());
+            menu.setChildren(permToMenu(perm.getPermissionId(), list));
+            menuList.add(menu);
+        });
+        return menuList;
     }
 }

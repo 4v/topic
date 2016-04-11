@@ -11,10 +11,7 @@ package com.dyenigma.service;
 
 import com.dyenigma.dao.BaseMapper;
 import com.dyenigma.entity.Permission;
-import com.dyenigma.model.MenuModel;
-import com.dyenigma.model.TreeGrid;
-import com.dyenigma.model.TreeGridModel;
-import com.dyenigma.model.TreeModel;
+import com.dyenigma.model.*;
 
 import java.util.List;
 
@@ -56,11 +53,13 @@ public interface PermissionService extends BaseMapper<Permission> {
      */
     List<TreeGridModel> findByPid(String pid);
 
+
     /**
-     * 获取所有的权限，用于角色权限分配
+     * 获取所有的权限，用于角色权限分配，尝试替代finaAllMenu方法
      * return
      */
-    List<TreeGrid> findAllMenu();
+    List<MultiMenu> multiMenu();
+
 
     /**
      * Title: deleteById
