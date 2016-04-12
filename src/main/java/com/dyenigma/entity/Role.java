@@ -4,6 +4,9 @@ import java.util.Date;
 import java.util.HashSet;
 import java.util.Set;
 
+/**
+ * 角色类
+ */
 public class Role extends BaseDomain {
 
     private Integer roleId;

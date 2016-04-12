@@ -10,7 +10,7 @@ Target Server Type    : MYSQL
 Target Server Version : 50533
 File Encoding         : 65001
 
-Date: 2016-04-08 17:50:05
+Date: 2016-04-12 17:31:50
 */
 
 SET FOREIGN_KEY_CHECKS=0;
@@ -144,48 +144,49 @@ CREATE TABLE `permission` (
   `LASTMOD` datetime DEFAULT NULL COMMENT '修改日期',
   `CREATER` int(10) DEFAULT NULL COMMENT '创建人',
   `MODIFYER` int(10) DEFAULT NULL COMMENT '修改人',
+  `ISDEFAULT` char(1) DEFAULT 'N' COMMENT '是否默认权限，Y是N否',
   PRIMARY KEY (`PERMISSIONID`)
 ) ENGINE=InnoDB AUTO_INCREMENT=138 DEFAULT CHARSET=utf8 COMMENT='权限资料表';
 
 -- ----------------------------
 -- Records of permission
 -- ----------------------------
-INSERT INTO `permission` VALUES ('1', '0', '系统管理', '', '0', 'sysMgr', 'F', 'Y', 'closed', 'javascript:void(0);', 'icon-home', 'A', '系统管理', '2013-05-23 00:00:00', '2016-03-07 16:19:42', '1', '1');
-INSERT INTO `permission` VALUES ('2', '1', '菜单管理', '系统管理', '0', 'menuMgr', 'F', 'Y', 'closed', '/manage/menu/menuMain', 'icon-setting', 'A', '菜单编辑', '2013-05-23 00:00:00', '2016-04-04 16:21:39', '1', '1');
-INSERT INTO `permission` VALUES ('3', '2', '菜单新增', '系统管理', '1', 'menuAdd', 'O', 'Y', 'open', 'javascript:void(0);', 'icon-add', 'A', '菜单功能新增', '2013-05-24 00:00:00', '2016-03-16 09:19:06', '1', '1');
-INSERT INTO `permission` VALUES ('4', '2', '菜单修改', '系统管理', '2', 'menuEdit', 'O', 'Y', 'open', 'javascript:void(0);', 'icon-edit', 'A', '菜单功能修改', '2013-05-24 00:00:00', '2016-03-16 09:19:12', '1', '1');
-INSERT INTO `permission` VALUES ('5', '2', '菜单删除', '系统管理', '3', 'menuDel', 'O', 'Y', 'open', 'javascript:void(0);', 'icon-remove', 'A', '菜单功能删除', '2013-05-24 00:00:00', '2016-03-16 09:19:19', '1', '1');
-INSERT INTO `permission` VALUES ('102', '0', '前端管理', '', '1', 'webMgr', 'F', 'Y', 'closed', 'javascript:void(0);', 'icon-map', 'A', '前台页面各项设定', '2016-03-15 00:00:00', '2016-03-15 10:18:17', '1', '1');
-INSERT INTO `permission` VALUES ('103', '0', '专题管理', '', '2', 'topicMgr', 'F', 'Y', 'closed', 'javascript:void(0);', 'icon-role', 'A', '各种专题项目管理', '2016-03-15 00:00:00', '2016-03-15 00:00:00', '1', '1');
-INSERT INTO `permission` VALUES ('104', '0', '数据备份', '', '5', 'dataBak', 'F', 'Y', 'closed', 'javascript:void(0);', 'icon-db', 'A', '数据库备份各项设定', '2016-03-15 00:00:00', '2016-03-15 10:27:16', '1', '1');
-INSERT INTO `permission` VALUES ('105', '0', '日志管理', '', '3', 'logMgr', 'F', 'Y', 'closed', 'javascript:void(0);', 'icon-info', 'A', '系统等各项日志管理，数据收集等', '2016-03-15 00:00:00', '2016-03-15 00:00:00', '1', '1');
-INSERT INTO `permission` VALUES ('106', '0', '系统监控', '', '4', 'runMgr', 'F', 'Y', 'closed', 'javascript:void(0);', 'icon-power', 'A', '系统运行监控', '2016-03-15 00:00:00', '2016-03-16 09:11:37', '1', '1');
-INSERT INTO `permission` VALUES ('107', '1', '用户管理', '系统管理', '3', 'userMgr', 'F', 'Y', 'closed', '/manage/users/usersMain', 'icon-user', 'A', '用户管理，用于新增、修改、删除用户信息', '2016-03-15 00:00:00', '2016-04-04 08:14:29', '1', '1');
-INSERT INTO `permission` VALUES ('108', '1', '角色管理', '系统管理', '4', 'roleMgr', 'F', 'Y', 'closed', '/manage/role/roleMgr', 'icon-star', 'A', '角色管理，用于角色的增删改与权限的分配', '2016-03-15 00:00:00', '2016-04-04 08:14:40', '1', '1');
-INSERT INTO `permission` VALUES ('110', '1', '用户角色', '系统管理', '5', 'setUser', 'F', 'Y', 'closed', '/manage/userRole/setRole', 'icon-woman', 'A', '用户的角色分配', '2016-03-15 00:00:00', '2016-04-04 08:14:48', '1', '1');
-INSERT INTO `permission` VALUES ('111', '1', '组织管理', '系统管理', '2', 'organMgr', 'F', 'Y', 'closed', '/manage/organ/organMain', 'icon-organ', 'A', '组织机构管理', '2016-03-15 00:00:00', '2016-04-04 08:14:20', '1', '1');
-INSERT INTO `permission` VALUES ('113', '0', 'BUG管理', '', '6', 'bugMgr', 'F', 'Y', 'closed', 'javascript:void(0);', 'icon-danger', 'A', '提交BUG，反馈处理结果等', '2016-03-15 00:00:00', '2016-04-04 08:15:29', '1', '1');
-INSERT INTO `permission` VALUES ('114', '106', '运行监控', '系统监控', '1', 'dataMgr', 'F', 'Y', 'closed', '/druid', 'icon-camera', 'A', '淘宝Druid监控，包含数据源、sql、web应用、uri监控、session监控、spring监控等', '2016-03-16 00:00:00', '2016-04-04 08:18:26', '1', '1');
-INSERT INTO `permission` VALUES ('115', '107', '新增用户', '用户管理', '1', 'userAdd', 'O', 'Y', 'open', 'javascript:void(0);', 'icon-add', 'A', '', '2016-03-16 00:00:00', '2016-03-16 00:00:00', '1', '1');
-INSERT INTO `permission` VALUES ('116', '107', '用户修改', '用户管理', '2', 'userEdit', 'O', 'Y', 'open', 'javascript:void(0);', 'icon-edit', 'A', '', '2016-03-16 00:00:00', '2016-03-16 00:00:00', '1', '1');
-INSERT INTO `permission` VALUES ('117', '107', '删除用户', '用户管理', '3', 'userDel', 'O', 'Y', 'open', 'javascript:void(0);', 'icon-remove', 'A', '', '2016-03-16 00:00:00', '2016-03-16 00:00:00', '1', '1');
-INSERT INTO `permission` VALUES ('118', '111', '新增组织', '组织管理', '1', 'organAdd', 'O', 'Y', 'open', 'javascript:void(0);', 'icon-add', 'A', '', '2016-03-16 00:00:00', '2016-03-16 00:00:00', '1', '1');
-INSERT INTO `permission` VALUES ('119', '111', '组织编辑', '组织管理', '2', 'organEdit', 'O', 'Y', 'open', 'javascript:void(0);', 'icon-edit', 'A', '', '2016-03-16 00:00:00', '2016-03-16 00:00:00', '1', '1');
-INSERT INTO `permission` VALUES ('120', '111', '删除组织', '组织管理', '3', 'organDel', 'O', 'Y', 'open', 'javascript:void(0);', 'icon-remove', 'A', '', '2016-03-16 00:00:00', '2016-03-16 00:00:00', '1', '1');
-INSERT INTO `permission` VALUES ('121', '108', '新增角色', '角色管理', '1', 'roleAdd', 'O', 'Y', 'open', 'javascript:void(0);', 'icon-add', 'A', '', '2016-03-16 00:00:00', '2016-04-08 08:38:41', '1', '1');
-INSERT INTO `permission` VALUES ('122', '108', '角色修改', '角色管理', '2', 'roleEdit', 'O', 'Y', 'open', 'javascript:void(0);', 'icon-edit', 'A', '', '2016-03-16 00:00:00', '2016-03-16 00:00:00', '1', '1');
-INSERT INTO `permission` VALUES ('123', '108', '删除角色', '角色管理', '3', 'roleDel', 'O', 'Y', 'open', 'javascript:void(0);', 'icon-remove', 'A', '', '2016-03-16 00:00:00', '2016-03-16 00:00:00', '1', '1');
-INSERT INTO `permission` VALUES ('125', '110', '角色分配', '用户角色', '1', 'allotRole', 'O', 'Y', 'open', 'javascript:void(0);', 'icon-star', 'A', '角色分配给某个用户', '2016-03-16 00:00:00', '2016-03-16 15:36:06', '1', '1');
-INSERT INTO `permission` VALUES ('126', '113', '提交BUG', 'BUG管理', '1', 'bugAdd', 'O', 'Y', 'open', 'javascript:void(0);', 'icon-add', 'A', '', '2016-03-16 00:00:00', '2016-03-16 00:00:00', '1', '1');
-INSERT INTO `permission` VALUES ('127', '113', 'BUG反馈', 'BUG管理', '2', 'bugReply', 'O', 'Y', 'open', 'javascript:void(0);', 'icon-yes', 'A', '', '2016-03-16 00:00:00', '2016-03-16 15:39:49', '1', '1');
-INSERT INTO `permission` VALUES ('128', '113', '无效BUG', 'BUG管理', '3', 'bugDel', 'O', 'Y', 'open', 'javascript:void(0);', 'icon-no', 'A', '', '2016-03-16 00:00:00', '2016-03-16 16:00:15', '1', '1');
-INSERT INTO `permission` VALUES ('129', '104', '定时备份', '数据备份', '1', 'autoBak', 'O', 'Y', 'open', 'javascript:void(0);', 'icon-save', 'A', '', '2016-03-16 00:00:00', '2016-03-16 00:00:00', '1', '1');
-INSERT INTO `permission` VALUES ('130', '104', '手动备份', '数据备份', '2', 'myBak', 'O', 'Y', 'open', 'javascript:void(0);', 'icon-dbadd', 'A', '', '2016-03-16 00:00:00', '2016-03-16 00:00:00', '1', '1');
-INSERT INTO `permission` VALUES ('132', '1', '公司管理', '系统管理', '1', 'compMgr', 'F', 'Y', 'closed', '/manage/comp/compMain', 'icon-company', 'A', '公司资料编辑', '2016-04-04 00:00:00', '2016-04-04 08:14:12', '1', '1');
-INSERT INTO `permission` VALUES ('134', '132', '添加公司', '公司管理', '1', 'compAdd', 'O', 'Y', 'open', 'javascript:void(0);', 'icon-add', 'A', '', '2016-04-04 00:00:00', '2016-04-04 00:00:00', '1', '1');
-INSERT INTO `permission` VALUES ('135', '132', '编辑资料', '公司管理', '2', 'compEdit', 'O', 'Y', 'open', 'javascript:void(0);', 'icon-edit', 'A', '', '2016-04-04 00:00:00', '2016-04-04 00:00:00', '1', '1');
-INSERT INTO `permission` VALUES ('136', '132', '删除公司', '公司管理', '3', 'compDel', 'O', 'Y', 'open', 'javascript:void(0);', 'icon-remove', 'A', '', '2016-04-04 00:00:00', '2016-04-04 00:00:00', '1', '1');
-INSERT INTO `permission` VALUES ('137', '108', '权限设定', '角色管理', '4', 'roleSave', 'O', 'Y', 'open', 'javascript:void(0);', 'icon-save', 'A', '保存角色拥有权限的设定', '2016-04-08 00:00:00', '2016-04-08 00:00:00', '1', '1');
+INSERT INTO `permission` VALUES ('1', '0', '系统管理', '', '0', 'sysMgr', 'F', 'Y', 'closed', 'javascript:void(0);', 'icon-home', 'A', '系统管理', '2013-05-23 00:00:00', '2016-03-07 16:19:42', '1', '1', 'N');
+INSERT INTO `permission` VALUES ('2', '1', '菜单管理', '系统管理', '0', 'menuMgr', 'F', 'Y', 'closed', '/manage/menu/menuMain', 'icon-setting', 'A', '菜单编辑', '2013-05-23 00:00:00', '2016-04-04 16:21:39', '1', '1', 'N');
+INSERT INTO `permission` VALUES ('3', '2', '菜单新增', '系统管理', '1', 'menuAdd', 'O', 'Y', 'open', 'javascript:void(0);', 'icon-add', 'A', '菜单功能新增', '2013-05-24 00:00:00', '2016-03-16 09:19:06', '1', '1', 'N');
+INSERT INTO `permission` VALUES ('4', '2', '菜单修改', '系统管理', '2', 'menuEdit', 'O', 'Y', 'open', 'javascript:void(0);', 'icon-edit', 'A', '菜单功能修改', '2013-05-24 00:00:00', '2016-03-16 09:19:12', '1', '1', 'N');
+INSERT INTO `permission` VALUES ('5', '2', '菜单删除', '系统管理', '3', 'menuDel', 'O', 'Y', 'open', 'javascript:void(0);', 'icon-remove', 'A', '菜单功能删除', '2013-05-24 00:00:00', '2016-03-16 09:19:19', '1', '1', 'N');
+INSERT INTO `permission` VALUES ('102', '0', '前端管理', '', '1', 'webMgr', 'F', 'Y', 'closed', 'javascript:void(0);', 'icon-map', 'A', '前台页面各项设定', '2016-03-15 00:00:00', '2016-03-15 10:18:17', '1', '1', 'N');
+INSERT INTO `permission` VALUES ('103', '0', '专题管理', '', '2', 'topicMgr', 'F', 'Y', 'closed', 'javascript:void(0);', 'icon-role', 'A', '各种专题项目管理', '2016-03-15 00:00:00', '2016-03-15 00:00:00', '1', '1', 'N');
+INSERT INTO `permission` VALUES ('104', '0', '数据备份', '', '5', 'dataBak', 'F', 'Y', 'closed', 'javascript:void(0);', 'icon-db', 'A', '数据库备份各项设定', '2016-03-15 00:00:00', '2016-03-15 10:27:16', '1', '1', 'N');
+INSERT INTO `permission` VALUES ('105', '0', '日志管理', '', '3', 'logMgr', 'F', 'Y', 'closed', 'javascript:void(0);', 'icon-info', 'A', '系统等各项日志管理，数据收集等', '2016-03-15 00:00:00', '2016-03-15 00:00:00', '1', '1', 'N');
+INSERT INTO `permission` VALUES ('106', '0', '系统监控', '', '4', 'runMgr', 'F', 'Y', 'closed', 'javascript:void(0);', 'icon-power', 'A', '系统运行监控', '2016-03-15 00:00:00', '2016-03-16 09:11:37', '1', '1', 'N');
+INSERT INTO `permission` VALUES ('107', '1', '用户管理', '系统管理', '3', 'userMgr', 'F', 'Y', 'closed', '/manage/users/usersMain', 'icon-user', 'A', '用户管理，用于新增、修改、删除用户信息', '2016-03-15 00:00:00', '2016-04-04 08:14:29', '1', '1', 'N');
+INSERT INTO `permission` VALUES ('108', '1', '角色管理', '系统管理', '4', 'roleMgr', 'F', 'Y', 'closed', '/manage/role/roleMgr', 'icon-star', 'A', '角色管理，用于角色的增删改与权限的分配', '2016-03-15 00:00:00', '2016-04-04 08:14:40', '1', '1', 'N');
+INSERT INTO `permission` VALUES ('110', '1', '用户角色', '系统管理', '5', 'setUser', 'F', 'Y', 'closed', '/manage/userRole/setRole', 'icon-woman', 'A', '用户的角色分配', '2016-03-15 00:00:00', '2016-04-04 08:14:48', '1', '1', 'N');
+INSERT INTO `permission` VALUES ('111', '1', '组织管理', '系统管理', '2', 'organMgr', 'F', 'Y', 'closed', '/manage/organ/organMain', 'icon-organ', 'A', '组织机构管理', '2016-03-15 00:00:00', '2016-04-04 08:14:20', '1', '1', 'N');
+INSERT INTO `permission` VALUES ('113', '0', 'BUG管理', '', '6', 'bugMgr', 'F', 'Y', 'closed', 'javascript:void(0);', 'icon-danger', 'A', '提交BUG，反馈处理结果等', '2016-03-15 00:00:00', '2016-04-04 08:15:29', '1', '1', 'N');
+INSERT INTO `permission` VALUES ('114', '106', '运行监控', '系统监控', '1', 'dataMgr', 'F', 'Y', 'closed', '/druid', 'icon-camera', 'A', '淘宝Druid监控，包含数据源、sql、web应用、uri监控、session监控、spring监控等', '2016-03-16 00:00:00', '2016-04-04 08:18:26', '1', '1', 'N');
+INSERT INTO `permission` VALUES ('115', '107', '新增用户', '用户管理', '1', 'userAdd', 'O', 'Y', 'open', 'javascript:void(0);', 'icon-add', 'A', '', '2016-03-16 00:00:00', '2016-03-16 00:00:00', '1', '1', 'N');
+INSERT INTO `permission` VALUES ('116', '107', '用户修改', '用户管理', '2', 'userEdit', 'O', 'Y', 'open', 'javascript:void(0);', 'icon-edit', 'A', '', '2016-03-16 00:00:00', '2016-03-16 00:00:00', '1', '1', 'N');
+INSERT INTO `permission` VALUES ('117', '107', '删除用户', '用户管理', '3', 'userDel', 'O', 'Y', 'open', 'javascript:void(0);', 'icon-remove', 'A', '', '2016-03-16 00:00:00', '2016-03-16 00:00:00', '1', '1', 'N');
+INSERT INTO `permission` VALUES ('118', '111', '新增组织', '组织管理', '1', 'organAdd', 'O', 'Y', 'open', 'javascript:void(0);', 'icon-add', 'A', '', '2016-03-16 00:00:00', '2016-03-16 00:00:00', '1', '1', 'N');
+INSERT INTO `permission` VALUES ('119', '111', '组织编辑', '组织管理', '2', 'organEdit', 'O', 'Y', 'open', 'javascript:void(0);', 'icon-edit', 'A', '', '2016-03-16 00:00:00', '2016-03-16 00:00:00', '1', '1', 'N');
+INSERT INTO `permission` VALUES ('120', '111', '删除组织', '组织管理', '3', 'organDel', 'O', 'Y', 'open', 'javascript:void(0);', 'icon-remove', 'A', '', '2016-03-16 00:00:00', '2016-03-16 00:00:00', '1', '1', 'N');
+INSERT INTO `permission` VALUES ('121', '108', '新增角色', '角色管理', '1', 'roleAdd', 'O', 'Y', 'open', 'javascript:void(0);', 'icon-add', 'A', '', '2016-03-16 00:00:00', '2016-04-08 08:38:41', '1', '1', 'N');
+INSERT INTO `permission` VALUES ('122', '108', '角色修改', '角色管理', '2', 'roleEdit', 'O', 'Y', 'open', 'javascript:void(0);', 'icon-edit', 'A', '', '2016-03-16 00:00:00', '2016-03-16 00:00:00', '1', '1', 'N');
+INSERT INTO `permission` VALUES ('123', '108', '删除角色', '角色管理', '3', 'roleDel', 'O', 'Y', 'open', 'javascript:void(0);', 'icon-remove', 'A', '', '2016-03-16 00:00:00', '2016-03-16 00:00:00', '1', '1', 'N');
+INSERT INTO `permission` VALUES ('125', '110', '角色分配', '用户角色', '1', 'allotRole', 'O', 'Y', 'open', 'javascript:void(0);', 'icon-star', 'A', '角色分配给某个用户', '2016-03-16 00:00:00', '2016-03-16 15:36:06', '1', '1', 'N');
+INSERT INTO `permission` VALUES ('126', '113', '提交BUG', 'BUG管理', '1', 'bugAdd', 'O', 'Y', 'open', 'javascript:void(0);', 'icon-add', 'A', '', '2016-03-16 00:00:00', '2016-03-16 00:00:00', '1', '1', 'N');
+INSERT INTO `permission` VALUES ('127', '113', 'BUG反馈', 'BUG管理', '2', 'bugReply', 'O', 'Y', 'open', 'javascript:void(0);', 'icon-yes', 'A', '', '2016-03-16 00:00:00', '2016-03-16 15:39:49', '1', '1', 'N');
+INSERT INTO `permission` VALUES ('128', '113', '无效BUG', 'BUG管理', '3', 'bugDel', 'O', 'Y', 'open', 'javascript:void(0);', 'icon-no', 'A', '', '2016-03-16 00:00:00', '2016-03-16 16:00:15', '1', '1', 'N');
+INSERT INTO `permission` VALUES ('129', '104', '定时备份', '数据备份', '1', 'autoBak', 'O', 'Y', 'open', 'javascript:void(0);', 'icon-save', 'A', '', '2016-03-16 00:00:00', '2016-03-16 00:00:00', '1', '1', 'N');
+INSERT INTO `permission` VALUES ('130', '104', '手动备份', '数据备份', '2', 'myBak', 'O', 'Y', 'open', 'javascript:void(0);', 'icon-dbadd', 'A', '', '2016-03-16 00:00:00', '2016-03-16 00:00:00', '1', '1', 'N');
+INSERT INTO `permission` VALUES ('132', '1', '公司管理', '系统管理', '1', 'compMgr', 'F', 'Y', 'closed', '/manage/comp/compMain', 'icon-company', 'A', '公司资料编辑', '2016-04-04 00:00:00', '2016-04-04 08:14:12', '1', '1', 'N');
+INSERT INTO `permission` VALUES ('134', '132', '添加公司', '公司管理', '1', 'compAdd', 'O', 'Y', 'open', 'javascript:void(0);', 'icon-add', 'A', '', '2016-04-04 00:00:00', '2016-04-04 00:00:00', '1', '1', 'N');
+INSERT INTO `permission` VALUES ('135', '132', '编辑资料', '公司管理', '2', 'compEdit', 'O', 'Y', 'open', 'javascript:void(0);', 'icon-edit', 'A', '', '2016-04-04 00:00:00', '2016-04-04 00:00:00', '1', '1', 'N');
+INSERT INTO `permission` VALUES ('136', '132', '删除公司', '公司管理', '3', 'compDel', 'O', 'Y', 'open', 'javascript:void(0);', 'icon-remove', 'A', '', '2016-04-04 00:00:00', '2016-04-04 00:00:00', '1', '1', 'N');
+INSERT INTO `permission` VALUES ('137', '108', '权限设定', '角色管理', '4', 'roleSave', 'O', 'Y', 'open', 'javascript:void(0);', 'icon-save', 'A', '保存角色拥有权限的设定', '2016-04-08 00:00:00', '2016-04-08 00:00:00', '1', '1', 'N');
 
 -- ----------------------------
 -- Table structure for role
@@ -216,8 +217,8 @@ INSERT INTO `role` VALUES ('16', '测试用户345', '测试用户', 'A', '2016-0
 INSERT INTO `role` VALUES ('17', '测试用户3456', '测试用户', 'A', '2016-04-08 09:38:52', '2016-04-08 09:38:54', '7', '1', '1');
 INSERT INTO `role` VALUES ('18', '测试用户34567', '测试用户', 'A', '2016-04-08 09:38:52', '2016-04-08 09:38:54', '8', '1', '1');
 INSERT INTO `role` VALUES ('19', '测试用户345678', '测试用户', 'I', '2016-04-08 09:38:52', '2016-04-08 09:38:54', '9', '1', '1');
-INSERT INTO `role` VALUES ('20', '测试用户3456789', '测试用户', 'A', '2016-04-08 09:38:52', '2016-04-08 09:38:54', '10', '1', '1');
-INSERT INTO `role` VALUES ('21', '测试用户34567890', '测试用户', 'A', '2016-04-08 09:38:52', '2016-04-08 09:38:54', '11', '1', '1');
+INSERT INTO `role` VALUES ('20', '测试用户3456789', '测试用户', 'I', '2016-04-08 09:38:52', '2016-04-08 09:38:54', '10', '1', '1');
+INSERT INTO `role` VALUES ('21', '测试用户34567890', '测试用户', 'I', '2016-04-08 09:38:52', '2016-04-08 09:38:54', '11', '1', '1');
 INSERT INTO `role` VALUES ('22', '测试用户345678901', '测试用户', 'A', '2016-04-08 09:38:52', '2016-04-08 09:38:54', '12', '1', '1');
 INSERT INTO `role` VALUES ('23', '访客', '具有默认权限', 'A', '2016-04-08 00:00:00', '2016-04-08 00:00:00', '2', '1', '1');
 
@@ -239,7 +240,7 @@ CREATE TABLE `rolepermission` (
   KEY `FK_ROLE_PERMISSION2` (`PERMISSIONID`),
   CONSTRAINT `FK_ROLE_PERMISSION1` FOREIGN KEY (`ROLEID`) REFERENCES `role` (`ROLEID`),
   CONSTRAINT `FK_ROLE_PERMISSION2` FOREIGN KEY (`PERMISSIONID`) REFERENCES `permission` (`PERMISSIONID`)
-) ENGINE=InnoDB AUTO_INCREMENT=312 DEFAULT CHARSET=utf8 COMMENT='角色权限资料';
+) ENGINE=InnoDB AUTO_INCREMENT=315 DEFAULT CHARSET=utf8 COMMENT='角色权限资料';
 
 -- ----------------------------
 -- Records of rolepermission
@@ -282,6 +283,9 @@ INSERT INTO `rolepermission` VALUES ('308', '1', '136', 'A', '2016-04-04 08:00:0
 INSERT INTO `rolepermission` VALUES ('309', '1', '134', 'A', '2016-04-04 08:00:00', '2016-04-04 08:00:00', '1', '1');
 INSERT INTO `rolepermission` VALUES ('310', '1', '135', 'A', '2016-04-04 08:00:00', '2016-04-04 08:00:00', '1', '1');
 INSERT INTO `rolepermission` VALUES ('311', '1', '137', 'A', '2016-04-08 08:39:36', '2016-04-08 08:39:39', '1', '1');
+INSERT INTO `rolepermission` VALUES ('312', '1', '132', 'A', '2016-04-11 17:40:27', '2016-04-11 17:40:29', '1', '1');
+INSERT INTO `rolepermission` VALUES ('313', '23', '126', 'A', '2016-04-12 00:00:00', '2016-04-12 00:00:00', '1', '1');
+INSERT INTO `rolepermission` VALUES ('314', '23', '113', 'A', '2016-04-12 00:00:00', '2016-04-12 00:00:00', '1', '1');
 
 -- ----------------------------
 -- Table structure for userrole

@@ -9,10 +9,22 @@
         WHERE STATUS = 'A' AND ROLEID = #{roleId}
     </select>
 
-    <insert id="insert" parameterType="RolePermission" flushCache="true">
+    <insert id="insert" parameterType="RolePermission" flushCache="true" useGeneratedKeys="true"
+            keyProperty="rpId">
         INSERT INTO ROLEPERMISSION(ROLEID,PERMISSIONID,STATUS,CREATED,LASTMOD,CREATER,MODIFYER)
-        VALUES(#{roleId,jdbcType=INTEGER},#{permissionId,jdbcType=INTEGER},#{status,jdbcType=VARCHAR},
-        #{created,jdbcType=DATE},#{lastmod,jdbcType=DATE},#{creater,jdbcType=INTEGER},
-        #{modifyer,jdbcType=INTEGER})
+        VALUES(#{role.roleId,jdbcType=INTEGER},#{permission.permissionId,jdbcType=INTEGER},
+        #{status,jdbcType=VARCHAR},#{created,jdbcType=DATE},#{lastmod,jdbcType=DATE},
+        #{creater,jdbcType=INTEGER},#{modifyer,jdbcType=INTEGER})
     </insert>
+
+    <select id="findAllRoleId" resultType="Integer">
+        SELECT ROLEID FROM ROLEPERMISSION WHERE STATUS = 'A' GROUP BY ROLEID
+    </select>
+
+    <select id="findAllByPermissionId" parameterType="Integer" resultType="Integer">
+        SELECT PERMISSIONID FROM ROLEPERMISSION
+        WHERE STATUS = 'A' AND PERMISSIONID=#{permissionId,jdbcType=INTEGER}
+        GROUP BY ROLEID
+    </select>
+
 </mapper>

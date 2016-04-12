@@ -4,7 +4,7 @@
 <html>
 <head>
     <meta charset="UTF-8">
-    <title>程式管理</title>
+    <title>菜单管理</title>
     <script type="text/javascript" src="/resources/public/js/jquery.js"></script>
     <link href="/resources/core/css/style.css" rel="stylesheet" type="text/css"/>
     <link rel="stylesheet" type="text/css" href="/resources/public/css/easyui.css"/>
@@ -30,7 +30,7 @@
                 idField: 'permissionId',
                 treeField: 'name',
                 frozenColumns: [[{
-                    title: '程式名称',
+                    title: '菜单名称',
                     field: 'name',
                     editor: {
                         type: 'validatebox',
@@ -45,7 +45,7 @@
                 }]],
                 columns: [[{
                     field: 'pname',
-                    title: '父程式名称',
+                    title: '父菜单名称',
                     width: parseInt($(this).width() * 0.08),
                     align: 'center'
                 }, {
@@ -57,16 +57,17 @@
                     },
                     align: 'center'
                 }, {
-                    field: 'iconCls',
-                    title: '程式图标',
+                    field: 'ifDefault',
+                    title: '是否默认',
                     align: 'center',
                     width: parseInt($(this).width() * 0.07),
                     formatter: function (value, row) {
-                        return "<span class='" + row.iconCls + "' style='display:inline-block;vertical-align:middle;width:16px;height:16px;'></span>";
-                    }
+                        if ("Y" == row.ifDefault) return "<font color=green>是<font>";
+                        else return "<font color=red>否<font>";
+                    },
                 }, {
                     field: 'url',
-                    title: '程式路径',
+                    title: '菜单路径',
                     width: parseInt($(this).width() * 0.24),
                     align: 'left',
                     editor: {
@@ -77,7 +78,7 @@
                     }
                 }, {
                     field: 'myId',
-                    title: '程式编码',
+                    title: '菜单编码',
                     width: parseInt($(this).width() * 0.1),
                     align: 'left',
                     editor: {
@@ -88,7 +89,7 @@
                     }
                 }, {
                     field: 'type',
-                    title: '程式类型',
+                    title: '菜单类型',
                     width: parseInt($(this).width() * 0.07),
                     align: 'center',
                     formatter: function (value, row) {
@@ -122,7 +123,7 @@
                     }
                 }, {
                     field: 'description',
-                    title: '程式描述',
+                    title: '菜单描述',
                     width: parseInt($(this).width() * 0.25),
                     align: 'left',
                     editor: "text"
@@ -138,7 +139,7 @@
                         $.messager.alert('错误提示', '该操作没有下层!', 'error');
                     } else {
                         $.modalDialog({
-                            title: "添加程式",
+                            title: "添加菜单",
                             width: 600,
                             height: 400,
                             href: "/manage/menu/menuEditDlg",
@@ -172,7 +173,7 @@
                     }
                 } else {
                     $.modalDialog({
-                        title: "添加程式",
+                        title: "添加菜单",
                         width: 600,
                         height: 400,
                         href: "/manage/menu/menuEditDlg",
@@ -258,7 +259,7 @@
             var row = $dg.treegrid('getSelected');
             if (row) {
                 $.modalDialog({
-                    title: "编辑程式",
+                    title: "编辑菜单",
                     width: 600,
                     height: 400,
                     href: "/manage/menu/menuEditDlg",

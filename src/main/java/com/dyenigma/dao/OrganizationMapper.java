@@ -49,4 +49,11 @@ public interface OrganizationMapper extends BaseMapper<Organization> {
      * Description: 获取所有可添加子项的组织信息
      */
     List<Organization> findSuperOrgan();
+
+    /**
+     * 查找某个公司下面的所有组织信息
+     * param companyId
+     * return
+     */
+    List<Organization> findByCompId(int companyId);
 }

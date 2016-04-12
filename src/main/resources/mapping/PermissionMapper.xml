@@ -30,60 +30,66 @@
     <select id="findAll" resultType="Permission">
         SELECT
         PERMISSIONID,CREATED,CREATER,DESCRIPTION,ICONCLS,ISUSED,LASTMOD,MODIFYER,MYID,NAME,PID,
-        PNAME,SORT,STATE,STATUS,TYPE,URL
+        PNAME,SORT,STATE,STATUS,TYPE,URL,ISDEFAULT
         FROM PERMISSION
         WHERE STATUS='A' AND
         PID = 0 ORDER BY SORT
     </select>
 
     <select id="findAllMenu" resultType="Permission">
-        SELECT PERMISSIONID,PID,ICONCLS,MYID,NAME,URL,PNAME,SORT,ISUSED,TYPE,DESCRIPTION
+        SELECT PERMISSIONID,PID,ICONCLS,MYID,NAME,URL,PNAME,SORT,ISUSED,TYPE,DESCRIPTION,ISDEFAULT
         FROM PERMISSION WHERE STATUS='A'
     </select>
 
+    <select id="findAllDefault" resultType="Permission">
+        SELECT PERMISSIONID FROM PERMISSION WHERE STATUS='A' AND ISDEFAULT='Y'
+    </select>
+
     <select id="findByPid" parameterType="Integer" resultType="Permission">
-        SELECT
-        PERMISSIONID,CREATED,CREATER,DESCRIPTION,ICONCLS,ISUSED,LASTMOD,MODIFYER,MYID,NAME,PID,
-        PNAME,SORT,STATE,STATUS,TYPE,URL
-        FROM PERMISSION
-        WHERE STATUS='A' AND
-        PID = #{pid} ORDER BY SORT
+        SELECT * FROM PERMISSION
+        WHERE STATUS='A' AND PID = #{pid}
+    </select>
+
+    <select id="findById" parameterType="Integer" resultType="Permission">
+        SELECT * FROM PERMISSION
+        WHERE STATUS='A' AND PERMISSIONID = #{id}
     </select>
 
     <select id="findSuperFunc" resultType="Permission">
         SELECT
         PERMISSIONID,CREATED,CREATER,DESCRIPTION,ICONCLS,ISUSED,LASTMOD,MODIFYER,MYID,NAME,PID,
-        PNAME,SORT,STATE,STATUS,TYPE,URL
+        PNAME,SORT,STATE,STATUS,TYPE,URL,ISDEFAULT
         FROM Permission
         WHERE STATUS = 'A'
         AND
         TYPE = 'F' ORDER BY SORT
     </select>
 
-    <insert id="insert" parameterType="Permission">
+    <insert id="insert" parameterType="Permission" useGeneratedKeys="true"
+            keyProperty="permissionId">
         INSERT INTO
         PERMISSION(CREATED,CREATER,DESCRIPTION,ICONCLS,ISUSED,LASTMOD,MODIFYER,MYID,
-        NAME,PID,PNAME,SORT,STATE,STATUS,TYPE,URL)
+        NAME,PID,PNAME,SORT,STATE,STATUS,TYPE,URL,ISDEFAULT)
         VALUES
         (#{created,jdbcType=DATE},#{creater,jdbcType=INTEGER},#{description,jdbcType=VARCHAR},
         #{iconCls,jdbcType=VARCHAR},#{isused,jdbcType=VARCHAR},#{lastmod,jdbcType=DATE},
         #{modifyer,jdbcType=INTEGER},#{myId,jdbcType=VARCHAR},#{name,jdbcType=VARCHAR},
         #{pid,jdbcType=INTEGER},#{pname,jdbcType=VARCHAR},#{sort,jdbcType=INTEGER},
         #{state,jdbcType=VARCHAR},#{status,jdbcType=VARCHAR},#{type,jdbcType=VARCHAR},
-        #{url,jdbcType=VARCHAR})
+        #{url,jdbcType=VARCHAR},#{isDefault,jdbcType=VARCHAR})
     </insert>
 
     <update id="update" parameterType="Permission">
         UPDATE PERMISSION SET
-        DESCRIPTION=#{description},ICONCLS=#{iconCls},ISUSED=#{isused},LASTMOD=#{lastmod},
-        MODIFYER=#{modifyer},MYID=#{myId},NAME=#{name},PID=#{pid},PNAME=#{pname},SORT=#{sort},
-        STATE=#{state},STATUS=#{status},TYPE=#{type},URL=#{url}
-        WHERE
-        PERMISSIONID=#{permissionId}
+        DESCRIPTION=#{description},ICONCLS=#{iconCls},ISUSED=#{isused},LASTMOD=#{lastmod},URL=#{url},
+        MODIFYER=#{modifyer},MYID=#{myId},NAME=#{name},PNAME=#{pname},SORT=#{sort},STATUS=#{status},
+        STATE=#{state},TYPE=#{type},ISDEFAULT=#{isDefault,jdbcType=VARCHAR},PID=#{pid}
+        WHERE PERMISSIONID=#{permissionId}
     </update>
 
     <update id="updateById" parameterType="Integer">
         UPDATE PERMISSION SET
         ISUSED='N',STATUS='I' WHERE PERMISSIONID=#{id,jdbcType=INTEGER}
     </update>
+
 </mapper>

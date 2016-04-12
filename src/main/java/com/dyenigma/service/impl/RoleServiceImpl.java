@@ -1,6 +1,8 @@
 package com.dyenigma.service.impl;
 
+import com.dyenigma.entity.Permission;
 import com.dyenigma.entity.Role;
+import com.dyenigma.entity.RolePermission;
 import com.dyenigma.service.RoleService;
 import com.dyenigma.utils.Constants;
 import com.dyenigma.utils.PageUtil;
@@ -38,6 +40,11 @@ public class RoleServiceImpl extends BaseServiceImpl<Role> implements RoleServic
         return roleMapper.getCount(paramMap);
     }
 
+    /**
+     * 新增和修改角色
+     * param role
+     * return
+     */
     @Override
     public boolean persistenceRole(Role role) {
         Integer userId = Constants.getCurrendUser().getUserId();
@@ -50,7 +57,22 @@ public class RoleServiceImpl extends BaseServiceImpl<Role> implements RoleServic
             role.setStatus(Constants.PERSISTENCE_STATUS);
             roleMapper.insert(role);
 
-            //TODO  这里设置新增用户的默认权限
+            // 这里设置新增用户的默认权限,首先获取所有的默认且有效的权限
+            List<Permission> pList = permissionMapper.findAllDefault();
+            //然后逐一添加进映射表
+            for (Permission permission : pList) {
+                RolePermission rolePermission;
+                Date date = new Date();
+                rolePermission = new RolePermission();
+                rolePermission.setCreated(date);
+                rolePermission.setLastmod(date);
+                rolePermission.setStatus(Constants.PERSISTENCE_STATUS);
+                rolePermission.setCreater(userId);
+                rolePermission.setModifyer(userId);
+                rolePermission.setPermission(permission);
+                rolePermission.setRole(role);
+                rolePermissionMapper.insert(rolePermission);
+            }
         } else {
             role.setLastmod(new Date());
             role.setModifyer(userId);
@@ -60,11 +82,15 @@ public class RoleServiceImpl extends BaseServiceImpl<Role> implements RoleServic
     }
 
     @Override
-    public int delete(int id) {
-        //TODO 删除角色
-        //TODO 删除角色权限表记录
-        //TODO 出现问题全部回滚,返回删除失败
-        return roleMapper.delete(id);
+    public boolean delRole(int id) {
+        //first，判断是否有角色权限记录
+        List<Integer> iList = rolePermissionMapper.findAllByRoleId(id);
+        if (iList.size() > 0) {
+            return false;
+        } else {
+            //second，判断是否有用户角色记录 TODO
+            //end,都没有，可以删除，否则不能删除。
+            return roleMapper.delete(id) > 0;
+        }
     }
-
 }

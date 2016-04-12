@@ -12,7 +12,19 @@ import java.util.List;
  */
 public interface RolePermissionService extends BaseService<RolePermission> {
 
+    /**
+     * 好代码自己会说话
+     * param roleId
+     * return
+     */
     List<Permission> findAllByRoleId(int roleId);
 
-    boolean savePermission(int roleId,String checkedIds);
+    /**
+     * 保存分配角色权限
+     * param roleId 角色id
+     * param checkedIds 菜单权限ID集合
+     * return
+     */
+    boolean savePermission(int roleId, String checkedIds);
+
 }

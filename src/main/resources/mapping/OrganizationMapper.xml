@@ -6,19 +6,27 @@
         SELECT * FROM ORGANIZATION
         WHERE STATUS = 'A' AND (PID IS NULL)
     </select>
+
     <select id="findByPid" parameterType="Integer" resultType="Organization">
         SELECT * FROM ORGANIZATION
         WHERE STATUS='A' AND PID = #{pid}
     </select>
+
+    <select id="findByCompId" parameterType="Integer" resultType="Organization">
+        SELECT * FROM ORGANIZATION
+        WHERE STATUS='A' AND COMPANYID = #{companyId}
+    </select>
+
+
     <update id="updateById" parameterType="Integer">
         UPDATE ORGANIZATION SET STATUS='I' WHERE ORGANIZATIONID=#{id,jdbcType=INTEGER}
     </update>
     <select id="findSuperOrgan" resultType="Organization">
-        SELECT
-        ORGANIZATIONID,FULLNAME,ICONCLS,PID
+        SELECT ORGANIZATIONID,FULLNAME,ICONCLS,PID
         FROM ORGANIZATION WHERE STATUS = 'A'
     </select>
-    <insert id="insert" parameterType="Organization">
+    <insert id="insert" parameterType="Organization" useGeneratedKeys="true"
+            keyProperty="organizationId">
         INSERT INTO
         ORGANIZATION(CREATED,CREATER,DESCRIPTION,ENAME,FAX,FULLNAME,ICONCLS,LASTMOD,MODIFYER,
         MYID,PID,STATE,STATUS,TEL,MANAGER,EMPQTY,COMPANYNAME,PNAME,COMPANYID)

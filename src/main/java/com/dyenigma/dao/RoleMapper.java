@@ -11,5 +11,10 @@ import java.util.List;
  * create: 2016/4/8 9:30
  */
 public interface RoleMapper extends BaseMapper<Role> {
+    /**
+     * 好名字自己会说话
+     * param pageUtil
+     * return
+     */
     List<Role> findAllByPage(PageUtil pageUtil);
 }

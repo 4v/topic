@@ -122,7 +122,7 @@
                 var row = $dg.treegrid('getSelected');
                 if (row) {
                     $.modalDialog({
-                        title: "编辑程式",
+                        title: "编辑菜单",
                         width: 600,
                         height: 400,
                         href: "/manage/organ/organEditDlg",

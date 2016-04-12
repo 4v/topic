@@ -4,6 +4,9 @@ import java.util.Date;
 import java.util.HashSet;
 import java.util.Set;
 
+/**
+ * 用户类
+ */
 public class Users extends BaseDomain {
 
     private Integer userId;

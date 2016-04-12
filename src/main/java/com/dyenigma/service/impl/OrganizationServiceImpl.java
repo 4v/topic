@@ -49,16 +49,11 @@ public class OrganizationServiceImpl extends BaseServiceImpl<Organization> imple
 
     @Override
     public boolean deleteById(String id) {
-        try {
-            int i = organizationMapper.updateById(Integer.parseInt(id));
-            if (i > 0) {
-                return true;
-            } else {
-                return false;
-            }
-        } catch (Exception e) {
-            e.printStackTrace();
+        List<Organization> oList = organizationMapper.findByPid(Integer.parseInt(id));
+        if (oList.size() > 0) {
             return false;
+        } else {
+            return organizationMapper.updateById(Integer.parseInt(id)) > 0;
         }
     }
 

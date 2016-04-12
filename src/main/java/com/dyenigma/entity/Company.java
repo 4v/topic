@@ -16,7 +16,7 @@ import java.util.Date;
 /**
  * author dingdongliang
  * ClassName: Company
- * Description: 公司信息类
+ * Description: 公司信息类,ExcelVOAttribute注解表示该字段在输出excel表格中
  * date 2015年9月21日 上午11:03:35
  */
 

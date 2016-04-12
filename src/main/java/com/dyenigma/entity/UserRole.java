@@ -2,6 +2,9 @@ package com.dyenigma.entity;
 
 import java.util.Date;
 
+/**
+ * 用户角色
+ */
 public class UserRole extends BaseDomain {
 
     private Integer urId;

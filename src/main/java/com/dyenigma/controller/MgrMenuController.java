@@ -32,7 +32,7 @@ import java.util.List;
 /**
  * author dingdongliang
  * ClassName: MgrFunController
- * Description: 程式控制（跳转and业务调用）
+ * Description: 菜单控制（跳转and业务调用）
  * date 2015年9月17日 下午3:20:40
  */
 @Controller
@@ -104,7 +104,7 @@ public class MgrMenuController extends BaseController {
      * return String 返回类型
      * throws
      * Title: delFunction
-     * Description: 删除程式处理
+     * Description: 删除菜单处理
      */
     @ResponseBody
     @RequestMapping(value = "/delMenu", produces = "application/json;charset=utf-8")
@@ -127,7 +127,7 @@ public class MgrMenuController extends BaseController {
      * return ModelAndView 返回类型
      * throws
      * Title: functionEditDlg
-     * Description: 跳转到编辑程式页面
+     * Description: 跳转到编辑菜单页面
      */
     @RequestMapping(value = "/menuEditDlg", method = RequestMethod.GET)
     public ModelAndView functionEditDlg() {
@@ -146,13 +146,14 @@ public class MgrMenuController extends BaseController {
      * return String 返回类型
      * throws
      * Title: saveOrUpdateFunc
-     * Description: 新增程式或者更新程式处理
+     * Description: 新增菜单或者更新菜单处理
      */
     @RequiresPermissions({"menuAdd", "menuEdit"})
     @ResponseBody
     @RequestMapping(value = "/saveOrUpdateMenu", produces = "application/json;charset=utf-8")
     public String saveOrUpdateFunc(HttpServletRequest request) {
         Permission permission = new Permission();
+
         String permissionId = request.getParameter("permissionId");
         if (!StringUtil.isEmpty(permissionId)) {
             permission.setPermissionId(Integer.parseInt(permissionId));
@@ -177,6 +178,7 @@ public class MgrMenuController extends BaseController {
         permission.setIsused(request.getParameter("isused"));
         permission.setDescription(request.getParameter("description"));
         permission.setPname(request.getParameter("pname"));
+        permission.setIsDefault(request.getParameter("isDefault"));
 
         Json json = getMessage(permissionService.persistenceFunction(permission));
         return JSONArray.toJSONString(json);

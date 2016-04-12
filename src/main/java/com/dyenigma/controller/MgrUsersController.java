@@ -72,7 +72,7 @@ public class MgrUsersController extends BaseController {
      * return String 返回类型
      * throws
      * Title: saveOrUpdateUser
-     * Description: 新增程式或者更新组织处理
+     * Description: 新增用户或者更新用户处理
      */
     @ResponseBody
     @RequestMapping(value = "/saveOrUpdateUser", produces = "application/json;charset=utf-8")

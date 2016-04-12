@@ -59,7 +59,42 @@
                     align: 'center',
                     editor: "text"
                 }]], toolbar: '#tbRole',
-                onDblClickRow: getPermission,
+                onDblClickRow: function (rowIndex, rowData) {
+                    $.ajax({
+                        url: "/manage/role/getRolePermission",
+                        data: {
+                            'roleId': rowData.roleId
+                        },
+                        method: "POST",
+                        dataType: "JSON",
+                        success: function (msg) {
+                            //初始化权限，取消所有的选中
+                            $function.treegrid('unselectAll');
+                            //判断是否有权限
+                            if (msg.length != 0) {
+                                //循环选中包含的权限
+                                $.each(msg, function (i, e) {
+                                    $function.treegrid('select', e.permissionId);
+                                });
+                            } else {
+                                $.messager.show({
+                                    title: "提示",
+                                    msg: "该角色暂无权限!",
+                                    timeout: 1000 * 2
+                                });
+                            }
+                        },
+                        error: function () {
+                            //获取失败，取消所有的选中
+                            $function.treegrid('unselectAll');
+                            $.messager.show({
+                                title: "提示",
+                                msg: "获取权限失败!",
+                                timeout: 1000 * 2
+                            });
+                        }
+                    });
+                },
                 onLoadSuccess: function () {
                     var pager = $role.datagrid('getPager');
                     pager.pagination({
@@ -238,9 +273,12 @@
                     $.ajax({
                         url: "/manage/role/savePermission",
                         data: {
-                            "roleId": selectionRole.roleId,
-                            "checkedIds": checkedIds.length == 0 ? "" : checkedIds
+                            //这里的数组必须转化成字符串形式
+                            allCheck: checkedIds.length == 0 ? "" : checkedIds.join(","),
+                            roleId: selectionRole.roleId
                         },
+                        type: "POST",
+                        dataType: "JSON",
                         success: function (rsp) {
                             $.messager.show({
                                 title: rsp.title,
@@ -290,41 +328,6 @@
                 $function.treegrid('reload');
             });
         });
-
-        function getPermission(rowIndex, rowData) {
-            $.ajax({
-                url: "/manage/role/getRolePermission",
-                data: {
-                    'roleId': rowData.roleId
-                },
-                method: "POST",
-                dataType: "JSON",
-                success: function (msg) {
-                    //取消所有的选中
-                    $function.treegrid('unselectAll');
-                    //判断是否有权限
-                    if (msg.length != 0) {
-                        //循环选中包含的权限
-                        $.each(msg, function (i, e) {
-                            $function.treegrid('select', e.permissionId);
-                        });
-                    } else {
-                        $.messager.show({
-                            title: "提示",
-                            msg: "该角色暂无权限!",
-                            timeout: 1000 * 2
-                        });
-                    }
-                },
-                error: function () {
-                    $.messager.show({
-                        title: "提示",
-                        msg: "获取权限失败!",
-                        timeout: 1000 * 2
-                    });
-                }
-            });
-        }
     </script>
 </head>
 <body>

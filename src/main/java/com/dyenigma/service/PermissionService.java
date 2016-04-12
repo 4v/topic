@@ -73,7 +73,7 @@ public interface PermissionService extends BaseMapper<Permission> {
 
     /**
      * Title: findSuperFunc
-     * Description: 获取所有可添加子项的程式
+     * Description: 获取所有可添加子项的菜单
      * param return 参数
      * return List<TreeModel> 返回类型
      * throws

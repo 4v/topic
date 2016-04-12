@@ -10,7 +10,11 @@
 package com.dyenigma.service.impl;
 
 import com.dyenigma.entity.Permission;
-import com.dyenigma.model.*;
+import com.dyenigma.entity.RolePermission;
+import com.dyenigma.model.MenuModel;
+import com.dyenigma.model.MultiMenu;
+import com.dyenigma.model.TreeGridModel;
+import com.dyenigma.model.TreeModel;
 import com.dyenigma.service.PermissionService;
 import com.dyenigma.shiro.ShiroUser;
 import com.dyenigma.utils.Constants;
@@ -111,17 +115,25 @@ public class PermissionServiceImpl extends BaseServiceImpl<Permission> implement
         return tempList;
     }
 
+    /**
+     * 删除菜单，
+     * param id
+     * return
+     */
     @Override
     public boolean deleteById(String id) {
-        try {
-            int i = permissionMapper.updateById(Integer.parseInt(id));
-            //TODO 这里还要判断该id是否包含子菜单，一起删除
-            //TODO 最后还要判断该菜单在角色权限表中是否有记录，需要一起删除
-            //TODO 整个删除是一个事务
-            return i == 1;
-        } catch (Exception e) {
-            e.printStackTrace();
+        //如果在权限角色映射表中有记录，则不能删除
+        List<Integer> list = rolePermissionMapper.findAllByPermissionId(Integer.parseInt(id));
+        if (list.size() > 0) {
             return false;
+        } else {
+            //如果包含有子菜单，则不能删除
+            List<Permission> pList = permissionMapper.findByPid(Integer.parseInt(id));
+            if (pList.size() > 0) {
+                return false;
+            } else {
+                return permissionMapper.updateById(Integer.parseInt(id)) > 0;
+            }
         }
     }
 
@@ -166,9 +178,26 @@ public class PermissionServiceImpl extends BaseServiceImpl<Permission> implement
             permission.setModifyer(userId);
             permissionMapper.update(permission);
         }
+        if ("Y".equals(permission.getIsDefault())) {
+            //获取所有具有有效映射的角色信息
+            List<Integer> idList = rolePermissionMapper.findAllRoleId();
+            //每个角色都添加该默认权限
+            for (Integer roldId : idList) {
+                RolePermission rolePermission;
+                Date date = new Date();
+                rolePermission = new RolePermission();
+                rolePermission.setCreated(date);
+                rolePermission.setLastmod(date);
+                rolePermission.setStatus(Constants.PERSISTENCE_STATUS);
+                rolePermission.setCreater(userId);
+                rolePermission.setModifyer(userId);
+                rolePermission.setPermission(permission);
+                rolePermission.setRole(roleMapper.findById(roldId));
+                rolePermissionMapper.insert(rolePermission);
+            }
+        }
         return true;
     }
-
 
 
     /**

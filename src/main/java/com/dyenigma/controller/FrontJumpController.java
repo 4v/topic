@@ -6,9 +6,13 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
+/**
+ * 前端页面控制器
+ */
 @Controller
 public class FrontJumpController {
     private final Logger LOGGER = LoggerFactory.getLogger(FrontJumpController.class);
+
 
     @RequestMapping(value = "/base", method = RequestMethod.GET)
     public String base() {

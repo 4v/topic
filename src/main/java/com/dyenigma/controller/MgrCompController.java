@@ -26,7 +26,9 @@ import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
-
+/**
+ * 公司信息控制器
+ */
 @Controller
 @RequestMapping(value = "/manage/comp")
 public class MgrCompController extends BaseController {
@@ -39,11 +41,12 @@ public class MgrCompController extends BaseController {
     @RequestMapping("/compMain")
     public String compMain() {
         LOGGER.debug("compMain() is executed!");
-
         return "manage/company/companyMain";
     }
 
-    //分页查询公司信息
+    /**
+     * 分页查询公司信息
+     */
     @ResponseBody
     @RequestMapping(value = "/findComp", produces = "application/json;charset=utf-8")
     public GridModel findComp(HttpServletRequest request) {
@@ -65,7 +68,10 @@ public class MgrCompController extends BaseController {
     }
 
 
-    //弹出添加公司层
+    /**
+     * 弹出添加公司层
+     * return
+     */
     @RequestMapping(value = "/companyEditDlg", method = RequestMethod.GET)
     public ModelAndView companyEditDlg() {
 
@@ -77,7 +83,9 @@ public class MgrCompController extends BaseController {
         return model;
     }
 
-    //添加或者修改公司信息,需要在控制器上也添加权限控制,怎么实现新添加菜单权限的控制？ TODO
+    /**
+     * 添加或者修改公司信息,需要在控制器上也添加权限控制
+     */
     @RequiresPermissions({"compAdd", "compEdit"})
     @ResponseBody
     @RequestMapping(value = "/saveOrUpdateComp", produces = "application/json;charset=utf-8")
@@ -108,7 +116,12 @@ public class MgrCompController extends BaseController {
         return JSONArray.toJSONString(json);
     }
 
-    //删除公司信息
+
+    /**
+     * 删除公司信息,在删除之前判断是否包含组织信息
+     * param request
+     * return
+     */
     @RequiresPermissions({"compDel"})
     @ResponseBody
     @RequestMapping(value = "/delComp", produces = "application/json;charset=utf-8")
@@ -125,7 +138,13 @@ public class MgrCompController extends BaseController {
         return JSONArray.toJSONString(json);
     }
 
-    //导出excel
+
+    /**
+     * 导出excel
+     * param request
+     * param response
+     * return
+     */
     @ResponseBody
     @RequestMapping(value = "/excelExport", produces = "application/octet-stream")
     public byte[] excelExport(HttpServletRequest request, HttpServletResponse response) {

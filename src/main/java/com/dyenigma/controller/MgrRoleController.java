@@ -105,7 +105,7 @@ public class MgrRoleController extends BaseController {
     }
 
     /**
-     * 删除角色信息  TODO 同时需要删除相关的权限配置，在业务层进行事务处理
+     * 删除角色信息  TODO 同时需要删除相关的权限配置，在业务层进行事务处理（包含用户角色和权限角色两种）
      * param request
      * return
      */
@@ -115,7 +115,7 @@ public class MgrRoleController extends BaseController {
         String id = request.getParameter("roleId");
 
         Json json = new Json();
-        boolean flag = roleService.delete(Integer.parseInt(id)) > 0;
+        boolean flag = roleService.delRole(Integer.parseInt(id));
 
         if (flag) {
             json.setStatus(true);
@@ -152,7 +152,7 @@ public class MgrRoleController extends BaseController {
     @RequestMapping(value = "/savePermission", produces = "application/json;charset=utf-8")
     public String savePermission(HttpServletRequest request) {
         String roleId = request.getParameter("roleId");
-        String checkedIds = request.getParameter("checkedIds");
+        String checkedIds = request.getParameter("allCheck");
         Json json = new Json();
         if (StringUtil.compareRegex(Constants.REGEX_INTEGER, roleId)) {
             if (rolePermissionService.savePermission(Integer.parseInt(roleId), checkedIds)) {

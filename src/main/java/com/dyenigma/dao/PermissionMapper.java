@@ -77,4 +77,10 @@ public interface PermissionMapper extends BaseMapper<Permission> {
      */
     List<Permission> findAllMenu();
 
+    /**
+     * 获取所有的默认有效权限，用于默认权限分配
+     * return
+     */
+    List<Permission> findAllDefault();
+
 }

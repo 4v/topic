@@ -1,6 +1,7 @@
 package com.dyenigma.service.impl;
 
 import com.dyenigma.entity.Company;
+import com.dyenigma.entity.Organization;
 import com.dyenigma.service.CompanyService;
 import com.dyenigma.utils.Constants;
 import com.dyenigma.utils.PageUtil;
@@ -33,19 +34,21 @@ public class CompanyServiceImpl extends BaseServiceImpl<Company> implements Comp
     }
 
     @Override
-    public Long getCount(Map<String,Object> paramMap) {
+    public Long getCount(Map<String, Object> paramMap) {
         LOGGER.info("开始查找公司信息的总条数");
         return companyMapper.getCount(paramMap);
     }
 
     @Override
     public boolean delComp(String compId) {
-        int i = companyMapper.delete(Integer.parseInt(compId));
-        if (i == 1) {
-            return true;
-        } else {
+        List<Organization> oList = organizationMapper.findByCompId(Integer.parseInt(compId));
+        //如果公司下面还有组织信息，则不能删除
+        if (oList.size() > 0) {
             return false;
+        } else {
+            return companyMapper.delete(Integer.parseInt(compId)) > 0;
         }
+
     }
 
     @Override

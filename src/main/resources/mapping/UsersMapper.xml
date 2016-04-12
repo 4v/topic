@@ -1,36 +1,37 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"   
-"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.dyenigma.dao.UsersMapper">
-	<select id="findById" parameterType="int" resultType="Users">
-		SELECT * FROM USERS WHERE USERID=#{userId,jdbcType=INTEGER}
-	</select>
-	<insert id="insert" parameterType="Users" flushCache="true">
-		INSERT INTO USERS(MYID,ACCOUNT,NAME,ORGANIZEID,ORGANIZENAME,PASSWORD,EMAIL,STATUS,
-		DESCRIPTION,CREATED,LASTMOD,CREATER,MODIFYER,TEL)
-		VALUES(#{myid,jdbcType=VARCHAR},#{account,jdbcType=VARCHAR},#{name,jdbcType=VARCHAR},
-		#{organizeId,jdbcType=INTEGER},#{organizeName,jdbcType=VARCHAR},#{password,jdbcType=VARCHAR},
-		#{email,jdbcType=VARCHAR},#{status,jdbcType=VARCHAR},#{description,jdbcType=VARCHAR},
-		#{created,jdbcType=DATE},#{lastmod,jdbcType=DATE},#{creater,jdbcType=INTEGER},
-		#{modifyer,jdbcType=INTEGER},#{tel,jdbcType=VARCHAR})
-	</insert>
-	<update id="update" parameterType="Users">
-		UPDATE USERS SET MYID=#{myid,jdbcType=VARCHAR},ACCOUNT=#{account,jdbcType=VARCHAR},
-		NAME=#{name,jdbcType=VARCHAR},ORGANIZEID=#{organizeId,jdbcType=INTEGER},
-		ORGANIZENAME=#{organizeName,jdbcType=VARCHAR},EMAIL=#{email,jdbcType=VARCHAR},
-		DESCRIPTION=#{description,jdbcType=VARCHAR},LASTMOD=#{lastmod,jdbcType=DATE},
-		MODIFYER=#{modifyer,jdbcType=INTEGER},TEL=#{tel,jdbcType=VARCHAR}
-		WHERE USERID=#{userId,jdbcType=INTEGER}
-	</update>
-	<delete id="delete" parameterType="int">
-		DELETE FROM USERS WHERE USERID=#{userId,jdbcType=INTEGER}
-	</delete>
-	<select id="findByName" parameterType="String" resultType="Users">
-		SELECT * FROM USERS
-		WHERE NAME = #{name,jdbcType=VARCHAR}
-	</select>
-	<select id="findAll" resultType="Users">
-		SELECT * FROM USERS
-		WHERE STATUS='A'
-	</select>
+    <select id="findById" parameterType="int" resultType="Users">
+        SELECT * FROM USERS WHERE USERID=#{userId,jdbcType=INTEGER}
+    </select>
+    <insert id="insert" parameterType="Users" flushCache="true" useGeneratedKeys="true"
+            keyProperty="userId">
+        INSERT INTO USERS(MYID,ACCOUNT,NAME,ORGANIZEID,ORGANIZENAME,PASSWORD,EMAIL,STATUS,
+        DESCRIPTION,CREATED,LASTMOD,CREATER,MODIFYER,TEL)
+        VALUES(#{myid,jdbcType=VARCHAR},#{account,jdbcType=VARCHAR},#{name,jdbcType=VARCHAR},
+        #{organizeId,jdbcType=INTEGER},#{organizeName,jdbcType=VARCHAR},#{password,jdbcType=VARCHAR},
+        #{email,jdbcType=VARCHAR},#{status,jdbcType=VARCHAR},#{description,jdbcType=VARCHAR},
+        #{created,jdbcType=DATE},#{lastmod,jdbcType=DATE},#{creater,jdbcType=INTEGER},
+        #{modifyer,jdbcType=INTEGER},#{tel,jdbcType=VARCHAR})
+    </insert>
+    <update id="update" parameterType="Users">
+        UPDATE USERS SET MYID=#{myid,jdbcType=VARCHAR},ACCOUNT=#{account,jdbcType=VARCHAR},
+        NAME=#{name,jdbcType=VARCHAR},ORGANIZEID=#{organizeId,jdbcType=INTEGER},
+        ORGANIZENAME=#{organizeName,jdbcType=VARCHAR},EMAIL=#{email,jdbcType=VARCHAR},
+        DESCRIPTION=#{description,jdbcType=VARCHAR},LASTMOD=#{lastmod,jdbcType=DATE},
+        MODIFYER=#{modifyer,jdbcType=INTEGER},TEL=#{tel,jdbcType=VARCHAR}
+        WHERE USERID=#{userId,jdbcType=INTEGER}
+    </update>
+    <delete id="delete" parameterType="int">
+        DELETE FROM USERS WHERE USERID=#{userId,jdbcType=INTEGER}
+    </delete>
+    <select id="findByName" parameterType="String" resultType="Users">
+        SELECT * FROM USERS
+        WHERE NAME = #{name,jdbcType=VARCHAR}
+    </select>
+    <select id="findAll" resultType="Users">
+        SELECT * FROM USERS
+        WHERE STATUS='A'
+    </select>
 </mapper>

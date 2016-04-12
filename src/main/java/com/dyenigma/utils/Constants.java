@@ -68,7 +68,7 @@ public class Constants {
 
     public static final String TREE_STATUS_OPEN = "open";
     public static final String TREE_STATUS_CLOSED = "closed";
-    public static final String IS_EXT_SUBMENU = " 或可能包含菜单!";
+    public static final String IS_EXT_SUBMENU = " 菜单正在被角色使用或可能包含子菜单!";
     public static final String SHIRO_USER = "shiroUser";
     public static final String LOGS_INSERT = "insert:";
     public static final String LOGS_INSERT_TEXT = "插入:";

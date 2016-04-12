@@ -36,11 +36,16 @@ public class RolePermissionServiceImpl extends BaseServiceImpl<RolePermission> i
         return permissions;
     }
 
-    //TODO 这个方法需要修改
+    /**
+     * 保存选取的权限与角色映射
+     * param roleId
+     * param checkedIds
+     * return
+     */
     @Override
     public boolean savePermission(int roleId, String checkedIds) {
         Integer userId = Constants.getCurrendUser().getUserId();
-        Role role = roleMapper.findById(roleId);//TODO 查找时要同时获取permission数据
+        Role role = roleMapper.findById(roleId);
 
         Map<String, RolePermission> map = new HashMap<>();
         Set<RolePermission> rolePermissions = role.getRolePermissions();
@@ -56,7 +61,7 @@ public class RolePermissionServiceImpl extends BaseServiceImpl<RolePermission> i
                 if (rolePermission != null) {
                     updRolePermission(userId, rolePermission, Constants.PERSISTENCE_STATUS);
                 } else {
-                    Permission function = permissionMapper.findById(Integer.valueOf(id));
+                    Permission permission = permissionMapper.findById(Integer.valueOf(id));
                     Date date = new Date();
                     rolePermission = new RolePermission();
                     rolePermission.setCreated(date);
@@ -64,13 +69,14 @@ public class RolePermissionServiceImpl extends BaseServiceImpl<RolePermission> i
                     rolePermission.setStatus(Constants.PERSISTENCE_STATUS);
                     rolePermission.setCreater(userId);
                     rolePermission.setModifyer(userId);
-                    rolePermission.setPermission(function);
+                    rolePermission.setPermission(permission);
                     rolePermission.setRole(role);
+
                     rolePermissionMapper.insert(rolePermission);
                 }
             }
         }
-        return false;
+        return true;
     }
 
     private void updRolePermission(Integer userId, RolePermission rolePermission, String status) {
@@ -80,4 +86,5 @@ public class RolePermissionServiceImpl extends BaseServiceImpl<RolePermission> i
         rolePermission.setStatus(status);
         rolePermissionMapper.update(rolePermission);
     }
+
 }

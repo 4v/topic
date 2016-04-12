@@ -127,7 +127,7 @@ public class MgrOrganController extends BaseController {
      * return String 返回类型
      * throws
      * Title: saveOrUpdateOrgan
-     * Description: 新增程式或者更新组织处理
+     * Description: 新增组织从或者更新组织处理
      */
     @ResponseBody
     @RequestMapping(value = "/saveOrUpdateOrgan", produces = "application/json;charset=utf-8")

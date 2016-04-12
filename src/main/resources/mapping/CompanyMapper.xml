@@ -3,7 +3,8 @@
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.dyenigma.dao.CompanyMapper">
 
-    <insert id="insert" parameterType="Company" flushCache="true">
+    <insert id="insert" parameterType="Company" flushCache="true" useGeneratedKeys="true"
+            keyProperty="companyId">
         INSERT INTO
         COMPANY (ADDRESS,BANK,BANKACCOUNT,CONTACT,CREATED,CREATER,DESCRIPTION,
         EMAIL,FAX,LASTMOD,MANAGER,MODIFYER,NAME,STATUS,TEL,ZIP) VALUES
@@ -25,7 +26,7 @@
         WHERE COMPANYID=#{companyId,jdbcType=INTEGER}
     </update>
     <delete id="delete" parameterType="int">
-        UPDATE COMPANY SET STATUS='I' WHERE COMPANYID=#{COMPANYID}
+        UPDATE COMPANY SET STATUS='I' WHERE COMPANYID=#{companyId}
     </delete>
     <select id="findAll" resultType="Company">
         SELECT
@@ -39,7 +40,7 @@
         COMPANYID,ADDRESS,BANK,BANKACCOUNT,CONTACT,DESCRIPTION,
         EMAIL,FAX,MANAGER,NAME,STATUS,TEL,ZIP
         FROM COMPANY
-        WHERE STATUS = 'A' AND COMPANYID=#{COMPANYID}
+        WHERE STATUS = 'A' AND COMPANYID=#{companyId}
     </select>
 
     <select id="findAllByPage" parameterType="com.dyenigma.utils.PageUtil" resultType="Company">

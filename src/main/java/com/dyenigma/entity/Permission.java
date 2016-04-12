@@ -39,7 +39,16 @@ public class Permission extends BaseDomain {
     private Date lastmod;
     private Integer creater;
     private Integer modifyer;
+    private String isDefault;
     private Set<RolePermission> rolePermissions = new HashSet<>(0);
+
+    public String getIsDefault() {
+        return isDefault;
+    }
+
+    public void setIsDefault(String isDefault) {
+        this.isDefault = isDefault;
+    }
 
     public Integer getPermissionId() {
         return permissionId;

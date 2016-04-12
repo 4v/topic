@@ -76,8 +76,8 @@ public class MyFreeMarkerView extends FreeMarkerView{
      * 计算要生成的静态文件相对路径
      * 因为大家在调试的时候一般在Tomcat的webapps下面新建站点目录的，
      * 但在实际应用时直接布署到ROOT目录里面,这里要保证路径的一致性。
-     * @param request HttpServletRequest
-     * @return /目录/*.htm
+     * param request HttpServletRequest
+     * return /目录/*.htm
      */
     private String getRequestHTML(HttpServletRequest request){
         //web应用名称,部署在ROOT目录时为空

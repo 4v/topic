@@ -37,8 +37,8 @@ public class BaseController {
         return json;
     }
 
-    /*
-     * 更改权限后，调用该方法刷新用户权限缓存
+    /**
+     * 更改权限后，调用该方法刷新用户权限缓存,在用户角色控制器里调用 TODO
      */
     protected void refreshRealm() {
         RealmSecurityManager securityManager =

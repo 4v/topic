@@ -8,6 +8,9 @@ import org.springframework.web.bind.annotation.RequestMethod;
 
 import javax.servlet.http.HttpServletRequest;
 
+/**
+ * 后台页面布局控制器
+ */
 @Controller
 @RequestMapping(value = "/manage")
 public class MgrJumpController {
