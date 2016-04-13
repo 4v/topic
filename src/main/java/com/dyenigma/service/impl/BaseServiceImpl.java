@@ -27,6 +27,9 @@ public class BaseServiceImpl<T> implements BaseService<T> {
     protected RoleMapper roleMapper;
     @Autowired
     protected RolePermissionMapper rolePermissionMapper;
+    @Autowired
+    protected UserRoleMapper userRoleMapper;
+
     @SuppressWarnings("rawtypes")
     private Class clazz = null;
 

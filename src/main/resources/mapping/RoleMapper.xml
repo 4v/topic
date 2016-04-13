@@ -27,6 +27,13 @@
         SELECT * FROM ROLE WHERE ROLEID=#{roleId}
     </select>
 
+    <select id="findAll" resultType="Role">
+        SELECT
+        ROLEID,NAME,DESCRIPTION,STATUS,SORT
+        FROM ROLE
+        WHERE STATUS = 'A' ORDER BY SORT
+    </select>
+
     <select id="findAllByPage" parameterType="com.dyenigma.utils.PageUtil" resultType="Role">
         SELECT
         ROLEID,NAME,DESCRIPTION,STATUS,SORT

@@ -3,6 +3,7 @@ package com.dyenigma.service.impl;
 import com.dyenigma.entity.Users;
 import com.dyenigma.service.UsersService;
 import com.dyenigma.utils.Constants;
+import com.dyenigma.utils.PageUtil;
 import com.dyenigma.utils.StringUtil;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -49,4 +50,16 @@ public class UsersServiceImpl extends BaseServiceImpl<Users> implements UsersSer
 		return true;
 	}
 
+	/**
+	 * 分页查询用户信息
+	 * param pageUtil
+	 * return
+	 * param pageUtil
+	 */
+	@Override
+	public List<Users> allUserByPage(PageUtil pageUtil) {
+		LOGGER.info("开始查找用户信息,分页显示");
+		List<Users> userList = usersMapper.findAllByPage(pageUtil);
+		return userList;
+	}
 }

@@ -151,11 +151,13 @@
                     var rowIndex = $dg.datagrid('getRowIndex', row);
                     $.messager.confirm("提示", "确定要删除记录吗?", function (r) {
                         if (r) {
-                            $dg.datagrid('deleteRow', rowIndex);
                             $.ajax({
                                 url: "/manage/comp/delComp",
                                 data: "companyId=" + row.companyId,
                                 success: function (rsp) {
+                                    if (rsp.status) {
+                                        $dg.datagrid('deleteRow', rowIndex);
+                                    }
                                     $.messager.show({
                                         title: rsp.title,
                                         msg: rsp.message,

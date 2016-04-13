@@ -34,4 +34,13 @@
         SELECT * FROM USERS
         WHERE STATUS='A'
     </select>
+    <select id="findAllByPage" parameterType="com.dyenigma.utils.PageUtil" resultType="Users">
+        SELECT
+        USERID,MYID,ACCOUNT,NAME,ORGANIZEID,ORGANIZENAME,DESCRIPTION
+        FROM USERS
+        WHERE STATUS = 'A' LIMIT #{begin},#{end}
+    </select>
+    <select id="getCount" resultType="long">
+        SELECT COUNT(*) FROM USERS WHERE STATUS = 'A'
+    </select>
 </mapper>

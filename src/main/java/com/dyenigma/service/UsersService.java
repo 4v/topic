@@ -1,6 +1,9 @@
 package com.dyenigma.service;
 
 import com.dyenigma.entity.Users;
+import com.dyenigma.utils.PageUtil;
+
+import java.util.List;
 
 public interface UsersService extends BaseService<Users> {
     /**
@@ -16,4 +19,13 @@ public interface UsersService extends BaseService<Users> {
      * return
      */
     boolean persistenceUser(Users user);
+
+    /**
+     * 分页查询用户信息
+     * param pageUtil
+     * return
+     */
+    List<Users> allUserByPage(PageUtil pageUtil);
+
+
 }

@@ -48,7 +48,7 @@ public class PermissionServiceImpl extends BaseServiceImpl<Permission> implement
 
         // 用于存放根目录的List
         List<MenuModel> parentList = new ArrayList<>();
-        // 循环的逻辑：首先遍历所有记录，当Pid为空时，该记录为根目录
+        // 循环的逻辑：首先遍历所有记录，当Pid为空时，该记录为根目录，TODO 这里需要考虑递归？
         for (Permission parent : pList) {
             String id = String.valueOf(parent.getPermissionId());
             if (parent.getPid() == 0) {

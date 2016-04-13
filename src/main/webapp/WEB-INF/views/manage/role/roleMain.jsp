@@ -32,7 +32,7 @@
             $function = $("#function");
 
             $grid = $role.datagrid({
-                url: "/manage/role/findAllRoleList",
+                url: "/manage/role/allRoleByPage",
                 width: 'auto',
                 height: $(this).height() - 2,
                 pagination: true,
@@ -218,37 +218,28 @@
                     $.messager.confirm("提示", "确定要删除记录吗?",
                             function (result) {
                                 if (result) {
-                                    var request = $.ajax({
+                                    $.ajax({
                                         url: "/manage/role/delRole",
                                         data: {
                                             "roleId": row.roleId
                                         },
                                         success: function (rsp) {
+                                            if (rsp.status) {
+                                                $role.datagrid('deleteRow', rowIndex);
+                                            }
                                             $.messager.show({
                                                 title: rsp.title,
                                                 msg: rsp.message,
                                                 timeout: 1000 * 2
                                             });
+                                        },
+                                        error: function () {
+                                            $.messager.show({
+                                                title: "提示",
+                                                msg: "提交错误了！",
+                                                timeout: 1000 * 2
+                                            });
                                         }
-                                    });
-
-                                    request.done(function (rsp) {
-                                        if (rsp.status) {
-                                            $role.datagrid('deleteRow', rowIndex);
-                                        }
-                                        $.messager.show({
-                                            title: rsp.title,
-                                            msg: rsp.message,
-                                            timeout: 1000 * 2
-                                        });
-                                    });
-
-                                    request.fail(function () {
-                                        $.messager.show({
-                                            title: "提示",
-                                            msg: "提交错误了！",
-                                            timeout: 1000 * 2
-                                        });
                                     });
                                 }
                             });

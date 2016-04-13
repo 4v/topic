@@ -9,7 +9,7 @@
         AND TYPE = #{type} AND ISUSED = 'Y' ORDER BY SORT
     </select>
 
-    <select id="usersMenu" parameterType="int" resultType="Permission">
+    <select id="usersMenu"  resultType="Permission">
         SELECT DISTINCT p.PERMISSIONID,p.PID,p.NAME,p.ICONCLS,p.URL,p.MYID
         FROM ROLEPERMISSION AS rp
         INNER JOIN ROLE AS r ON rp.ROLEID = r.ROLEID
@@ -22,9 +22,9 @@
         AND ur. STATUS = 'A'
         AND u. STATUS = 'A'
         AND p. STATUS = 'A'
-        AND p.TYPE = #{type}
+        AND p.TYPE = #{1}
         AND p.ISUSED = 'Y'
-        AND u.USERID = #{userId} ORDER BY SORT
+        AND u.USERID = #{0} ORDER BY PERMISSIONID
     </select>
 
     <select id="findAll" resultType="Permission">
@@ -47,7 +47,7 @@
 
     <select id="findByPid" parameterType="Integer" resultType="Permission">
         SELECT * FROM PERMISSION
-        WHERE STATUS='A' AND PID = #{pid}
+        WHERE STATUS='A' AND PID = #{pid} ORDER BY SORT
     </select>
 
     <select id="findById" parameterType="Integer" resultType="Permission">

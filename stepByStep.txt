@@ -80,6 +80,7 @@ TODO 10.输入框逐一核实是否必填
 TODO 11.数据库表级联逻辑审核，比如组织挂靠与公司，如果某个公司删除了，要删除对应的组织记录
 TODO 12.javascript 全局变量优化
 TODO 13.控制器上也添加权限控制,类似:@RequiresPermissions({"compAdd", "compEdit"})
-
+TODO 14.权限结构升级：用户-组织-角色-权限，特殊权限-用户
+TODO 15.mybatis 存储过程，复杂查询使用
 
 

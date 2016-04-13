@@ -51,9 +51,9 @@ public class MgrRoleController extends BaseController {
      * request
      */
     @ResponseBody
-    @RequestMapping(value = "/findAllRoleList", produces = "application/json;charset=utf-8")
-    public GridModel findAllRoleList(HttpServletRequest request) {
-        LOGGER.debug("findAllRoleList() is executed!");
+    @RequestMapping(value = "/allRoleByPage", produces = "application/json;charset=utf-8")
+    public GridModel allRoleByPage(HttpServletRequest request) {
+        LOGGER.debug("allRoleByPage() is executed!");
         int pageNo = Integer.parseInt(request.getParameter("page"));
         int length = Integer.parseInt(request.getParameter("rows"));
         PageUtil pageUtil = new PageUtil((pageNo - 1) * length, length);
@@ -61,6 +61,20 @@ public class MgrRoleController extends BaseController {
         gridModel.setRows(roleService.findAllRoleList(pageUtil));
         gridModel.setTotal(roleService.getCount(null));
         return gridModel;
+    }
+
+    /**
+     * Title: findAllRoleList
+     * Description: 查询所有权限
+     * param   request
+     * param return 参数
+     * return List<Role> 返回类型
+     * throws
+     */
+    @ResponseBody
+    @RequestMapping(value = "/findAllRoleList", produces = "application/json;charset=utf-8")
+    public List<Role> findAllRoleList() {
+        return roleService.findAll();
     }
 
     /**
@@ -140,7 +154,7 @@ public class MgrRoleController extends BaseController {
         if (StringUtil.compareRegex(Constants.REGEX_INTEGER, roleId)) {
             permissions = rolePermissionService.findAllByRoleId(Integer.parseInt(roleId));
         }
-        return permissions.size() > 0 ? permissions : null;
+        return permissions;
     }
 
     /**

@@ -10,10 +10,14 @@
 package com.dyenigma.controller;
 
 import com.alibaba.fastjson.JSONArray;
+import com.dyenigma.entity.Role;
 import com.dyenigma.entity.Users;
+import com.dyenigma.model.GridModel;
 import com.dyenigma.model.Json;
+import com.dyenigma.service.UserRoleService;
 import com.dyenigma.service.UsersService;
 import com.dyenigma.utils.Constants;
+import com.dyenigma.utils.PageUtil;
 import com.dyenigma.utils.StringUtil;
 import com.dyenigma.utils.security.Md5Utils;
 import org.slf4j.Logger;
@@ -24,6 +28,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import javax.servlet.http.HttpServletRequest;
+import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -39,6 +44,8 @@ public class MgrUsersController extends BaseController {
 
     @Autowired
     private UsersService usersService;
+    @Autowired
+    private UserRoleService userRoleService;
 
     @RequestMapping("/usersMain")
     public String main() {
@@ -65,6 +72,25 @@ public class MgrUsersController extends BaseController {
         LOGGER.debug("usersEditDlg() is executed!");
         return "manage/users/usersEditDlg";
     }
+
+
+    /**
+     * 搜索所有的用户信息，分页
+     * request
+     */
+    @ResponseBody
+    @RequestMapping(value = "/allUserByPage", produces = "application/json;charset=utf-8")
+    public GridModel allUserByPage(HttpServletRequest request) {
+        LOGGER.debug("allUserByPage() is executed!");
+        int pageNo = Integer.parseInt(request.getParameter("page"));
+        int length = Integer.parseInt(request.getParameter("rows"));
+        PageUtil pageUtil = new PageUtil((pageNo - 1) * length, length);
+        GridModel gridModel = new GridModel();
+        gridModel.setRows(usersService.allUserByPage(pageUtil));
+        gridModel.setTotal(usersService.getCount(null));
+        return gridModel;
+    }
+
 
     /**
      * param    request
@@ -123,6 +149,41 @@ public class MgrUsersController extends BaseController {
             json.setMessage(Constants.POST_DATA_FAIL + Constants.IS_EXT_SUBMENU);
         }
 
+        return JSONArray.toJSONString(json);
+    }
+
+    @ResponseBody
+    @RequestMapping(value = "/usersRoleList", produces = "application/json;charset=utf-8")
+    public List<Role> usersRoleList(HttpServletRequest request) {
+        String id = request.getParameter("userId");
+        List<Role> rList = new ArrayList<>();
+        if (StringUtil.compareRegex(Constants.REGEX_INTEGER, id)) {
+            rList = userRoleService.findAllByUserId(Integer.parseInt(id));
+        }
+        return rList;
+    }
+
+    /**
+     * 保存某个用户的角色分配
+     * param request
+     * return
+     */
+    @ResponseBody
+    @RequestMapping(value = "/saveUserRoles", produces = "application/json;charset=utf-8")
+    public String saveUserRoles(HttpServletRequest request) {
+        String userId = request.getParameter("userId");
+        String checkedIds = request.getParameter("isCheckedIds");
+        Json json = new Json();
+        if (StringUtil.compareRegex(Constants.REGEX_INTEGER, userId)) {
+            if (userRoleService.saveRole(Integer.parseInt(userId), checkedIds)) {
+                json.setStatus(true);
+                json.setMessage(Constants.POST_DATA_SUCCESS);
+            } else {
+                json.setMessage(Constants.POST_DATA_FAIL);
+            }
+        } else {
+            json.setMessage(Constants.POST_DATA_FAIL);
+        }
         return JSONArray.toJSONString(json);
     }
 }

@@ -27,4 +27,12 @@
         GROUP BY ROLEID
     </select>
 
+    <update id="update" parameterType="RolePermission">
+        UPDATE ROLEPERMISSION SET ROLEID=#{role.roleId,jdbcType=INTEGER},
+        PERMISSIONID=#{permission.permissionId,jdbcType=INTEGER},STATUS=#{status,jdbcType=VARCHAR},
+        CREATED=#{created,jdbcType=DATE},LASTMOD=#{lastmod,jdbcType=DATE},
+        MODIFYER=#{modifyer,jdbcType=INTEGER},CREATER=#{creater,jdbcType=INTEGER}
+        WHERE RPID=#{rpId,jdbcType=INTEGER}
+    </update>
+
 </mapper>

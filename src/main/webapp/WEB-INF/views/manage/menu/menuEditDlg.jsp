@@ -171,7 +171,7 @@
                         <td><select id="isDefault" class="easyui-combobox" name="isDefault" style="width:171px;"
                                     data-options="required:true">
                             <option value="Y">是</option>
-                            <option value="N">否</option>
+                            <option value="N" selected="true">否</option>
                         </select>
                         </td>
                         <th></th>
