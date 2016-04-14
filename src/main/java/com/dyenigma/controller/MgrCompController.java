@@ -5,22 +5,31 @@ import com.dyenigma.entity.Company;
 import com.dyenigma.model.GridModel;
 import com.dyenigma.model.Json;
 import com.dyenigma.service.CompanyService;
-import com.dyenigma.utils.*;
+import com.dyenigma.utils.Constants;
+import com.dyenigma.utils.ExcelUtil;
+import com.dyenigma.utils.PageUtil;
+import com.dyenigma.utils.StringUtil;
+import org.apache.commons.io.FileUtils;
 import org.apache.shiro.authz.annotation.RequiresPermissions;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpHeaders;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.MediaType;
+import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
 
 import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpServletResponse;
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
+import java.io.IOException;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
@@ -116,6 +125,17 @@ public class MgrCompController extends BaseController {
         return JSONArray.toJSONString(json);
     }
 
+    ///**
+    // * 添加或者修改公司信息,需要在控制器上也添加权限控制
+    // */
+    //@RequiresPermissions({"compAdd", "compEdit"})
+    //@ResponseBody
+    //@RequestMapping(value = "/saveOrUpdateComp", produces = "application/json;charset=utf-8")
+    //public String saveOrUpdateComp(@ModelAttribute Company company) {
+    //    Json json = getMessage(companyService.persistenceComp(company));
+    //    return JSONArray.toJSONString(json);
+    //}
+
 
     /**
      * 删除公司信息,在删除之前判断是否包含组织信息
@@ -138,22 +158,21 @@ public class MgrCompController extends BaseController {
         return JSONArray.toJSONString(json);
     }
 
-
     /**
-     * 导出excel
+     * 导出excel，注意该方法不能使用ajax调用，因为ajax不支持流
      * param request
      * param response
-     * return
+     * return  /blog/{blogId}/message/{msgId}
      */
-    @ResponseBody
-    @RequestMapping(value = "/excelExport", produces = "application/octet-stream")
-    public byte[] excelExport(HttpServletRequest request, HttpServletResponse response) {
+    @RequestMapping(value = "/excelExport/{compId}")
+    public ResponseEntity<byte[]> excelExport(@PathVariable("compId") String companyId, HttpServletRequest request) {
         SimpleDateFormat format = new SimpleDateFormat("yyyyMMddHHmmss");
         String excelName = format.format(new Date());
         String path = "Company-" + excelName + ".xls";
 
-        //获取绝对路径
-        String realPath = request.getSession().getServletContext().getRealPath(File.separator);
+        //获取绝对路径,如果realPath获取不到,尝试更换getRealPath方法的参数
+        String realPath = request.getSession().getServletContext().getRealPath("/");
+
         String allPath = realPath + "download" + File.separator + path;
 
         FileOutputStream out = null;
@@ -163,15 +182,23 @@ public class MgrCompController extends BaseController {
             e.printStackTrace();
         }
 
-        //在绝对路径获取正确的前提下，获取company资料写入文件，测试成功
+        //获取company资料写入文件
         List<Company> list = new ArrayList<>();
-        list.add(companyService.findById(Integer.parseInt(request.getParameter("companyId"))));
+        list.add(companyService.findById(Integer.parseInt(companyId)));
         ExcelUtil<Company> util = new ExcelUtil<>(Company.class);
         util.exportExcel(list, "Sheet", 60000, out);
 
-        //下面是下载文件处理，测试中文件存在，但无法下载，需要处理 TODO
-        byte[] bytes = FileUtils.getBytes4File(allPath);
-        response.addHeader("Content-Disposition", "attachment;filename=" + path);
-        return bytes;
+        //下载文件处理
+        HttpHeaders headers = new HttpHeaders();
+        headers.setContentType(MediaType.APPLICATION_OCTET_STREAM);
+        headers.setContentDispositionFormData("attachment", path);
+        byte[] bytes = new byte[0];
+        try {
+            File file = new File(allPath);
+            bytes = FileUtils.readFileToByteArray(file);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        return new ResponseEntity<>(bytes, headers, HttpStatus.CREATED);
     }
 }

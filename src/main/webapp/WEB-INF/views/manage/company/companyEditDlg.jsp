@@ -99,7 +99,7 @@
 </style>
 <div class="easyui-layout" data-options="fit:true,border:false">
     <div data-options="region:'center',border:false" title="" style="overflow: hidden;padding: 10px;">
-        <form id="form" method="post">
+        <form id="form" method="POST">
             <fieldset>
                 <legend><img src="/resources/core/images/fromedit.png" style="margin-bottom: -3px;"/> 公司编辑</legend>
                 <input name="companyId" id="companyId" type="hidden"/>

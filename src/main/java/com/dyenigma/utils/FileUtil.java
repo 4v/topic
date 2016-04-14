@@ -11,8 +11,8 @@ import java.net.URLEncoder;
  * author Dyenigma
  * create 2016/4/2 18:47
  */
-public class FileUtils {
-    private static final Logger logger = Logger.getLogger(FileUtils.class);
+public class FileUtil {
+    private static final Logger logger = Logger.getLogger(FileUtil.class);
 
     private static final int BUFFER = 1024;
 

@@ -41,6 +41,10 @@ public class Company extends BaseDomain {
     @ExcelVOAttribute(name = "描述", column = "H")
     private String description;
 
+    public Company() {
+        super();
+    }
+
     public Integer getCompanyId() {
         return companyId;
     }

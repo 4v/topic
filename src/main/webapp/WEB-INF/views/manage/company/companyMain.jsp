@@ -179,12 +179,7 @@
             $("#toExcel").click(function () {
                 var row = $dg.datagrid('getSelected');
                 if (row) {
-                    $.ajax({
-                        url: "/manage/comp/excelExport",
-                        data: {'companyId': row.companyId},
-                        success: function () {
-                        }
-                    });
+                    window.location.href = "/manage/comp/excelExport/" + row.companyId;
                 } else {
                     $.messager.show({
                         title: "提示",

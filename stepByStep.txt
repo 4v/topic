@@ -83,7 +83,8 @@ TODO 13.控制器上也添加权限控制,类似:@RequiresPermissions({"compAdd"
 TODO 14.权限结构升级：公司-组织-岗位-角色-权限，特殊权限-用户
 TODO 15.mybatis 存储过程，复杂查询使用
 TODO 16.新加子菜单时，怎么同步权限问题，比如A菜单在角色A的权限范围内，A菜单添加子菜单A1，A1同步到角色A可用
+TODO 17.SpringMVC 封装参数，使用实体类
 
 数据库设计备忘：
-1.基础表都有删除标记：status，D为deleted,U是used，映射表最好不要
+1.基础表都有删除标记：status，D为deleted,U是used
 2.全部表都有操作信息字段：creater创建者,editor编辑者,createTime和editTime，放在baseDomain父类里
