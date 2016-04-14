@@ -42,7 +42,6 @@ public class Company extends BaseDomain {
     private String description;
 
     public Company() {
-        super();
     }
 
     public Integer getCompanyId() {

@@ -100,11 +100,8 @@
 <div class="easyui-layout" data-options="fit:true,border:false">
     <div data-options="region:'center',border:false" title="" style="overflow: hidden;padding: 10px;">
         <form id="form" method="POST">
-            <fieldset>
                 <legend><img src="/resources/core/images/fromedit.png" style="margin-bottom: -3px;"/> 公司编辑</legend>
                 <input name="companyId" id="companyId" type="hidden"/>
-                <input name="created" id="created" type="hidden"/>
-                <input name="creater" id="creater" type="hidden"/>
                 <input name="status" id="status" type="hidden"/>
                 <table>
                     <tr>
@@ -155,7 +152,6 @@
                                                   style="width: 420px;height: 100px;"></textarea></td>
                     </tr>
                 </table>
-            </fieldset>
         </form>
     </div>
 </div>

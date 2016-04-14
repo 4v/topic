@@ -8,7 +8,6 @@ import com.dyenigma.service.CompanyService;
 import com.dyenigma.utils.Constants;
 import com.dyenigma.utils.ExcelUtil;
 import com.dyenigma.utils.PageUtil;
-import com.dyenigma.utils.StringUtil;
 import org.apache.commons.io.FileUtils;
 import org.apache.shiro.authz.annotation.RequiresPermissions;
 import org.slf4j.Logger;
@@ -19,10 +18,7 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.ModelAndView;
 
 import javax.servlet.http.HttpServletRequest;
@@ -98,43 +94,10 @@ public class MgrCompController extends BaseController {
     @RequiresPermissions({"compAdd", "compEdit"})
     @ResponseBody
     @RequestMapping(value = "/saveOrUpdateComp", produces = "application/json;charset=utf-8")
-    public String saveOrUpdateComp(HttpServletRequest request) {
-        Company company = new Company();
-        String companyId = request.getParameter("companyId");
-        if (!StringUtil.isEmpty(companyId)) {
-            company.setCompanyId(Integer.parseInt(companyId));
-        }
-        String status = request.getParameter("status");
-        if (!StringUtil.isEmpty(status)) {
-            company.setStatus(status);
-        }
-        company.setName(request.getParameter("name"));
-
-        company.setAddress(request.getParameter("address"));
-        company.setBank(request.getParameter("bank"));
-        company.setBankaccount(request.getParameter("bankaccount"));
-        company.setContact(request.getParameter("contact"));
-        company.setDescription(request.getParameter("description"));
-        company.setEmail(request.getParameter("email"));
-        company.setFax(request.getParameter("fax"));
-        company.setManager(request.getParameter("manager"));
-        company.setTel(request.getParameter("tel"));
-        company.setZip(request.getParameter("zip"));
-
+    public String saveOrUpdateComp(@ModelAttribute Company company) {
         Json json = getMessage(companyService.persistenceComp(company));
         return JSONArray.toJSONString(json);
     }
-
-    ///**
-    // * 添加或者修改公司信息,需要在控制器上也添加权限控制
-    // */
-    //@RequiresPermissions({"compAdd", "compEdit"})
-    //@ResponseBody
-    //@RequestMapping(value = "/saveOrUpdateComp", produces = "application/json;charset=utf-8")
-    //public String saveOrUpdateComp(@ModelAttribute Company company) {
-    //    Json json = getMessage(companyService.persistenceComp(company));
-    //    return JSONArray.toJSONString(json);
-    //}
 
 
     /**
