@@ -9,6 +9,7 @@
 
 package com.dyenigma.service.impl;
 
+import com.dyenigma.entity.BaseDomain;
 import com.dyenigma.entity.Organization;
 import com.dyenigma.model.TreeModel;
 import com.dyenigma.service.OrganizationService;
@@ -20,7 +21,6 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import java.util.ArrayList;
-import java.util.Date;
 import java.util.List;
 
 /**
@@ -79,18 +79,15 @@ public class OrganizationServiceImpl extends BaseServiceImpl<Organization> imple
         Integer userId = Constants.getCurrendUser().getUserId();
 
         if (StringUtil.isEmpty(organ.getOrganizationId() + "")) {
-            organ.setCreated(new Date());
-            organ.setLastmod(new Date());
-            organ.setCreater(userId);
-            organ.setModifyer(userId);
+
+            BaseDomain.createLog(organ, userId);
             organ.setStatus(Constants.PERSISTENCE_STATUS);
             // 能添加下级树节点的都设置为TREE_STATUS_CLOSED
             organ.setState(Constants.TREE_STATUS_CLOSED);
             organizationMapper.insert(organ);
         } else {
             organ.setState(Constants.TREE_STATUS_CLOSED);
-            organ.setLastmod(new Date());
-            organ.setModifyer(userId);
+            BaseDomain.editLog(organ, userId);
             organizationMapper.update(organ);
         }
         return true;

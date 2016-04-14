@@ -2,8 +2,8 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.dyenigma.dao.UserRoleMapper">
-    <select id="findAllByUserId" parameterType="Integer" resultType="Integer">
-        SELECT ROLEID FROM
+    <select id="findAllByUserId" parameterType="Integer" resultType="UserRole">
+        SELECT * FROM
         USERROLE
         WHERE STATUS = 'A' AND USERID = #{userId}
     </select>
@@ -11,17 +11,21 @@
     <insert id="insert" parameterType="UserRole" flushCache="true" useGeneratedKeys="true"
             keyProperty="urId">
         INSERT INTO USERROLE(USERID,ROLEID,STATUS,CREATED,LASTMOD,CREATER,MODIFYER)
-        VALUES(#{users.userId,jdbcType=INTEGER},#{role.roleId,jdbcType=INTEGER},
+        VALUES(#{userId,jdbcType=INTEGER},#{roleId,jdbcType=INTEGER},
         #{status,jdbcType=VARCHAR},#{created,jdbcType=DATE},#{lastmod,jdbcType=DATE},
         #{creater,jdbcType=INTEGER},#{modifyer,jdbcType=INTEGER})
     </insert>
 
     <update id="update" parameterType="UserRole">
         UPDATE USERROLE SET
-        USERID=#{users.userId,jdbcType=INTEGER},ROLEID=#{role.roleId,jdbcType=INTEGER},
+        USERID=#{userId,jdbcType=INTEGER},ROLEID=#{roleId,jdbcType=INTEGER},
         STATUS=#{status,jdbcType=VARCHAR},CREATED=#{created,jdbcType=DATE},
         LASTMOD=#{lastmod,jdbcType=DATE},CREATER=#{creater,jdbcType=INTEGER},
         MODIFYER=#{modifyer,jdbcType=INTEGER}
         WHERE URID=#{urId}
     </update>
+
+    <delete id="delete" parameterType="Integer">
+        DELETE FROM USERROLE WHERE URID=#{urId,jdbcType=INTEGER}
+    </delete>
 </mapper>

@@ -3,8 +3,8 @@
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.dyenigma.dao.RolePermissionMapper">
 
-    <select id="findAllByRoleId" parameterType="Integer" resultType="Integer">
-        SELECT PERMISSIONID FROM
+    <select id="findAllByRoleId" parameterType="Integer" resultType="RolePermission">
+        SELECT * FROM
         ROLEPERMISSION
         WHERE STATUS = 'A' AND ROLEID = #{roleId}
     </select>
@@ -12,7 +12,7 @@
     <insert id="insert" parameterType="RolePermission" flushCache="true" useGeneratedKeys="true"
             keyProperty="rpId">
         INSERT INTO ROLEPERMISSION(ROLEID,PERMISSIONID,STATUS,CREATED,LASTMOD,CREATER,MODIFYER)
-        VALUES(#{role.roleId,jdbcType=INTEGER},#{permission.permissionId,jdbcType=INTEGER},
+        VALUES(#{roleId,jdbcType=INTEGER},#{permissionId,jdbcType=INTEGER},
         #{status,jdbcType=VARCHAR},#{created,jdbcType=DATE},#{lastmod,jdbcType=DATE},
         #{creater,jdbcType=INTEGER},#{modifyer,jdbcType=INTEGER})
     </insert>
@@ -28,11 +28,15 @@
     </select>
 
     <update id="update" parameterType="RolePermission">
-        UPDATE ROLEPERMISSION SET ROLEID=#{role.roleId,jdbcType=INTEGER},
-        PERMISSIONID=#{permission.permissionId,jdbcType=INTEGER},STATUS=#{status,jdbcType=VARCHAR},
+        UPDATE ROLEPERMISSION SET ROLEID=#{roleId,jdbcType=INTEGER},
+        PERMISSIONID=#{permissionId,jdbcType=INTEGER},STATUS=#{status,jdbcType=VARCHAR},
         CREATED=#{created,jdbcType=DATE},LASTMOD=#{lastmod,jdbcType=DATE},
         MODIFYER=#{modifyer,jdbcType=INTEGER},CREATER=#{creater,jdbcType=INTEGER}
         WHERE RPID=#{rpId,jdbcType=INTEGER}
     </update>
+
+    <delete id="delete" parameterType="Integer">
+        DELETE FROM ROLEPERMISSION WHERE RPID=#{rpId,jdbcType=INTEGER}
+    </delete>
 
 </mapper>

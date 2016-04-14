@@ -1,9 +1,5 @@
 package com.dyenigma.entity;
 
-import java.util.Date;
-import java.util.HashSet;
-import java.util.Set;
-
 /**
  * 角色类
  */
@@ -13,13 +9,8 @@ public class Role extends BaseDomain {
     private String name;
     private String description;
     private String status;
-    private Date created;
-    private Date lastmod;
     private Integer sort;
-    private Integer creater;
-    private Integer modifyer;
-    private Set<UserRole> userRoles = new HashSet<>(0);
-    private Set<RolePermission> rolePermissions = new HashSet<>(0);
+
 
     public Integer getRoleId() {
         return roleId;
@@ -53,59 +44,11 @@ public class Role extends BaseDomain {
         this.status = status;
     }
 
-    public Date getCreated() {
-        return created;
-    }
-
-    public void setCreated(Date created) {
-        this.created = created;
-    }
-
-    public Date getLastmod() {
-        return lastmod;
-    }
-
-    public void setLastmod(Date lastmod) {
-        this.lastmod = lastmod;
-    }
-
     public Integer getSort() {
         return sort;
     }
 
     public void setSort(Integer sort) {
         this.sort = sort;
-    }
-
-    public Integer getCreater() {
-        return creater;
-    }
-
-    public void setCreater(Integer creater) {
-        this.creater = creater;
-    }
-
-    public Integer getModifyer() {
-        return modifyer;
-    }
-
-    public void setModifyer(Integer modifyer) {
-        this.modifyer = modifyer;
-    }
-
-    public Set<UserRole> getUserRoles() {
-        return userRoles;
-    }
-
-    public void setUserRoles(Set<UserRole> userRoles) {
-        this.userRoles = userRoles;
-    }
-
-    public Set<RolePermission> getRolePermissions() {
-        return rolePermissions;
-    }
-
-    public void setRolePermissions(Set<RolePermission> rolePermissions) {
-        this.rolePermissions = rolePermissions;
     }
 }

@@ -28,4 +28,6 @@ public interface UsersService extends BaseService<Users> {
     List<Users> allUserByPage(PageUtil pageUtil);
 
 
+    boolean delUser(int userId);
+
 }

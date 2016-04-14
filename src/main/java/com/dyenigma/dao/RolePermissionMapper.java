@@ -15,7 +15,7 @@ public interface RolePermissionMapper extends BaseMapper<RolePermission> {
      * param roleId
      * return
      */
-    List<Integer> findAllByRoleId(int roleId);
+    List<RolePermission> findAllByRoleId(int roleId);
 
     /**
      * 查找所有的有映射记录的角色信息，用于自动分配新增加的默认权限菜单

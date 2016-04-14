@@ -9,8 +9,6 @@
 
 package com.dyenigma.entity;
 
-import java.util.Date;
-
 /**
  * author dingdongliang
  * ClassName: RolePermission
@@ -21,13 +19,9 @@ import java.util.Date;
 public class RolePermission extends BaseDomain {
 
     private Integer rpId;
-    private Role role;
-    private Permission permission;
+    private Integer roleId;
+    private Integer permissionId;
     private String status;
-    private Date created;
-    private Date lastmod;
-    private Integer creater;
-    private Integer modifyer;
 
     public Integer getRpId() {
         return rpId;
@@ -37,20 +31,20 @@ public class RolePermission extends BaseDomain {
         this.rpId = rpId;
     }
 
-    public Role getRole() {
-        return role;
+    public Integer getRoleId() {
+        return roleId;
     }
 
-    public void setRole(Role role) {
-        this.role = role;
+    public void setRoleId(Integer roleId) {
+        this.roleId = roleId;
     }
 
-    public Permission getPermission() {
-        return permission;
+    public Integer getPermissionId() {
+        return permissionId;
     }
 
-    public void setPermission(Permission permission) {
-        this.permission = permission;
+    public void setPermissionId(Integer permissionId) {
+        this.permissionId = permissionId;
     }
 
     public String getStatus() {
@@ -59,37 +53,5 @@ public class RolePermission extends BaseDomain {
 
     public void setStatus(String status) {
         this.status = status;
-    }
-
-    public Date getCreated() {
-        return created;
-    }
-
-    public void setCreated(Date created) {
-        this.created = created;
-    }
-
-    public Date getLastmod() {
-        return lastmod;
-    }
-
-    public void setLastmod(Date lastmod) {
-        this.lastmod = lastmod;
-    }
-
-    public Integer getCreater() {
-        return creater;
-    }
-
-    public void setCreater(Integer creater) {
-        this.creater = creater;
-    }
-
-    public Integer getModifyer() {
-        return modifyer;
-    }
-
-    public void setModifyer(Integer modifyer) {
-        this.modifyer = modifyer;
     }
 }

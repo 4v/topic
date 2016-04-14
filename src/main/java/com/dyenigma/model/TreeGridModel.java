@@ -11,8 +11,6 @@ package com.dyenigma.model;
 
 import com.dyenigma.entity.BaseDomain;
 
-import java.util.Date;
-
 /**
  * author dingdongliang
  * ClassName: TreeGridModel
@@ -34,10 +32,7 @@ public class TreeGridModel extends BaseDomain {
     private String status;
     private String description;
     private String state;
-    private Date created;
-    private Date lastmod;
-    private int creater;
-    private int modifyer;
+
 
     public int getPermissionId() {
         return permissionId;
@@ -143,36 +138,6 @@ public class TreeGridModel extends BaseDomain {
         this.state = state;
     }
 
-    public Date getCreated() {
-        return created;
-    }
 
-    public void setCreated(Date created) {
-        this.created = created;
-    }
-
-    public Date getLastmod() {
-        return lastmod;
-    }
-
-    public void setLastmod(Date lastmod) {
-        this.lastmod = lastmod;
-    }
-
-    public int getCreater() {
-        return creater;
-    }
-
-    public void setCreater(int creater) {
-        this.creater = creater;
-    }
-
-    public int getModifyer() {
-        return modifyer;
-    }
-
-    public void setModifyer(int modifyer) {
-        this.modifyer = modifyer;
-    }
 
 }

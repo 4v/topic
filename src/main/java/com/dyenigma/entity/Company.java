@@ -11,8 +11,6 @@ package com.dyenigma.entity;
 
 import com.dyenigma.utils.ExcelVOAttribute;
 
-import java.util.Date;
-
 /**
  * author dingdongliang
  * ClassName: Company
@@ -37,15 +35,11 @@ public class Company extends BaseDomain {
     @ExcelVOAttribute(name = "联系人", column = "G")
     private String contact;
     private String status;
-    private Date created;
-    private Date lastmod;
     private String manager;
     private String bank;
     private String bankaccount;
     @ExcelVOAttribute(name = "描述", column = "H")
     private String description;
-    private Integer creater;
-    private Integer modifyer;
 
     public Integer getCompanyId() {
         return companyId;
@@ -119,22 +113,6 @@ public class Company extends BaseDomain {
         this.status = status;
     }
 
-    public Date getCreated() {
-        return created;
-    }
-
-    public void setCreated(Date created) {
-        this.created = created;
-    }
-
-    public Date getLastmod() {
-        return lastmod;
-    }
-
-    public void setLastmod(Date lastmod) {
-        this.lastmod = lastmod;
-    }
-
     public String getManager() {
         return manager;
     }
@@ -167,19 +145,5 @@ public class Company extends BaseDomain {
         this.description = description;
     }
 
-    public Integer getCreater() {
-        return creater;
-    }
 
-    public void setCreater(Integer creater) {
-        this.creater = creater;
-    }
-
-    public Integer getModifyer() {
-        return modifyer;
-    }
-
-    public void setModifyer(Integer modifyer) {
-        this.modifyer = modifyer;
-    }
 }

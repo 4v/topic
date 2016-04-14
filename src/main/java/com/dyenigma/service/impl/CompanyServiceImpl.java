@@ -1,5 +1,6 @@
 package com.dyenigma.service.impl;
 
+import com.dyenigma.entity.BaseDomain;
 import com.dyenigma.entity.Company;
 import com.dyenigma.entity.Organization;
 import com.dyenigma.service.CompanyService;
@@ -11,7 +12,6 @@ import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
-import java.util.Date;
 import java.util.List;
 import java.util.Map;
 
@@ -56,15 +56,11 @@ public class CompanyServiceImpl extends BaseServiceImpl<Company> implements Comp
 
         Integer userId = Constants.getCurrendUser().getUserId();
         if (StringUtil.isEmpty(company.getCompanyId() + "")) {
-            company.setCreated(new Date());
-            company.setLastmod(new Date());
-            company.setCreater(userId);
-            company.setModifyer(userId);
+            BaseDomain.createLog(company, userId);
             company.setStatus(Constants.PERSISTENCE_STATUS);
             companyMapper.insert(company);
         } else {
-            company.setLastmod(new Date());
-            company.setModifyer(userId);
+            BaseDomain.editLog(company, userId);
             companyMapper.update(company);
         }
         return true;
@@ -78,4 +74,5 @@ public class CompanyServiceImpl extends BaseServiceImpl<Company> implements Comp
     public List<Company> findSuperComp() {
         return companyMapper.findSuperComp();
     }
+
 }

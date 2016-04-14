@@ -9,7 +9,6 @@
 
 package com.dyenigma.entity;
 
-import java.util.Date;
 import java.util.HashSet;
 import java.util.Set;
 
@@ -35,10 +34,7 @@ public class Permission extends BaseDomain {
     private String iconCls;
     private String status;
     private String description;
-    private Date created;
-    private Date lastmod;
-    private Integer creater;
-    private Integer modifyer;
+
     private String isDefault;
     private Set<RolePermission> rolePermissions = new HashSet<>(0);
 
@@ -154,37 +150,6 @@ public class Permission extends BaseDomain {
         this.description = description;
     }
 
-    public Date getCreated() {
-        return created;
-    }
-
-    public void setCreated(Date created) {
-        this.created = created;
-    }
-
-    public Date getLastmod() {
-        return lastmod;
-    }
-
-    public void setLastmod(Date lastmod) {
-        this.lastmod = lastmod;
-    }
-
-    public Integer getCreater() {
-        return creater;
-    }
-
-    public void setCreater(Integer creater) {
-        this.creater = creater;
-    }
-
-    public Integer getModifyer() {
-        return modifyer;
-    }
-
-    public void setModifyer(Integer modifyer) {
-        this.modifyer = modifyer;
-    }
 
     public Set<RolePermission> getRolePermissions() {
         return rolePermissions;

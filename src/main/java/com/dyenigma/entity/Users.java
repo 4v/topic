@@ -32,10 +32,7 @@ public class Users extends BaseDomain {
     private Integer questionId;
     private String answer;
     private Integer isonline;
-    private Date created;
-    private Date lastmod;
-    private Integer creater;
-    private Integer modifyer;
+
     private String tel;
     private Set<UserRole> userRoles = new HashSet<>(0);
 
@@ -221,38 +218,6 @@ public class Users extends BaseDomain {
 
     public void setIsonline(Integer isonline) {
         this.isonline = isonline;
-    }
-
-    public Date getCreated() {
-        return created;
-    }
-
-    public void setCreated(Date created) {
-        this.created = created;
-    }
-
-    public Date getLastmod() {
-        return lastmod;
-    }
-
-    public void setLastmod(Date lastmod) {
-        this.lastmod = lastmod;
-    }
-
-    public Integer getCreater() {
-        return creater;
-    }
-
-    public void setCreater(Integer creater) {
-        this.creater = creater;
-    }
-
-    public Integer getModifyer() {
-        return modifyer;
-    }
-
-    public void setModifyer(Integer modifyer) {
-        this.modifyer = modifyer;
     }
 
     public String getTel() {

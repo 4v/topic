@@ -9,6 +9,7 @@
 
 package com.dyenigma.service.impl;
 
+import com.dyenigma.entity.BaseDomain;
 import com.dyenigma.entity.Permission;
 import com.dyenigma.entity.RolePermission;
 import com.dyenigma.model.MenuModel;
@@ -27,7 +28,6 @@ import org.springframework.transaction.annotation.Transactional;
 
 import java.lang.reflect.InvocationTargetException;
 import java.util.ArrayList;
-import java.util.Date;
 import java.util.List;
 
 /**
@@ -157,10 +157,7 @@ public class PermissionServiceImpl extends BaseServiceImpl<Permission> implement
     public boolean persistenceFunction(Permission permission) {
         Integer userId = Constants.getCurrendUser().getUserId();
         if (StringUtil.isEmpty(permission.getPermissionId() + "")) {
-            permission.setCreated(new Date());
-            permission.setLastmod(new Date());
-            permission.setCreater(userId);
-            permission.setModifyer(userId);
+            BaseDomain.createLog(permission, userId);
             permission.setStatus(Constants.PERSISTENCE_STATUS);
             if (Constants.IS_FUNCTION.equals(permission.getType())) {
                 permission.setState(Constants.TREE_STATUS_CLOSED);
@@ -174,8 +171,7 @@ public class PermissionServiceImpl extends BaseServiceImpl<Permission> implement
             } else {
                 permission.setState(Constants.TREE_STATUS_OPEN);
             }
-            permission.setLastmod(new Date());
-            permission.setModifyer(userId);
+            BaseDomain.editLog(permission, userId);
             permissionMapper.update(permission);
         }
         if ("Y".equals(permission.getIsDefault())) {
@@ -183,16 +179,11 @@ public class PermissionServiceImpl extends BaseServiceImpl<Permission> implement
             List<Integer> idList = rolePermissionMapper.findAllRoleId();
             //每个角色都添加该默认权限
             for (Integer roldId : idList) {
-                RolePermission rolePermission;
-                Date date = new Date();
-                rolePermission = new RolePermission();
-                rolePermission.setCreated(date);
-                rolePermission.setLastmod(date);
+                RolePermission rolePermission = new RolePermission();
                 rolePermission.setStatus(Constants.PERSISTENCE_STATUS);
-                rolePermission.setCreater(userId);
-                rolePermission.setModifyer(userId);
-                rolePermission.setPermission(permission);
-                rolePermission.setRole(roleMapper.findById(roldId));
+                BaseDomain.createLog(rolePermission, userId);
+                rolePermission.setPermissionId(permission.getPermissionId());
+                rolePermission.setRoleId(roldId);
                 rolePermissionMapper.insert(rolePermission);
             }
         }

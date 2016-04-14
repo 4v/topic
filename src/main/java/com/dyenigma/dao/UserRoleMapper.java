@@ -10,6 +10,6 @@ import java.util.List;
  */
 public interface UserRoleMapper extends BaseMapper<UserRole> {
 
-    List<Integer> findAllByUserId(int userId);
+    List<UserRole> findAllByUserId(int userId);
 
 }

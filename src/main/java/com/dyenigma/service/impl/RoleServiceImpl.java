@@ -1,5 +1,6 @@
 package com.dyenigma.service.impl;
 
+import com.dyenigma.entity.BaseDomain;
 import com.dyenigma.entity.Permission;
 import com.dyenigma.entity.Role;
 import com.dyenigma.entity.RolePermission;
@@ -12,7 +13,6 @@ import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
-import java.util.Date;
 import java.util.List;
 import java.util.Map;
 
@@ -50,10 +50,7 @@ public class RoleServiceImpl extends BaseServiceImpl<Role> implements RoleServic
         Integer userId = Constants.getCurrendUser().getUserId();
 
         if (StringUtil.isEmpty(role.getRoleId() + "")) {
-            role.setCreater(userId);
-            role.setLastmod(new Date());
-            role.setCreated(new Date());
-            role.setModifyer(userId);
+            BaseDomain.createLog(role, userId);
             role.setStatus(Constants.PERSISTENCE_STATUS);
             roleMapper.insert(role);
 
@@ -62,20 +59,15 @@ public class RoleServiceImpl extends BaseServiceImpl<Role> implements RoleServic
             //然后逐一添加进映射表
             for (Permission permission : pList) {
                 RolePermission rolePermission;
-                Date date = new Date();
                 rolePermission = new RolePermission();
-                rolePermission.setCreated(date);
-                rolePermission.setLastmod(date);
                 rolePermission.setStatus(Constants.PERSISTENCE_STATUS);
-                rolePermission.setCreater(userId);
-                rolePermission.setModifyer(userId);
-                rolePermission.setPermission(permission);
-                rolePermission.setRole(role);
+                BaseDomain.createLog(rolePermission, userId);
+                rolePermission.setPermissionId(permission.getPermissionId());
+                rolePermission.setRoleId(role.getRoleId());
                 rolePermissionMapper.insert(rolePermission);
             }
         } else {
-            role.setLastmod(new Date());
-            role.setModifyer(userId);
+            BaseDomain.editLog(role, userId);
             roleMapper.update(role);
         }
         return true;
@@ -84,7 +76,7 @@ public class RoleServiceImpl extends BaseServiceImpl<Role> implements RoleServic
     @Override
     public boolean delRole(int id) {
         //first，判断是否有角色权限记录
-        List<Integer> iList = rolePermissionMapper.findAllByRoleId(id);
+        List<RolePermission> iList = rolePermissionMapper.findAllByRoleId(id);
         if (iList.size() > 0) {
             return false;
         } else {

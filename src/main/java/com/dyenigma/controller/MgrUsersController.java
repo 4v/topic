@@ -140,7 +140,7 @@ public class MgrUsersController extends BaseController {
         String id = request.getParameter("userId");
 
         Json json = new Json();
-        boolean flag = usersService.delete(Integer.parseInt(id)) > 0;
+        boolean flag = usersService.delUser(Integer.parseInt(id));
 
         if (flag) {
             json.setStatus(true);

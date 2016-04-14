@@ -154,32 +154,30 @@
                     $.messager.confirm("提示", "确定要删除记录吗?",
                             function (result) {
                                 if (result) {
-                                    var request = $.ajax({
+                                    $.ajax({
                                         url: "/manage/users/delUser",
                                         data: {
                                             'userId': node.userId
                                         },
                                         method: "POST",
-                                        dataType: "JSON"
-                                    });
-
-                                    request.done(function (rsp) {
-                                        if (rsp.status) {
-                                            $dg.datagrid('deleteRow', rowIndex);
+                                        dataType: "JSON",
+                                        success: function (rsp) {
+                                            if (rsp.status) {
+                                                $dg.datagrid('deleteRow', rowIndex);
+                                            }
+                                            $.messager.show({
+                                                title: rsp.title,
+                                                msg: rsp.message,
+                                                timeout: 1000 * 2
+                                            });
+                                        },
+                                        error: function () {
+                                            $.messager.show({
+                                                title: "提示",
+                                                msg: "提交错误了！",
+                                                timeout: 1000 * 2
+                                            });
                                         }
-                                        $.messager.show({
-                                            title: rsp.title,
-                                            msg: rsp.message,
-                                            timeout: 1000 * 2
-                                        });
-                                    });
-
-                                    request.fail(function () {
-                                        $.messager.show({
-                                            title: "提示",
-                                            msg: "提交错误了！",
-                                            timeout: 1000 * 2
-                                        });
                                     });
                                 }
                             });

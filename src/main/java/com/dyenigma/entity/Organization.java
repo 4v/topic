@@ -9,8 +9,6 @@
 
 package com.dyenigma.entity;
 
-import java.util.Date;
-
 /**
  * ClassName: Organization
  * Description: 组织类
@@ -31,13 +29,9 @@ public class Organization extends BaseDomain {
     private String iconCls;
     private Integer empQty;
     private String status;
-    private Date created;
-    private Date lastmod;
     private String tel;
     private String fax;
     private String description;
-    private Integer creater;
-    private Integer modifyer;
     private String state = "closed";
 
     public String getpName() {
@@ -136,21 +130,6 @@ public class Organization extends BaseDomain {
         this.status = status;
     }
 
-    public Date getCreated() {
-        return created;
-    }
-
-    public void setCreated(Date created) {
-        this.created = created;
-    }
-
-    public Date getLastmod() {
-        return lastmod;
-    }
-
-    public void setLastmod(Date lastmod) {
-        this.lastmod = lastmod;
-    }
 
     public String getTel() {
         return tel;
@@ -176,21 +155,6 @@ public class Organization extends BaseDomain {
         this.description = description;
     }
 
-    public Integer getCreater() {
-        return creater;
-    }
-
-    public void setCreater(Integer creater) {
-        this.creater = creater;
-    }
-
-    public Integer getModifyer() {
-        return modifyer;
-    }
-
-    public void setModifyer(Integer modifyer) {
-        this.modifyer = modifyer;
-    }
 
     public String getState() {
         return state;

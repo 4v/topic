@@ -10,7 +10,7 @@ Target Server Type    : MYSQL
 Target Server Version : 50533
 File Encoding         : 65001
 
-Date: 2016-04-12 17:31:50
+Date: 2016-04-14 13:10:01
 */
 
 SET FOREIGN_KEY_CHECKS=0;
@@ -47,19 +47,19 @@ INSERT INTO `company` VALUES ('34', '话题科技责任有限公司', '159888888
 INSERT INTO `company` VALUES ('35', '公司名称', '联系电话', '传真', '地址', '邮编', '电子邮箱', '联系人', 'A', '2016-04-05', '2016-04-05', '负责人', '开户行', '账号', '描述', '1', '1');
 INSERT INTO `company` VALUES ('36', '公司名称2', '联系电话', '传真', '地址', '邮编', '电子邮箱', '联系人', 'A', '2016-04-05', '2016-04-05', '负责人', '开户行', '账号', '描述', '1', '1');
 INSERT INTO `company` VALUES ('37', '12', '12', '12', '12', '12', '12', '12', 'I', '2016-04-05', '2016-04-05', '12', '12', '12', '12', '1', '1');
-INSERT INTO `company` VALUES ('38', 'name', '1212', '111', '地址1', '131', '@@', 'lianxiren', 'A', '2016-04-04', '2016-04-05', 'manager', 'yinhang', 'zhanghao', 'miaosh', '1', '1');
-INSERT INTO `company` VALUES ('39', 'name', '1212', '111', '地址2', '131', '@@', 'lianxiren', 'A', '2016-04-04', '2016-04-05', 'manager', 'yinhang', 'zhanghao', 'miaosh', '1', '1');
-INSERT INTO `company` VALUES ('40', 'name', '1212', '111', '地址3', '131', '@@', 'lianxiren', 'A', '2016-04-04', '2016-04-05', 'manager', 'yinhang', 'zhanghao', 'miaosh', '1', '1');
-INSERT INTO `company` VALUES ('41', 'name', '1212', '111', '地址4', '131', '@@', 'lianxiren', 'A', '2016-04-04', '2016-04-05', 'manager', 'yinhang', 'zhanghao', 'miaosh', '1', '1');
-INSERT INTO `company` VALUES ('42', 'name', '1212', '111', '地址5', '131', '@@', 'lianxiren', 'A', '2016-04-04', '2016-04-05', 'manager', 'yinhang', 'zhanghao', 'miaosh', '1', '1');
-INSERT INTO `company` VALUES ('43', 'name', '1212', '111', '地址6', '131', '@@', 'lianxiren', 'A', '2016-04-04', '2016-04-05', 'manager', 'yinhang', 'zhanghao', 'miaosh', '1', '1');
-INSERT INTO `company` VALUES ('44', 'name', '1212', '111', '地址7', '131', '@@', 'lianxiren', 'A', '2016-04-04', '2016-04-05', 'manager', 'yinhang', 'zhanghao', 'miaosh', '1', '1');
-INSERT INTO `company` VALUES ('45', 'name', '1212', '111', '地址8', '131', '@@', 'lianxiren', 'A', '2016-04-04', '2016-04-05', 'manager', 'yinhang', 'zhanghao', 'miaosh', '1', '1');
+INSERT INTO `company` VALUES ('38', 'name', '1212', '111', '地址1', '131', '@@', 'lianxiren', 'I', '2016-04-04', '2016-04-05', 'manager', 'yinhang', 'zhanghao', 'miaosh', '1', '1');
+INSERT INTO `company` VALUES ('39', 'name', '1212', '111', '地址2', '131', '@@', 'lianxiren', 'I', '2016-04-04', '2016-04-05', 'manager', 'yinhang', 'zhanghao', 'miaosh', '1', '1');
+INSERT INTO `company` VALUES ('40', 'name', '1212', '111', '地址3', '131', '@@', 'lianxiren', 'I', '2016-04-04', '2016-04-05', 'manager', 'yinhang', 'zhanghao', 'miaosh', '1', '1');
+INSERT INTO `company` VALUES ('41', 'name', '1212', '111', '地址4', '131', '@@', 'lianxiren', 'I', '2016-04-04', '2016-04-05', 'manager', 'yinhang', 'zhanghao', 'miaosh', '1', '1');
+INSERT INTO `company` VALUES ('42', 'name', '1212', '111', '地址5', '131', '@@', 'lianxiren', 'I', '2016-04-04', '2016-04-05', 'manager', 'yinhang', 'zhanghao', 'miaosh', '1', '1');
+INSERT INTO `company` VALUES ('43', 'name', '1212', '111', '地址6', '131', '@@', 'lianxiren', 'I', '2016-04-04', '2016-04-05', 'manager', 'yinhang', 'zhanghao', 'miaosh', '1', '1');
+INSERT INTO `company` VALUES ('44', 'name', '1212', '111', '地址7', '131', '@@', 'lianxiren', 'I', '2016-04-04', '2016-04-05', 'manager', 'yinhang', 'zhanghao', 'miaosh', '1', '1');
+INSERT INTO `company` VALUES ('45', 'name', '1212', '111', '地址8', '131', '@@', 'lianxiren', 'I', '2016-04-04', '2016-04-05', 'manager', 'yinhang', 'zhanghao', 'miaosh', '1', '1');
 INSERT INTO `company` VALUES ('46', 'name', '1212', '111', '地址9', '131', '@@', 'lianxiren', 'A', '2016-04-04', '2016-04-05', 'manager', 'yinhang', 'zhanghao', 'miaosh', '1', '1');
 INSERT INTO `company` VALUES ('47', 'name', '1212', '111', '地址10', '131', '@@', 'lianxiren', 'A', '2016-04-04', '2016-04-05', 'manager', 'yinhang', 'zhanghao', 'miaosh', '1', '1');
 INSERT INTO `company` VALUES ('48', 'name', '1212', '111', '地址11', '131', '@@', 'lianxiren', 'A', '2016-04-04', '2016-04-05', 'manager', 'yinhang', 'zhanghao', 'miaosh', '1', '1');
 INSERT INTO `company` VALUES ('49', 'name', '1212', '111', '地址12', '131', '@@', 'lianxiren', 'I', '2016-04-04', '2016-04-05', 'manager', 'yinhang', 'zhanghao', 'miaosh', '1', '1');
-INSERT INTO `company` VALUES ('50', 'sadf', 'asdf', 'fads', 'asdf', 'asdf', 'adsf', 'f', 'A', '2016-04-07', '2016-04-07', 'asdf', 'adsf', 'ads', 'asdf', '1', '1');
+INSERT INTO `company` VALUES ('50', 'sadf', 'asdf', 'fads', 'asdf', 'asdf', 'adsf', 'f', 'I', '2016-04-07', '2016-04-07', 'asdf', 'adsf', 'ads', 'asdf', '1', '1');
 
 -- ----------------------------
 -- Table structure for log
@@ -146,7 +146,7 @@ CREATE TABLE `permission` (
   `MODIFYER` int(10) DEFAULT NULL COMMENT '修改人',
   `ISDEFAULT` char(1) DEFAULT 'N' COMMENT '是否默认权限，Y是N否',
   PRIMARY KEY (`PERMISSIONID`)
-) ENGINE=InnoDB AUTO_INCREMENT=138 DEFAULT CHARSET=utf8 COMMENT='权限资料表';
+) ENGINE=InnoDB AUTO_INCREMENT=139 DEFAULT CHARSET=utf8 COMMENT='权限资料表';
 
 -- ----------------------------
 -- Records of permission
@@ -165,7 +165,7 @@ INSERT INTO `permission` VALUES ('107', '1', '用户管理', '系统管理', '3'
 INSERT INTO `permission` VALUES ('108', '1', '角色管理', '系统管理', '4', 'roleMgr', 'F', 'Y', 'closed', '/manage/role/roleMgr', 'icon-star', 'A', '角色管理，用于角色的增删改与权限的分配', '2016-03-15 00:00:00', '2016-04-04 08:14:40', '1', '1', 'N');
 INSERT INTO `permission` VALUES ('110', '1', '用户角色', '系统管理', '5', 'setUser', 'F', 'Y', 'closed', '/manage/userRole/setRole', 'icon-woman', 'A', '用户的角色分配', '2016-03-15 00:00:00', '2016-04-04 08:14:48', '1', '1', 'N');
 INSERT INTO `permission` VALUES ('111', '1', '组织管理', '系统管理', '2', 'organMgr', 'F', 'Y', 'closed', '/manage/organ/organMain', 'icon-organ', 'A', '组织机构管理', '2016-03-15 00:00:00', '2016-04-04 08:14:20', '1', '1', 'N');
-INSERT INTO `permission` VALUES ('113', '0', 'BUG管理', '', '6', 'bugMgr', 'F', 'Y', 'closed', 'javascript:void(0);', 'icon-danger', 'A', '提交BUG，反馈处理结果等', '2016-03-15 00:00:00', '2016-04-04 08:15:29', '1', '1', 'N');
+INSERT INTO `permission` VALUES ('113', '0', '问题反馈', '', '6', 'bugMgr', 'F', 'Y', 'closed', 'javascript:void(0);', 'icon-danger', 'A', '提交BUG，反馈处理结果等', '2016-03-15 00:00:00', '2016-04-13 14:26:32', '1', '1', 'N');
 INSERT INTO `permission` VALUES ('114', '106', '运行监控', '系统监控', '1', 'dataMgr', 'F', 'Y', 'closed', '/druid', 'icon-camera', 'A', '淘宝Druid监控，包含数据源、sql、web应用、uri监控、session监控、spring监控等', '2016-03-16 00:00:00', '2016-04-04 08:18:26', '1', '1', 'N');
 INSERT INTO `permission` VALUES ('115', '107', '新增用户', '用户管理', '1', 'userAdd', 'O', 'Y', 'open', 'javascript:void(0);', 'icon-add', 'A', '', '2016-03-16 00:00:00', '2016-03-16 00:00:00', '1', '1', 'N');
 INSERT INTO `permission` VALUES ('116', '107', '用户修改', '用户管理', '2', 'userEdit', 'O', 'Y', 'open', 'javascript:void(0);', 'icon-edit', 'A', '', '2016-03-16 00:00:00', '2016-03-16 00:00:00', '1', '1', 'N');
@@ -176,10 +176,10 @@ INSERT INTO `permission` VALUES ('120', '111', '删除组织', '组织管理', '
 INSERT INTO `permission` VALUES ('121', '108', '新增角色', '角色管理', '1', 'roleAdd', 'O', 'Y', 'open', 'javascript:void(0);', 'icon-add', 'A', '', '2016-03-16 00:00:00', '2016-04-08 08:38:41', '1', '1', 'N');
 INSERT INTO `permission` VALUES ('122', '108', '角色修改', '角色管理', '2', 'roleEdit', 'O', 'Y', 'open', 'javascript:void(0);', 'icon-edit', 'A', '', '2016-03-16 00:00:00', '2016-03-16 00:00:00', '1', '1', 'N');
 INSERT INTO `permission` VALUES ('123', '108', '删除角色', '角色管理', '3', 'roleDel', 'O', 'Y', 'open', 'javascript:void(0);', 'icon-remove', 'A', '', '2016-03-16 00:00:00', '2016-03-16 00:00:00', '1', '1', 'N');
-INSERT INTO `permission` VALUES ('125', '110', '角色分配', '用户角色', '1', 'allotRole', 'O', 'Y', 'open', 'javascript:void(0);', 'icon-star', 'A', '角色分配给某个用户', '2016-03-16 00:00:00', '2016-03-16 15:36:06', '1', '1', 'N');
-INSERT INTO `permission` VALUES ('126', '113', '提交BUG', 'BUG管理', '1', 'bugAdd', 'O', 'Y', 'open', 'javascript:void(0);', 'icon-add', 'A', '', '2016-03-16 00:00:00', '2016-03-16 00:00:00', '1', '1', 'N');
-INSERT INTO `permission` VALUES ('127', '113', 'BUG反馈', 'BUG管理', '2', 'bugReply', 'O', 'Y', 'open', 'javascript:void(0);', 'icon-yes', 'A', '', '2016-03-16 00:00:00', '2016-03-16 15:39:49', '1', '1', 'N');
-INSERT INTO `permission` VALUES ('128', '113', '无效BUG', 'BUG管理', '3', 'bugDel', 'O', 'Y', 'open', 'javascript:void(0);', 'icon-no', 'A', '', '2016-03-16 00:00:00', '2016-03-16 16:00:15', '1', '1', 'N');
+INSERT INTO `permission` VALUES ('125', '110', '角色分配', '用户角色', '1', 'alltoRole', 'O', 'Y', 'open', 'javascript:void(0);', 'icon-star', 'A', '角色分配给某个用户', '2016-03-16 00:00:00', '2016-03-16 15:36:06', '1', '1', 'N');
+INSERT INTO `permission` VALUES ('126', '113', '提交问题', '问题反馈', '0', 'bugAdd', 'F', 'Y', 'closed', 'javascript:void(0);', 'icon-menu', 'A', '', '2016-03-16 00:00:00', '2016-04-14 11:24:06', '1', '1', 'N');
+INSERT INTO `permission` VALUES ('127', '138', 'BUG回复', 'BUG查看', '2', 'bugReply', 'O', 'Y', 'open', 'javascript:void(0);', 'icon-yes', 'A', '', '2016-03-16 00:00:00', '2016-04-13 14:27:41', '1', '1', 'N');
+INSERT INTO `permission` VALUES ('128', '138', '标记无效', 'BUG查看', '3', 'bugDel', 'O', 'Y', 'open', 'javascript:void(0);', 'icon-no', 'A', '', '2016-03-16 00:00:00', '2016-04-14 10:00:35', '1', '1', 'N');
 INSERT INTO `permission` VALUES ('129', '104', '定时备份', '数据备份', '1', 'autoBak', 'O', 'Y', 'open', 'javascript:void(0);', 'icon-save', 'A', '', '2016-03-16 00:00:00', '2016-03-16 00:00:00', '1', '1', 'N');
 INSERT INTO `permission` VALUES ('130', '104', '手动备份', '数据备份', '2', 'myBak', 'O', 'Y', 'open', 'javascript:void(0);', 'icon-dbadd', 'A', '', '2016-03-16 00:00:00', '2016-03-16 00:00:00', '1', '1', 'N');
 INSERT INTO `permission` VALUES ('132', '1', '公司管理', '系统管理', '1', 'compMgr', 'F', 'Y', 'closed', '/manage/comp/compMain', 'icon-company', 'A', '公司资料编辑', '2016-04-04 00:00:00', '2016-04-04 08:14:12', '1', '1', 'N');
@@ -187,6 +187,7 @@ INSERT INTO `permission` VALUES ('134', '132', '添加公司', '公司管理', '
 INSERT INTO `permission` VALUES ('135', '132', '编辑资料', '公司管理', '2', 'compEdit', 'O', 'Y', 'open', 'javascript:void(0);', 'icon-edit', 'A', '', '2016-04-04 00:00:00', '2016-04-04 00:00:00', '1', '1', 'N');
 INSERT INTO `permission` VALUES ('136', '132', '删除公司', '公司管理', '3', 'compDel', 'O', 'Y', 'open', 'javascript:void(0);', 'icon-remove', 'A', '', '2016-04-04 00:00:00', '2016-04-04 00:00:00', '1', '1', 'N');
 INSERT INTO `permission` VALUES ('137', '108', '权限设定', '角色管理', '4', 'roleSave', 'O', 'Y', 'open', 'javascript:void(0);', 'icon-save', 'A', '保存角色拥有权限的设定', '2016-04-08 00:00:00', '2016-04-08 00:00:00', '1', '1', 'N');
+INSERT INTO `permission` VALUES ('138', '113', '问题列表', 'BUG管理', '1', 'bugList', 'F', 'Y', 'closed', 'javascript:void(0);', 'icon-question', 'A', '查看BUG列表', '2016-04-13 00:00:00', '2016-04-13 14:27:01', '1', '1', 'N');
 
 -- ----------------------------
 -- Table structure for role
@@ -209,17 +210,7 @@ CREATE TABLE `role` (
 -- Records of role
 -- ----------------------------
 INSERT INTO `role` VALUES ('1', '超级管理员', '具有所有权限', 'A', '2013-05-20 00:00:00', '2016-04-08 00:00:00', '1', '1', '1');
-INSERT INTO `role` VALUES ('12', '测试用户', '测试用户', 'A', '2016-04-08 09:38:52', '2016-04-08 00:00:00', '4', '1', '1');
-INSERT INTO `role` VALUES ('13', '测试用户2', '测试用户', 'A', '2016-04-08 09:38:52', '2016-04-08 09:38:54', '3', '1', '1');
-INSERT INTO `role` VALUES ('14', '测试用户3', '测试用户', 'I', '2016-04-08 09:38:52', '2016-04-08 09:38:54', '4', '1', '1');
-INSERT INTO `role` VALUES ('15', '测试用户34', '测试用户', 'A', '2016-04-08 09:38:52', '2016-04-08 09:38:54', '5', '1', '1');
-INSERT INTO `role` VALUES ('16', '测试用户345', '测试用户', 'A', '2016-04-08 09:38:52', '2016-04-08 09:38:54', '6', '1', '1');
-INSERT INTO `role` VALUES ('17', '测试用户3456', '测试用户', 'A', '2016-04-08 09:38:52', '2016-04-08 09:38:54', '7', '1', '1');
-INSERT INTO `role` VALUES ('18', '测试用户34567', '测试用户', 'A', '2016-04-08 09:38:52', '2016-04-08 09:38:54', '8', '1', '1');
-INSERT INTO `role` VALUES ('19', '测试用户345678', '测试用户', 'I', '2016-04-08 09:38:52', '2016-04-08 09:38:54', '9', '1', '1');
-INSERT INTO `role` VALUES ('20', '测试用户3456789', '测试用户', 'I', '2016-04-08 09:38:52', '2016-04-08 09:38:54', '10', '1', '1');
-INSERT INTO `role` VALUES ('21', '测试用户34567890', '测试用户', 'I', '2016-04-08 09:38:52', '2016-04-08 09:38:54', '11', '1', '1');
-INSERT INTO `role` VALUES ('22', '测试用户345678901', '测试用户', 'A', '2016-04-08 09:38:52', '2016-04-08 09:38:54', '12', '1', '1');
+INSERT INTO `role` VALUES ('12', '测试用户', '测试用户', 'I', '2016-04-08 09:38:52', '2016-04-08 00:00:00', '4', '1', '1');
 INSERT INTO `role` VALUES ('23', '访客', '具有默认权限', 'A', '2016-04-08 00:00:00', '2016-04-08 00:00:00', '2', '1', '1');
 
 -- ----------------------------
@@ -240,52 +231,48 @@ CREATE TABLE `rolepermission` (
   KEY `FK_ROLE_PERMISSION2` (`PERMISSIONID`),
   CONSTRAINT `FK_ROLE_PERMISSION1` FOREIGN KEY (`ROLEID`) REFERENCES `role` (`ROLEID`),
   CONSTRAINT `FK_ROLE_PERMISSION2` FOREIGN KEY (`PERMISSIONID`) REFERENCES `permission` (`PERMISSIONID`)
-) ENGINE=InnoDB AUTO_INCREMENT=315 DEFAULT CHARSET=utf8 COMMENT='角色权限资料';
+) ENGINE=InnoDB AUTO_INCREMENT=333 DEFAULT CHARSET=utf8 COMMENT='角色权限资料';
 
 -- ----------------------------
 -- Records of rolepermission
 -- ----------------------------
-INSERT INTO `rolepermission` VALUES ('1', '1', '1', 'A', '2013-06-14 00:00:00', '2013-06-18 00:00:00', '1', '1');
-INSERT INTO `rolepermission` VALUES ('2', '1', '2', 'A', '2013-06-14 00:00:00', '2013-06-18 00:00:00', '1', '1');
-INSERT INTO `rolepermission` VALUES ('275', '1', '3', 'A', '2016-03-16 08:00:00', '2016-03-16 08:00:00', '1', '1');
-INSERT INTO `rolepermission` VALUES ('276', '1', '4', 'A', '2016-03-16 08:00:00', '2016-03-16 08:00:00', '1', '1');
-INSERT INTO `rolepermission` VALUES ('277', '1', '5', 'A', '2016-03-16 08:00:00', '2016-03-16 08:00:00', '1', '1');
-INSERT INTO `rolepermission` VALUES ('278', '1', '102', 'A', '2016-03-16 08:00:00', '2016-03-16 08:00:00', '1', '1');
-INSERT INTO `rolepermission` VALUES ('279', '1', '103', 'A', '2016-03-16 08:00:00', '2016-03-16 08:00:00', '1', '1');
-INSERT INTO `rolepermission` VALUES ('280', '1', '104', 'A', '2016-03-16 08:00:00', '2016-03-16 08:00:00', '1', '1');
-INSERT INTO `rolepermission` VALUES ('281', '1', '105', 'A', '2016-03-16 08:00:00', '2016-03-16 08:00:00', '1', '1');
-INSERT INTO `rolepermission` VALUES ('282', '1', '106', 'A', '2016-03-16 08:00:00', '2016-03-16 08:00:00', '1', '1');
-INSERT INTO `rolepermission` VALUES ('283', '1', '107', 'A', '2016-03-16 08:00:00', '2016-03-16 08:00:00', '1', '1');
-INSERT INTO `rolepermission` VALUES ('284', '1', '108', 'A', '2016-03-16 08:00:00', '2016-03-16 08:00:00', '1', '1');
-INSERT INTO `rolepermission` VALUES ('285', '1', '109', 'A', '2016-03-16 08:00:00', '2016-03-16 08:00:00', '1', '1');
-INSERT INTO `rolepermission` VALUES ('286', '1', '110', 'A', '2016-03-16 08:00:00', '2016-03-16 08:00:00', '1', '1');
-INSERT INTO `rolepermission` VALUES ('287', '1', '111', 'A', '2016-03-16 08:00:00', '2016-03-16 08:00:00', '1', '1');
-INSERT INTO `rolepermission` VALUES ('288', '1', '112', 'A', '2016-03-16 08:00:00', '2016-03-16 08:00:00', '1', '1');
-INSERT INTO `rolepermission` VALUES ('289', '1', '113', 'A', '2016-03-16 08:00:00', '2016-03-16 08:00:00', '1', '1');
-INSERT INTO `rolepermission` VALUES ('290', '1', '114', 'A', '2016-03-16 08:00:00', '2016-03-16 08:00:00', '1', '1');
-INSERT INTO `rolepermission` VALUES ('291', '1', '115', 'A', '2016-03-16 08:00:00', '2016-03-16 08:00:00', '1', '1');
-INSERT INTO `rolepermission` VALUES ('292', '1', '116', 'A', '2016-03-16 08:00:00', '2016-03-16 08:00:00', '1', '1');
-INSERT INTO `rolepermission` VALUES ('293', '1', '117', 'A', '2016-03-16 08:00:00', '2016-03-16 08:00:00', '1', '1');
-INSERT INTO `rolepermission` VALUES ('294', '1', '118', 'A', '2016-03-16 08:00:00', '2016-03-16 08:00:00', '1', '1');
-INSERT INTO `rolepermission` VALUES ('295', '1', '119', 'A', '2016-03-16 08:00:00', '2016-03-16 08:00:00', '1', '1');
-INSERT INTO `rolepermission` VALUES ('296', '1', '120', 'A', '2016-03-16 08:00:00', '2016-03-16 08:00:00', '1', '1');
-INSERT INTO `rolepermission` VALUES ('297', '1', '121', 'A', '2016-03-16 08:00:00', '2016-03-16 08:00:00', '1', '1');
-INSERT INTO `rolepermission` VALUES ('298', '1', '122', 'A', '2016-03-16 08:00:00', '2016-03-16 08:00:00', '1', '1');
-INSERT INTO `rolepermission` VALUES ('299', '1', '123', 'A', '2016-03-16 08:00:00', '2016-03-16 08:00:00', '1', '1');
-INSERT INTO `rolepermission` VALUES ('301', '1', '125', 'A', '2016-03-16 08:00:00', '2016-03-16 08:00:00', '1', '1');
-INSERT INTO `rolepermission` VALUES ('302', '1', '126', 'A', '2016-03-16 08:00:00', '2016-03-16 08:00:00', '1', '1');
-INSERT INTO `rolepermission` VALUES ('303', '1', '127', 'A', '2016-03-16 08:00:00', '2016-03-16 08:00:00', '1', '1');
-INSERT INTO `rolepermission` VALUES ('304', '1', '128', 'A', '2016-03-16 08:00:00', '2016-03-16 08:00:00', '1', '1');
-INSERT INTO `rolepermission` VALUES ('305', '1', '129', 'A', '2016-03-16 08:00:00', '2016-03-16 08:00:00', '1', '1');
-INSERT INTO `rolepermission` VALUES ('306', '1', '130', 'A', '2016-03-16 08:00:00', '2016-03-16 08:00:00', '1', '1');
-INSERT INTO `rolepermission` VALUES ('307', '1', '131', 'A', '2016-03-16 08:00:00', '2016-03-16 08:00:00', '1', '1');
-INSERT INTO `rolepermission` VALUES ('308', '1', '136', 'A', '2016-04-04 08:00:00', '2016-04-04 08:00:00', '1', '1');
-INSERT INTO `rolepermission` VALUES ('309', '1', '134', 'A', '2016-04-04 08:00:00', '2016-04-04 08:00:00', '1', '1');
-INSERT INTO `rolepermission` VALUES ('310', '1', '135', 'A', '2016-04-04 08:00:00', '2016-04-04 08:00:00', '1', '1');
-INSERT INTO `rolepermission` VALUES ('311', '1', '137', 'A', '2016-04-08 08:39:36', '2016-04-08 08:39:39', '1', '1');
-INSERT INTO `rolepermission` VALUES ('312', '1', '132', 'A', '2016-04-11 17:40:27', '2016-04-11 17:40:29', '1', '1');
-INSERT INTO `rolepermission` VALUES ('313', '23', '126', 'A', '2016-04-12 00:00:00', '2016-04-12 00:00:00', '1', '1');
-INSERT INTO `rolepermission` VALUES ('314', '23', '113', 'A', '2016-04-12 00:00:00', '2016-04-12 00:00:00', '1', '1');
+INSERT INTO `rolepermission` VALUES ('1', '1', '1', 'A', '2013-06-14 00:00:00', '2016-04-14 00:00:00', '1', '1');
+INSERT INTO `rolepermission` VALUES ('2', '1', '2', 'A', '2013-06-14 00:00:00', '2016-04-14 00:00:00', '1', '1');
+INSERT INTO `rolepermission` VALUES ('275', '1', '3', 'A', '2016-03-16 00:00:00', '2016-04-14 00:00:00', '1', '1');
+INSERT INTO `rolepermission` VALUES ('276', '1', '4', 'A', '2016-03-16 00:00:00', '2016-04-14 00:00:00', '1', '1');
+INSERT INTO `rolepermission` VALUES ('277', '1', '5', 'A', '2016-03-16 00:00:00', '2016-04-14 00:00:00', '1', '1');
+INSERT INTO `rolepermission` VALUES ('278', '1', '102', 'A', '2016-03-16 00:00:00', '2016-04-14 00:00:00', '1', '1');
+INSERT INTO `rolepermission` VALUES ('279', '1', '103', 'A', '2016-03-16 00:00:00', '2016-04-14 00:00:00', '1', '1');
+INSERT INTO `rolepermission` VALUES ('280', '1', '104', 'A', '2016-03-16 00:00:00', '2016-04-14 00:00:00', '1', '1');
+INSERT INTO `rolepermission` VALUES ('281', '1', '105', 'A', '2016-03-16 00:00:00', '2016-04-14 00:00:00', '1', '1');
+INSERT INTO `rolepermission` VALUES ('282', '1', '106', 'A', '2016-03-16 00:00:00', '2016-04-14 00:00:00', '1', '1');
+INSERT INTO `rolepermission` VALUES ('283', '1', '107', 'A', '2016-03-16 00:00:00', '2016-04-14 00:00:00', '1', '1');
+INSERT INTO `rolepermission` VALUES ('284', '1', '108', 'A', '2016-03-16 00:00:00', '2016-04-14 00:00:00', '1', '1');
+INSERT INTO `rolepermission` VALUES ('286', '1', '110', 'A', '2016-03-16 00:00:00', '2016-04-14 00:00:00', '1', '1');
+INSERT INTO `rolepermission` VALUES ('287', '1', '111', 'A', '2016-03-16 00:00:00', '2016-04-14 00:00:00', '1', '1');
+INSERT INTO `rolepermission` VALUES ('289', '1', '113', 'A', '2016-03-16 00:00:00', '2016-04-14 00:00:00', '1', '1');
+INSERT INTO `rolepermission` VALUES ('290', '1', '114', 'A', '2016-03-16 00:00:00', '2016-04-14 00:00:00', '1', '1');
+INSERT INTO `rolepermission` VALUES ('291', '1', '115', 'A', '2016-03-16 00:00:00', '2016-04-14 00:00:00', '1', '1');
+INSERT INTO `rolepermission` VALUES ('292', '1', '116', 'A', '2016-03-16 00:00:00', '2016-04-14 00:00:00', '1', '1');
+INSERT INTO `rolepermission` VALUES ('293', '1', '117', 'A', '2016-03-16 00:00:00', '2016-04-14 00:00:00', '1', '1');
+INSERT INTO `rolepermission` VALUES ('294', '1', '118', 'A', '2016-03-16 00:00:00', '2016-04-14 00:00:00', '1', '1');
+INSERT INTO `rolepermission` VALUES ('295', '1', '119', 'A', '2016-03-16 00:00:00', '2016-04-14 00:00:00', '1', '1');
+INSERT INTO `rolepermission` VALUES ('296', '1', '120', 'A', '2016-03-16 00:00:00', '2016-04-14 00:00:00', '1', '1');
+INSERT INTO `rolepermission` VALUES ('297', '1', '121', 'A', '2016-03-16 00:00:00', '2016-04-14 00:00:00', '1', '1');
+INSERT INTO `rolepermission` VALUES ('298', '1', '122', 'A', '2016-03-16 00:00:00', '2016-04-14 00:00:00', '1', '1');
+INSERT INTO `rolepermission` VALUES ('299', '1', '123', 'A', '2016-03-16 00:00:00', '2016-04-14 00:00:00', '1', '1');
+INSERT INTO `rolepermission` VALUES ('301', '1', '125', 'A', '2016-03-16 00:00:00', '2016-04-14 00:00:00', '1', '1');
+INSERT INTO `rolepermission` VALUES ('302', '1', '126', 'A', '2016-03-16 00:00:00', '2016-04-14 00:00:00', '1', '1');
+INSERT INTO `rolepermission` VALUES ('303', '1', '127', 'A', '2016-03-16 00:00:00', '2016-04-14 00:00:00', '1', '1');
+INSERT INTO `rolepermission` VALUES ('304', '1', '128', 'A', '2016-03-16 00:00:00', '2016-04-14 00:00:00', '1', '1');
+INSERT INTO `rolepermission` VALUES ('305', '1', '129', 'A', '2016-03-16 00:00:00', '2016-04-14 00:00:00', '1', '1');
+INSERT INTO `rolepermission` VALUES ('306', '1', '130', 'A', '2016-03-16 00:00:00', '2016-04-14 00:00:00', '1', '1');
+INSERT INTO `rolepermission` VALUES ('308', '1', '136', 'A', '2016-04-04 00:00:00', '2016-04-14 00:00:00', '1', '1');
+INSERT INTO `rolepermission` VALUES ('309', '1', '134', 'A', '2016-04-04 00:00:00', '2016-04-14 00:00:00', '1', '1');
+INSERT INTO `rolepermission` VALUES ('310', '1', '135', 'A', '2016-04-04 00:00:00', '2016-04-14 00:00:00', '1', '1');
+INSERT INTO `rolepermission` VALUES ('311', '1', '137', 'A', '2016-04-08 00:00:00', '2016-04-14 00:00:00', '1', '1');
+INSERT INTO `rolepermission` VALUES ('312', '1', '132', 'A', '2016-04-11 00:00:00', '2016-04-14 00:00:00', '1', '1');
+INSERT INTO `rolepermission` VALUES ('327', '1', '138', 'A', '2016-04-14 00:00:00', '2016-04-14 00:00:00', '1', '1');
 
 -- ----------------------------
 -- Table structure for userrole
@@ -305,12 +292,13 @@ CREATE TABLE `userrole` (
   KEY `FK_USER_ROLE2` (`ROLEID`),
   CONSTRAINT `FK_USER_ROLE1` FOREIGN KEY (`USERID`) REFERENCES `users` (`USERID`),
   CONSTRAINT `FK_USER_ROLE2` FOREIGN KEY (`ROLEID`) REFERENCES `role` (`ROLEID`)
-) ENGINE=InnoDB AUTO_INCREMENT=25 DEFAULT CHARSET=utf8 COMMENT='用户角色资料表';
+) ENGINE=InnoDB AUTO_INCREMENT=34 DEFAULT CHARSET=utf8 COMMENT='用户角色资料表';
 
 -- ----------------------------
 -- Records of userrole
 -- ----------------------------
 INSERT INTO `userrole` VALUES ('1', '1', '1', 'A', '2013-05-24 00:00:00', '2013-06-22 13:43:22', '1', '1');
+INSERT INTO `userrole` VALUES ('33', '25', '23', 'A', '2016-04-14 00:00:00', '2016-04-14 00:00:00', '1', '1');
 
 -- ----------------------------
 -- Table structure for users
@@ -352,5 +340,4 @@ CREATE TABLE `users` (
 -- Records of users
 -- ----------------------------
 INSERT INTO `users` VALUES ('1', 'system', 'system', 'system', '23', '话题项目组', null, null, '54B53072540EEEB8F8E9343E71F28176', '12@qq.com', null, null, null, null, null, null, null, 'A', null, '111111', null, null, null, null, '2013-06-14 00:00:00', '1', '1', '1111111');
-INSERT INTO `users` VALUES ('25', 'demo', 'demo', 'demo', '23', '话题项目组', null, null, '111111', 'demo@1.com', null, null, null, null, null, null, null, 'A', null, '2222222', null, null, null, '2016-04-07 16:09:02', '2016-04-07 16:09:07', '1', '1', '2222222');
-INSERT INTO `users` VALUES ('32', 'test', 'test', 'test', '26', 'ceshi', null, null, '96e79218965eb72c92a549dd5a330112', 'asdf', null, null, null, null, null, null, null, 'A', null, 'asdf', null, null, null, '2016-04-07 00:00:00', '2016-04-07 00:00:00', '1', '1', 'asdf');
+INSERT INTO `users` VALUES ('25', 'demo', 'demo', 'demo', '23', '话题项目组', null, null, '96e79218965eb72c92a549dd5a330112', 'demo@1.com', null, null, null, null, null, null, null, 'A', null, '2222222', null, null, null, '2016-04-07 16:09:02', '2016-04-07 16:09:07', '1', '1', '2222222');
