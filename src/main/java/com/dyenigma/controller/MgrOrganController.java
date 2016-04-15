@@ -15,7 +15,6 @@ import com.dyenigma.model.Json;
 import com.dyenigma.model.TreeModel;
 import com.dyenigma.service.OrganizationService;
 import com.dyenigma.utils.Constants;
-import com.dyenigma.utils.StringUtil;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -131,48 +130,7 @@ public class MgrOrganController extends BaseController {
      */
     @ResponseBody
     @RequestMapping(value = "/saveOrUpdateOrgan", produces = "application/json;charset=utf-8")
-    public String saveOrUpdateOrgan(HttpServletRequest request) {
-        Organization organ = new Organization();
-
-        String organizationId = request.getParameter("organizationId");
-        if (!StringUtil.isEmpty(organizationId)) {
-            organ.setOrganizationId(Integer.parseInt(organizationId));
-        }
-
-        String status = request.getParameter("status");
-        if (!StringUtil.isEmpty(status)) {
-            organ.setStatus(status);
-        }
-        organ.setFullName(request.getParameter("fullName"));
-        String pid = request.getParameter("pid");
-        if (!StringUtil.isEmpty(pid)) {
-            organ.setPid(Integer.parseInt(request.getParameter("pid")));
-        }
-
-        organ.setIconCls(request.getParameter("iconCls"));
-        organ.setTel(request.getParameter("tel"));
-        organ.setMyId(request.getParameter("myId"));
-        organ.setFax(request.getParameter("fax"));
-        organ.setDescription(request.getParameter("description"));
-        organ.setEname(request.getParameter("ename"));
-
-        organ.setCompanyName(request.getParameter("companyName"));
-        organ.setpName(request.getParameter("pName"));
-
-        String companyId= request.getParameter("companyId");
-        if(StringUtil.compareRegex(Constants.REGEX_INTEGER,companyId)){
-            organ.setCompanyId(Integer.parseInt(companyId));
-        }
-
-        String manager=request.getParameter("manager");
-        if(StringUtil.compareRegex(Constants.REGEX_INTEGER,manager)){
-            organ.setManager(Integer.parseInt(manager));
-        }
-        String empQty = request.getParameter("empQty");
-        if(StringUtil.compareRegex(Constants.REGEX_INTEGER,empQty)) {
-            organ.setEmpQty(Integer.parseInt(empQty));
-        }
-
+    public String saveOrUpdateOrgan(Organization organ) {
         Json json = getMessage(organService.persistenceOrgan(organ));
         return JSONArray.toJSONString(json);
     }

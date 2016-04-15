@@ -121,8 +121,6 @@
                 <legend><img src="/resources/core/images/fromedit.png" style="margin-bottom: -3px;"/> 菜单编辑
                 </legend>
                 <input name="permissionId" id="permissionId" type="hidden"/>
-                <input name="created" id="created" type="hidden"/>
-                <input name="creater" id="creater" type="hidden"/>
                 <input name="status" id="status" type="hidden"/>
                 <input name="state" id="state" type="hidden"/>
                 <table>

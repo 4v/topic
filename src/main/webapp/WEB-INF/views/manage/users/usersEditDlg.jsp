@@ -105,8 +105,6 @@
             <fieldset>
                 <legend><img src="/resources/core/images/fromedit.png" style="margin-bottom: -3px;"/> 用户编辑</legend>
                 <input name="userId" id="userId"  type="hidden"/>
-                <input name="created" id="created"  type="hidden"/>
-                <input name="creater" id="creater"  type="hidden"/>
                 <input name="status" id="status"  type="hidden"/>
                 <input id="organizeName" name="organizeName" type="hidden"/>
                 <table>

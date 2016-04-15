@@ -125,8 +125,6 @@
                 <legend><img src="/resources/core/images/fromedit.png" style="margin-bottom: -3px;"/> 组织编辑
                 </legend>
                 <input name="organizationId" id="organizationId" type="hidden"/>
-                <input name="created" id="created" type="hidden"/>
-                <input name="creater" id="creater" type="hidden"/>
                 <input name="status" id="status" type="hidden"/>
                 <table>
                     <tr>

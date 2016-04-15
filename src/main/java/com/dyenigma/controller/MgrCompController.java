@@ -88,13 +88,17 @@ public class MgrCompController extends BaseController {
         return model;
     }
 
+
     /**
      * 添加或者修改公司信息,需要在控制器上也添加权限控制
+     * <p>
+     * param company 表单中的字段必须是Company类的直接属性的子集
+     * return
      */
     @RequiresPermissions({"compAdd", "compEdit"})
     @ResponseBody
     @RequestMapping(value = "/saveOrUpdateComp", produces = "application/json;charset=utf-8")
-    public String saveOrUpdateComp(@ModelAttribute Company company) {
+    public String saveOrUpdateComp(Company company) {
         Json json = getMessage(companyService.persistenceComp(company));
         return JSONArray.toJSONString(json);
     }

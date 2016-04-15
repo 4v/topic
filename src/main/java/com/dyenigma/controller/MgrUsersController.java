@@ -19,7 +19,6 @@ import com.dyenigma.service.UsersService;
 import com.dyenigma.utils.Constants;
 import com.dyenigma.utils.PageUtil;
 import com.dyenigma.utils.StringUtil;
-import com.dyenigma.utils.security.Md5Utils;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -102,33 +101,7 @@ public class MgrUsersController extends BaseController {
      */
     @ResponseBody
     @RequestMapping(value = "/saveOrUpdateUser", produces = "application/json;charset=utf-8")
-    public String saveOrUpdateUser(HttpServletRequest request) {
-        Users user = new Users();
-
-        String status = request.getParameter("status");
-        if (!StringUtil.isEmpty(status)) {
-            user.setStatus(status);
-        }
-
-        String userId = request.getParameter("userId");
-        if (!StringUtil.isEmpty(userId)) {
-            user.setUserId(Integer.parseInt(request.getParameter("userId")));
-        }
-
-        user.setMyid(request.getParameter("myid"));
-        user.setName(request.getParameter("name"));
-        user.setTel(request.getParameter("tel"));
-        user.setEmail(request.getParameter("email"));
-        user.setDescription(request.getParameter("description"));
-        user.setAccount(request.getParameter("account"));
-        user.setPassword(Md5Utils.hash(Constants.DEFAULT_PASSWORD));
-
-        String organId = request.getParameter("organizeId");
-        if (StringUtil.compareRegex(Constants.REGEX_INTEGER, organId)) {
-            user.setOrganizeId(Integer.parseInt(organId));
-        }
-        user.setOrganizeName(request.getParameter("organizeName"));
-
+    public String saveOrUpdateUser(Users user) {
         Json json = getMessage(usersService.persistenceUser(user));
         return JSONArray.toJSONString(json);
     }

@@ -92,28 +92,7 @@ public class MgrRoleController extends BaseController {
      */
     @ResponseBody
     @RequestMapping(value = "/saveOrUpdateRole", produces = "application/json;charset=utf-8")
-    public String saveOrUpdateRole(HttpServletRequest request) {
-        Role role = new Role();
-
-        String status = request.getParameter("status");
-        if (!StringUtil.isEmpty(status)) {
-            role.setStatus(status);
-        }
-
-        String roleId = request.getParameter("roleId");
-        if (!StringUtil.isEmpty(roleId)) {
-            role.setRoleId(Integer.parseInt(request.getParameter("roleId")));
-        }
-
-        role.setName(request.getParameter("name"));
-        role.setDescription(request.getParameter("description"));
-
-        //必须判断sort是否为正整数，使用StringUtil工具类的正则比较方法compareRegex
-        String sort = request.getParameter("sort");
-        if (StringUtil.compareRegex(Constants.REGEX_INTEGER, sort)) {
-            role.setSort(Integer.parseInt(sort));
-        }
-
+    public String saveOrUpdateRole( Role role) {
         Json json = getMessage(roleService.persistenceRole(role));
         return JSONArray.toJSONString(json);
     }

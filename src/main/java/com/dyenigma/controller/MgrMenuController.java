@@ -12,10 +12,12 @@ package com.dyenigma.controller;
 
 import com.alibaba.fastjson.JSONArray;
 import com.dyenigma.entity.Permission;
-import com.dyenigma.model.*;
+import com.dyenigma.model.Json;
+import com.dyenigma.model.MultiMenu;
+import com.dyenigma.model.TreeGridModel;
+import com.dyenigma.model.TreeModel;
 import com.dyenigma.service.PermissionService;
 import com.dyenigma.utils.Constants;
-import com.dyenigma.utils.StringUtil;
 import org.apache.shiro.authz.annotation.RequiresPermissions;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -151,35 +153,7 @@ public class MgrMenuController extends BaseController {
     @RequiresPermissions({"menuAdd", "menuEdit"})
     @ResponseBody
     @RequestMapping(value = "/saveOrUpdateMenu", produces = "application/json;charset=utf-8")
-    public String saveOrUpdateFunc(HttpServletRequest request) {
-        Permission permission = new Permission();
-
-        String permissionId = request.getParameter("permissionId");
-        if (!StringUtil.isEmpty(permissionId)) {
-            permission.setPermissionId(Integer.parseInt(permissionId));
-        }
-        String status = request.getParameter("status");
-        if (!StringUtil.isEmpty(status)) {
-            permission.setStatus(status);
-        }
-        permission.setName(request.getParameter("name"));
-        String pid = request.getParameter("pid");
-        if (!StringUtil.isEmpty(pid)) {
-            permission.setPid(Integer.parseInt(request.getParameter("pid")));
-        }
-        String sort = request.getParameter("sort");
-        if (!StringUtil.isEmpty(sort)) {
-            permission.setSort(Integer.parseInt(request.getParameter("sort")));
-        }
-        permission.setIconCls(request.getParameter("iconCls"));
-        permission.setUrl(request.getParameter("url"));
-        permission.setMyId(request.getParameter("myId"));
-        permission.setType(request.getParameter("type"));
-        permission.setIsused(request.getParameter("isused"));
-        permission.setDescription(request.getParameter("description"));
-        permission.setPname(request.getParameter("pname"));
-        permission.setIsDefault(request.getParameter("isDefault"));
-
+    public String saveOrUpdateFunc(Permission permission) {
         Json json = getMessage(permissionService.persistenceFunction(permission));
         return JSONArray.toJSONString(json);
     }
