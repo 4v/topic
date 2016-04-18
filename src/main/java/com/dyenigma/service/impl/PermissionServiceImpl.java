@@ -129,11 +129,7 @@ public class PermissionServiceImpl extends BaseServiceImpl<Permission> implement
         } else {
             //如果包含有子菜单，则不能删除
             List<Permission> pList = permissionMapper.findByPid(Integer.parseInt(id));
-            if (pList.size() > 0) {
-                return false;
-            } else {
-                return permissionMapper.updateById(Integer.parseInt(id)) > 0;
-            }
+            return pList.size() <= 0 && permissionMapper.updateById(Integer.parseInt(id)) > 0;
         }
     }
 
@@ -163,6 +159,10 @@ public class PermissionServiceImpl extends BaseServiceImpl<Permission> implement
                 permission.setState(Constants.TREE_STATUS_CLOSED);
             } else {
                 permission.setState(Constants.TREE_STATUS_OPEN);
+            }
+            //因permission的Pid是Integer类型，默认为null，要改成0
+            if (permission.getPid() == null) {
+                permission.setPid(0);
             }
             permissionMapper.insert(permission);
         } else {
