@@ -283,3 +283,15 @@ insert into tablename
   select *
     from tablename as of timestamp to_timestamp('20160313 11:06:00', 'yyyymmdd HH24:mi:ss')
 commit;
+
+
+使用uuid作为主键，oracle中有个sys_guid函数可以产生uuid。
+<insert id="insert" parameterType="com.xxx.SystemDepartment">
+    <selectKey keyProperty="id" resultType="String" order="BEFORE">
+        select sys_guid() from dual
+    </selectKey>
+    insert into SYSTEM_DEPARTMENT (ID,DEPNAME, SUPERID, SORT, STATE)
+    values ( #{id,jdbcType=VARCHAR},#{depname,jdbcType=VARCHAR},
+    #{superid,jdbcType=DECIMAL}, #{sort,jdbcType=DECIMAL},
+    #{state,jdbcType=DECIMAL})
+</insert>
