@@ -19,6 +19,7 @@ import com.dyenigma.service.UsersService;
 import com.dyenigma.utils.Constants;
 import com.dyenigma.utils.PageUtil;
 import com.dyenigma.utils.StringUtil;
+import com.dyenigma.utils.security.Md5Utils;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -102,6 +103,7 @@ public class MgrUsersController extends BaseController {
     @ResponseBody
     @RequestMapping(value = "/saveOrUpdateUser", produces = "application/json;charset=utf-8")
     public String saveOrUpdateUser(Users user) {
+        user.setPassword(Md5Utils.hash(Constants.DEFAULT_PASSWORD));
         Json json = getMessage(usersService.persistenceUser(user));
         return JSONArray.toJSONString(json);
     }
